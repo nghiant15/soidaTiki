@@ -31,7 +31,7 @@ var  api =  {
   
 
     serve: {
-        baser_urlServer: "http://localhost:8000",
+        baser_urlServer: "https://applamdep.com",
         api_logoutUser: `${slug}dang-xuat-he-thong`,
         api_registerUser: `${slug}dang-ky-nguoi-dung`,
         api_getCollaborators: `cong-tac-vien/get-all-customer`,
