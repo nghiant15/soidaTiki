@@ -672,10 +672,10 @@
         {
             if( slugGlobal == null)
                 {
-                    window.location.href = "/soida/nhan-de-xuat-cham-soc-da";
+                    window.location.href = "/nhan-de-xuat-cham-soc-da";
                 }
                 else {
-                    window.location.href = "/soida/"+slugGlobal + "/nhan-de-xuat-cham-soc-da";
+                    window.location.href = "/"+slugGlobal + "/nhan-de-xuat-cham-soc-da";
                 }
         
         }

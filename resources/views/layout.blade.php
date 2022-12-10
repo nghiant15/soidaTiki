@@ -16,17 +16,17 @@
 
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="/soida/css/style.css">
-    <link rel="stylesheet" href="/soida/css/status.css">
-    <link rel="stylesheet" href="/soida/css/soidanew.css">
-    <link rel="stylesheet" href="/soida/css/reponsive.css">
-    <link rel="stylesheet" href="/soida/css/general.css">
-    <link rel="stylesheet" href="/soida/css/form.css">
-    <link rel="stylesheet" href="/soida/css/welcome.css">
-<link rel="stylesheet" href="/soida/css/button.css">
-<link rel="stylesheet" href="/soida/css/layout.css">
-<link rel="stylesheet" href="/soida/css/animation.css">
-<link rel="stylesheet" href="/soida/css/table.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/status.css">
+    <link rel="stylesheet" href="/css/soidanew.css">
+    <link rel="stylesheet" href="/css/reponsive.css">
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/welcome.css">
+<link rel="stylesheet" href="/css/button.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/animation.css">
+<link rel="stylesheet" href="/css/table.css">
     <style> 
     
     :root{
@@ -115,14 +115,7 @@
     <div class="position_header">
         <div class="banner_header flex-center-space">
             <div class="banner__header--left">
-                
-                {{-- <div class="">
-                    <a href="javascript:void(0)" onclick="directToBegin()">                                 
-                                                                                                                <img class="header__logo-loverosa" src="https://api.deal24h.vn/image_brand/loverosalogo.png">
-                                                                                                        </a>
-                </div> --}}
-                
-                
+                <a href ="/"><img style= "max-width:24px"   src ="/homepage.png" /> </a>
             </div>
             <div class="flex-center banner__header--right">
                 <div class="hoverBlock_form_account relative">
@@ -241,6 +234,6 @@
         
 </body>
 
-<script type="text/javascript" src="/soida/js/history.js"></script>
+<script type="text/javascript" src="/js/history.js"></script>
 
 </html>

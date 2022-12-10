@@ -126,9 +126,9 @@ $.ajax({
     //     }
 
     //     if (id && id !== "") {
-    //       location.href = "/soida/ket-qua";
+    //       location.href = "/ket-qua";
     //     } else {
-    //       location.href = "/soida/ket-qua";
+    //       location.href = "/ket-qua";
     //     }
 
     //     setTimeout(() => {
@@ -149,21 +149,21 @@ $.ajax({
    
             setTimeout(() => {
             
-              // window.location.href = "/soida/ket-qua";
+              // window.location.href = "/ket-qua";
               var base_url = window.location.origin + "/" + "soida/ket-qua";
               if(slugGlobal != null  &&  slugGlobal !== "")
               {
-                  base_url = window.location.origin + "/soida/" + slugGlobal +"/" + "ket-qua";
+                  base_url = window.location.origin + "/" + slugGlobal +"/" + "ket-qua";
           
               }
               window.open(base_url,"_self")
           
               //     if( slugGlobal == null)
               // {
-              //     window.location.href = "/soida/ket-qua";
+              //     window.location.href = "/ket-qua";
               // }
               // else {
-              //     window.location.href = "/soida/"+slugGlobal + "/ket-qua";
+              //     window.location.href = "/"+slugGlobal + "/ket-qua";
               // }
           }, 1000);
 
@@ -380,7 +380,7 @@ function renderMyHistory(dataHistoryReponse) {
   }
 }
 function openDetailPage(idHistory, status) {
-  let hreftLinkDetail = "/soida/lich-su-soi-da-with-iframe/" + idHistory;
+  let hreftLinkDetail = "/lich-su-soi-da-with-iframe/" + idHistory;
   openDetaiIfram(hreftLinkDetail, status);
 }
 function openDetaiIfram(hreflinkTarget = null, isShow = true) {

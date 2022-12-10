@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#d47690">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="/soida/css/soidanew.css">
-    <link rel="stylesheet" href="/soida/css/tuvantongquan.css">
-    <link rel="stylesheet" href="/soida/css/reponsive.css">
+    <link rel="stylesheet" href="/css/soidanew.css">
+    <link rel="stylesheet" href="/css/tuvantongquan.css">
+    <link rel="stylesheet" href="/css/reponsive.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap" rel="stylesheet">
@@ -19,16 +19,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
     <!-- <link rel="stylesheet" href="http://localhost:5000/contain/css/style.css" /> -->
-    <link rel="stylesheet" href="/soida/css/style.css">
-    <link rel="stylesheet" href="/soida/css/main.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main.css">
     <!-- <link rel="stylesheet" href="https://ungdungsoida.netlify.app/contain/css/style.css" /> -->
 
-    <link rel="stylesheet" href="/soida/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/soida/assets/aos/aos.css">
-    <link rel="stylesheet" href="/soida/styles/skin_screening/index.css">
-    <link rel="stylesheet" href="/soida/styles/skin_screening/responsive.css">
-    <link rel="stylesheet" href="/soida/styles/global/index.css">
-    <link rel="stylesheet" href="/soida/styles/global/global_responsive.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/aos/aos.css">
+    <link rel="stylesheet" href="/styles/skin_screening/index.css">
+    <link rel="stylesheet" href="/styles/skin_screening/responsive.css">
+    <link rel="stylesheet" href="/styles/global/index.css">
+    <link rel="stylesheet" href="/styles/global/global_responsive.css">
     <!-- ASSETS CDN SLICK -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -521,7 +521,7 @@ margin: auto;
 
                 if (slugGlobal != null && slugGlobal !== "") {
 
-                    base_url = window.location.origin + "/soida/" + slugGlobal + "/" + "nhan-de-xuat-cham-soc-da";
+                    base_url = window.location.origin + "/" + slugGlobal + "/" + "nhan-de-xuat-cham-soc-da";
               }
 
                 window.open(base_url, "_self");
@@ -530,18 +530,18 @@ margin: auto;
 
 
                 if (slugGlobal == null) {
-                    window.location.href = "/soida/nhan-de-xuat-cham-soc-da";
+                    window.location.href = "/nhan-de-xuat-cham-soc-da";
                 } else {
-                    window.location.href = "/soida/" + slugGlobal + "/nhan-de-xuat-cham-soc-da";
+                    window.location.href = "/" + slugGlobal + "/nhan-de-xuat-cham-soc-da";
                 }
 
-                window.location.href = "/soida/nhan-de-xuat-cham-soc-da";
+                window.location.href = "/nhan-de-xuat-cham-soc-da";
 
                 return;
                 if (slugGlobal == null) {
-                    window.location.href = "/soida/nhan-de-xuat-cham-soc-da";
+                    window.location.href = "/nhan-de-xuat-cham-soc-da";
                 } else {
-                    window.location.href = "/soida/" + slugGlobal + "/nhan-de-xuat-cham-soc-da";
+                    window.location.href = "/" + slugGlobal + "/nhan-de-xuat-cham-soc-da";
                 }
 
             }
@@ -1214,16 +1214,16 @@ margin: auto;
     </script>
 
 
-    <script type="text/javascript" src="/soida/js/form.js"></script>
-    <script type="text/javascript" src="/soida/js/main.js"></script>
-    <script type="text/javascript" src="/soida/js/templateForm.js"></script>
+    <script type="text/javascript" src="/js/form.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/templateForm.js"></script>
 
-    <script type="text/javascript" src="/soida/js/login.js"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
 
 
-    <script type="text/javascript" src="/soida/js/contant.js"></script>
-    <script type="text/javascript" src="/soida/js/main.js"></script>
-    <script type="text/javascript" src="/soida/js/result.js"></script>
+    <script type="text/javascript" src="/js/contant.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/result.js"></script>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

@@ -33,15 +33,15 @@ $dataServer = session('dataBanner', null);
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script type="text/javascript" src="/soida/js/contant.js"></script>
+<script type="text/javascript" src="/js/contant.js"></script>
 
-<script src="/soida/js/form.js"></script>
+<script src="/js/form.js"></script>
 {{-- <script src="/js/history.js"></script> --}}
 
 <script src="/js/templateForm.js"></script>
-<script type="text/javascript" src="/soida/js/login.js"></script>
-<script type="text/javascript" src="/soida/js/welcome.js"></script>
-<script type="text/javascript" src="/soida/js/main.js"></script>
+<script type="text/javascript" src="/js/login.js"></script>
+<script type="text/javascript" src="/js/welcome.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

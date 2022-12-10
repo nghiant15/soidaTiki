@@ -5,16 +5,16 @@
       <meta name="theme-color" content="#d47690">
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
-      <link rel="stylesheet" href="/soida/css/soidanew.css">
-      <link rel="stylesheet" href="/soida/css/reponsive.css">
-      <link rel="stylesheet" href="/soida/css/sanphamgoiy.css">
-      <link rel="stylesheet" href="/soida/css/reward.css">
-      <script src="/soida/js/form.js"></script>
-      <script src="/soida/js/contant.js"></script>
-      <script src="/soida/js/main.js"></script>
-      <script src="/soida/js/result.js"></script>
-      <script src="/soida/js/login.js"></script>
-      <script src="/soida/js/templateForm.js"></script>
+      <link rel="stylesheet" href="/css/soidanew.css">
+      <link rel="stylesheet" href="/css/reponsive.css">
+      <link rel="stylesheet" href="/css/sanphamgoiy.css">
+      <link rel="stylesheet" href="/css/reward.css">
+      <script src="/js/form.js"></script>
+      <script src="/js/contant.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/result.js"></script>
+      <script src="/js/login.js"></script>
+      <script src="/js/templateForm.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

@@ -2,13 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get("/mo-tai-khoan-online", function(){
+   return View::make("openAccount");
+});
+
+Route::get("/mo-tai-khoan-thanh-cong", function(){
+   return View::make("success");
+});
 Route::get('/{slug}/nhan-de-xuat-cham-soc-da', 'HomepageController@recomendProduct')->name('homePage');
 Route::get('/nhan-de-xuat-cham-soc-da', 'HomepageController@recomendProduct')->name('homePage');
-
 Route::get('/ket-qua', 'HomepageController@result')->name('redireHOmePage');
 Route::get('/{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage');
-Route::get('{slug}/soida/ket-qua', 'HomepageController@result')->name('redireHOmePage');
-Route::get('/soida/{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage');
+Route::get('{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage');
+Route::get('/{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage');
 // Route::post('/skin/add-history-skin-plugin', 'HistoryController@saveHistory')->name('saveHistory');
 Route::post('/{slug}/skin/call-soi-da', 'HomepageController@callSikin');
 Route::post('/skin/call-soi-da', 'HomepageController@callSikin');
@@ -29,7 +35,7 @@ Route::get('/{slug}/lich-su-soi-da-with-iframe/{id}', 'HomepageController@Viewhi
 
 Route::get('/lich-su-soi-da-with-iframe/{id}', 'HomepageController@ViewhistoryWithIframe');
 Route::post('/{slug}/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
-Route::post('/soida/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
+Route::post('/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
 Route::post('/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
 Route::get('/xemchitietlichsu/{id}', 'HomepageController@historyDetailPage');
 Route::get('/thong-tin-tong-quan', 'HomepageController@thongtintongquan')->name('homePage');

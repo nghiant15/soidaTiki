@@ -438,10 +438,10 @@
                         complete: function (data) {
                             if( slugGlobal == null)
                             {
-                                window.location.href = "/soida/ket-qua";
+                                window.location.href = "/ket-qua";
                             }
                             else {
-                                window.location.href = "/"+slugGlobal + "/soida/ket-qua";
+                                window.location.href = "/"+slugGlobal + "/ket-qua";
                             }
                          
                         },

@@ -174,11 +174,11 @@ function isVietnamesePhoneNumber(number) {
 
     
 
-    // var base_url = window.location.origin + "/soida/" + "lichsu-soida";
+    // var base_url = window.location.origin + "/" + "lichsu-soida";
     // if(slugGlobal != null  &&  slugGlobal !== "")
     // {
 
-    //    base_url = window.location.origin + "/soida/" + slugGlobal +"/" + "lichsu-soida";
+    //    base_url = window.location.origin + "/" + slugGlobal +"/" + "lichsu-soida";
 
     // }
 
@@ -186,7 +186,7 @@ function isVietnamesePhoneNumber(number) {
     if(slugGlobal != null  &&  slugGlobal !== "")
     {
 
-       base_url = window.location.origin + "/soida/" + slugGlobal +"/" + "lichsu-soida";
+       base_url = window.location.origin + "/" + slugGlobal +"/" + "lichsu-soida";
 
     }
 
@@ -556,7 +556,7 @@ function isVietnamesePhoneNumber(number) {
   }
   function directToBegin(){
     var baser_url = window.location.href;
-    let bare_urlNew = baser_url.replace('/soida/ket-qua','');
+    let bare_urlNew = baser_url.replace('/ket-qua','');
     bare_urlNew  = bare_urlNew.replace('/lichsu-soida','');
     bare_urlNew  = bare_urlNew.replace('/thongtin-voucher','');
     bare_urlNew  = bare_urlNew.replace('/nhan-de-xuat-cham-soc-da','');

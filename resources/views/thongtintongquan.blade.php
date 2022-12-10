@@ -198,7 +198,7 @@
 
    function openResultPage() 
    {
-            window.location.href = "/soida/DashuVietNam/ket-qua";
+            window.location.href = "/DashuVietNam/ket-qua";
    }
    openPage('Home', this, 'red');
 </script>

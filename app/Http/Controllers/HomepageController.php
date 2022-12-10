@@ -61,30 +61,13 @@ class HomepageController extends Controller
 
     }
 
-    public function test (Request $request, $slug =null) 
-    {
-        
-     
-        return view("test", compact("slug"));
-       
-
-    }
-
     public function start (Request $request, $slug =null) 
-    {
-        
-     
+    { 
         return view("start", compact("slug"));
-       
-
     }
+
     public function index (Request $request, $slug =null) 
     {
-
-      
-        // session(['dataCompany' => $checkresult->data]);
-       
-        // dd(session('dataCompany'));
         
         $isCheck  = true;
 

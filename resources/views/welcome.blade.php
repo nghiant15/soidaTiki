@@ -1253,12 +1253,12 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
-    <script type="text/javascript" src="/soida/js/contant.js"></script>
-    <script type="text/javascript" src="/soida/js/form.js"></script>
-    <script type="text/javascript" src="/soida/js/main.js"></script>
-    <script type="text/javascript" src="/soida/js/templateForm.js"></script>
+    <script type="text/javascript" src="/js/contant.js"></script>
+    <script type="text/javascript" src="/js/form.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/templateForm.js"></script>
 
-    <script type="text/javascript" src="/soida/js/login.js"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div id="eJOY__extension_root" class="eJOY__extension_root_class" style="all: unset;"></div><iframe
