@@ -14,12 +14,7 @@
 
 <body>
 
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-Launch demo modal
-</button> -->
-
-    <!-- Modal -->
+   
     <div class="modal fade" id="popupOpen" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" id="modelBody" role="document">
             <div class="modal-content">
@@ -127,13 +122,7 @@ Launch demo modal
 
                                         <input style="display:none" type="text" id="txtfullName" name="Name" class="form-control">
 
-                                        <!-- <label for="exampleInputEmail1">Tên cửa hàng: <span class="requiredTip"> (*) </span> </label>
-
-                                        <input type="text" id="txtfullName" name="Name" class="form-control" required />
-
-                                        <div class="error" id="txtfullNameError">
-                                            Tên cửa hàng bắt buộc nhập
-                                        </div> -->
+                                       
 
                                     </div>
 
@@ -174,7 +163,7 @@ Launch demo modal
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-12">
 
                                             <label for="exampleInputEmail1">Số điện thoai: <span class="requiredTip"> (*) </span></label>
                                             <input type="text" minlength="10" id="txtphoneNumber" maxlength="10" name="Phone" class="form-control" placeholder="" value="">
@@ -186,12 +175,12 @@ Launch demo modal
                                             </div>
 
                                         </div>
-                                        <div class="col-sm-6">
+                                        {{-- <div class="col-sm-6">
 
                                             <label for="exampleInputEmail1">Địa chỉ Email:</label>
                                             <input type="text" name="Email" id="txtEmail" class="form-control">
 
-                                        </div>
+                                        </div> --}}
                                     </div>
 
 
@@ -216,6 +205,51 @@ Launch demo modal
                                         </p>
                                     </div>
 
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+
+                                            <label for="exampleInputEmail1">Chọn gói sản phẩm: <span class="requiredTip"> (*) </span></label>
+                                            <select class="form-control form-select" id = "selectPackage" name ="packageId" >
+                                                    <option value="" selected disabled hidden>Chọn gói sản phẩm</option>
+                                                    @foreach ( $data->dataPackage as $item )
+                                                        <option value="{{$item->Value }}">{{$item->Name }}</option>
+                                                    @endforeach
+                                            </select>
+                                              
+                                            <!-- <p class="tip">
+                                                    Số điện thoại đăng ký hệ thống.
+                                                </p> -->
+                                            <div class="error" id="txtphoneNumberError">
+                                                Bạn chưa chọn gói sản phẩm
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-sm-6">
+
+                                            <label for="exampleInputEmail1">Nhân viên tư vấn: <span class="requiredTip"> (*) </span></label>
+                                           
+                                            <select class="form-control form-select" id = "txtEmployee" name ="saleId">
+
+                                                <option value="" selected disabled hidden>Chọn nhân viên tư vấn </option>
+                                                @foreach ( $data->dataSale as $item )
+                                                <option value="{{$item->_id }}">{{$item->Name }}</option>
+                                                @endforeach
+                                               
+                                              </select>
+                                            <div class="error" id="txtphoneNumberError">
+                                                Bạn chưa chọn nhân viên tư vấn
+                                            </div>
+
+                                        </div>
+                                        {{-- <div class="col-sm-6">
+
+                                            <label for="exampleInputEmail1">Địa chỉ Email:</label>
+                                            <input type="text" name="Email" id="txtEmail" class="form-control">
+
+                                        </div> --}}
+                                    </div>
 
                                     <div class="form-group" hidden="">
                                         <label for="exampleInputEmail1">Lĩnh vực hoạt động:</label>

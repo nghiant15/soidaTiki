@@ -2,10 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get("/mo-tai-khoan-online", function(){
-   return View::make("openAccount");
-});
 
+Route::get('/dangky', 'OpenAccountController@openAccount')->name('openAccount');
 Route::get("/mo-tai-khoan-thanh-cong", function(){
    return View::make("success");
 });
