@@ -9,7 +9,7 @@ use Jenssegers\Agent\Agent;
 use Illuminate\Support\Facades\Log;
 
 use PhpParser\Node\Expr\FuncCall;
-
+use View;
 class HomepageController extends Controller
 {
 
@@ -19,6 +19,7 @@ class HomepageController extends Controller
         return redirect('/');
     }
     
+
     public function CheckUrl ($slug) 
     {
 
@@ -86,7 +87,9 @@ class HomepageController extends Controller
         return view("notfound");
        
         }
-        return view("welcome", compact("slug"));
+
+        $agent = new Agent();
+        return view("welcome", compact("slug","agent"));
        
 
     }
@@ -105,36 +108,41 @@ class HomepageController extends Controller
               
             
         }
-        return view("result", compact("slug"));
+
+        $agent = new Agent();
+        return view("result", compact("slug", "agent"));
     }
 
     public function recomendProduct (Request $request, $slug =null) 
     {
         // dd($this->getCompanyId());
         $companyId = $this->getCompanyId();
-        return view("recomendProduct", compact("slug", "companyId"));
+        $agent = new Agent();
+        return view("recomendProduct", compact("slug", "companyId", "agent"));
     }
 
     
 
     public function profile (Request $request, $slug =null) 
     {
-    
-        return view("profile", compact("slug"));
+        $agent = new Agent();
+        return view("profile", compact("slug","agent"));
     }
 
     public function history (Request $request , $slug =null, $id =null) 
     {
+        $agent = new Agent();
         if($id ==null)
         {
             return view("history", compact("slug"));
         }
-        return view("detailHistory",compact("id"));
+        return view("detailHistory",compact("id","agent"));
         
     }
 
     public function historyDetailPage (Request $request , $id =null) 
     {
+        $agent = new Agent();
         if($id ==null)
         {
           return ;
@@ -164,31 +172,36 @@ class HomepageController extends Controller
             
               
                
-                return view("historyPageDetail",compact("id","result", "slug"));
+                return view("historyPageDetail",compact("id","result", "slug","agent"));
 
             }
              return  "Không có dữ liệu";
            
          }
-            return view("historyPageDetail",compact("id","slug"));
+            return view("historyPageDetail",compact("id","slug","agent"));
         
     }
 
     public function detailHistory(Request $request, $id)
     {
-        return view("detailHistory",compact("id"));
+
+        $agent = new Agent();
+        return view("detailHistory",compact("id","agent"));
     }
 
 
     public function thongtintongquan (Request $request) 
     {
-        return view("thongtintongquan");   
+
+        $agent = new Agent();
+        return view("thongtintongquan",compact("agent"));   
 
     }
 
     public  function formReward()
     {
-        return view("reward");
+        $agent = new Agent();
+        return view("reward",compact("agent"));
     }
 
 
@@ -240,6 +253,7 @@ class HomepageController extends Controller
     public function ViewhistoryWithIframe(Request $request , $id = null )
     {
 
+        $agent = new Agent();
             $companyGlobalId = $this->getCompanyId();
             $slug = null;
             
@@ -274,7 +288,7 @@ class HomepageController extends Controller
                     
                     $isViewFrame =  true;
                     $agent = new Agent();
-                    return view("history.historyDetaiIframe",compact("data", "slug", "companyGlobalId","dataUser","isViewFrame","agent" ));
+                    return view("history.historyDetaiIframe",compact("data","agent", "slug", "companyGlobalId","dataUser","isViewFrame","agent" ));
                 } 
                 return  [
                     "is_success" =>false , 
