@@ -103,7 +103,15 @@
     <img id ="bannerId1" src="/banner3.jpg">
      
     @else
-        <img id ="bannerId" src="/banner1.jpg">
+
+
+            @if ($agent->isMobile())
+            
+            <img id ="bannerId" src="/assets/banner/tikitech-soida-mobile.png">
+             @else 
+            <img id ="bannerId" src="/assets/banner/applamdep1320.png">
+            @endif
+       
       
     @endif
 

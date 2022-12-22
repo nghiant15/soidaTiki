@@ -9,7 +9,7 @@ use Jenssegers\Agent\Agent;
 use Illuminate\Support\Facades\Log;
 
 use PhpParser\Node\Expr\FuncCall;
-
+use View;
 class HomepageController extends Controller
 {
 
@@ -19,6 +19,7 @@ class HomepageController extends Controller
         return redirect('/');
     }
     
+
     public function CheckUrl ($slug) 
     {
 
@@ -86,7 +87,9 @@ class HomepageController extends Controller
         return view("notfound");
        
         }
-        return view("welcome", compact("slug"));
+
+        $agent = new Agent();
+        return view("welcome", compact("slug","agent"));
        
 
     }
