@@ -172,7 +172,7 @@ class HomepageController extends Controller
             
               
                
-                return view("historyPageDetail",compact("id","result", "slug"));
+                return view("historyPageDetail",compact("id","result", "slug","agent"));
 
             }
              return  "Không có dữ liệu";
