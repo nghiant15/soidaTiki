@@ -471,3 +471,188 @@
   .content-paragraph b {
    font-weight: bold;
   }
+
+
+  .footer__global-title {
+    display: block;
+    font-family: var(--font-main);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: left;
+  }
+  .footer__global {
+    margin: 4px 0 0 0;
+    display: block;
+    font-family: var(--font-main);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: left;
+  }
+  .footer__logo--aia {
+    height: 80px;
+    width: 80px;
+    margin: 0 0 8px 0;
+  }
+  .footer__col1--column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0 0;
+  }
+  .footer_soc_desc {
+    display: block;
+    color: var(--font-footer);
+    font-family: var(--font-main);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 22px;
+    text-shadow: 0px 0px 1px #a2a2a247;
+  }
+  .footer_soc_desc span {
+    font-weight: 600;
+  }
+  .bg-smoke {
+    background-color: #f2f2f2;
+  }
+  .footer__bg--seoulspa {
+    background-color: #dc3f5d !important;
+    color: white !important;
+  }
+  .footer__bg--nd {
+    background-color: #00216c !important;
+    color: white !important;
+  }
+  .footer__bg--aia {
+    background-color: #302f2c;
+    color: white !important;
+  }
+  .footer__bg--tmvad {
+    background-color: #388e3c;
+    color: white !important;
+  }
+  .footer__bg--main{
+    background-color:var(--main_color);
+    color: white !important;
+  }
+  .footer__col1--padding {
+    width: 50%;
+    padding: 0 20px 0 0;
+    margin: 0;
+  }
+  .footer__col2--padding {
+    width: 50%;
+  
+    padding: 0 0 0 20px;
+    margin: 0;
+  }
+  .footer__logo-shynh {
+    width: 150px;
+    margin: 0 0 8px 0;
+  }
+  .footer__logo-zema {
+    width: 120px;
+    margin: 0 0 8px 0;
+  }
+  .footer__logo--vps {
+    width: 140px;
+    margin: 0 0 8px 0;
+  }
+  .footer__logo--danhkhoi {
+    height: 110px;
+    margin: 0 0 8px 0;
+  }
+  .footer__logo--nguyenkim{
+    height: 40px;
+    margin: 0 0 8px 0;
+  }
+  .footer__logo--gotadi {
+    max-height: 35px;
+    margin: 0 0 8px 0;
+  }
+  .footer__logo--marc {
+    height: 50px;
+    margin: 0 0 8px 0;
+  }
+  .footer__vps .logo {
+    height: 110px;
+    margin: 0 0 8px 0;
+  }
+  .footer__logo--sjc {
+    height: 100px;
+    margin: 0 0 8px 0;
+  }
+  .footer__logo--gospa{
+    height: 100px;
+    margin: 0 0 8px 0;
+  }
+  .footer__logo--loverosa{
+    height: 70px;
+    margin: 0 0 8px 0;
+  }
+  .footer__logo--saho{
+    height: 120px;
+    margin: 0 0 8px 0;
+  }
+  .footer__logo--young{
+    height: 80px;
+    margin: 0 0 8px 0;
+  }
+  @media (max-width: 768px) {
+    .footer__logo--young{
+      height: 70px;
+    }
+    .footer__logo--saho{
+      height: 100px;
+    }
+    .footer__logo--loverosa{
+      height: 60px;
+      margin: 0 0 8px 0;
+    }
+    .footer__col1--padding {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    .footer__col2--padding {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    .footer__global-title {
+      font-size: 14px;
+    }
+    .footer__global {
+      font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .footer__space--mobi {
+      padding-top: 20px;
+    }
+  }
+  @media (max-width: 500px) {
+    .footer-company-campaign span {
+      font-size: 14px;
+    }
+    .footer-company-campaign {
+      font-size: 13px;
+    }
+  }
+
+  p.copyright {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    line-height: 40px;
+  font-size: 0.7em;
+    text-align: center;
+    bottom:0;
+}

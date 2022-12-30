@@ -149,19 +149,7 @@ LỊCH TRÌNH BUỔI SÁNG CỦA BẠN1
 </div>
 
 
-@if ($slug =="menard" || $slug =="Menard" )
-<div class="banner">
-  <img  id ="bannerRecomend" src ="/menard.jpg"> 
-</div> 
-@elseif($slug =="nhidanhatdang" || $slug =="Nhidanhatdang" )
-<div class="banner">
-  <img  id ="bannerRecomend" src ="/banner2.jpg"> 
-</div>  
-@else
-<div class="banner">
-  <img  id ="bannerRecomend" src ="/banner1.jpg"> 
-</div>  
-@endif
+
 
 
 

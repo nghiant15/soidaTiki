@@ -1,16 +1,23 @@
+   <!-- $dataColor =  "#1a214f"; -->
 @php
-    $dataColor =  "#1a214f";
+ 
+    $dataColor = $globalColor->mainColor;
     $dataUserSales = session('dataCompany', null);
+
+   
     
     $dataUser = null;
 
 
-    if($dataUserSales)
-    {
-        $dataUser = $dataUserSales->data;
-    }
+        if($dataUserSales)
+        {
+            $dataUser = $dataUserSales->data;
+        }
+    
+    $bannerPage = $globalData->banner;
 
-
+ 
+ 
 @endphp
 <html>
 
@@ -23,30 +30,45 @@
     <link rel="stylesheet" href="/css/general.css">
     <link rel="stylesheet" href="/css/form.css">
     <link rel="stylesheet" href="/css/welcome.css">
-<link rel="stylesheet" href="/css/button.css">
-<link rel="stylesheet" href="/css/layout.css">
-<link rel="stylesheet" href="/css/animation.css">
-<link rel="stylesheet" href="/css/table.css">
+    <link rel="stylesheet" href="/css/button.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/animation.css">
+    <link rel="stylesheet" href="/css/table.css">
     <style> 
     
-    :root{
-        --main_color : #1a214f;
-        --color_button_dark: #015C92;
-        --color_button_light: #53A6D8;
-        --color_title: #53A6D8;
-        --color_title_section: #015C92;
-        --color_letter_white: #FFFFFF;
-        --main_letter_dark: #212326;
-        --main_letter_blue: #53A6D8;
-        --gralident1: #7DC387;
-        --gralident2: #6CFF95;
-        --white: #FFFFFF;
-        --circle-small: #E5E5E5;
-        --bg-white: #FAFAFA;
-        --black-50: #F2F2F2;
-        --success_color: #3bb54a;
-        --error_color: #3d0d13;
-}
+        :root{
+            --main_color : {{$dataColor}};
+            --color_button_dark: {{$dataColor}};
+            --color_button_light: {{$dataColor}};
+            --color_title: {{$dataColor}};
+            --color_title_section: {{$dataColor}};
+            --color_letter_white:{{$dataColor}};
+            --main_letter_dark: {{$dataColor}};
+            --main_letter_blue: {{$dataColor}};
+            --gralident1: {{$dataColor}};
+            --gralident2: {{$dataColor}};
+            --white: {{$dataColor}};
+            --circle-small: {{$dataColor}};
+            --bg-white: {{$dataColor}};
+            --black-50: {{$dataColor}};
+            --success_color: #3bb54a;
+            --error_color: #3d0d13;
+        }
+        .recomendProduct p {
+            color: {{$dataColor}} !important; 
+        }
+        .text-center-box{
+            color: {{$dataColor}} !important;
+        }
+        .description-text p{
+           color: {{$dataColor}} !important; 
+        }
+        .hadernav span {
+            color: {{$dataColor}} !important; 
+        }
+        .account_hover a {
+            color: {{$dataColor}} !important; 
+        }
     </style>
 
    
@@ -90,30 +112,19 @@
 
     <div class="content-page">
 
-        <div class="content-plugin">
-<div class="banner">
+    <div class="content-plugin">
+    <div class="banner">
+
+
+    @if ($agent->isMobile())
   
-    
-    @if ($slug =="menard" || $slug =="Menard" )
-      <img id ="bannerId" src="/menard.jpg">
-      
-    @elseif  ($slug =="nhidanhatdang" || $slug =="Nhidanhatdang" )
-        <img id ="bannerId1" src="/banner2.jpg">
-    @elseif  ($slug =="drHelen" || $slug =="DrHelen" )
-    <img id ="bannerId1" src="/banner3.jpg">
-     
-    @else
+        <img id ="bannerId" src="{{$bannerPage->imageBannerMobile}}">
+    @else 
 
-
-            @if ($agent->isMobile())
-            
-            <img id ="bannerId" src="/assets/banner/tikitech-soida-mobile.png">
-             @else 
-            <img id ="bannerId" src="/assets/banner/applamdep1320.png">
-            @endif
-       
-      
+         <img id ="bannerId" src="{{$bannerPage->imageBannerDesktop}}">
     @endif
+
+  
 
    
 </div>
@@ -123,7 +134,12 @@
     <div class="position_header">
         <div class="banner_header flex-center-space">
             <div class="banner__header--left">
-                <a href ="/"><img style= "max-width:24px"   src ="/homepage.png" /> </a>
+                <a href ="/">
+<svg width="24px" id="Layer_1" fill="{{$dataColor}}" style="enable-background:new 0 0 16 16;" version="1.1" 
+    viewBox="0 0 16 16" width="16px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M15.45,7L14,5.551V2c0-0.55-0.45-1-1-1h-1c-0.55,0-1,0.45-1,1v0.553L9,0.555C8.727,0.297,8.477,0,8,0S7.273,0.297,7,0.555  L0.55,7C0.238,7.325,0,7.562,0,8c0,0.563,0.432,1,1,1h1v6c0,0.55,0.45,1,1,1h3v-5c0-0.55,0.45-1,1-1h2c0.55,0,1,0.45,1,1v5h3  c0.55,0,1-0.45,1-1V9h1c0.568,0,1-0.437,1-1C16,7.562,15.762,7.325,15.45,7z"/>
+</svg>    
+                 </a>
             </div>
             <div class="flex-center banner__header--right">
                 <div class="hoverBlock_form_account relative">
@@ -239,7 +255,50 @@
     @include('new.popupSuccess')
 
     
-        
+<footer class="bg-smoke mt-5">
+    <div class="content-page">
+        <div class="content-plugin">
+            <div class="row" style="padding: 20px 0;margin:0">                     
+                <div class="footer__col1--padding">   
+                    <div class="desktop-inline">
+                    <div class="footer__col1--column">
+                        <img class="footer__logo-shynh" src="/footerLogo.png" alt="logo">
+                        <div class="footer__global-title text-center font--main">
+                            <a>
+                                <span class="font--main">
+                                    
+                                </span>
+                            </a>
+                        </div>  
+                        
+                    </div>   
+                    </div>   
+                </div>                
+                <div class="footer__col2--padding">             
+                    <div div="" class="footer__space--mobi">
+                    </div>    
+                          <div class="footer__global-title font--main">
+                                <span> CÔNG TY TNHH CÔNG NGHỆ TIKITECH </span>
+                            </div>
+                            <div class="footer__global font--main">
+                                Dẫn đầu trị mụn uy tín số 1 Việt Nam
+                            </div> 
+                            <div class="footer__global font--main">
+                            Số 91 Đường N1, Khu dân cư Hiệp Thành, Phường Hiệp Thành, Quận 12, Thành phố Hồ Chí Minhh
+                            </div> 
+                            <div class="footer__global font--main">
+                                Hotline: <a class="font--main" href="tel:0903 969 952">0903 969 952</a> 
+                            </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</footer> 
+
+
+
 </body>
 
 <script type="text/javascript" src="/js/history.js"></script>

@@ -80,11 +80,59 @@ use Illuminate\Http\Request;
 
 use GuzzleHttp\Client;
 use Illuminate\Routing\Controller as BaseController;
-
+use View;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     private  $CompanyGlobalId;
+
+    public function __construct()
+    {    
+      // dd(request()->getPathInfo());
+      $slugInput = request()->segment(1);
+
+      if($slugInput)
+      {
+
+      }
+      else 
+      {
+         $slugInput= "soida";
+      }
+      $urlGetConfig = "http://localhost:3002/api/config/getInfoWeb";
+      $client = new Client();
+      $res = $client->request('post', $urlGetConfig, [
+         'json' => [
+               'slug'=> $slugInput
+            ]
+      ]);
+      if($res->getStatusCode() ==200)
+      {
+         $checkresult = $res->getBody()->getContents();
+         $checkresult = json_decode($checkresult);
+
+         
+         if($checkresult->is_success)
+         {
+            $result  = $checkresult->data;
+            if($result == null)
+            {
+
+            }
+            else 
+            {
+
+               
+                  View::share('globalColor',  $result->dataColor );
+                  View::share('globalData',  $result->data->value );  
+            }
+         }
+
+      }
+      
+    }
+
+
     public function setCompanyId($companyId=null)
 
     {      
