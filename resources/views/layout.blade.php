@@ -1,7 +1,34 @@
    <!-- $dataColor =  "#1a214f"; -->
 @php
- 
-    $dataColor = $globalColor->mainColor;
+   $dataColor  = null;
+   $bannerPage = null;
+   
+    if (isset($globalColor)) {
+        $dataColor = $globalColor->mainColor;
+
+    }
+    else 
+    {
+        $dataColor = "#1a214f";
+    }
+    
+
+    if (isset($globalData)) {
+        $bannerPage = $globalData->banner;
+
+       
+        
+    }
+    else 
+    {
+        $bannerPage =   new \stdClass();
+        $bannerPage->imageBannerDesktop= "https://api-soida.applamdep.com/image_brand/applamdep1320 (1).png";
+        $bannerPage->imageBannerMobile  = "https://api-soida.applamdep.com/image_brand/applamdep1320 (1).png";
+        
+    }
+
+
+   
     $dataUserSales = session('dataCompany', null);
 
    
@@ -14,7 +41,7 @@
             $dataUser = $dataUserSales->data;
         }
     
-    $bannerPage = $globalData->banner;
+ 
 
  
  
