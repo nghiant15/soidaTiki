@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 
 use PhpParser\Node\Expr\FuncCall;
 use View;
+use Illuminate\Support\Facades\Cache;
 class HomepageController extends Controller
 {
 
@@ -67,7 +68,270 @@ class HomepageController extends Controller
         return view("start", compact("slug"));
     }
 
+
+public function getDataInfo (Request $request) 
+{
+    
+    $dataInfo =  session('dataInfo', null);
+    $params = [
+    'query' => [
+        "key"=> "webinfo",
+        'company_id'=> $this->getCompanyId()
+    ]
+    ];
+    $dataUpdate = [
+        
+    ];
+
+    
+
+    $url = API_BaseUrl."/".config_get_by_key;
+    $client = new Client();
+    $res = $client->request('get',$url ,$params);
+    if($res->getStatusCode() ==200)
+    { 
+        $checkresult = $res->getBody()->getContents();
+        $data = json_decode($checkresult);
+        if($data->is_success)
+        {
+            $dataInfo = json_decode($data->data[0]->Value);
+        
+            Cache::put('webinfo', $dataInfo->value);
+            return $data;
+            
+        }  
+        
+        return  [
+            "is_success" =>false , 
+            "data"=> null
+        ];
+    }
+    else 
+    {
+        session(['webinfo' =>[]]);
+    }
+}
+
+
+    public function getDataInfoAdmin (Request $request) 
+    {
+         $dataInfo = session('dataInfo_admin', null);
+         $params = [
+          'query' => [
+              "key"=> "webinfo_admin",
+              'company_id'=>"-1"
+          ]
+       ];
+        $dataUpdate = [
+           
+        ];
+    
+        $url = API_BaseUrl."/".config_get_by_key;
+        $client = new Client();
+        $res = $client->request('get',$url ,$params);
+       
+        if($res->getStatusCode() ==200)
+        { 
+            $checkresult = $res->getBody()->getContents();
+            $data = json_decode($checkresult);
+            
+          
+            if($data->is_success)
+            {
+                
+                $dataInfo = json_decode($data->data[0]->Value);
+                
+                Cache::put('webinfo_admin', $dataInfo->value);
+                return $data;
+                  
+             }  
+             
+            return  [
+                "is_success" =>false , 
+                "data"=> null
+             ];
+        }
+        else 
+        {
+            session(['webinfo_admin' =>[]]);
+        }
+    }
+
+    public function getColorSystem (Request $request) 
+    {
+       
+        $bannerSession =  session('dataColor', null);
+        $companyId =  $this->getCompanyId();
+        if( $companyId == null ||  $companyId ==  "")
+        {
+            
+            session(['dataColor' =>[]]);
+            return;
+        }
+        $dataUpdate = [  ];
+        $url = API_BaseUrl."/".System_color_get."/".$this->getCompanyId();
+        $client = new Client();
+        $res = $client->request('get',$url , [
+            'json' =>$dataUpdate
+        ]);
+        if($res->getStatusCode() ==200)
+        { 
+            $checkresult = $res->getBody()->getContents();
+            $data = json_decode($checkresult);
+
+            
+            if($data->is_success)
+            {
+                session(['dataColor' =>$data]);
+                Cache::put('dataColor', $data->data);
+                return $data;
+                  
+             }  
+            return  [
+                "is_success" =>false , 
+                "data"=> null
+             ];
+        }
+        else 
+        {
+            session(['dataColor' =>[]]);
+        }
+    }
+
+
+    public function getAllFooterPage ( )
+    {
+        $dataUpdate = [
+            
+            // "company_id"=>  $this->getCompanyId()
+        ];
+        
+        $params = [
+        'query' => [
+            'company_id' => "-1",
+           
+
+        ]
+     ];
+        $url = "https://api.deal24h.vn"."/".Footer_getAll;
+      $client = new Client();
+      $res = $client->request('get', $url, $params);
+         if($res->getStatusCode() ==200)
+        {
+            // return  ["is_success" =>false];
+
+            $checkresult = $res->getBody()->getContents();
+            $data = json_decode($checkresult);
+
+           
+            
+             if($data->is_success)
+           {
+               
+                Cache::put('allFooter', $data->data);
+           
+            
+                  
+           }
+        
+        }
+        else 
+        {
+            return response()->json(['message' => 'Lấy lịch sử thất bại'], $res->getStatusCode() );
+        }
+       
+    }
     public function index (Request $request, $slug =null) 
+    {
+
+        $dataUpdate = [];
+        
+        $params = [
+        'query' => [
+            'company_id' => "-1"
+             ]
+        ];
+        $url = "https://api-soida.applamdep.com/api/baner/getAllBannerWeb";
+        $client = new Client();
+        $res = $client->request('get', $url, $params);
+
+        $dataGlobal =null;
+        if($res->getStatusCode() ==200)
+        {
+            // return  ["is_success" =>false];
+
+            $checkresult = $res->getBody()->getContents();
+            $data = json_decode($checkresult);
+            $dataGlobal = $data->data;
+
+        }
+
+
+        $this->getDataInfoAdmin($request);
+        if (Cache::has('webinfo')) {
+
+        }
+        else 
+        {
+            $this->getDataInfo($request);
+
+        }
+         if (Cache::has('allFooter')) {
+              
+        }
+        else 
+        {   
+            $this->getAllFooterPage();  
+        }     
+        $dataColorSesion =  session('dataColor', null);
+        if($dataColorSesion)
+        {
+        }
+        else 
+        {
+            $this->getColorSystem($request);
+        }
+        $dataUserSession =  session('dataCompany', null);
+
+
+        
+        $companyGlobalId = $this->getCompanyId();
+        $dataUser =null;
+        if($dataUserSession)
+        {
+           $dataUser =  $dataUserSession->data;
+            $dataUser->token = $dataUserSession->token;
+        
+            $dataUser = $this->getInfo($request);
+         
+            $dataUser = $dataUser["data"]->data;
+        }
+        
+        $isCheck  = true;
+        if($slug == "" ||$slug ==null)
+        {
+
+        }
+        else 
+        {
+            $isCheck = $this->CheckUrl($slug);
+        }  
+        if(!$isCheck)
+        {
+        return view("404.notfound");
+       
+        }
+        $companyGlobalId = $this->getCompanyId();
+        
+        return view("campaign.bannerCampaign", compact("slug","dataGlobal","dataUser","companyGlobalId"));
+       
+    }
+
+
+    
+
+
+    public function skinIndex (Request $request, $slug =null) 
     {
         
         $isCheck  = true;
@@ -93,7 +357,6 @@ class HomepageController extends Controller
        
 
     }
-
 
     public function result (Request $request, $slug =null) 
     {

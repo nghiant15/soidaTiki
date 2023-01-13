@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+Route::get('api/evoucher/banner/getAll', 'EvoucherController@getbanner');
 Route::get('/dangky', 'OpenAccountController@openAccount')->name('openAccount');
 Route::get("/mo-tai-khoan-thanh-cong", function(){
    return View::make("success");
@@ -51,7 +51,7 @@ Route::get('/{slug}/thong-tin-tai-khoan', 'HomepageController@profile')->name('h
 
 Route::get('/makeup', 'HomepageController@redireHomePage')->name('redireHOmePage');
 Route::get('/makeup/{slug}', 'HomepageController@redireHomePage')->name('redireHOmePage');
-Route::get('/{slug}', 'HomepageController@index')->name('homePage');
+Route::get('/{slug}', 'HomepageController@skinIndex')->name('homePage');
 Route::get('/', 'HomepageController@index')->name('homePage');
 
 

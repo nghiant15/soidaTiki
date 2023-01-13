@@ -34,8 +34,19 @@ $dataSeo = $globalData->seoInfo;
     <link rel="stylesheet" type="text/css"
         href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-     <meta name="description" content="{{$dataSeo->description}}">
-    <link rel="icon" type="image/png" href="{{$dataSeo->imageShareSeo}}" />
+
+
+        @if (isset($dataSeo->description))
+        <meta name="description" content="{{$dataSeo->description}}">
+        @else
+
+        @endif
+        @if (isset($dataSeo->imageShareSeo))
+        <link rel="icon" type="image/png" href="{{$dataSeo->imageShareSeo}}" />
+        @else
+
+     @endif
+    
     
     <meta property="og:image"  content="{{$dataSeo->imageShare}}">
 @endsection
