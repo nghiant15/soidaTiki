@@ -185,7 +185,7 @@ $dataColor = $dataColor->data;
         itemCarousel += `
         <div class="carousel-item banner-box-img active  ">
             <a href=${item.hrefLink} target="_blank">        
-                <div class="bg-image banner-box-img" style="background-image:url('${imageLink}')">
+                <div class="bg-image banner-box-img" style= "background-size: auto; background-image:url('${imageLink}')">
                 
                 </div>
             </a>
@@ -196,7 +196,7 @@ $dataColor = $dataColor->data;
         <div class="carousel-item banner-box-img  ">
      
             <a href=${item.href} target="_blank" >     
-                <div class="banner-box-img bg-image"  style="background-image:url('${imageLink}')">
+                <div class="banner-box-img bg-image"  style="background-size: auto; background-image:url('${imageLink}')">
     
                 </div>
             </a>
@@ -212,14 +212,7 @@ $dataColor = $dataColor->data;
         <div class="carousel-inner" style='border-radius:15px'>
             ${itemCarousel}
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev" style='border-radius:15px'>
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next" style='border-radius:15px'>
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+        
 
         `
         let idRender = document.querySelector(".classRenderCarousel2");
