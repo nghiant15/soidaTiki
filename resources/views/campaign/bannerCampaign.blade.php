@@ -116,17 +116,7 @@ $dataColor = $dataColor->data;
             </div>
 
         </section>
-        {{-- <section class="banner_section2">
-            <div class="container-layout">
-                <div class="title-section ">
-                    <h2 class="">
-                        Nhà Cung cấp nổi bật
-                    </h2>
-                </div>
-                <div class="row js-scroll" id="renderBanner" style="margin:0">
-                </div>
-            </div>
-        </section> --}}
+        
         <section class="banner_section3">
             <div class="container-layout">
                 <div class="title-section ">
@@ -182,6 +172,7 @@ $dataColor = $dataColor->data;
         var itemCarousel = ``;
         var html = ``;
         data.forEach((item, i) => {
+            console.log("3",item);
             var imageLink = "https://api-soida.applamdep.com/public/image_brand/" +item.image_link;
         if (i === 0) {
         li +=
@@ -193,7 +184,7 @@ $dataColor = $dataColor->data;
         if (i === 0) {
         itemCarousel += `
         <div class="carousel-item banner-box-img active  ">
-            <a href=${item.href} target="_blank">        
+            <a href=${item.hrefLink} target="_blank">        
                 <div class="bg-image banner-box-img" style="background-image:url('${imageLink}')">
                 
                 </div>
@@ -244,6 +235,7 @@ $dataColor = $dataColor->data;
         var itemCarousel = ``;
         var html = ``;
         data.forEach((item, i) => {
+           
 
         var imageLink = "https://api-soida.applamdep.com/public/image_brand/" +item.image_link;
         if (i === 0) {
