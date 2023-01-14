@@ -7,7 +7,7 @@
                         <img class="scroll-nav-height" src="/images/logo24h.png" />
                     </a> --}}
 
-                    <a href="/" class="link--unstyled header-logo">TIKITECH
+                    <a href="https://tikitech.vn" target="_blank" class="link--unstyled header-logo">TIKITECH
                     
                     </a>
                    

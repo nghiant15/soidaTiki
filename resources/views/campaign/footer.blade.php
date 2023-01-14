@@ -3,27 +3,46 @@
         <div class="row footer-row-1">
             <div class="col-md-4  col-sm-6 col-lg-4 footer-row-1-col-2 footer-col">
                 <div class=" ">
-                    <div class="footer__homepage_title">CHÍNH SÁCH</div>
-                    <div class="" id="render_href_footer">
+                    <div class="footer__homepage_title">CHÍNH SÁCH & ĐIỀU KHOẢN
                     </div>
+                    <div class="footer__homepage--a">
+                        <a href="https://tikitech.vn/chinh-sach-va-bao-mat/" target = "_blank">
+                            Chính sách và bảo mật
+                        </a>
+                    </div>
+
+                    <div class="footer__homepage--a">
+                        <a href="https://tikitech.vn/quy-dinh" target = "_blank">
+                            Điều khoản & dịch vụ
+                        </a>
+                    </div>
+
+                    <div class="footer__homepage--a">
+                        <a href="https://tikitech.vn/chinh-sach-bao-hanh" target = "_blank">
+                            Chính sách bảo hành
+                        </a>
+                    </div>
+                   
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 col-lg-4 footer-row-1-col-3 footer-col">
                 <div class=" ">
-                    <div class="footer__homepage_title">DANH MỤC</div>
+                    
+                    <div class="footer__homepage_title"></div>
+                    <div class="footer__homepage_title"></div>
                     <div class="footer__homepage--a">
-                        <a href="javascript:void(0)">
-                            Đăng ký cộng tác viên
+                        <a href="https://tikitech.vn/chinh-sach-tra-hang/" target ="_blank">
+                            Chính sách trả hàng
                         </a>
                     </div>
                     <div class="footer__homepage--a">
-                        <a target="_blank" href="https://deal24h.vn/danh-cho-nhan-hang">
-                            Dành cho nhãn hàng
+                        <a target="_blank" href="https://tikitech.vn/chinh-sach-bao-mat-thanh-toan/">
+                            Chính sách bảo mật thanh toán
                         </a>
                     </div>
                     <div class="footer__homepage--a">
-                        <a>
-                            Tìm hiểu về chính sách
+                        <a target ="_blank" hreft ="https://tikitech.vn/van-chuyen-va-giao-hang"> 
+                           Vận chuyển và giao hàng
                         </a>
                     </div>
                 </div>
@@ -106,25 +125,5 @@
             </div>
         </div>
     </div>
-    <div class="mt-4"></div>
-    <div class="container-layout ">
-        <div class="">
-            <div class="text-center">
-            <div class="footer__homepage-info--font">
-                CÔNG TY TNHH MỸ NGHỆ SINH LỢI
-            </div>
-            <div class="footer__homepage-info--font">
-                Mã số thuế: 3700630115
-
-            </div>
-            <div class="footer__homepage-info--font" >
-                Đại diện pháp luật: Nguyễn Thị Hằng Sinh
-
-            </div>
-            <div class="footer__homepage-info--font" style="padding:0;margin:0">
-                Copyright © 2022 TIKITECH. All rights reserved
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
+ 
+</div>  

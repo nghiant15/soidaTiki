@@ -44,7 +44,7 @@ async function getAllCampaign(idRender, value) {
           var indexCountItem = 0;
           dataDraw.forEach((item) => {
             index++;
-            debugger;
+            console.log(item);
             var src = ``;
             if (item.image_link && item.image_link.length > 0) {
              
@@ -57,13 +57,13 @@ async function getAllCampaign(idRender, value) {
             let styles = `background-image:url('${src}')`;
       
             if(value == "1"){
-              styles = `background-image:url('${src}');background-size: contain;`
+              styles = `background-image:url('${src}');background-size: cover;`
             }
-            let stylesBorder = `border: 1px solid #ccc`;
+            let stylesBorder = ``;
       
-            if(value == "1"){
-              stylesBorder = `border: 1px solid #ccc`
-            }
+            // if(value == "1"){
+            //   stylesBorder = `border: 1px solid #ccc`
+            // }
 
             
         
@@ -84,7 +84,7 @@ async function getAllCampaign(idRender, value) {
                         {
                           colItem += `<div class="flex" style="min-width: 30%;margin:auto 0;display:flex;justify-content: right;">
                          
-                          <p style="text-transform:none"><strong>`+item.countSkin+`</strong><br>Lượt soi và tư vấn</p> 
+                          <p style="text-transform:none"><strong>`+item.countSkin+` </strong>Lượt soi và tư vấn</p> 
                          </div>`;
                         }
                          colItem += `
@@ -110,7 +110,7 @@ async function getAllCampaign(idRender, value) {
                           {
                             colItem += `<div class="flex" style="min-width: 30%;margin:auto 0;display:flex;justify-content: right;">
                            
-                            <p style="text-transform:none"><strong>`+item.countSkin+`</strong><br>Lượt soi và tư vấn</p> 
+                            <p style="text-transform:none"><strong>`+item.countSkin+` </strong> Lượt soi và tư vấn</p> 
                            </div>`;
                           }
                            colItem += `

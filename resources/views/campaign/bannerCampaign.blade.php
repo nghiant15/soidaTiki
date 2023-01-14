@@ -116,7 +116,7 @@ $dataColor = $dataColor->data;
             </div>
 
         </section>
-        <section class="banner_section2">
+        {{-- <section class="banner_section2">
             <div class="container-layout">
                 <div class="title-section ">
                     <h2 class="">
@@ -126,12 +126,12 @@ $dataColor = $dataColor->data;
                 <div class="row js-scroll" id="renderBanner" style="margin:0">
                 </div>
             </div>
-        </section>
+        </section> --}}
         <section class="banner_section3">
             <div class="container-layout">
                 <div class="title-section ">
                     <h2>
-                        Nhà cung cấp nhiều khách hàng
+                        Nhà cung cấp đang được quan tâm
                     </h2>
                 </div>
                 <div class="row  js-scroll" id="renderBanner-new" style="margin:0">
@@ -305,7 +305,7 @@ $dataColor = $dataColor->data;
         interval: 2000
     });
     async function callApiWeb(){
-    await getAllCampaign("renderBanner", "0");
+    // await getAllCampaign("renderBanner", "0");
     await getAllCampaign("renderBanner-new", "1");
     // let loadingweb = document.querySelector(".loading-bg");
     // if(loadingweb){
