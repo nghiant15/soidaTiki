@@ -76,6 +76,12 @@ $dataColor = $dataColor->data;
     :root {
         --main_color: #dc3f5d;
     }
+
+    #myVideo {
+  
+  width: 100%;
+  height: auto;
+}
 </style>
 
 <body>
@@ -98,11 +104,12 @@ $dataColor = $dataColor->data;
        
         @include("campaign.header")
         <div class="banner_evoucher">
-           
-            <div id="carouselExampleIndicators1" class="carousel slide classRenderCarousel1 banner_evoucher_1"
-                data-ride="carousel">
-
-            </div>
+            <a href="/soida">
+            <video autoplay muted loop id="myVideo">
+                <source src="/hero-banner.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+            </a>
         </div>
         <section class="banner_section1">
             <div class="container-layout">
