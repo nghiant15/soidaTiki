@@ -38,7 +38,9 @@ $dataColor = $dataColor->data;
 
 
     @isset($dataCompany->seoInfo->description)
-    <meta name="description" content="{{ $dataCompany->seoInfo->description }}" />
+    <meta name="description" content="Nâng tầm shop mỹ phẩm bạn
+    với Hệ Thống Soi Da & Tư Vấn Online
+    30 ngày miễn phí, đăng ký ngay" />
 
     @endisset
 
@@ -55,8 +57,10 @@ $dataColor = $dataColor->data;
     @endisset
     @isset($dataCompany->seoInfo->imageShare)
     @endisset
-    <title>applamdep.com - Khám Phá Soi Da, Thử Trang Điểm & được tư vấn 100% Online để nhận Miễn Phí các Evoucher cực hấp
-        dẫn</title>
+    <title>Nâng tầm shop mỹ phẩm bạn
+        với Hệ Thống Soi Da & Tư Vấn Online
+        30 ngày miễn phí, đăng ký ngay
+    </title>
     @endif
     <meta name="googlebot" content="noarchive" />
     <meta name="robots" content="noarchive" />
