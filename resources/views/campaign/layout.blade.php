@@ -9,6 +9,13 @@
           </svg>
     </span>
 </a>
+
+<a href="/soida" target="_blank" title="" class="left-hotline" style="bottom: 200px">
+ 
+    <span>
+       <img style="width:100%" src ="/iconskin.jpg"> 
+    </span>
+</a>
 <div id="alert-web">
 
 </div>
