@@ -12,7 +12,7 @@
 
 <a href="/soida" target="_blank" title="" class="left-hotline" style="bottom: 200px">
  
-    <span>
+    <span style ="width: 70px; height:70px">
        <img style="width:100%" src ="/iconskin.png"> 
     </span>
 </a>
