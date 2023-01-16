@@ -196,7 +196,7 @@ $dataColor = $dataColor->data;
         itemCarousel += `
         <div class="carousel-item banner-box-img active  ">
             <a href=${item.hrefLink} target="_blank">        
-                <div class="bg-image banner-box-img" style= "background-size: auto; background-image:url('${imageLink}')">
+                <div class="bg-image banner-box-img" style= "background-size: contain; background-image:url('${imageLink}')">
                 
                 </div>
             </a>
@@ -207,7 +207,7 @@ $dataColor = $dataColor->data;
         <div class="carousel-item banner-box-img  ">
      
             <a href=${item.href} target="_blank" >     
-                <div class="banner-box-img bg-image"  style="background-size: auto; background-image:url('${imageLink}')">
+                <div class="banner-box-img bg-image"  style="background-size: contain; background-image:url('${imageLink}')">
     
                 </div>
             </a>
