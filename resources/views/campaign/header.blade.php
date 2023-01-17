@@ -10,6 +10,16 @@
                     <a href="https://tikitech.vn" target="_blank" class="link--unstyled header-logo">TIKITECH
                     
                     </a>
+                    <div class="flex relative" style="height:40px;gap:20px">
+                    
+                            <a onclick="ToggleDisplayClass('.status-modal-account',true)" target ="_blank" href="https://id.applamdep.com/" class="navbar-a btn btn_nav btn_nav-no-after" style="box-shadow:none">
+                                Đăng nhập
+                            </a>
+                            
+
+
+
+                    </div>
                    
                 </div>
             </div>

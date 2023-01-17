@@ -549,6 +549,9 @@ body {
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
 }
+.hotline1 span {
+    background: #ffffff !important;
+}
 
 @keyframes lac {
   10%,
