@@ -127,3 +127,16 @@
     </div>
  
 </div>  
+
+<div class="bg-light" style ="background-color:#545151 !important">
+    <div class="container text-center">
+        
+          <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2"><a href="/soida" target ="_blank" 
+            style ="color:#ffffff !important;
+            
+  animation-name: example;
+  animation-duration: 4s;
+   animation-iteration-count: infinite; 
+            font-weight: bold !important;">Soida online ngay, 100% Miễn phí</a></p>
+    </div>
+</div>

@@ -74,9 +74,16 @@ $dataColor = $dataColor->data;
     <link rel="stylesheet" href="/css/campaign.css">
 
     @yield('header')
+
+
 </head>
 
 <style>
+
+@keyframes example {
+  from {color: #ffffff;}
+  to {color:    ;}
+}
     :root {
         --main_color: #dc3f5d;
     }
