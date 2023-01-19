@@ -322,8 +322,8 @@ public function getDataInfo (Request $request)
        
         }
         $companyGlobalId = $this->getCompanyId();
-        
-        return view("campaign.bannerCampaign", compact("slug","dataGlobal","dataUser","companyGlobalId"));
+        $agent = new Agent();
+        return view("campaign.bannerCampaign", compact("slug","dataGlobal","dataUser","companyGlobalId","agent"));
        
     }
 

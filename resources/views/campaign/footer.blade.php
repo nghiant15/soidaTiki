@@ -128,15 +128,25 @@
  
 </div>  
 
-<div class="bg-light" style ="background-color:#545151 !important">
+<style>
+    .bg-light img:hover {
+        transform: scale(1.2);
+    }
+</style>
+@if ($agent->isMobile())
+<div class="bg-light" style="background-color:#ede5e5 !important;position: fixed;bottom: 0;width: 100%;">
     <div class="container text-center">
         
-          <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2"><a href="/soida" target ="_blank" 
-            style ="color:#ffffff !important;
-            
-  animation-name: example;
-  animation-duration: 4s;
-   animation-iteration-count: infinite; 
-            font-weight: bold !important;">Soida online ngay, 100% Miễn phí</a></p>
+          <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
+            <a href="/soida"  target ="_blank"><img style= "height: 50px" src ="/desktop.jpg"> </a></p>
     </div>
 </div>
+@else
+<div class="bg-light" style="background-color:#ede5e5 !important;position: fixed;bottom: 0;width: 100%;">
+    <div class="container text-center">
+        
+          <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
+            <a href="/soida"  target ="_blank"><img style= "height: 50px" src ="/mobile.jpg"> </a></p>
+    </div>
+</div>
+@endif
