@@ -1,5 +1,16 @@
 @php
-$dataSeo = $globalData->seoInfo;
+$dataSeo = "Soida liền tay";
+
+if (isset($globalData)) {
+        $dataSeo = $globalData->seoInfo;;
+
+    }
+    else 
+    {
+        $dataSeo = new stdClass();
+        $dataSeo->title ="soida nhận ngay yêu thương";
+        $dataSeo->imageShare ="/images/tikitech_icon.png";
+    }
 @endphp
 @extends('layout')
 

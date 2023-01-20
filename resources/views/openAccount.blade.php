@@ -197,7 +197,7 @@
                                             Bạn chưa nhập Nhãn hàng
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" style ="display:none">
                                         <label for="exampleInputEmail1">Mã giảm giá</label>
                                         <input type="text" name="Sale_Code" class="form-control" placeholder="Số điện thoại người giới thiệu" value="">
                                         <p class="tip">
