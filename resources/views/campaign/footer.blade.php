@@ -134,19 +134,50 @@
     }
 </style>
 @if ($agent->isMobile())
-<div class="bg-light" style="background-color:#B9DEEF !important;position: fixed;bottom: 0;width: 100%;">
+<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;">
     <div class="container text-center">
         
           <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-            <a href="/soida"  target ="_blank"><img style= "height: 50px" src ="/desktop.jpg"> </a></p>
+            <a href="/soida"  target ="_blank"><img style= "height: 50px" src ="/phone.png"> </a></p>
     </div>
 </div>
 @else
-<div class="bg-light" style="background-color:#B9DEEF !important;position: fixed;bottom: 0;width: 100%;">
+<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;">
     <div class="container text-center">
         
           <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-            <a href="/soida"  target ="_blank"><img style= "height: 50px" src ="/mobile.jpg"> </a></p>
+            <a href="/soida"  target ="_blank"><img style= "height: 50px" src ="/desktop.png"> </a></p>
     </div>
 </div>
 @endif
+
+
+
+  <!-- Messenger Plugin chat Code -->
+  <div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "106007668343244");
+    chatbox.setAttribute("attribution", "biz_inbox");
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml: true,
+            version: 'v11.0'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
