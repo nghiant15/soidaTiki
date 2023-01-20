@@ -134,7 +134,7 @@
     }
 </style>
 @if ($agent->isMobile())
-<div class="bg-light" style="background-color:#ede5e5 !important;position: fixed;bottom: 0;width: 100%;">
+<div class="bg-light" style="background-color:#B9DEEF !important;position: fixed;bottom: 0;width: 100%;">
     <div class="container text-center">
         
           <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
@@ -142,7 +142,7 @@
     </div>
 </div>
 @else
-<div class="bg-light" style="background-color:#ede5e5 !important;position: fixed;bottom: 0;width: 100%;">
+<div class="bg-light" style="background-color:#B9DEEF !important;position: fixed;bottom: 0;width: 100%;">
     <div class="container text-center">
         
           <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
