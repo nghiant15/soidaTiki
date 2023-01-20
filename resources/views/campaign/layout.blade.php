@@ -16,6 +16,42 @@
        <img style="width:100%" src ="/iconskin.png"> 
     </span>
 </a>
+
+{{-- <a href="/soida" target="_blank" title="" class=" left-hotline1 left-hotline  "  style="bottom: 300px">
+ 
+    <span style ="width: 70px; height:70px;background: unset !important;">
+       <img style="width:100%" src ="/zalo.png"> 
+    </span>
+</a> --}}
+
 <div id="alert-web">
 
 </div>
+
+<div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "106007668343244");
+    chatbox.setAttribute("attribution", "biz_inbox");
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml: true,
+            version: 'v11.0'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
