@@ -139,7 +139,7 @@ $dataColor = $dataColor->data;
             <div class="container-layout">
                 <div class="title-section ">
                     <h2>
-                            Nhà cung cấp nổi bậc
+                            Nhà cung cấp nổi bật
                     </h2>
                 </div>
                 <div class="row  js-scroll" id="renderBanner-new" style="margin:0">
