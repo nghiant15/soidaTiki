@@ -38,9 +38,7 @@ $dataColor = $dataColor->data;
 
 
     @isset($dataCompany->seoInfo->description)
-    <meta name="description" content="Nâng tầm shop mỹ phẩm bạn
-    với Hệ Thống Soi Da & Tư Vấn Online
-    30 ngày miễn phí, đăng ký ngay" />
+    <meta name="description" content=" 100% Miễn Phí Trọn Đời, Nâng tầm shop mỹ phẩm bạn, với Hệ Thống Soi Da & Tư Vấn Online .Ngay tại nhà, Kiểm tra & tư vấn, tuổi da & hơn 40 thông số về da khác. Một lần quét, nói với bạn mọi điều .#soidaonline" />
 
     @endisset
 
@@ -57,9 +55,7 @@ $dataColor = $dataColor->data;
     @endisset
     @isset($dataCompany->seoInfo->imageShare)
     @endisset
-    <title>Nâng tầm shop mỹ phẩm bạn
-        với Hệ Thống Soi Da & Tư Vấn Online
-        30 ngày miễn phí, đăng ký ngay
+    <title> 100% Miễn Phí Trọn Đời, Nâng tầm shop mỹ phẩm bạn, với Hệ Thống Soi Da & Tư Vấn Online .Ngay tại nhà, Kiểm tra & tư vấn, tuổi da & hơn 40 thông số về da khác. Một lần quét, nói với bạn mọi điều .#soidaonline
     </title>
     @endif
     <meta name="googlebot" content="noarchive" />
