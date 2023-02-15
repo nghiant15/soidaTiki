@@ -283,10 +283,11 @@ class HistoryController extends Controller
      {
         $historyId =  $this->getHistoryId();
         $ipClient = $request->ip();
+    
         $client1 = new Client();
-        $res1 = $client1->request('get',"http://ip-api.com/json/"+ $ipClient );
-
-        if($res1->getStatusCode() ==200)
+        $linkUrl = "http://ip-api.com/json/".$ipClient;
+        $res1 = $client1->request('get',$linkUrl);
+         if($res1->getStatusCode() ==200)
         {
             $checkresult1 = $res1->getBody()->getContents();
             $data1 = json_decode($checkresult1);
