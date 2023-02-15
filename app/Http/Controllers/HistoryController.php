@@ -40,6 +40,7 @@ class HistoryController extends Controller
                     "phoneNumber"=>  $phoneNumber,
                     "company_id"=> $this->getCompanyId()
                 ];
+       
                 $client = new Client();
                 $res = $client->request('post',$urlRequest , [
                     'json' =>$dataUpdate
@@ -281,73 +282,93 @@ class HistoryController extends Controller
      public function SaveHistory (Request $request, $slug =null, $saleId =null) 
      {
         $historyId =  $this->getHistoryId();
-        if($historyId)
+        $ipClient = $request->ip();
+        $client1 = new Client();
+        $res1 = $client1->request('get',"http://ip-api.com/json/"+ $ipClient );
+
+        if($res1->getStatusCode() ==200)
         {
-          return  ["is_success" =>true];
-        }
-        else 
-        {
+            $checkresult1 = $res1->getBody()->getContents();
+            $data1 = json_decode($checkresult1);
+           
+              if($historyId)
+                {
+                return  ["is_success" =>true];
+                }
+                else 
+                {
+
+                }
  
-        }
- 
-         $dataJson = $request->json()->all();
- 
-         $result  = $dataJson['Result'];
-         
-         $loginUrl = API_BaseUrl."/".EndUser_SaveHistory;
-         $dataUserSession =  session('dataCompany', null);
-         $tokenCode ="";
-         if($dataUserSession)
-         {
-             $tokenCode =  $dataUserSession->token;
-         }
-         else 
-         {
-             
-             $loginUrl = API_BaseUrl."/".EndUser_SaveHistory_no_user;
+                $dataJson = $request->json()->all();
         
-         }
+                $result  = $dataJson['Result'];
+                
+                $loginUrl = API_BaseUrl."/".EndUser_SaveHistory;
+                $dataUserSession =  session('dataCompany', null);
+                $tokenCode ="";
+                if($dataUserSession)
+                {
+                    $tokenCode =  $dataUserSession->token;
+                }
+                else 
+                {
+                    
+                    $loginUrl = API_BaseUrl."/".EndUser_SaveHistory_no_user;
+                
+                }
         
-         $email =  $request->input("email");
-         $imageObject = json_decode($result);
+                $email =  $request->input("email");
+                $imageObject = json_decode($result);
+
+                
+                $imagelInk =  "";
+                if($imageObject)
+                {
+                    $imagelInk = $imageObject->facedata->image_info->url;
+                }
+                $slug = "tikicare";
+                $dataUpdate = [
+                    "Company_Id"=> $this->getCompanyId(),
+                    "Image"=> $imagelInk,
+                    "slug"=> $slug,
+                    "ipClient" => $ipClient,
+                    "regionName"=>$data1->regionName,
+                    "dataCheckRegion"=> $data1,
+                    "slug2"=> "tikicare",
+                    "ipRequest" => $this->get_ip(),
+                    "Sale_Id"=>  null,
+                    "Result"=> $result
+                ];
+                // $object = json_decode($result);
+        
+                $client = new Client();
+                $res = $client->request('post',$loginUrl , [
+                'headers' => 
+                [
+                    'Authorization' => "Bearer ".$tokenCode
+                ],
+                'json' =>$dataUpdate
+                ]);
+                if($res->getStatusCode() ==200)
+                {   
+                
+                    $checkresult = $res->getBody()->getContents();
+                    $checkresult = json_decode($checkresult);
+                    
+                    $this->setHistoryId($checkresult->data->_id);
+                    session(['noUser' =>  true]);
+                    return  [
+                            "is_success" =>true
+                        ];
+                }
+                return  ["is_success" =>false];
+        
+        }
+
+
 
         
-         $imagelInk =  "";
-         if($imageObject)
-         {
-            $imagelInk = $imageObject->facedata->image_info->url;
-         }
-         $slug = "tikicare";
-         $dataUpdate = [
-               "Company_Id"=> $this->getCompanyId(),
-               "Image"=> $imagelInk,
-               "slug"=> $slug,
-               "slug2"=> "tikicare",
-               "ipRequest" => $this->get_ip(),
-               "Sale_Id"=>  null,
-               "Result"=> $result
-         ];
-         // $object = json_decode($result);
- 
-         $client = new Client();
-         $res = $client->request('post',$loginUrl , [
-         'headers' => 
-         [
-             'Authorization' => "Bearer ".$tokenCode
-         ],
-         'json' =>$dataUpdate
-         ]);
-          if($res->getStatusCode() ==200)
-         {   
-             $checkresult = $res->getBody()->getContents();
-             $checkresult = json_decode($checkresult);
-              $this->setHistoryId($checkresult->data->_id);
-             session(['noUser' =>  true]);
-             return  [
-                      "is_success" =>true
-                   ];
-         }
-         return  ["is_success" =>false];
  
      }
  

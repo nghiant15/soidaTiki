@@ -242,8 +242,8 @@ public function getDataInfo (Request $request)
        
     }
     public function index (Request $request, $slug =null) 
-    {
-
+    {  
+        
         $dataUpdate = [];
         
         $params = [
@@ -300,11 +300,12 @@ public function getDataInfo (Request $request)
         if($dataUserSession)
         {
            $dataUser =  $dataUserSession->data;
+        //    dd($dataUser);
             $dataUser->token = $dataUserSession->token;
         
-            $dataUser = $this->getInfo($request);
+            // $dataUser = $this->getInfo($request);
          
-            $dataUser = $dataUser["data"]->data;
+            // $dataUser = $dataUser["data"]->data;
         }
         
         $isCheck  = true;
