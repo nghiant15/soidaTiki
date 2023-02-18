@@ -71,7 +71,6 @@ if (isset($globalData)) {
 
 
 
-
     <div id="b-placeholder">
 
 
@@ -291,7 +290,7 @@ if (isset($globalData)) {
 
         </div>
 
-
+     
 
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -301,6 +300,12 @@ if (isset($globalData)) {
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
         </script>
 
+
+<style>
+    .bg-light img:hover {
+        transform: scale(1.2);
+    }
+</style>
 
 
         <script>
@@ -1295,3 +1300,30 @@ if (isset($globalData)) {
         id="nr-ext-rsicon"
         style="position: absolute; display: none; width: 50px; height: 50px; z-index: 2147483647; border-style: none; background: transparent;"></iframe>
 @endsection
+@if ($agent->isMobile())
+<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;">
+    <div class="container text-center">
+        
+          <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
+            <a href= "javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/phoneNew2.png"> </a></p>
+    </div>
+</div>
+@else
+<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;">
+    <div class="container text-center">
+        
+          <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
+            <a href="javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/desktopNew2.png"> </a></p>
+    </div>
+</div>
+@endif
+
+<script>
+
+function openFormRegister() {
+    $("#status__text__login").trigger('click');
+
+}
+
+
+</script>
