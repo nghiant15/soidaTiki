@@ -1301,7 +1301,7 @@ if (isset($globalData)) {
         style="position: absolute; display: none; width: 50px; height: 50px; z-index: 2147483647; border-style: none; background: transparent;"></iframe>
 @endsection
 @if ($agent->isMobile())
-<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;">
+<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
     <div class="container text-center">
         
           <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
@@ -1309,7 +1309,7 @@ if (isset($globalData)) {
     </div>
 </div>
 @else
-<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;">
+<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
     <div class="container text-center">
         
           <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
