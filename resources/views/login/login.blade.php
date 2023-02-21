@@ -67,7 +67,7 @@
                         <div class="mt-4">
                             <button type="button" id="roleUserButton" onclick="login()" class="btn_form btn-shadow">
                                 <p>
-                                    Đăng nhập
+                                    Đăng nhập/Đăng ký
                                 <p>
                             </button>
                         </div>

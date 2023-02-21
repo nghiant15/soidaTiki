@@ -178,16 +178,16 @@
       <div id="tips" class="ai-skin__tips" style="display:none">
         <div class="ai-skin__tips__content">
           <span class="ai-skin__tips__content-header">
-            Ứng dụng sẽ chụp gương mặt của bạn. Sau đây là một số
-            hướng dẫn để có những bức ảnh chuẩn xác nhất
+              Ứng dụng sẽ chụp gương mặt của bạn. Sau đây là một số
+              hướng dẫn để có những bức ảnh chuẩn xác nhất
           </span>
           <ol class="ai-skin__tips__content-body">
-            <li>Giữ chặt đIện thoạI trong khi chụp</li>
-            <li>Tẩy trang &amp; làm sạch da trước khi sử dụng ứng dụng</li>
-            <li>Cột/búI tóc lên cao và cởI mắt kính (nếu có)</li>
-            <li>
-              Kiểm tra ánh sáng của phòng sử dụng camera trước để phân tích làn da bạn
-            </li>
+              <li>Giữ chặt đIện thoạI trong khi chụp</li>
+              <li>Tẩy trang &amp; làm sạch da trước khi sử dụng ứng dụng</li>
+              <li>Cột/búI tóc lên cao và cởI mắt kính (nếu có)</li>
+              <li>
+                Kiểm tra ánh sáng của phòng sử dụng camera trước để phân tích làn da bạn
+              </li>
           </ol>
           <div class="ai-skin__button ai-skin__tips__button">
             <button type="button" onclick="hideTips()">TÔI ĐÃ HIỂU</button>

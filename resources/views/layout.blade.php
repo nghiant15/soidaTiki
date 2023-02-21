@@ -212,7 +212,7 @@
                             id="status__text__login"
                             class=" btn_nav btn_nav-no-after navbar-a navbar-a"
                             style="margin:auto;box-shadow:none">
-                            Đăng nhập
+                            Đăng nhập/Đăng ký
                         </a>
                         <div class="hover-after-login" >
                             <a id="name_after_login" href="javascript:void(0)"

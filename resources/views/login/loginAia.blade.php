@@ -98,7 +98,7 @@ $dataCompany = Cache::get('webinfo');
                   @if(isset($dataCompany->form->btn_login))
                   {{ $dataCompany->form->btn_login }}  
                   @else
-                  Đăng nhập
+                  Đăng nhập / Đăng ký
                   @endif
               <p>
                 </button>

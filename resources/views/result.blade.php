@@ -66,7 +66,7 @@
                     <span class="errorMessage errorMessagePassword" style="display:none">Bạn chưa nhập mật
                         khẩu</span>
                 </form>
-                <button class="login-btn" onclick="login()">Đăng nhập </button>
+                <button class="login-btn" onclick="login()">Đăng nhập/Đăng ký </button>
                 <p class="bottomPage">
                     Bạn chưa có tài khoản?
                     <a href="javascript:void(0)" onclick="openForm(1)"> <strong>Tạo tài khoản </strong> </a>
@@ -149,7 +149,7 @@
 
 
             <li class="right-text login">
-                <a id="myBtn" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Đăng nhập</a>
+                <a id="myBtn" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Đăng nhập/Đăng ký</a>
             </li>
             <li class="right-text login">
                 <a href="https://applamdep.com/" href="javascript:void(0)" data-toggle="modal"

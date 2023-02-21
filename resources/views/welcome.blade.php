@@ -290,7 +290,8 @@ if (isset($globalData)) {
 
         </div>
 
-     
+
+       
 
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -313,12 +314,31 @@ if (isset($globalData)) {
                 top: 0,
                 behavior: "smooth",
             });
+            
+        
+       
         </script>
         <script>
             function hideTips() {
                 var tips = document.getElementById("tips");
                 tips.style.display = "none";
+                var audio = document.createElement("AUDIO")
+            document.body.appendChild(audio);
+            audio.src = "/hdsd.m4a";
+            audio.autoplay  = true;
+            audio.muted = true;
+            audio.muted = false;
+                audio.play();
             }
+
+
+//             var audio = document.createElement("AUDIO")
+// document.body.appendChild(audio);
+// audio.src = "/hdsd.m4a";
+
+// document.body.addEventListener("mousemove", function () {
+//     audio.play()
+// })
         </script>
         <script>
             var skinModule = (function() {

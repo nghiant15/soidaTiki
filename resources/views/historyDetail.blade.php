@@ -78,7 +78,7 @@
 
 
             <li class="right-text login">
-                <a id="myBtn" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Đăng nhập</a>
+                <a id="myBtn" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Đăng nhập/Đămg ký</a>
             </li>
             <li class="right-text login">
                 <a href="https://applamdep.com/" href="javascript:void(0)" data-toggle="modal"

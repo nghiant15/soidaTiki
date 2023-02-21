@@ -91,7 +91,7 @@
                <button class="login-btn" onclick="register()" >Tạo tài khoản ngay  </button>
 
                <p class="bottomPage">Bạn đã có tài khoản? <a href="javascript:void(0)" onclick="openForm(0)"> 
-                   <strong>Đăng nhập </strong> </a> 
+                   <strong>Đăng nhập/Đăng ký </strong> </a> 
                </p>
 
       

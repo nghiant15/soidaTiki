@@ -13,7 +13,7 @@
                     <div class="flex relative" style="height:40px;gap:20px">
                     
                             <a  target ="_blank" href="https://id.applamdep.com/" class="navbar-a btn btn_nav btn_nav-no-after" style="box-shadow:none">
-                                Đăng nhập
+                                Đăng nhập/Đăng ký
                             </a>
                             
 
