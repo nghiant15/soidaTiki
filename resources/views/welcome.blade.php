@@ -2,7 +2,8 @@
 $dataSeo = "Soida liền tay";
 
 if (isset($globalData)) {
-        $dataSeo = $globalData->seoInfo;;
+        $dataSeo = $globalData->seoInfo;
+
 
     }
     else 
@@ -32,8 +33,7 @@ if (isset($globalData)) {
 <link rel="stylesheet" href="/css/general.css"> --}}
 
     <!-- <link rel="stylesheet" href="https://ungdungsoida.netlify.app/contain/css/style.css" /> -->
-
-    <title>{{$dataSeo->title}} </title>
+     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -45,7 +45,12 @@ if (isset($globalData)) {
     <link rel="stylesheet" type="text/css"
         href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-
+            @if (isset($dataSeo->title))
+            
+            <title>{{$dataSeo->title}} </title>
+            @else
+            <title>soida nhận ngay yêu thương</title>
+            @endif
 
         @if (isset($dataSeo->description))
         <meta name="description" content="{{$dataSeo->description}}">
@@ -58,8 +63,12 @@ if (isset($globalData)) {
 
      @endif
     
-    
-    <meta property="og:image"  content="{{$dataSeo->imageShare}}">
+       @if (isset($dataSeo->imageShare))
+       <meta property="og:image"  content="{{$dataSeo->imageShare}}">
+        @else
+        <meta property="og:image"  content="/images/tikitech_icon.png">
+       @endif
+   
 @endsection
 @section('contentpage')
     <script>

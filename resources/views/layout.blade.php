@@ -11,9 +11,11 @@
     {
         $dataColor = "#1a214f";
     }
-    
+   
 
-    if (isset($globalData)) {
+    if (isset($globalData) && isset($globalData->banner)) {
+
+
         $bannerPage = $globalData->banner;
 
        
@@ -26,6 +28,7 @@
         $bannerPage->imageBannerMobile  = "https://api-soida.applamdep.com/image_brand/applamdep1320 (1).png";
         
     }
+
 
 
    
