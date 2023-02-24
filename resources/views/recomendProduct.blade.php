@@ -41,7 +41,7 @@
 
 </div>
 <div  class="title-strong"> 
-<p> GỢI Ý CHĂM SÓC DA CHO BẠN ĐƯỢC CHUYÊN DA DA LIỄU ĐỀ XUẤT</p>
+<p> GỢI Ý CHĂM SÓC DA CHO BẠN ĐƯỢC CHUYÊN GIA DA LIỄU ĐỀ XUẤT</p>
 </div>
 </div>
 

@@ -328,16 +328,30 @@ if (isset($globalData)) {
        
         </script>
         <script>
-            function hideTips() {
+              function hideTips() {
                 var tips = document.getElementById("tips");
                 tips.style.display = "none";
+                
                 var audio = document.createElement("AUDIO")
-            document.body.appendChild(audio);
-            audio.src = "/hdsd.m4a";
-            audio.autoplay  = true;
-            audio.muted = true;
-            audio.muted = false;
+                document.body.appendChild(audio);
+                audio.src = "/hdsd.m4a";
+                audio.autoplay  = true;
+                audio.muted = true;
+                audio.muted = false;
                 audio.play();
+                
+                audio.onended = function() {
+                        setTimeout(() => {
+                            var audio1     = document.createElement("AUDIO")
+                            document.body.appendChild(audio1);
+                            audio1.src = "/whileSkin.m4a";
+                            audio1.autoplay  = true;
+                            audio1.muted = true;
+                            audio1.muted = false;
+                            audio1.play(); 
+                        }, 1000);
+                        
+                };
             }
 
 
