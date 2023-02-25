@@ -204,9 +204,27 @@ function reDrawInfomation() {
 
         const arr = item.valueVI.split(':');
         var value = arr[1];
-        if(isNumeric(value))
+      
+;        if(isNumeric(value))
         {
            value =  Math.round(value * 100) / 100
+
+          
+        }
+        if((value+'').endsWith("%"))
+        {
+            value =  value.replace('%','').trim();
+           
+
+            if(isNumeric(value))
+            {
+               value =  Math.round(value * 100) / 100;
+               value = '' +value + '%';
+    
+              
+            }
+          
+
         }
          html  +=   '<li class="content-paragraph">'+"<span>" + arr[0]+":" + "</span>" +"<span class='boldText'>"+value+" </span>"+'</li>';
        });
