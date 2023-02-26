@@ -385,23 +385,23 @@ function drawRecomendProduct ( ) {
 
     var company =null  ;
 
-    // if (sessionStorage.getItem("dataCompany") === null) {
+     if (sessionStorage.getItem("dataCompany") === null) {
        
    
-    // }
-    // else 
-    // {
-    //     company = JSON.parse(sessionStorage.getItem("dataCompany"));
-    //     company = company.company_data;
+    }
+     else 
+     {
+         company = JSON.parse(sessionStorage.getItem("dataCompany"));
+         company = company.company_data;
        
 
     
-    // }
+     }
   
 
     var bodyRequest = {
 
-        "company_id": companyId,
+        "company_id": company,
         "result": dataRequest
 
     };

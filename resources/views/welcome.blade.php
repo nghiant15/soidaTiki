@@ -424,6 +424,7 @@ if (isset($globalData)) {
                 }
 
                 function openCamera() {
+                  
                     // Do nothing when video is streaming or image are being uploaded to server
                     if (streaming || uploading) return;
 
@@ -928,11 +929,8 @@ if (isset($globalData)) {
                 }
 
                 function processCaptureImage(imgUrl) {
-                    console.log(imgUrl);
-
-
-
-                    squareCropAndResizeImage(imgUrl, 300)
+                    
+                       squareCropAndResizeImage(imgUrl, 300)
                         .then(function(outputUrl) {
                             imageProcess.setAttribute("src", outputUrl);
                         })
@@ -995,12 +993,19 @@ if (isset($globalData)) {
                 }
 
                 function enableUploadBtn() {
+                  
                     uploadBtn.classList.remove("ai-skin__button--disabled");
+                   setTimeout(() => {
+                    skinModule.uploadImage();
+                   }, 500);
+                  
+                   
                 }
 
                 function toggleUploadBtn(show) {
                     if (show) {
                         uploadBtn.style.display = "block";
+                       
                     } else {
                         uploadBtn.style.display = "none";
                     }

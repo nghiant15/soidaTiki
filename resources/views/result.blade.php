@@ -364,7 +364,7 @@ margin: auto;
 
 <span style="font-weight:600;text-decoration: underline;cursor:pointer" onclick="ToggleDisplayClass('.status-modal-account',true)">
 ĐĂNG NHẬP
-</span>''
+</span>
 <span style ="text-indent: 3px;">  ĐỂ NHẬN QUÀ XINH</span>
 
 <span style="font-weight: 600;"></span>  
@@ -376,7 +376,7 @@ margin: auto;
 
                
 
-                @if (!Session()->has('dataCompany'))
+                @if (1==1)
                  <div class="poupupContainer">
                     <div class="modalpopup">
 
@@ -431,7 +431,7 @@ margin: auto;
             </div>
 
 
-            @if (!Session()->has('dataCompany'))
+            @if (1==1)
             <div class="content-plugin">
                 
                 <div class="title-overview">

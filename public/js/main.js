@@ -1,4 +1,4 @@
-// function validateFormLogin () 
+  // function validateFormLogin () 
 // {
 
 //     var indexError = 0;
@@ -256,7 +256,11 @@ document.addEventListener("DOMContentLoaded", function(){
         
 
     // }
-    tips.style.display ="block";
+    if(tips)
+    {
+      tips.style.display ="block";
+    }
+   
     if(dataUser != null)
     {
         
