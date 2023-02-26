@@ -995,9 +995,7 @@ if (isset($globalData)) {
                 function enableUploadBtn() {
                   
                     uploadBtn.classList.remove("ai-skin__button--disabled");
-                   setTimeout(() => {
-                    skinModule.uploadImage();
-                   }, 500);
+                  
                   
                    
                 }
