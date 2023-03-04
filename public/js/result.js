@@ -29,8 +29,6 @@ function reDrawInfomation() {
   function drawContentTuVanTongQuat(generalResult )
   {
      
-    debugger;
-  
   var index =0;
  generalResult.data.forEach((ketquatongquanItem) => {
 
@@ -226,7 +224,7 @@ function reDrawInfomation() {
           
 
         }
-         html  +=   '<li class="content-paragraph">'+"<span>" + arr[0]+":" + "</span>" +"<span class='boldText'>"+value+" </span>"+'</li>';
+         html  +=   '<li class="content-paragraph">'+"<span>" + arr[0]+":"  +"<strong class='boldText'>"+value+" </strong>" + "</span>"+'</li>';
        });
        
     html+=          '</ul></div></div> ';
@@ -430,7 +428,7 @@ function drawRecomendProduct ( ) {
     dataProducts.forEach(groupProduct => {
         var dataProducts = groupProduct[Object.keys(groupProduct)[0]];
        var listDataProducts = dataProducts.list_product;
-        debugger;
+     
         var htmlItem = '\
         <div class="title-category"> \
    \
@@ -442,7 +440,7 @@ function drawRecomendProduct ( ) {
 listDataProducts.forEach(element => {
         
   var pathImage = 'https://api-soida.applamdep.com/public/image_plugin/';
-  debugger;
+
   htmlItem+=  '<div class="product-item1">\
   \
     <div class="image-avatar"> \

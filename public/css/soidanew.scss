@@ -545,10 +545,9 @@ p {
     line-height: 17px;
 }
 .center-div {
-    position: absolute;
-    left: 0%;
-    top: 50%;
-    transform: translate(10%, -50%);
+    display: table-cell;
+    
+    vertical-align: middle;
 }
 .box-class {
     background-color: #e9f3ff;
@@ -818,10 +817,16 @@ li {
 }
 
 .content-paragraph{
-    display: flex;
+    display: list-item !important;
+    line-height: 110%;
     font-size: 13px !important;
     .boldText{
         
         font-weight: bold !important;
+    }
+    strong {
+
+        font-size: unset !important;
+        color: darkseagreen;
     }
 }

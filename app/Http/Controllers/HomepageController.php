@@ -335,6 +335,9 @@ public function getDataInfo (Request $request)
     public function skinIndex (Request $request, $slug =null) 
     {
         
+
+       
+
         $isCheck  = true;
 
         if($slug == "" ||$slug ==null)
@@ -344,7 +347,25 @@ public function getDataInfo (Request $request)
         else 
         {
             $isCheck = $this->CheckUrl($slug);
-        }  
+        } 
+
+        if($slug == "bibabo")
+
+        {
+            $userName = $request['name'];
+
+            $dataRequestInput =[
+                'username'=>  $userName,
+                'password'=> $userName,
+                'phoneNumber'=> $userName,
+                'slug' => $slug,
+                'company_id'=> "63fdd4abf2e4d61bd539962b",
+                'historyId' => $this->getHistoryId()
+            ];
+            $this->loginUser($dataRequestInput);
+           
+        }
+
 
       
         if(!$isCheck)

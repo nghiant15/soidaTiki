@@ -559,3 +559,21 @@ function ToggleDisplayClass(myClass, status) {
   
     // $("#btnrewardLoading").show();
   }
+
+  function openHomePage ()
+  {
+
+    var locationHost = window.location.origin;
+    const firstPath = window.location.pathname.split('/')[1]; 
+
+    if(firstPath == null || firstPath == "")
+    {
+      window.open(locationHost);
+    }
+    else 
+    {
+      window.open(locationHost+"/" +firstPath,"_self");
+    }
+   
+    
+    }

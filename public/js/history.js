@@ -112,6 +112,7 @@ $.ajax({
   contentType: "application/json; charset=utf-8",
   success: async function (data) {
 
+   
     // setTimeout(() => {
     //   if (isRedirect) {
 
@@ -146,6 +147,7 @@ $.ajax({
     // }, 1000);
   },
   complete: function (data) {
+
    
             setTimeout(() => {
             

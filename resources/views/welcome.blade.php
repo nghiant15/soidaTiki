@@ -25,14 +25,7 @@ if (isset($globalData)) {
     <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
-    <!-- <link rel="stylesheet" href="http://localhost:5000/contain/css/style.css" /> -->
-    {{-- <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/status.css">
-<link rel="stylesheet" href="/css/soidanew.css">
-<link rel="stylesheet" href="/css/reponsive.css">
-<link rel="stylesheet" href="/css/general.css"> --}}
 
-    <!-- <link rel="stylesheet" href="https://ungdungsoida.netlify.app/contain/css/style.css" /> -->
      
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -74,27 +67,7 @@ if (isset($globalData)) {
     <script>
         var slugGlobal = {!! json_encode($slug) !!};
     </script>
-
-
-
-
-
-
     <div id="b-placeholder">
-
-
-
-
-
-        {{-- <div class="header_promo" style="
-    width: 100%;
-    max-width: 709px;
-    margin: auto;
-    ">
-        <img src="/banner1.jpg">
-    </div> --}}
-
-
 
 
         <div class="ai-skin__container">
@@ -517,9 +490,6 @@ if (isset($globalData)) {
                         },
                         success: function(secondResponse) {
                             if (secondResponse.is_success) {
-
-
-
                                 openPoupupLoading(false);
                                 openPopupSuccess();
 
