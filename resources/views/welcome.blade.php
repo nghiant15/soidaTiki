@@ -453,8 +453,7 @@ if (isset($globalData)) {
 
                 function uploadImage() {
 
-                  
-                    return;
+            
                     var slugOutput = null;
                     var saleIdOutput = null;
                     var saleId = window.location.pathname.split("/")[2];
