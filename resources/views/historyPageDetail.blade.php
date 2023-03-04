@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutDetailHistory')
 
 @section('header')
 
@@ -42,7 +42,7 @@
 <script> 
     
     var slugGlobal = {!! json_encode($slug) !!};
-    console.log(slugGlobal);
+   
 </script>
 
 
@@ -53,16 +53,6 @@
         </p>
         <img src="/images/step3.png"> 
       </div>
-
-    
-   
-    {{-- <div class="header_promo" style="
-width: 100%;
-max-width: 709px;
-margin: auto;
-">
-        <img src="/banner1.jpg">
-    </div> --}}
 
 
     <div class="ai-skin__container">

@@ -150,10 +150,10 @@ if (isset($globalData)) {
             ai-skin__button--disabled
             ai-skin__skin-body__button
           "
-                        id="uploadBtn">
-                        <button type="button" onclick="skinModule.uploadImage()">
+                        id="uploadBtn" >
+                        {{-- <button type="button" onclick="skinModule.uploadImage()">
                             Tải ảnh lên và phân tích
-                        </button>
+                        </button> --}}
                     </div>
 
                     <div class="
@@ -453,6 +453,8 @@ if (isset($globalData)) {
 
                 function uploadImage() {
 
+                  
+                    return;
                     var slugOutput = null;
                     var saleIdOutput = null;
                     var saleId = window.location.pathname.split("/")[2];
@@ -900,9 +902,17 @@ if (isset($globalData)) {
 
                 function processCaptureImage(imgUrl) {
                     
+
+                 
                        squareCropAndResizeImage(imgUrl, 300)
                         .then(function(outputUrl) {
                             imageProcess.setAttribute("src", outputUrl);
+
+                            setTimeout(() => {
+                                        
+                                        skinModule.uploadImage();
+
+                             }, 500);
                         })
                         .catch(function(err) {
                             console.error("Error ocurred when cropping image: ", err);
@@ -916,6 +926,12 @@ if (isset($globalData)) {
                             squareCropAndResizeImage(e.target.result, 300)
                                 .then(function(outputUrl) {
                                     imageProcess.setAttribute("src", outputUrl);
+
+                                    setTimeout(() => {
+                                        
+                                        skinModule.uploadImage();
+
+                                    }, 500);
                                 })
                                 .catch(function(err) {
                                     console.error("Error ocurred when cropping image: ", err);
@@ -971,6 +987,8 @@ if (isset($globalData)) {
                 }
 
                 function toggleUploadBtn(show) {
+
+                
                     if (show) {
                         uploadBtn.style.display = "block";
                        

@@ -123,20 +123,18 @@
     {{-- @include('login.login') --}}
 
     @if (Session()->has('dataCompany'))
-    @include('profile.update')
-    @include('profile.history')
-    @include('profile.isVoucher')
-    @include('login.login')
+            @include('profile.update')
+            @include('profile.history')
+            @include('profile.isVoucher')
+            @include('login.login')
 
 
 
     @else
-    @include('profile.update')
-    @include('profile.history')
-    @include('profile.isVoucher')
-    @include('login.login')
-
-
+            @include('profile.update')
+            @include('profile.history')
+            @include('profile.isVoucher')
+            @include('login.login')
 
     @endif
 
@@ -272,10 +270,10 @@
 
 </div>
 
-<div id="alert-web">
+        <div id="alert-web">
 
-</div>
-                @yield('contentpage')
+        </div>
+        @yield('contentpage')
 
         </div>
     </div>
