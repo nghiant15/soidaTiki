@@ -339,6 +339,7 @@ public function getDataInfo (Request $request)
        
 
         $isCheck  = true;
+        $isTurnOfFooter =  true;
 
         if($slug == "" ||$slug ==null)
         {
@@ -352,6 +353,7 @@ public function getDataInfo (Request $request)
         if($slug == "bibabo")
 
         {
+            $isTurnOfFooter = false;
             $userName = $request['name'];
 
             $dataRequestInput =[
@@ -375,7 +377,7 @@ public function getDataInfo (Request $request)
         }
 
         $agent = new Agent();
-        return view("welcome", compact("slug","agent"));
+        return view("welcome", compact("slug","agent","isTurnOfFooter"));
        
 
     }
