@@ -35,7 +35,20 @@
     <link rel="stylesheet" type="text/css"
         href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
+.animated-gradient {
+  background: repeating-linear-gradient(to right, red 0%, blue 50%, red 100%);
+  width: 100%;
+  background-size: 200% auto;
+  background-position: 0 100%;
+  animation: gradient 2s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
 
+@keyframes gradient { 
+  0%   { background-position: 0 0; }
+  100% { background-position: -200% 0; }
+}   
     </style>
 @endsection
 @section('contentpage')
@@ -443,48 +456,43 @@ margin: auto;
                     </div>
 
                 </div>
-                <div class="text-paragraph">
-                    <p> <strong>Cấp độ 2: </strong> Các vết mụn không viêm, các vùng sẩn, là những mụn đỏ rắn, nhỏ trên bề
-                        mặt da</p>
 
-                </div>
-                <div class="description-tuvan">
+            </div>
 
-                    <div class="content-tuvan">
-                        <h6>Nguyên nhân Mụn đầu đen</h6>
+            <style>
+                .ConcludeItem{
+                    padding: 0px 20px;
+                }
 
-                        <p>
-                            Mụn đầu đen xảy ra khi lỗ chân lông bị tắc do sự kết hợp của bã nhờn và tế bào da chết. Phần
-                            trên cùng của lỗ chân lông vẫn mở, mặc dù phần còn lại của nó bị tắc nghẽn. Điều này dẫn đến màu
-                            đen đặc trưng nhìn thấy trên bề mặt.
+                .ConcludeItem:last-child{ 
+                    padding: 0px 30px;
+                }
+            </style>
+        
+                <div class= "ConcludeItem"> 
 
-                        </p>
+                    <div class="text-paragraph">
+                        <p> 
+                            <strong>Kết luận các dấu hiệu Lão Hóa Da: </strong> 
+                            Mức độ trung bình (Mức 2/3)
+                            
+                        </p> 
+                    
+                   </div>
+
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                   </div>
+                    
+                    <div class="text-paragraph">
+                        <p> 
+                              Các vết mụn không viêm, các vùng sẩn, là những mụn đỏ rắn, nhỏ trên bề mặt da
+                        </p> 
+                    
                     </div>
-                    <div class="image-demo">
-                        <img src="/images/klct1.png">
-                    </div>
+                 </div>
 
-                </div>
-
-                <div class="description-tuvan column-second">
-
-
-                    <div class="image-demo">
-                        <img src="/images/klct2.png">
-                    </div>
-                    <div class="content-tuvan">
-                        <h6>Nguyên nhân mụn viêm</h6>
-
-                        <p>
-                            Mặc dù bã nhờn và tế bào da chết góp phần gây ra mụn viêm, vi khuẩn cũng có thể đóng một vai trò
-                            trong việc làm tắc nghẽn lỗ chân lông. Vi khuẩn có thể gây nhiễm trùng sâu bên dưới bề mặt da.
-                            Điều này có thể dẫn đến những nốt mụn sưng tấy và khó loại bỏ.
-
-                        </p>
-                    </div>
-
-                </div>
-
+                
                 <div class="box-class-center" style="height:77px">
                     <div class=" nav-button  spaceAjustVer btnrecomend">
 
@@ -1248,6 +1256,9 @@ margin: auto;
             {
                 drawProduction(objectReponse.data.facedata.hintResult);
             }
+
+
+            drawKLCT(objectReponse.data.facedata.hintResult);
 
       
 
