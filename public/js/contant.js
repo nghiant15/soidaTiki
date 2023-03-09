@@ -8,7 +8,7 @@ if(slug === 'cong-tac-vien/' || slug === 'chinh-sach-va-bao-mat/' || slug === 'd
 }
 var  api =  {
 
-    baser_url:  "https://api-soida.applamdep.com/",
+    baser_url:  "http://localhost:3002/",
     api_addUrl: "api/add-end-user",
     api_loginUser: "api/login-end-user",
 
@@ -31,7 +31,7 @@ var  api =  {
   
 
     serve: {
-        baser_urlServer: "https://applamdep.com",
+        baser_urlServer: "http://localhost:8000",
         get_banner: `api/evoucher/banner/getAll`,
         api_logoutUser: `${slug}dang-xuat-he-thong`,
         api_registerUser: `${slug}dang-ky-nguoi-dung`,
