@@ -383,18 +383,18 @@ function drawRecomendProduct ( ) {
 
     var company =null  ;
 
-     if (sessionStorage.getItem("dataCompany") === null) {
-       
-   
+      if (sessionStorage.getItem("dataCompany") === null) {
+        
+          company = companyIdGlobal;
     }
-     else 
-     {
-         company = JSON.parse(sessionStorage.getItem("dataCompany"));
-         company = company.company_data;
-       
+      else 
+      {
+          company = JSON.parse(sessionStorage.getItem("dataCompany"));
+          company = company.company_data;
+        
 
-    
-     }
+
+      }
   
 
     var bodyRequest = {
@@ -439,19 +439,40 @@ function drawRecomendProduct ( ) {
 
 listDataProducts.forEach(element => {
         
-  var pathImage = 'https://api-soida.applamdep.com/public/image_plugin/';
+  var pathImage = 'https://api-soida.applamdep.com/public/image_plugin/' +'' +element.image_link +'';
 
-  htmlItem+=  '<div class="product-item1">\
-  \
-    <div class="image-avatar"> \
-      <img src="'+pathImage+''+element.image_link+'">\
-    </div>\
-    <div class="content-product">\
-        <div class="brand"><a href="'+element.linkdetail+'">'+element.title+'</a> </div>\
-    </div>\
- \
-</div>'; 
-            
+  var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', pathImage, false);
+    xhr.send();
+
+    if (xhr.status == "404") {
+      htmlItem+=  '<div class="product-item1">\
+      \
+        <div class="image-avatar"> \
+          <img src="/imageNo.jpg">\
+        </div>\
+        <div class="content-product">\
+            <div class="brand"><a href="'+element.linkdetail+'">'+element.title+'</a> </div>\
+        </div>\
+     \
+    </div>'; 
+               
+       
+    } else {
+      htmlItem+=  '<div class="product-item1">\
+      \
+        <div class="image-avatar"> \
+          <img src="'+pathImage+'">\
+        </div>\
+        <div class="content-product">\
+            <div class="brand"><a href="'+element.linkdetail+'">'+element.title+'</a> </div>\
+        </div>\
+     \
+    </div>'; 
+               
+    }
+
+ 
          
         
     });

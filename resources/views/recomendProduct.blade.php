@@ -234,7 +234,10 @@ LỊCH TRÌNH BUỔI SÁNG CỦA BẠN1
 </div> --}}
 
 <script> 
+
+var companyIdGlobal = {!! json_encode($companyId) !!};
 $(document).ready(function(){ 
+
 
   var resultCheck = sessionStorage.getItem("_t");
             if(resultCheck ==null)
