@@ -418,6 +418,98 @@ function drawRecomendProduct ( ) {
 
 
 
+function drawConcludeDetail(dataRequest) {
+
+  var company =null  ;
+
+
+
+
+
+  if (sessionStorage.getItem("dataCompany") === null) {
+    
+      company = companyIdGlobal;
+  }
+  else 
+  {
+      company = JSON.parse(sessionStorage.getItem("dataCompany"));
+      company = company.company_data;
+  }
+    
+  var bodyRequest = {
+
+      "company_id": company,
+      "result": dataRequest
+
+  };
+  $.ajax({
+      type: "POST",
+      url: "https://api-soida.applamdep.com/api/paramenterRecomed/getAllCocludeDetail",
+      data: JSON.stringify(bodyRequest),
+      contentType: "application/json",
+      dataType: "json",
+      success:function(data)
+      {
+        drawConclude(data.data.K5);
+      }
+  });
+}
+function drawConclude (item) 
+{
+  debugger;
+   if(item)
+   {
+    for (var i = 0; i < item.length; i++) {
+      var itemIndex = item[i];
+          var tilte = itemIndex.Title;
+          var des = itemIndex.Content;
+          var text = "Mức độ nhẹ";
+         
+
+          var level = itemIndex.Level;
+
+          if(level ==2)
+          {
+              text = "Mức độ trung bình";
+            
+          }
+
+          if(level ==3)
+          {
+              text = "Mức độ nặng";
+            
+          }
+
+          if(level>3)
+            level =3;
+          var percentage =  Math.round((level /3) * 100);
+          
+          var htmlTemp = '<div class="ConcludeItem"> \
+          \
+          <div class="text-paragraph">\
+              <p> \
+                  <strong>'+tilte+': </strong> \
+                 '+text+' (Mức '+level+'/3) </p> \
+          \
+         </div>\
+          <div class="progress">\
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="width: '+percentage+'%"></div>\
+         </div>\
+          \
+          <div class="text-paragraph">\
+              <p> \
+                    '+des+'\
+              </p> \
+          \
+          </div>\
+       </div>';
+       $("#ConcludeItemArea").append(htmlTemp);
+
+    }
+   }
+}
+
+
  function drawSuggessProduct(listProduct) 
  {
 

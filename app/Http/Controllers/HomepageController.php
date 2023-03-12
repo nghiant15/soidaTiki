@@ -384,20 +384,22 @@ public function getDataInfo (Request $request)
 
     public function result (Request $request, $slug =null) 
     {
-  
-
         if($slug =="soida")
         {
             $slug = null;
         }
         if($slug == null )
         {
-              
-            
+
         }
 
+        $companyId = $this->getCompanyId();
+    
+    
+        
+
         $agent = new Agent();
-        return view("result", compact("slug", "agent"));
+        return view("result", compact("slug", "agent","companyId"));
     }
 
     public function recomendProduct (Request $request, $slug =null) 
