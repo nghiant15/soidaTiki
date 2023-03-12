@@ -190,7 +190,7 @@ if (isset($globalData)) {
             
                 <div id="tips" class="ai-skin__tips" style="display:none">
                     <div class="ai-skin__tips__content" style= "width:400px">
-                    <img src  = "/timdoitac.png"/> 
+                    <img src  = "/bannersoida.jpg"/> 
 
                             <div class="ai-skin__button ai-skin__tips__button">
                                     <button type="button" onclick="hideTips()">Soi Da online ngay</button>
