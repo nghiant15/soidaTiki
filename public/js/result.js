@@ -29,6 +29,7 @@ function reDrawInfomation() {
   function drawContentTuVanTongQuat(generalResult )
   {
      
+    return;
   var index =0;
  generalResult.data.forEach((ketquatongquanItem) => {
 
@@ -447,16 +448,19 @@ function drawConcludeOverview(dataRequest) {
       contentType: "application/json",
       dataType: "json",
       success:function(data)
-      {
+      { 
+       
+       
         drawConcludeOverviewItem(data.data.K5);
-        drawConcludeOverviewItem(data.data.K6);
-        drawConcludeOverviewItem(data.data.K7);
-        drawConcludeOverviewItem(data.data.K8);
+         drawConcludeOverviewItem(data.data.K6);
+         drawConcludeOverviewItem(data.data.K7);
+         drawConcludeOverviewItem(data.data.K8);
         drawConcludeOverviewItem(data.data.K9);
       }
   });
 }
 
+var indexstt =1;
 
 function drawConcludeOverviewItem (item) 
 {
@@ -464,50 +468,25 @@ function drawConcludeOverviewItem (item)
    if(item)
    {
     for (var i = 0; i < item.length; i++) {
-      var itemIndex = item[i];
+
+        
+          var itemIndex = item[i];
           var tilte = itemIndex.Title;
           var des = itemIndex.Content;
-          var text = "Mức độ nhẹ";
-         
-
+       
           var level = itemIndex.Level;
 
-          if(level ==2)
+          var iconImage = itemIndex.Icon;
+          var htmltemplate ='\
+          <div class="description-tuvan">   <div class="content-tuvan">      <h6>'+''+indexstt +'. '+ tilte +'</h6>        <ul><li class="content-paragraph">'+des+'</li></ul>   </div>   <div class="image-demo">           <img src="'+iconImage+'"></div></div>\
+          ';
+          if(indexstt %2 !=0)
           {
-              text = "Mức độ trung bình";
-            
+            htmltemplate =  '<div class="description-tuvan column-second">  <div class="image-demo">            <img src="'+iconImage+'">     </div>    <div class="content-tuvan">       <h6>'+''+indexstt +'. '+tilte+'</h6>       <ul><li class="content-paragraph">'+ des+'</li></ul>    </div>    </div>';
           }
+          indexstt ++;
 
-          if(level ==3)
-          {
-              text = "Mức độ nặng";
-            
-          }
-
-          if(level>3)
-            level =3;
-          var percentage =  Math.round((level /3) * 100);
-          
-          var htmlTemp = '<div class="ConcludeItem"> \
-          \
-          <div class="text-paragraph">\
-              <p> \
-                  <strong>'+tilte+': </strong> \
-                 '+text+' (Mức '+level+'/3) </p> \
-          \
-         </div>\
-          <div class="progress">\
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="'+percentage+'" aria-valuemin="0" aria-valuemax="100" style="width: '+percentage+'%"></div>\
-         </div>\
-          \
-          <div class="text-paragraph">\
-              <p> \
-                    '+des+'\
-              </p> \
-          \
-          </div>\
-       </div>';
-       $("#ConcludeItemArea").append(htmlTemp);
+          $("#idtuvantongquan").append(htmltemplate);
 
     }
    }

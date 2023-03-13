@@ -445,28 +445,7 @@ margin: auto;
                 }
             </style>
                     <div id ="ConcludeItemArea">
-                {{-- <div class= "ConcludeItem"> 
-
-                    <div class="text-paragraph">
-                        <p> 
-                            <strong>Kết luận các dấu hiệu Lão Hóa Da: </strong> 
-                            Mức độ trung bình (Mức 2/3)
-                            
-                        </p> 
-                    
-                   </div>
-
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-                   </div>
-                    
-                    <div class="text-paragraph">
-                        <p> 
-                              Các vết mụn không viêm, các vùng sẩn, là những mụn đỏ rắn, nhỏ trên bề mặt da
-                        </p> 
-                    
-                    </div>
-                 </div> --}}
+                
                     </div>
                 
 
@@ -1267,7 +1246,8 @@ margin: auto;
             // drawKLCT(objectReponse.data.facedata.hintResult);
             drawConcludeDetail(objectReponse.data.facedata.hintResult);
 
-      
+            drawConcludeOverview(objectReponse.data.facedata.hintResult);
+
 
 
 
