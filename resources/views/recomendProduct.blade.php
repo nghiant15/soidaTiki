@@ -154,11 +154,11 @@ LỊCH TRÌNH BUỔI SÁNG CỦA BẠN1
 
 
 
+@if( $slug != 'bibabo' )
 <div class="nav-button-reward">
 
 <a href="javasript:void(0)" > <img src="/images/arrow.png"> THAM GIA ĐIỀN FORM NHẬN QUÀ HẤP DẤN </a> 
 </div>
-
 
 <div class="form-input">
            
@@ -215,6 +215,13 @@ LỊCH TRÌNH BUỔI SÁNG CỦA BẠN1
     <p>Sẽ liên hệ lại với bạn trong thời gian sớm nhất </p>
 
 </div>
+@endif
+
+
+
+
+
+
 
 
 {{-- <div class="button-nav-page-container">

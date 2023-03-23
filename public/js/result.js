@@ -619,7 +619,7 @@ listDataProducts.forEach(element => {
       htmlItem+=  '<div class="product-item1">\
       \
         <div class="image-avatar"> \
-          <img src="/imageNo.jpg">\
+         <a href = "'+element.linkdetail+'">  <img src="/imageNo.jpg"></a>\
         </div>\
         <div class="content-product">\
             <div class="brand"><a href="'+element.linkdetail+'">'+element.title+'</a> </div>\
@@ -632,7 +632,7 @@ listDataProducts.forEach(element => {
       htmlItem+=  '<div class="product-item1">\
       \
         <div class="image-avatar"> \
-          <img src="'+pathImage+'">\
+        <a href = "'+element.linkdetail+'"> <img src="'+pathImage+'"></a>\
         </div>\
         <div class="content-product">\
             <div class="brand"><a href="'+element.linkdetail+'">'+element.title+'</a> </div>\
