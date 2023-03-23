@@ -7,6 +7,9 @@ Route::get('/dangky', 'OpenAccountController@openAccount')->name('openAccount');
 Route::get("/mo-tai-khoan-thanh-cong", function(){
    return View::make("success");
 });
+
+Route::post('/typeLogin/setType', 'HistoryController@setType');
+
 Route::get('/{slug}/nhan-de-xuat-cham-soc-da', 'HomepageController@recomendProduct')->name('homePage');
 Route::get('/nhan-de-xuat-cham-soc-da', 'HomepageController@recomendProduct')->name('homePage');
 Route::get('/ket-qua', 'HomepageController@result')->name('redireHOmePage');

@@ -484,25 +484,58 @@ function ToggleDisplayClass(myClass, status) {
 
     var lastSegement = window.location.pathname.split("/").pop();
 
+    var typeLogin = null;
     if( lastSegement == "ket-qua" )
     {
        title = 'Để Xem kết luận chi tiết & tư vấn tổng quát';
+       typeLogin ="2";
+    }
+
+    if(title =="Để xem lịch sử soi da online")
+    {
+      typeLogin ="3";
+    }
+
+    if(title =="Để tư vấn da ngay & 100% Miễn Phí")
+    {
+      typeLogin ="1";
+    }
+
+    if(title =="Để tư vấn da ngay & 100% Miễn Phí")
+    {
+      typeLogin ="1";
     }
 
     if( title != '')
     {
         $("#titleLogin").html(title);
     }
-     
+
+    
+    var urlUpdate = api.serve.baser_urlServer + "/" + "typeLogin/setType";
   
- 
-    if (document.querySelector(myClass)) {
-      if (status) {
-        document.querySelector(myClass).style.display = "block";
-      } else {
-        document.querySelector(myClass).style.display = "none";
+    $.ajax({
+      type: "post",
+      url: urlUpdate,
+      data: {
+        typeLogin: typeLogin
+      },
+  
+      success: function (data) {
+        if (data.is_success) {         
+        }
+      },
+      error: function (data) {},
+    });
+
+
+      if (document.querySelector(myClass)) {
+        if (status) {
+          document.querySelector(myClass).style.display = "block";
+        } else {
+          document.querySelector(myClass).style.display = "none";
+        }
       }
-    }
   }
 
 

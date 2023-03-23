@@ -283,6 +283,10 @@ class HistoryController extends Controller
      {
         $historyId =  $this->getHistoryId();
         $ipClient = $request->ip();
+        // $ipClient ="118.69.182.32";
+  
+        $typeLogin =  session('typeLogin', null);
+
     
         $client1 = new Client();
         $linkUrl = "http://ip-api.com/json/".$ipClient;
@@ -339,6 +343,7 @@ class HistoryController extends Controller
                     "slug2"=> "tikicare",
                     "ipRequest" => $this->get_ip(),
                     "Sale_Id"=>  null,
+                    "typeLogin"=>$typeLogin,
                     "Result"=> $result
                 ];
                 // $object = json_decode($result);
@@ -373,4 +378,12 @@ class HistoryController extends Controller
  
      }
  
+
+     public function setType (Request $request) 
+     {
+          session(['typeLogin' => $request->input("typeLogin")]);
+
+     }
+   
+    
 }

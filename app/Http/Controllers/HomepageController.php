@@ -244,6 +244,8 @@ public function getDataInfo (Request $request)
     public function index (Request $request, $slug =null) 
     {  
         
+        $typeLogin =  session('typeLogin', null);
+       
         $dataUpdate = [];
         
         $params = [
@@ -541,6 +543,9 @@ public function getDataInfo (Request $request)
             session(['webinfo' =>[]]);
             }
     }
+
+    
+ 
     public function ViewhistoryWithIframe(Request $request , $id = null )
     {
 

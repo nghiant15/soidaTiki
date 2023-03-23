@@ -147,7 +147,6 @@ $.ajax({
     // }, 1000);
   },
   complete: function (data) {
-
    
             setTimeout(() => {
             
