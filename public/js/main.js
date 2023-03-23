@@ -282,7 +282,7 @@ function logout ()
     {
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
-          console.log('User signed out.');
+   
         });
     }
     sessionStorage.clear();
@@ -469,6 +469,32 @@ function loginwithGoogle()
 
 
 function ToggleDisplayClass(myClass, status) {
+ 
+    if (document.querySelector(myClass)) {
+      if (status) {
+        document.querySelector(myClass).style.display = "block";
+      } else {
+        document.querySelector(myClass).style.display = "none";
+      }
+    }
+  }
+
+
+  function ToggleDisplayLogin(myClass, status, title = '') {
+
+    var lastSegement = window.location.pathname.split("/").pop();
+
+    if( lastSegement == "ket-qua" )
+    {
+       title = 'Để Xem kết luận chi tiết & tư vấn tổng quát';
+    }
+
+    if( title != '')
+    {
+        $("#titleLogin").html(title);
+    }
+     
+  
  
     if (document.querySelector(myClass)) {
       if (status) {

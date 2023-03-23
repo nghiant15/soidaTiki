@@ -31,7 +31,7 @@
   var slugGlobal = {!! json_encode($slug) !!};
 
   var companyId = {!! json_encode($companyId) !!};
-  console.log(slugGlobal);
+
 </script>
 <div class="recomend-title-box"> 
 

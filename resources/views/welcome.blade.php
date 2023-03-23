@@ -654,7 +654,7 @@ if (isset($globalData)) {
                             if (secondResponse.is_success) {
 
                                 disabledUpload = false;
-                                console.log(secondResponse);
+                                
 
 
                                 ToggleAlert(true, "Soi da thành công", true);
@@ -817,7 +817,7 @@ if (isset($globalData)) {
                     }
 
                     sessionStorage.setItem("htmlTemplate", htmlTemplate)
-                    console.log(htmlTemplate);
+       
 
                     // navigateTo("/result");
                     window.location.href = "/result.html";
@@ -1105,7 +1105,7 @@ if (isset($globalData)) {
                             ctx.drawImage(oc, 0, 0, cur.width, cur.height, 0, 0, canvas.width, canvas
                                 .height);
                             var outputImage = canvas.toDataURL('image/png');
-                            console.log(outputImage);
+                
                             resolve(outputImage);
 
                         }
@@ -1380,7 +1380,7 @@ if (isset($globalData)) {
 <script>
 
 function openFormRegister() {
-    $("#status__text__login").trigger('click');
+    ToggleDisplayLogin('.status-modal-account',true,'Để tư vấn da ngay & 100% Miễn Phí')
 
 }
 

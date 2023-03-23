@@ -10,7 +10,7 @@ function loadingWeb (isLoading) {
 }
 async function getAllCampaign(idRender, value) {
 
-  console.log(dataWeb);
+ 
   $.ajaxSetup({
     headers: {
       "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -44,7 +44,7 @@ async function getAllCampaign(idRender, value) {
           var indexCountItem = 0;
           dataDraw.forEach((item) => {
             index++;
-            console.log(item);
+          
             var src = ``;
             if (item.image_link && item.image_link.length > 0) {
              

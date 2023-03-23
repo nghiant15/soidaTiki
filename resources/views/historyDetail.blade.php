@@ -42,7 +42,7 @@
 <script> 
     
     var slugGlobal = {!! json_encode($slug) !!};
-    console.log(slugGlobal);
+    
 </script>
 
 <div id="b-placeholder">

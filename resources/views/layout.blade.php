@@ -208,7 +208,7 @@
                     @else
 
                     <div class="flex" >
-                        <a onclick="ToggleDisplayClass('.status-modal-account',true)"
+                        <a onclick="ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online')"
                             href="javascript:void(0)"
                             id="status__text__login"
                             class=" btn_nav btn_nav-no-after navbar-a navbar-a"

@@ -461,7 +461,7 @@ function CheckFormCollaboratos() {
 function RegisterCollaborators() {
     const check = CheckFormCollaboratos();
     if (check) {
-        console.log("success")
+     
     };
 }
 

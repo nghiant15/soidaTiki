@@ -38,7 +38,7 @@
   <script> 
     
     var slugGlobal = {!! json_encode($slug) !!};
-    console.log(slugGlobal);
+    
 </script>
       
       <!-- Modal -->

@@ -3,7 +3,7 @@
 function reDrawInfomation() {
  
          var objectInformation = objectReponse;
-         console.log(objectInformation);
+       
          var faceData = objectReponse.data.facedata;
          var imageInfo = faceData.image_info;
          $("#imageResult").attr("src",imageInfo.url);
@@ -411,7 +411,7 @@ function drawRecomendProduct ( ) {
         contentType: "application/json",
         dataType: "json",
         complete: function(data) {
-            console.log(data);
+         
              drawSuggessProduct(data.responseJSON);
         },
     });

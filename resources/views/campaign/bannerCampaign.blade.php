@@ -186,7 +186,7 @@ $dataColor = $dataColor->data;
         var itemCarousel = ``;
         var html = ``;
         data.forEach((item, i) => {
-            console.log("3",item);
+      
             var imageLink = "https://api-soida.applamdep.com/public/image_brand/" +item.image_link;
         if (i === 0) {
         li +=

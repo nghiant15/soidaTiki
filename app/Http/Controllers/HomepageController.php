@@ -408,6 +408,7 @@ public function getDataInfo (Request $request)
         $companyId = $this->getCompanyId();
     
         $agent = new Agent();
+  
         return view("recomendProduct", compact("slug", "companyId", "agent"));
     }
 

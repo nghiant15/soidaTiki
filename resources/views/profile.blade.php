@@ -36,7 +36,7 @@
     <script> 
     
         var slugGlobal = {!! json_encode($slug) !!};
-        console.log(slugGlobal);
+ 
     </script>
   <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog" role="document" >
@@ -562,7 +562,6 @@
                     }
 
                     sessionStorage.setItem("htmlTemplate", htmlTemplate)
-                    console.log(htmlTemplate);
                     
                     // navigateTo("/result");
                      window.location.href = "/result.html";
@@ -631,7 +630,7 @@
 
                         const imgUrl = canvas.toDataURL("image/png");
                         imageShow.setAttribute("src", imgUrl);
-                        console.log(imgUrl);
+                   
 
                         processCaptureImage(imgUrl);
                     }
@@ -823,7 +822,7 @@
                                 resolve(canvas.toDataURL('image/png'));
 
                             } catch (e) {
-                                console.log('e11', e)
+                              
                             }
 
                         };

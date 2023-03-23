@@ -54,7 +54,7 @@
 @section('contentpage')
     <script>
         var slugGlobal = {!! json_encode($slug) !!};
-        console.log(slugGlobal);
+   
     </script>
     {{-- <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
@@ -1136,7 +1136,15 @@ margin: auto;
                     }
 
                 });
+
+                
             });
+
+            window.onscroll = function(ev) {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                 alert("3");
+                }
+                };
         </script>
 
 
@@ -1248,7 +1256,7 @@ margin: auto;
 
             drawConcludeOverview(objectReponse.data.facedata.hintResult);
 
-
+            
 
 
         });

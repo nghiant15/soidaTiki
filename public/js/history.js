@@ -224,7 +224,7 @@ function saveHistoryNoAction(isRedirect, result = null) {
     dataType: "json",
     contentType: "application/json; charset=utf-8",
     success: async function (data) {
-      console.log("save",data)
+   
     },
     complete: function (data) {},
   });

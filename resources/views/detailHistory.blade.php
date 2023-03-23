@@ -38,7 +38,7 @@
     <script> 
     
         var globalId = {!! json_encode($id) !!};
-        console.log(globalId);
+   
     </script>
     <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">

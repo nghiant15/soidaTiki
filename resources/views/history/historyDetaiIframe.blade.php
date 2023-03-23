@@ -45,7 +45,7 @@
 <script> 
     
     var slugGlobal = {!! json_encode($slug) !!};
-    console.log(slugGlobal);
+
 </script>
 {{-- <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
