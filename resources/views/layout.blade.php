@@ -206,29 +206,31 @@
                         </div>
                     </div>
                     @else
+                            @if($slug !="bibabo")
 
-                    <div class="flex" >
-                        <a onclick="ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online')"
-                            href="javascript:void(0)"
-                            id="status__text__login"
-                            class=" btn_nav btn_nav-no-after navbar-a navbar-a"
-                            style="margin:auto;box-shadow:none">
-                            Đăng nhập/Đăng ký
-                        </a>
-                        <div class="hover-after-login" >
-                            <a id="name_after_login" href="javascript:void(0)"
-                                
-                                class=" btn_nav  navbar-a navbar-a"
-                                style="margin:auto;box-shadow:none">
-                                
-                            </a>
-                            <div class="status-form-after-login position_form_information_user">
-                                <div class="form-function-user">
-                                    <p onclick="reloadWeb()">Click để xem thông tin</p>
+                            <div class="flex" >
+                                <a onclick="ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online')"
+                                    href="javascript:void(0)"
+                                    id="status__text__login"
+                                    class=" btn_nav btn_nav-no-after navbar-a navbar-a"
+                                    style="margin:auto;box-shadow:none">
+                                    Đăng nhập/Đăng ký
+                                </a>
+                                <div class="hover-after-login" >
+                                    <a id="name_after_login" href="javascript:void(0)"
+                                        
+                                        class=" btn_nav  navbar-a navbar-a"
+                                        style="margin:auto;box-shadow:none">
+                                        
+                                    </a>
+                                    <div class="status-form-after-login position_form_information_user">
+                                        <div class="form-function-user">
+                                            <p onclick="reloadWeb()">Click để xem thông tin</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                            @endif
                     
 
 
@@ -282,7 +284,8 @@
 
     @include('new.popupSuccess')
 
-    
+@if($slug != "bibabo")
+
 <footer class="bg-smoke mt-5">
     <div class="content-page">
         <div class="content-plugin">
@@ -327,7 +330,7 @@
   
 </footer> 
 
-
+@endif
 
 </body>
 

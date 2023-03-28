@@ -371,19 +371,23 @@ margin: auto;
 @if (Session()->has('dataCompany'))
 
 @else
-<div class="resultNote">
-           
-    <p class="maincontent text-suggest-login" id="suggest-login-content">
+       @if($slug !="bibabo")
+        
 
-<span style="font-weight:600;text-decoration: underline;cursor:pointer" onclick="ToggleDisplayClass('.status-modal-account',true)">
-ĐĂNG NHẬP
-</span>
-<span style ="text-indent: 3px;">  ĐỂ NHẬN QUÀ XINH</span>
+                <div class="resultNote">
+                        
+                    <p class="maincontent text-suggest-login" id="suggest-login-content">
 
-<span style="font-weight: 600;"></span>  
-</p>
+                <span style="font-weight:600;text-decoration: underline;cursor:pointer" onclick="ToggleDisplayClass('.status-modal-account',true)">
+                ĐĂNG NHẬP
+                </span>
+                <span style ="text-indent: 3px;">  ĐỂ NHẬN QUÀ XINH</span>
 
-</div>
+                <span style="font-weight: 600;"></span>  
+                </p>
+
+                </div>
+        @endif
 @endif
 
 
@@ -1142,7 +1146,7 @@ margin: auto;
 
             window.onscroll = function(ev) {
                 if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                 alert("3");
+                 
                 }
                 };
         </script>
