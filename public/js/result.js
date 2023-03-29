@@ -538,6 +538,164 @@ success:function(data)
 });
 }
 
+function drawConcludeOverview( dataRequest)
+{
+
+  for (var i = 0; i < dataRequest.length; i++)
+  {
+    var item = dataRequest[i];
+      var groupK = item['level'];
+      if(groupK < "K5") 
+         continue;
+      var valueGroupK = item['sdktype'];
+      drawConcludeOverview2( groupK, valueGroupK);
+
+      
+    
+  }
+}
+
+
+function drawConcludeOverview2 ( groupk, valuek) 
+{
+  var tilte = "";
+  var des = "";
+  
+  var text = "Mức độ nhẹ";
+
+  if(valuek >3)
+    valuek = 3;
+    valuek=  valuek+'';
+
+
+  
+    switch(groupk) {
+      case "K5":
+        tilte = "Lão hoá da";
+
+        switch (valuek) {
+          case  "1":
+            des = 'Đầu tiên, hãy chống nắng cho làn da thật kỹ nhé. <br>Sau đó, hãy cung cấp độ ẩm cho làn da mỗi ngày bằng collagen, Hyaluronic acid… <br>Đừng quên làm sạch da nhẹ nhàng và thật kỹ.';
+            break;
+          case "2":
+            des = 'Khi da bắt đầu ở giai đoạn lão hoá này, bạn hãy kiên nhẫn chăm sóc làn da mỗi ngày bằng cách sử dụng các sản phẩm đặc trị có chứa vitamin C, Retinoids, AHA, BHA Collagen, Hyaluronic Acid, Ceramide..<br> Đừng quên chống nắng là bước quan trong nhất dành cho làm da bạn nhé. <br>Ngoài ra, Massage cơ mặt, 1 tinh thần lạc quan và 1 chế độ ăn uống hợp lý sẽ giúp bạn chăm sóc da lão hoá hiệu quả hơn.';
+            break;
+          case "3":
+            des = 'Ở mức độ này, Bạn cần có một liệu trình chăm sóc và điều trị thật nghiêm túc nhé.<br> Sử dụng những công nghệ cao tại các Spa có chuyên môn sẽ giúp bạn của thiện nhanh chóng hơn, <br>Bên cạnh đó, hãy cung cấp cho làn da các thành phần cần thiết như vitamin C, Retinoids, AHA, BHA Collagen, Hyaluronic Acid, Ceramide Đừng quên làm sạch da nhẹ nhàng và chống nắng mỗi ngày.';
+            break;
+          default:
+            
+            break;
+        }
+        break;
+
+      case "K6":
+        tilte = "Mụn và mụn viêm đỏ";
+        switch (valuek) {
+          case  "1":
+            des = 'Hãy làm sạch da 2 lần/ngày, Đối với những nốt mụn viêm hãy sử dụng những sản phẩm có chứa có các thành phần như ﻿Hydroxy Complex có chứa các hợp chất tẩy tế bào chết có hiệu quả cao - Glycolic Acid, Salicylic Acid và Polyhydroxy Acid - giúp tái tạo làn da, thông thoáng lỗ chân lông, giảm vi khuẩn, loại bỏ tế bào da chết và ngăn ngừa mụn mới xuất hiện.';
+            break;
+          case "2":
+            des = 'Làm sạch da bằng nước tẩy trang và sửa rửa mặt dịu nhẹ ít bọt. Chọn một sản phẩm điều trị có thể kiểm soát được nhận mụn và giảm thâm . Và cuối cùng cấp đủ độ ẩm cho da , chống nắng kĩ càng hạn chế việc các vết mụn nặng hơn . <br>Rửa mặt làm sạch da nhẹ nhàng nhưng hiệu quả loại bỏ bẩn, cặn trang điểm và chất bả nhờn dư thừa trên da. Giữ làn da cảm giác sạch , tươi mát và mềm mại.';
+            break;
+          case "3":
+            des = 'Ngưng các hoạt chất điều trị, làm sạch da 2 lần/ngày , và đến bác sĩ da liễu tư vấn để kê toa điều trị tốt nhất. <br>Phải thật cân nhắc khi sử dụng các sản phẩm có chứa corticoid.';
+            break;
+          default:
+            
+            break;
+        }
+        break;
+      case "K7":
+        tilte ="Quầng thâm mắt";
+        switch (valuek) {
+          case  "1":
+            des = 'Ngủ đủ giấc và massage mắt.';
+            break;
+          case "2":
+            des = 'Bổ sung nhiều hơn vitamin A,C.. Sử dụng một số loại kem tăng cường collagen. Điều trị laser nếu thực sự cần thiết.';
+            break;
+          case "3":
+            des = 'Sử dụng những loại kem đặc trị chứa các thành phần như Collagen, Acid Hyaluronic, Q10… Laser Filler.';
+            break;
+          default:
+             break;
+        }
+        break;
+
+      case "K8":
+        tilte ="Lỗ chân lông";
+
+        switch (valuek) {
+          case  "1":
+            des = 'Vệ sinh da thật kỹ nhé hạn chế gây bít tắc, hoặc vi khuẩn xâm nhập. Lưa chọn loại tẩy tế bào chết phù hợp Cung cấp độ ẩm cho da đều mỗi ngày.';
+            break;
+          case "2":
+            des = 'Bị lỗ chân lông ở mức độ trung bình thì đầu tiên bạn phải tẩy trang kĩ càng đảm bảo là da mặt đã sạch bụi bẩn . Sau khi tẩy trang thì da mặt sẽ bị khô và mất nước bạn cần cung cấp độ ẩm cho da bằng các loại kem dưỡng , xịt khoáng để đám bảo là da mặt không bị qúa khô. Và bạn nên chống nắng thật kĩ trước khi ra ngoài để tránh tia UV và bổ sung thêm một số dưỡng chất như vitamin C có thể hỗ trợ dầu thừa và kết cấu da.';
+            break;
+          case "3":
+            des = 'Da đang ở tình trạng lỗ chân lông vì thế việc ưu tiên của bạn chính là tẩy trang , rửa mặt đều đặn cho da. Và nhớ tẩy da chết đều đặn 2 lần / tuần giúp loại bỏ sạch sẽ bã nhờn trên da , nhớ cân bằng lại độ ph trên da sau khi làm sạch để da có đủ độ ẩm làm giảm thiểu tình trạng da bị khô mất nước bằng cách dùng nước cân bằng cho da và khóa ẩm bằng kem dưỡng ẩm hoặc xịt khoáng.';
+            break;
+          default:
+            
+            break;
+        }
+      break;
+
+      case "K9":
+        tilte ="Đốm thâm nám";
+        switch (valuek) {
+          case  "1":
+            des = 'Luôn chống nắng bạn nhé. Bôi cách nhau 2 tiếng và sử dụng lượng kem vừa đủ. Luôn cấp ẩm để cân bằng dầu nước cho da. Tránh để làn da bị khô.';
+            break;
+          case "2":
+            des = 'Làn da đang cần được chăm sóc kỹ hơn, Lựa chọn loại kem chống nắng phù hợp cho làn da. Các sản phẩm có những thành phần sau được ưu tiên Vitamin C, Retinoid, tyrosinase nên nó đóng vai trò như một chất ức chế cạnh tranh, hạn chế hình thành các tiền chất của melanin.';
+            break;
+          case "3":
+            des = 'Sử dụng Laser, Peel da và dứoi sứ chăm sóc thật kỹ từ spa, Thẩm mỹ có chuyên môn để có kết quả nhanh hơn Bên cạnh đó phải luôn đảm bảo da được chống nắng đúng cách. Bổ sung cho làn da những loại kem có chứa cá thành phần như Arbutin, Glycolid acid, Hydroquynone.';
+            break;
+      
+          default:
+            
+            break;
+        }
+        break;
+      
+      default:
+        // code block
+    }
+
+
+   if(valuek ==2)
+   {
+       text = "Mức độ trung bình";
+     
+   }
+
+   if(valuek >=3)
+   {
+       text = "Mức độ nặng";
+     
+   }
+
+
+   if(valuek>3)
+      valuek =3;
+
+     var valueLevel = valuek*1 + 0.3;
+
+     if(valueLevel >3)
+      valueLevel = 3;
+   var percentage =  Math.round((valueLevel /3) * 100);
+   
+   
+   var htmlTemp = '<div class ="tuvantongquanItem"> \
+   <p class ="titletvtq">'+ tilte + ': </p>\
+   <p class ="paragraphText">'+des+ '</p> </div> ';
+$("#idtuvantongquan").append(htmlTemp);
+
+}
+
 function drawConcludev2 ( groupk, valuek) 
 {
   var tilte = "";

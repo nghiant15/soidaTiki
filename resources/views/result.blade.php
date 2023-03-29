@@ -577,7 +577,7 @@ margin: auto;
                 </style>
                 <div id="idtuvantongquan">
 
-                    <div class ="tuvantongquanItem"> 
+                    {{-- <div class ="tuvantongquanItem"> 
                         <p class ="titletvtq">Lão hoá da: </p>
                         <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
                     </div>
@@ -599,7 +599,7 @@ margin: auto;
                     <div class ="tuvantongquanItem"> 
                         <p class ="titletvtq">Đốm thâm nám: </p>
                         <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
-                    </div>
+                    </div> --}}
 
                 </div>
                 @endif
