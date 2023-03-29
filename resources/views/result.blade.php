@@ -575,7 +575,10 @@ margin: auto;
 
                     }
                 </style>
-                <div id="idtuvantongquan">
+                <div id="idtuvantongquan"  style="
+                text-align: justify;
+                padding: 10px;
+            ">
 
                     {{-- <div class ="tuvantongquanItem"> 
                         <p class ="titletvtq">Lão hoá da: </p>
