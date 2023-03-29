@@ -442,16 +442,104 @@ margin: auto;
             <style>
                 .ConcludeItem{
                     padding: 0px 20px;
+
+                    margin-top: 20px;
+                  
+                }
+                .ConcludeItem  {
+                font-family: SFU Futura;
+                font-style: normal;
+                font-size: 14px;
+                line-height: 20px;
+                color: #1c213f;
                 }
 
-                .ConcludeItem:last-child{ 
-                    padding: 0px 30px;
-                }
+                
+
+.progress-bar-container {
+    width: 100%;
+    height: 13px;
+    margin: 4px 0px 2px 0px;
+    background: #0000001f;
+}
+
+.progress-bar-indicator {
+  height: 100%;
+  background-image: linear-gradient(to right, #f55581, #ffc107, #00ff4c);
+ 
+}
+
+#indicator-1 {
+  width: 80%;
+}
+.paragraph-text-pa {
+    display: inline-flex;
+    padding-bottom: 30px;
+
+}
+
+.bold-text-pa {
+    margin-right: 5px;
+    font-weight: bold;
+}
+.bold-text-pa1 {
+    font-weight: bold;
+}
+.tooltip-target { position: relative; }
+
+.tooltip-content { 
+    font-size: 9px;
+    background-color: snow;
+    border-radius: 20px;
+    width: 70px;
+    line-height: 10px;
+    text-align: center;
+    padding: 3px;
+    display: block;
+    position: absolute;
+   
+    color: black;
+  
+    top: -38px;
+}
+
+.tooltip-content::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+.tooltip-target:hover .tooltip-content {
+    display: block;
+}
+.score {
+    display: inline-flex;
+    font-weight: bold;
+}
+
+#textbox {
+    display: flex;
+    justify-content: space-between;
+}
+.concludeDeta-text-1 {
+
+    display: flex;
+}
+.concludeDetalText {
+    padding-left: 8%;
+    margin-bottom: 20px;
+}
             </style>
-                    <div id ="ConcludeItemArea">
-                
-                    </div>
-                
+
+
+            <div id ="ConcludeItemArea">
+        
+            </div>
+        
 
 
                 <div class="title-overview">
@@ -463,9 +551,55 @@ margin: auto;
                     </div>
 
                 </div>
+                <style>
+                    .titletvtq {
+                    margin-right: 5px;
+                    font-weight: bold;
+                    font-family: SFU Futura;
+                    font-style: normal;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: #1c213f;
+                    }
+                    .paragraphText{
 
+                        font-family: SFU Futura;
+                        font-style: normal;
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: #1c213f; 
+                        text-align: justify;
+                       
+                    }
+
+
+                    }
+                </style>
                 <div id="idtuvantongquan">
 
+                    <div class ="tuvantongquanItem"> 
+                        <p class ="titletvtq">Lão hoá da: </p>
+                        <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
+                    </div>
+
+                    <div class ="tuvantongquanItem"> 
+                        <p class ="titletvtq">Mụn và mụn viêm đỏ: </p>
+                        <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
+                    </div>
+
+                    <div class ="tuvantongquanItem"> 
+                        <p class ="titletvtq">Quầng thâm mắt: </p>
+                        <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
+                    </div>
+
+                    <div class ="tuvantongquanItem"> 
+                        <p class ="titletvtq">Lỗ chân lông: </p>
+                        <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
+                    </div>
+                    <div class ="tuvantongquanItem"> 
+                        <p class ="titletvtq">Đốm thâm nám: </p>
+                        <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
+                    </div>
 
                 </div>
                 @endif
