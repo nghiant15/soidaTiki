@@ -416,10 +416,8 @@ margin: auto;
                         Hiểu chi tiết hơn về làn da giúp bạn biết cách chăm sóc và có làn da tuyệt vời nhất
                     </p>
                 </div>
-
-
-
-
+                
+                
                 <div class="result-list" id="danhsachketquatungphan">
 
 
