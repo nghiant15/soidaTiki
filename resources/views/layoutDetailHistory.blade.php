@@ -158,50 +158,8 @@
 
     @include('new.popupSuccess')
 
-    
-<footer class="bg-smoke mt-5">
-    <div class="content-page">
-        <div class="content-plugin">
-            <div class="row" style="padding: 20px 0;margin:0">                     
-                <div class="footer__col1--padding">   
-                    <div class="desktop-inline">
-                    <div class="footer__col1--column">
-                        <img class="footer__logo-shynh" src="/footerLogo.png" alt="logo">
-                        <div class="footer__global-title text-center font--main">
-                            <a>
-                                <span class="font--main">
-                                    
-                                </span>
-                            </a>
-                        </div>  
-                        
-                    </div>   
-                    </div>   
-                </div>                
-                <div class="footer__col2--padding">             
-                    <div div="" class="footer__space--mobi">
-                    </div>    
-                          <div class="footer__global-title font--main">
-                                <span> CÔNG TY TNHH CÔNG NGHỆ TIKITECH </span>
-                            </div>
-                         
-                            <div class="footer__global font--main">
-                            Số 91 Đường N1, Khu dân cư Hiệp Thành, Phường Hiệp Thành, Quận 12, Thành phố Hồ Chí Minhh
-                            </div> 
-                            <div class="footer__global font--main">
-                                Hotline: <a class="font--main" href="tel:0903 969 952">0903 969 952</a> 
-                                
-                            </div> 
-                            <div class="footer__global font--main"> 
-                                Email: <a class="font--main" href="mailto:hi@tikitech.vn">hi@tikitech.vn</a>
-                            </div>    
-                </div>
-            </div>
-        </div>
-    </div>
-
-  
-</footer> 
+ <div style ="padding-bottom:30px">
+ </div>
 
 
 
