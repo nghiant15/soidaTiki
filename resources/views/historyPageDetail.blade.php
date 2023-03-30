@@ -74,7 +74,7 @@
 
 .progress-bar-indicator {
   height: 100%;
-  background-image: linear-gradient(to right, #f55581, #ffc107, #00ff4c);
+  background-image: linear-gradient(to right, #00ff4c, #ffc107, #f55581);
  
 }
 
