@@ -1,4 +1,4 @@
-   <!-- $dataColor =  "#1a214f"; -->
+
 @php
    $dataColor  = null;
    $bannerPage = null;

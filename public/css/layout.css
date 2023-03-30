@@ -1,3 +1,5 @@
+
+
 .header__slug__current {
     padding: 2rem 0 0 0;
   }
@@ -248,6 +250,7 @@
     height: auto;
     padding: 6px 0 0 0;
     position: sticky;
+    z-index: 100000;
     top: 0;
     width: 100%;
     display: flex;

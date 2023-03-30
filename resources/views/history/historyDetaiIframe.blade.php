@@ -36,6 +36,31 @@
 <style>
 
 </style>
+
+<style>
+                    .titletvtq {
+                    margin-right: 5px;
+                    font-weight: bold;
+                    font-family: SFU Futura;
+                    font-style: normal;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: #1c213f;
+                    }
+                    .paragraphText{
+
+                        font-family: SFU Futura;
+                        font-style: normal;
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: #1c213f; 
+                        text-align: justify;
+                       
+                    }
+
+
+                    }
+                </style>
 @endsection
 @section('contentpage')
 
@@ -537,7 +562,10 @@ margin: auto;
     
                 </div>
 
-                <div id = "idtuvantongquan">
+                <div id="idtuvantongquan"  style="
+                text-align: justify;
+                padding: 10px;
+            ">
                    
                     
                 </div>
@@ -708,30 +736,8 @@ margin: auto;
 
 
         <div class="content-plugin">
-            {{-- <div class="title-page"> --}}
-                 {{-- <img src="/images/group79.png">  --}}
-                 {{-- <span> KẾT LUẬN CHI TIẾT </span>
-                     
-             </div> --}}
-             {{-- <div class="section-introduction">
-                     <div class="image-result">
-                         <img src = "/images/tongquantitle.png"> 
-                         
-                     </div>
-                     <div class="content-result">
-                             <div class="content-result-border">
-                                 <div>
-                                     <p>Kết luận chi tiết </p>
-                                     <p>Cấp độ 2</p>
-                                     <p> Nguyên nhân mụn đậu đen</p>
-                                     <p> Nguyên nhân mụn viêm</p>
-                                 </div>
-                              
-                             </div>  
- 
-                     </div>
-                    
-             </div> --}}
+            
+             
              <div class="title-overview">
                  <div class="hcn"> 
  
@@ -741,42 +747,110 @@ margin: auto;
                  </div>
  
              </div>
-             <div class="text-paragraph">
-                <p> <strong>Cấp độ 2: </strong> Các vết mụn không viêm, các vùng sẩn, là những mụn đỏ rắn, nhỏ trên bề mặt da</p>
-               
-             </div>
-             <div class="description-tuvan"> 
+            
+            
+             <style>
+                .ConcludeItem{
+                    padding: 0px 20px;
+
+                    margin-top: 20px;
+                  
+                }
+                .ConcludeItem  {
+                font-family: SFU Futura;
+                font-style: normal;
+                font-size: 14px;
+                line-height: 20px;
+                color: #1c213f;
+                }
+
+                
+
+.progress-bar-container {
+    width: 100%;
+    height: 13px;
+    margin: 4px 0px 2px 0px;
+    background: #0000001f;
+}
+
+.progress-bar-indicator {
+  height: 100%;
+  background-image: linear-gradient(to right, #f55581, #ffc107, #00ff4c);
  
-                     <div class="content-tuvan">
-                         <h6>Nguyên nhân Mụn đầu đen</h6>
- 
-                         <p> 
-                           Mụn đầu đen xảy ra khi lỗ chân lông bị tắc do sự kết hợp của bã nhờn và tế bào da chết. Phần trên cùng của lỗ chân lông vẫn mở, mặc dù phần còn lại của nó bị tắc nghẽn. Điều này dẫn đến màu đen đặc trưng nhìn thấy trên bề mặt.
- 
-                         </p>
-                      </div>
-                      <div class="image-demo"> 
-                             <img src ="/images/klct1.png"> 
-                      </div>
- 
-              </div>
- 
-              <div class="description-tuvan column-second"> 
- 
-                 
-                  <div class="image-demo"> 
-                         <img src ="/images/klct2.png"> 
-                  </div>
-                  <div class="content-tuvan">
-                     <h6>Nguyên nhân mụn viêm</h6>
- 
-                     <p> 
-                       Mặc dù bã nhờn và tế bào da chết góp phần gây ra mụn viêm, vi khuẩn cũng có thể đóng một vai trò trong việc làm tắc nghẽn lỗ chân lông. Vi khuẩn có thể gây nhiễm trùng sâu bên dưới bề mặt da. Điều này có thể dẫn đến những nốt mụn sưng tấy và khó loại bỏ.
+}
+
+#indicator-1 {
+  width: 80%;
+}
+.paragraph-text-pa {
+    display: inline-flex;
+    padding-bottom: 30px;
+
+}
+
+.bold-text-pa {
+    margin-right: 5px;
+    font-weight: bold;
+}
+.bold-text-pa1 {
+    font-weight: bold;
+}
+.tooltip-target { position: relative; }
+
+.tooltip-content { 
+    font-size: 9px;
+    background-color: snow;
+    border-radius: 20px;
+    width: 70px;
+    line-height: 10px;
+    text-align: center;
+    padding: 3px;
+    display: block;
+    position: absolute;
    
-                     </p>
-                  </div>
+    color: black;
+  
+    top: -38px;
+}
+
+.tooltip-content::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+.tooltip-target:hover .tooltip-content {
+    display: block;
+}
+.score {
+    display: inline-flex;
+    font-weight: bold;
+}
+
+#textbox {
+    display: flex;
+    justify-content: space-between;
+}
+.concludeDeta-text-1 {
+
+    display: flex;
+}
+.concludeDetalText {
+    padding-left: 8%;
+    margin-bottom: 20px;
+}
+            </style>
+
+
+            <div id ="ConcludeItemArea">
+        
+            </div>
  
-                  </div>
+            
  
  
  
@@ -1537,8 +1611,10 @@ margin: auto;
         resultModule.startup();
         
         reDrawInfomation();
-
-        drawProduction(objectReponse.data.facedata.hintResult);
+     
+        drawConcludeDetail(objectReponse.data.facedata.hintResult);
+        drawConcludeOverview(objectReponse.data.facedata.hintResult);
+        // drawProduction(objectReponse.data.facedata.hintResult);
 
         
 

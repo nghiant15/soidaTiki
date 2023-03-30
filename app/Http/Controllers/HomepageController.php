@@ -471,7 +471,7 @@ public function getDataInfo (Request $request)
              return  "Không có dữ liệu";
            
          }
-            return view("historyPageDetail",compact("id","slug","agent"));
+        return view("historyPageDetail",compact("id","slug","agent"));
         
     }
 
