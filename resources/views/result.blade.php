@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/soidanew.css">
     <link rel="stylesheet" href="/css/tuvantongquan.css">
     <link rel="stylesheet" href="/css/reponsive.css">
+    <link rel="stylesheet" href="/css/sanphamgoiy.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap" rel="stylesheet">
@@ -495,8 +496,7 @@ margin: auto;
     padding: 3px;
     display: block;
     position: absolute;
-   
-    color: black;
+     color: black;
   
     top: -38px;
 }
@@ -607,7 +607,23 @@ margin: auto;
                 
 
             </div>
+            <div class="recomend-title-box"> 
 
+<div class="centerText"> 
+<p>GỢI Ý TỪ CHUYÊN GIA</p>
+<img src="/images/start-direct.png"> 
+
+</div>
+<div  class="title-strong"> 
+<p> CÁC SẢN PHẨM CHUYÊN GIA ĐỀ XUẤT RIÊNG CHO BẠN </p>
+</div>
+</div>
+
+<div id = "list-product">
+
+
+
+</div>
 
             @if (1==1)
             <div class="content-plugin">
@@ -630,7 +646,7 @@ margin: auto;
 
         </div>
 
-
+            
         <!-- <div class="banner3 " style="background-image: url('/assets/bannernew/2.png">
 
 
@@ -1395,7 +1411,7 @@ margin: auto;
 
             drawConcludeOverview(objectReponse.data.facedata.hintResult);
 
-            
+            drawProduction(objectReponse.data.facedata.hintResult);
 
 
         });

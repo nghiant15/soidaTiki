@@ -35,81 +35,20 @@
 </script>
 <div class="recomend-title-box"> 
 
-<div class="centerText"> 
-<p>GỢI Ý TỪ CHUYÊN GIA</p>
-<img src="/images/start-direct.png"> 
+      <div class="centerText"> 
+      <p>GỢI Ý TỪ CHUYÊN GIA</p>
+      <img src="/images/start-direct.png"> 
 
-</div>
-<div  class="title-strong"> 
-<p> GỢI Ý CHĂM SÓC DA CHO BẠN ĐƯỢC CHUYÊN GIA DA LIỄU ĐỀ XUẤT</p>
-</div>
-</div>
-
-{{-- <div class="box-analysis"> 
-<img src="/images/33.png"> 
-<img src="/images/33.png">
-<div class="title-box"> 
-Báo cáo phân tích da của bạn 
-</div>
-<strong> CẤP ĐỘ LÀN DA   </strong>
-<div class="line-break"></div>
-<a class="level"> Cấp độ 2</a>
-<p> Các vết mụn không viêm, các vùng sẩn, là những mụn đỏ rắn, nhỏ trên bề mặt da.</p>
-
-<div class="bold-text-report"> Các yếu tố ảnh hưởng </div>
-<div class="line-break"></div>
-<div class="btn-row"> 
-<span class="btn-impact"> Mụn đậu đen </span>
-<span class="btn-impact"> Mụn viên </span>
-</div>
-<p class="report-text">
-  Các chuyên gia của chúng tôi khuyên bạn nên tập trung vào hai dấu hiệu lão hóa da chính của bạn.
-
-</p>
-<div class="bottom-popup"> 
-
-  <div class="column-1">
-      <span>LOẠI DA </span>
-      <span class="line"> </span>
-      <span>Da đầu </span>
-  </div>
-
-
-  <div class="column-1 right-text">
-    <span>TUỔI DA </span>
-    <span class="line"> </span>
-    <span>24 </span>
-</div>
+      </div>
+      <div  class="title-strong"> 
+      <p> GỢI Ý CHĂM SÓC DA CHO BẠN ĐƯỢC CHUYÊN GIA DA LIỄU ĐỀ XUẤT</p>
+      </div>
 </div>
 
-</div> --}}
-{{-- <div class="box-recommed-center" style="height:77px">
-<p>Với thói quen chăm sóc da phù hợp và thói quen lành mạnh, <br> 
-  bạn có thể giúp làn da của mình khoẻ mạnh hơn </p>
-</div> --}}
-{{-- <div class="title-section-recomend">
-LỊCH TRÌNH BUỔI SÁNG CỦA BẠN1
-</div> --}}
+
+
+
 <div id = "list-product">
-{{-- <div class="title-category"> 
-   
-  <span> Hỗ trợ Giảm Lão Hóa Da </span>
-
-</div>
-<div class="product-list">
-  <div class="product-item1">
-
-      <div class="image-avatar"> 
-        <img src="/images/18.png"> 
-      </div>
-      <div class="content-product">
-          <div class="brand">NORMADERM </div>
-          <div class="brand-description">Phytosolution - Gel làm sạch chuyên sâu </div>
-      </div>
-   
- </div>
- 
-</div> --}}
 
 
 
