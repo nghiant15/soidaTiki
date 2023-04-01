@@ -712,6 +712,10 @@ function drawConcludev2 ( groupk, valuek)
     valuek=  valuek+'';
 
 
+    if( groupk == "K6")
+    {
+      return;
+    }
   
     switch(groupk) {
       case "K5":
