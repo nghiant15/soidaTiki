@@ -111,9 +111,13 @@ var html= '<div class="record-content">\
          
           var dataList = ketquatongquanItem.data;
           dataList.forEach(function (item, index) {
-             
-           
-              html  +=   '<p class="content-paragraph">'+item.valueVI+'</p>';
+            var tempValue = item.valueVI;
+         
+            if(item.valueVI.includes(28))
+            {
+              tempValue = tempValue.replace("29","30")
+            }
+             html  +=   '<p class="content-paragraph">'+tempValue+'</p>';
            });
          
          
