@@ -113,10 +113,12 @@ var html= '<div class="record-content">\
           dataList.forEach(function (item, index) {
             var tempValue = item.valueVI;
          
-            if(item.valueVI.includes(28))
+            if(item.valueVI.includes("29"))
             {
+              
               tempValue = tempValue.replace("29","30")
             }
+           
              html  +=   '<p class="content-paragraph">'+tempValue+'</p>';
            });
          
