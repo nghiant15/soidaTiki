@@ -12,7 +12,8 @@ if (isset($globalData)) {
         $dataSeo->title ="Soi Da Online .Ngay tại nhà, Kiểm tra, tuổi da & hơn 40 thông số về da khác. Một lần quét, nói với bạn mọi điều .#soidaonline";
         $dataSeo->imageShare ="/images/tikitech_icon.png";
     }
-    $dataSeo->title ="Soi Da Online .Ngay tại nhà, Kiểm tra, tuổi da & hơn 40 thông số về da khác. Một lần quét, nói với bạn mọi điều .#soidaonline";
+    $dataSeo->title ="Soi da online";
+    $dataSeo->description ="Soi Da Online .Ngay tại nhà, Kiểm tra, tuổi da & hơn 40 thông số về da khác. Một lần quét, nói với bạn mọi điều .#soidaonline";
 @endphp
 @extends('layout')
 
