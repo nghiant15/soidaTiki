@@ -128,11 +128,17 @@
  
 </div>  
 
+<div class= "bg-smoke"  style ="height:50px">
+
+</div>
+
 <style>
     .bg-light img:hover {
         transform: scale(1.2);
     }
 </style>
+
+
 @if ($agent->isMobile())
 <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;">
     <div class="container text-center">
@@ -151,7 +157,3 @@
 </div>
 @endif
 
-
-
-  <!-- Messenger Plugin chat Code -->
- 

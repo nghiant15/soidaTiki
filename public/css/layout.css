@@ -430,10 +430,10 @@
   a:hover {
     text-decoration: underline !important;
   }
-  
+
   :root {
     --a-blue-1: #027fca;
-    --font-main: Arial, Helvetica, sans-serif;
+    --font-main: SFU Futura;
     --black: black;
     --font-black: #343a40;
     --font-black-2: #343a40;
@@ -658,4 +658,18 @@
   font-size: 0.7em;
     text-align: center;
     bottom:0;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .footer__logo-shynh {
+    width: 65px !important;
+   
+  }
+}
+
+button {
+   border-radius: 10px !important;
+   
 }

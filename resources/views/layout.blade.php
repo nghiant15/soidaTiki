@@ -286,7 +286,7 @@
 
 @if($slug != "bibabo")
 
-<footer class="bg-smoke mt-5">
+<footer class="bg-smoke">
     <div class="content-page">
         <div class="content-plugin">
             <div class="row" style="padding: 20px 0;margin:0">                     
@@ -331,7 +331,9 @@
 </footer> 
 
 @endif
+<div   class= "bg-smoke"   style ="height:50px">
 
+</div>
 </body>
 
         <script type="text/javascript" src="/js/history.js"></script>

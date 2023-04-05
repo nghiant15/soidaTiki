@@ -510,8 +510,6 @@ function ToggleDisplayClass(myClass, status) {
     {
         $("#titleLogin").html(title);
     }
-
-    
     var urlUpdate = api.serve.baser_urlServer + "/" + "typeLogin/setType";
   
     $.ajax({
