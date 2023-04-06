@@ -1,10 +1,9 @@
 @php
 $dataSeo = "Soida liền tay";
 
-if (isset($globalData)) {
+    if (isset($globalData)) 
+    {
         $dataSeo = $globalData->seoInfo;
-
-
     }
     else 
     {
@@ -12,7 +11,7 @@ if (isset($globalData)) {
         $dataSeo->title ="Soi Da Online .Ngay tại nhà, Kiểm tra, tuổi da & hơn 40 thông số về da khác. Một lần quét, nói với bạn mọi điều .#soidaonline";
         $dataSeo->imageShare ="/images/tikitech_icon.png";
     }
-    $dataSeo->title ="Soi da online";
+    $dataSeo-> title ="Soi da online";
     $dataSeo->description ="Soi Da Online .Ngay tại nhà, Kiểm tra, tuổi da & hơn 40 thông số về da khác. Một lần quét, nói với bạn mọi điều .#soidaonline";
 @endphp
 @extends('layout')
@@ -188,7 +187,7 @@ if (isset($globalData)) {
                 </div>
             </div>
 
-            @if($slug == "soida" )
+            @if($slug == "soida222" )
             
                 <div id="tips" class="ai-skin__tips" style="display:none">
                     <div class="ai-skin__tips__content" style= "width:400px">
