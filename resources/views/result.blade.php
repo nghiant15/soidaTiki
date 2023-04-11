@@ -53,9 +53,50 @@
     </style>
 @endsection
 @section('contentpage')
+
+    @include("game.popupRegigerGame")
     <script>
         var slugGlobal = {!! json_encode($slug) !!};
-   
+        var turnOfGame = {!! json_encode($turnOffGame) !!};
+        var successGame = {!! json_encode($successGame) !!};
+        var displayGame = {!! json_encode($displayGame) !!};
+        if( turnOfGame == true && successGame == true && displayGame == true )
+        {
+
+                 var htmlTemplate = '';
+                htmlTemplate += '<div class ="titlepopup" >  CHÚC MỪNG BẠN ĐÃ TRÚNG THƯỞNG</div> <p >Xin vui lòng đăng ký/ đăng nhập </p><p>Để chúng tôi liên hệ trả thưởng sớm </p>';
+                var boxPopupSuccess=  document.getElementById("contentPopup");
+                if(boxPopupSuccess)
+                {
+                            boxPopupSuccess.innerHTML  =htmlTemplate;
+                        setTimeout(() => {
+                            openPopupgame();
+                        }, 3000);
+                }
+                
+              
+        }
+        else 
+        if( turnOfGame == true && successGame == false && displayGame == true )
+        {
+            // Chúc Quý khách may mắn lần sau
+            // NHƯNG  bạn vẫn được nhận  Ưu Đãi từ
+            // Nhãn Hàng chính hãng tài trợ
+            // Xin vui lòng Đăng ký / Đăng nhập 
+            // để chúng tôi liên hệ  sớm”
+                var htmlTemplate = '';
+                htmlTemplate += '<div class ="titlepopup" > Chúc Quý khách may mắn lần sau NHƯNG  bạn vẫn được nhận  Ưu Đãi từ Nhãn Hàng chính hãng tài trợ.</div> <p >Xin vui lòng đăng ký/ đăng nhập </p><p>Để chúng tôi liên hệ trả thưởng sớm </p>';
+                var boxPopupSuccess=  document.getElementById("contentPopup");
+                
+                if(boxPopupSuccess)
+                {
+                            boxPopupSuccess.innerHTML  =htmlTemplate;
+                        setTimeout(() => {
+                            openPopupgame();
+                        }, 3000);
+                }
+        }
+        
     </script>
     {{-- <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
@@ -1384,6 +1425,8 @@ margin: auto;
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
+         var turnOffGame = {!! json_encode($turnOffGame,false) !!};
+        
         var objectReponse = null;
         document.addEventListener("DOMContentLoaded", function() {
 
@@ -1412,7 +1455,10 @@ margin: auto;
             drawConcludeOverview(objectReponse.data.facedata.hintResult);
 
             drawProduction(objectReponse.data.facedata.hintResult);
+            if(  turnOffGame == true)
+            {
 
+            }
 
         });
     </script>

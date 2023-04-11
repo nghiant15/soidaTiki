@@ -43,6 +43,7 @@ var  api =  {
         api_registerCollaborators: `cong-tac-vien/them-moi-doi-tac`,
         api_getCampaignCollaborators: `cong-tac-vien/get-infomation-campaign`,
         api_loginServer: `${slug}dang-nhap-plugin`,
+        api_loginServerGame: `${slug}dang-nhap-plugin-game`,
         api_saveHistory: `${slug}skin/add-history-skin-plugin`,
         api_getRecomendProduct: `${slug}skin/get-product-recomendProduct`,
         get_listHistory: `${slug}skin/get-list-history`,

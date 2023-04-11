@@ -187,11 +187,17 @@ $dataSeo = "Soida liền tay";
                 </div>
             </div>
 
-            @if($slug == "soida222" )
+            @if($gameJoinTo == true )
             
+                @php
+                 $gameData  =  session('dataGame', null);
+                
+                 $dataImage = $gameData->des;
+                @endphp 
+                        
                 <div id="tips" class="ai-skin__tips" style="display:none">
                     <div class="ai-skin__tips__content" style= "width:400px">
-                    <img src  = "/bannersoida.jpg"/> 
+                    <img src  = "{{$dataImage}}"/> 
 
                             <div class="ai-skin__button ai-skin__tips__button">
                                     <button type="button" onclick="hideTips()">Soi Da online ngay</button>
@@ -345,15 +351,6 @@ $dataSeo = "Soida liền tay";
                         
                 };
             }
-
-
-//             var audio = document.createElement("AUDIO")
-// document.body.appendChild(audio);
-// audio.src = "/hdsd.m4a";
-
-// document.body.addEventListener("mousemove", function () {
-//     audio.play()
-// })
         </script>
         <script>
             var skinModule = (function() {
@@ -513,6 +510,9 @@ $dataSeo = "Soida liền tay";
                                 openPoupupLoading(false);
                                 openPopupSuccess();
 
+                                
+
+                                 
 
                                 // Store response before navigating to result page.
 
@@ -1384,6 +1384,8 @@ function openFormRegister() {
     ToggleDisplayLogin('.status-modal-account',true,'Để tư vấn da ngay & 100% Miễn Phí')
 
 }
+
+
 
 
 </script>

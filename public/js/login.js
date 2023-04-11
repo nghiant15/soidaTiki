@@ -246,7 +246,74 @@ function isVietnamesePhoneNumber(number) {
       success: function (response) {
 
         if (response.is_success) {
-          debugger;
+          
+          if (isRequireLogin == null || isRequireLogin == false) {
+            setTimeout(() => {
+              if (loading) {
+                loading.classList.remove("block");
+              }
+              ToggleAlert(true, "Thao tác thành công!", true);
+            }, 1000);
+                 setTimeout(() => {
+              ToggleAlert(false, "", false);
+              location.reload();
+            }, 2000);
+          } else {
+            
+            ToggleAlert(true, "Đăng nhập thành công!", true);
+            var frmLogin = document.querySelector(".status-modal-account");
+            if (frmLogin) {
+              frmLogin.style.display = "none";
+            }
+            isRequireLogin = false;
+            saveHistory(false);
+          }
+        } else {
+          if (loading) {
+            loading.classList.remove("block");
+          }
+          Swal.fire({
+            position: "top-center",
+            icon: "error",
+            title: "Hãy kiểm tra lại thông tin tài khoản",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        debugger;
+      },
+    });
+   saveHistoryAfterSkinScreen();
+  }
+
+  async function loginGame() {
+   
+    var loading = document.querySelector(".status-loader-22");
+    if (validateFormLoginGame() == false) {
+      return;
+    }
+    if (loading) {
+      loading.classList.add("block");
+    }
+    $.ajaxSetup({
+      headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+      },
+    });
+    await $.ajax({
+      url: api.serve.baser_urlServer + "/" + api.serve.api_loginServerGame,
+      type: "post",
+      data: {
+        username: $("#nameLoginGame").val(),
+        phoneNumber: $("#phoneNumberGame").val(),
+      },
+      success: function (response) {
+
+   
+        if (response.is_success) {
+            
           if (isRequireLogin == null || isRequireLogin == false) {
             setTimeout(() => {
               if (loading) {
@@ -444,6 +511,55 @@ function isVietnamesePhoneNumber(number) {
     var phoneNumber = document.getElementById("phoneNumber");
     var errorMessagePassword = document.getElementById(
       "phoneNumbererrorMesssage"
+    );
+  
+    if (phoneNumber.value == "" || phoneNumber.value.length < 1) {
+      errorMessagePassword.textContent = "Bạn chưa nhập số điện thoại";
+      errorMessagePassword.style.display = "block";
+      indexError++;
+    }else if(isVietnamesePhoneNumber(phoneNumber.value) == false){
+   
+      errorMessagePassword.style.display = 'block';
+      errorMessagePassword.innerHTML = "Số điện thoai không đúng, số điện thoại gồm 10 chữ số";
+      indexError++;
+      // if(phoneNumber.value.length  > 6)
+      // {
+  
+      //   indexError++;
+      //     errorMessagePassword.style.display = 'block';
+      //     errorMessagePassword.innerHTML = "Sai số điện thoại"
+      // }else{
+      //       errorMessagePassword.style.display = 'none';
+      //   errorMessagePassword.innerHTML = ""
+      // }
+    }
+    else {
+      errorMessagePassword.style.display = "none";
+    }
+  
+  
+
+    return indexError < 1;
+  }
+
+  function validateFormLoginGame() {
+ 
+    var indexError = 0;
+    var formInput = $("#formLogin")[0];
+    var usserNameInput = document.getElementById("nameLoginGame");
+    var errorMessageUserName = document.getElementById("fullNameerrorMesssageGame");
+    if (usserNameInput.value == "" || usserNameInput.value.length < 1) {
+      errorMessageUserName.textContent = "Hãy cho chúng tôi biết tên";
+  
+      errorMessageUserName.style.display = "block";
+      indexError++;
+    } else {
+      errorMessageUserName.style.display = "none";
+    }
+  
+    var phoneNumber = document.getElementById("phoneNumberGame");
+    var errorMessagePassword = document.getElementById(
+      "phoneNumbererrorMesssageGame"
     );
   
     if (phoneNumber.value == "" || phoneNumber.value.length < 1) {

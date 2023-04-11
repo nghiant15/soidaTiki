@@ -18,7 +18,7 @@ Route::get('{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage'
 Route::get('/{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage');
 // Route::post('/skin/add-history-skin-plugin', 'HistoryController@saveHistory')->name('saveHistory');
 Route::post('/{slug}/skin/call-soi-da', 'HomepageController@callSikin');
-Route::post('/skin/call-soi-da', 'HomepageController@callSikin');
+Route::post('/skin/call-soi-da', 'HomepageController@');
 
 Route::get('/get-all-history', 'HistoryController@GetAllHistory');
 Route::get('/lichsu-soida', 'HistoryController@historySoida');
@@ -38,6 +38,11 @@ Route::get('/lich-su-soi-da-with-iframe/{id}', 'HomepageController@ViewhistoryWi
 Route::post('/{slug}/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
 Route::post('/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
 Route::post('/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
+
+Route::post('/{slug}/dang-nhap-plugin-game', 'UserController@loginGame')->name('loginSystem');
+Route::post('/dang-nhap-plugin-game', 'UserController@loginGame')->name('loginSystem');
+Route::post('/dang-nhap-plugin-game', 'UserController@loginGame')->name('loginSystem');
+
 Route::get('/xemchitietlichsu/{id}', 'HomepageController@historyDetailPage');
 Route::get('/thong-tin-tong-quan', 'HomepageController@thongtintongquan')->name('homePage');
 Route::get('/tham-gia-chuong-trinh-qua-tang', 'HomepageController@formReward')->name('homePage');

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 
 use PhpParser\Node\Expr\FuncCall;
 use View;
+
 use Illuminate\Support\Facades\Cache;
 class HomepageController extends Controller
 {
@@ -332,14 +333,46 @@ public function getDataInfo (Request $request)
 
 
     
+    private function checkGameStatus($slug)
+    {
 
+        $url ="https://api-soida.applamdep.com/api/get-game-active";
+        $client = new Client();
+
+        $res = $client->request('get', $url, [
+            'json' => [
+                'slug'=> $slug
+              ]
+        ]);
+
+        if($res->getStatusCode() ==200)
+        {
+            $checkresult = $res->getBody()->getContents();
+            $checkresult = json_decode($checkresult);
+            $result = $checkresult->data;
+            if (str_contains($result->slugApply, $slug)) { 
+                session(['dataGame' =>$result]);
+                return true;
+            }
+            else 
+            {
+                session(['dataGame' =>null]);
+            }
+            session(['dataGame' =>null]);
+         }
+         session(['dataGame' =>null]);
+         return false;
+    }
 
     public function skinIndex (Request $request, $slug =null) 
     {
         
 
-       
+        
+        $gameJoinTo = $this->checkGameStatus($slug);
 
+
+      
         $isCheck  = true;
         $isTurnOfFooter =  true;
 
@@ -379,14 +412,62 @@ public function getDataInfo (Request $request)
         }
 
         $agent = new Agent();
-        return view("welcome", compact("slug","agent","isTurnOfFooter"));
+        
+        return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
        
 
     }
 
     public function result (Request $request, $slug =null) 
     {
-        if($slug =="soida")
+        $data  =  session('dataResult', null);
+        $dataGame = session('dataGame', null);
+
+        $dataUserSession =  session('dataCompany', null);
+
+        $displayGame = true;
+        if($dataUserSession)
+        {
+            $displayGame = false;
+        }
+        
+        $turnOffGame = false;
+
+    
+        if( $dataGame != null)
+        {
+          
+            $successGame = false;
+            if($dataGame->typeGame =="1")
+            {
+               
+                $skin =  $data->data->facedata->generalResult->data[0]->data[0]->value;
+   
+                if( $skin*1  >=  $dataGame->min* 1  && $skin*1 <= $dataGame->max *1)
+                {
+
+                    $successGame = true;
+                    session(['successGame' =>$successGame]);
+
+                }
+            }
+            else if( $dataGame->typeGame =="2")
+    
+            {
+                  $successGame = false;
+            }
+
+            if( $dataGame->status == true)
+            {
+                $turnOffGame = true;
+            }
+
+
+        }
+
+        
+        
+         if($slug =="soida")
         {
             $slug = null;
         }
@@ -394,14 +475,11 @@ public function getDataInfo (Request $request)
         {
 
         }
-
         $companyId = $this->getCompanyId();
-    
-    
-        
-
         $agent = new Agent();
-        return view("result", compact("slug", "agent","companyId"));
+
+        $rewardCheck  =  session('rewardCheck', false);
+        return view("result", compact("slug", "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame"));
     }
 
     public function recomendProduct (Request $request, $slug =null) 
@@ -456,16 +534,10 @@ public function getDataInfo (Request $request)
 
          
             $checkresult = json_decode($checkresult);
-
-           
-            if($checkresult->is_success)
+             if($checkresult->is_success)
             {
-                $result  = $checkresult->data;
-
-            
-              
-               
-                return view("historyPageDetail",compact("id","result", "slug","agent"));
+                 $result  = $checkresult->data;
+                  return view("historyPageDetail",compact("id","result", "slug","agent"));
 
             }
              return  "Không có dữ liệu";
@@ -497,27 +569,25 @@ public function getDataInfo (Request $request)
         return view("reward",compact("agent"));
     }
 
-
+    private function checkGame ($dataReuslt)
+    {
+        return true;
+    }
 
     public function callSikin (Request $request, $slug =null,$saleId =null) 
     {
           
             $this->setHistoryId(null);
             $isDesktop = "-1";
-
-            
-            if ($request->has('isDesktop')) {
+             if ($request->has('isDesktop')) {
                 $isDesktop = $request->input("isDesktop");
             }
             $dataUpdate = [
                 "image_base64"=> $request->input("bas64Request"),
-                // "company_id" =>$this->getCompanyId(),
-                // "saleId" => $this->getSaleId(),
-                // "isDesktop"=>  $isDesktop
+               
             ];
 
-            Log::info($request->input("bas64Request"));
-
+ 
             $url = "https://portal.applamdep.com/api/skin/portalApp";
 
             $client = new Client();
@@ -526,23 +596,22 @@ public function getDataInfo (Request $request)
             ]);
             if($res->getStatusCode() ==200)
             { 
-            $checkresult = $res->getBody()->getContents();
-           $data = json_decode($checkresult);
-           $data = $data->data;
-
-        
-                // return $data; 
-                
-            return  [
-                "is_success" =>true, 
-                "data"=> $data
-                ];
+                $checkresult = $res->getBody()->getContents();
+                $data = json_decode($checkresult);
+                $data = $data->data;
+                session(['dataResult' =>$data]);
+                session(['rewardCheck' =>true]);
+                 return  [
+                        "is_success" =>true, 
+                        "reward"=> true, 
+                        "data"=> $data
+                 ];
             }
             else 
             {
-            session(['webinfo' =>[]]);
+                  session(['webinfo' =>[]]);
             }
-    }
+        }
 
     
  
@@ -570,17 +639,27 @@ public function getDataInfo (Request $request)
                 $checkresult = $res->getBody()->getContents();
                 $data = json_decode($checkresult);
 
+             
+
               
 
                
             
           
                 if($data->is_success)
-                {    
+                {  
+                    
+                    $dataResult = $data->data->Result;
+
+                    if (property_exists($dataResult,'data' ))
+                    {
+                        $dataResult = $dataResult->data;
+                    } 
+                  
                     $data = [
-                        "data" =>$data->data->Result
+                        "data" =>$dataResult
                     ];
-                
+                 
                     
                     $isViewFrame =  true;
                     $agent = new Agent();

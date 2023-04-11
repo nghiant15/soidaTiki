@@ -55,6 +55,26 @@ class UserController extends Controller
         return $this->loginUser($dataRequestInput);
    }
     
+
+   public function loginGame (Request $request, $slug = null) 
+    {
+        $historyId =  $this->getHistoryId();
+        $company_id = $this->getCompanyId();
+       
+      
+    
+        $dataRequestInput =[
+            'username'=> $request->input("username"),
+            'password'=> $request->input("phoneNumber"),
+            'phoneNumber'=> $request->input("phoneNumber"),
+            'slug' => $slug,
+             
+            'company_id'=> $company_id,
+            'historyId' => $historyId
+        ];
+
+        return $this->loginUser($dataRequestInput);
+   }
     public function loginAdmin (Request $request) 
     {
        

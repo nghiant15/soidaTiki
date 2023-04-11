@@ -87,7 +87,7 @@ class HistoryController extends Controller
             {
                 $result  = $checkresult->data;
 
-               
+                
                 if($result == null)
                 {
                     return  false;
@@ -283,8 +283,8 @@ class HistoryController extends Controller
      {
         $historyId =  $this->getHistoryId();
         $ipClient = $request->ip();
-        // $ipClient ="118.69.182.32";
-  
+        $ipClient ="118.69.182.32";
+        $successGame   =  session('successGame', false);
         $typeLogin =  session('typeLogin', null);
 
     
@@ -295,16 +295,16 @@ class HistoryController extends Controller
         {
             $checkresult1 = $res1->getBody()->getContents();
             $data1 = json_decode($checkresult1);
-           
-              if($historyId)
-                {
-                return  ["is_success" =>true];
-                }
-                else 
-                {
+          
+            //   if($historyId)
+            //     {
+            //              return  ["is_success" =>true];
+            //     }
+            //     else 
+            //     {
 
-                }
- 
+            //     }
+               
                 $dataJson = $request->json()->all();
         
                 $result  = $dataJson['Result'];
@@ -312,6 +312,9 @@ class HistoryController extends Controller
                 $loginUrl = API_BaseUrl."/".EndUser_SaveHistory;
                 $dataUserSession =  session('dataCompany', null);
                 $tokenCode ="";
+                $successGame   =  session('successGame', false);
+
+             
                 if($dataUserSession)
                 {
                     $tokenCode =  $dataUserSession->token;
@@ -326,13 +329,20 @@ class HistoryController extends Controller
                 $email =  $request->input("email");
                 $imageObject = json_decode($result);
 
-                
                 $imagelInk =  "";
+            
                 if($imageObject)
                 {
-                    $imagelInk = $imageObject->facedata->image_info->url;
+                    try {
+                        $imagelInk = $imageObject->facedata->image_info->url;
+                    } catch (\Throwable $th) {
+                        $imagelInk = $imageObject->data->facedata->image_info->url;
+                    }
+                  
                 }
-                $slug = "tikicare";
+             
+                $slug = $slug;
+                
                 $dataUpdate = [
                     "Company_Id"=> $this->getCompanyId(),
                     "Image"=> $imagelInk,
@@ -343,9 +353,12 @@ class HistoryController extends Controller
                     "slug2"=> "tikicare",
                     "ipRequest" => $this->get_ip(),
                     "Sale_Id"=>  null,
+                    "successGame"=> $successGame,
                     "typeLogin"=>$typeLogin,
                     "Result"=> $result
                 ];
+
+              
                 // $object = json_decode($result);
         
                 $client = new Client();
