@@ -422,7 +422,7 @@ public function getDataInfo (Request $request)
     {
         $data  =  session('dataResult', null);
         $dataGame = session('dataGame', null);
-
+        $successGame = false;
         $dataUserSession =  session('dataCompany', null);
 
         $displayGame = true;
