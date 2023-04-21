@@ -205,6 +205,17 @@ $dataSeo = "Soida liền tay";
                       </div>
                     </div>
                 </div>
+            @elseif ($slug == "gametuoida")
+                    <div id="tips" class="ai-skin__tips" style="display:none">
+                            <div class="ai-skin__tips__content" style= "width:400px">
+                            <img src  = "/gametuoida.png"/> 
+
+                                    <div class="ai-skin__button ai-skin__tips__button">
+                                            <button type="button" onclick="hideTips()">Soi Da online ngay</button>
+                                        </div>
+                            </div>
+                            </div>
+                     </div>       
             @else 
                 <div id="tips" class="ai-skin__tips" style="display:none">
                     <div class="ai-skin__tips__content">
