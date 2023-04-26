@@ -144,24 +144,18 @@ class Controller extends BaseController
 
     public function setdataInfoCompany($dataCompany=null)
 
-    {      
-
-          
-       session(['dataInfoCompany' =>$dataCompany]);
+    { 
+         session(['dataInfoCompany' =>$dataCompany]);
 
     }
 
     public function getdataInfoCompany()
 
-    {      
-
+    { 
          $info  =  session('dataInfoCompany', null);
          return $info;
-      //  session(['dataInfoCompany' =>$dataCompany]);
-
     }
-
-  
+    
     public function getCompanyId()
     {  
         $dataInfoCompany = $this->getdataInfoCompany();
@@ -174,7 +168,7 @@ class Controller extends BaseController
         {
          return null;
         }
-         return  "62aae7ca6b08e176be7c92b0";          
+           
     }
 
 

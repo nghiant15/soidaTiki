@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // }
     if(tips)
     {
-      tips.style.display ="block";
+      tips.style.display ="none";
     }
    
     if(dataUser != null)

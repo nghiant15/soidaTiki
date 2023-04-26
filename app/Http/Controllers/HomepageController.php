@@ -364,13 +364,34 @@ public function getDataInfo (Request $request)
          return false;
     }
 
+    private function getGameActive($companyId)
+    {
+
+        $url ="http://localhost:3002/api/get-game-active";
+        $client = new Client();
+      
+
+        $res = $client->request('get', $url, [
+            'json' => [
+                'companyId'=> $companyId
+              ]
+        ]);
+
+        if($res->getStatusCode() ==200)
+        {
+            $checkresult = $res->getBody()->getContents();
+            $checkresult = json_decode($checkresult);
+            $result = $checkresult->data;
+            return $result;
+            
+         }
+      
+         return null;
+    }
     public function skinIndex (Request $request, $slug =null) 
     {
         
-
-        
-        $gameJoinTo = $this->checkGameStatus($slug);
-
+   
 
       
         $isCheck  = true;
@@ -384,6 +405,11 @@ public function getDataInfo (Request $request)
         {
             $isCheck = $this->CheckUrl($slug);
         } 
+
+        $dataCompanyId =  $this->getCompanyId();
+     
+        $dataGame = $this->getGameActive($dataCompanyId);
+      
 
         if($slug == "bibabo")
 
@@ -412,7 +438,7 @@ public function getDataInfo (Request $request)
         }
 
         $agent = new Agent();
-        
+        $gameJoinTo= false;
         return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
        
 

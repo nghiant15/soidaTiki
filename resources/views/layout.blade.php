@@ -99,6 +99,10 @@
         .account_hover a {
             color: {{$dataColor}} !important; 
         }
+        .rule{
+            position: abouabsolute;
+            left:50%;
+        }
     </style>
 
    
@@ -168,6 +172,9 @@
     viewBox="0 0 16 16" width="16px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <path d="M15.45,7L14,5.551V2c0-0.55-0.45-1-1-1h-1c-0.55,0-1,0.45-1,1v0.553L9,0.555C8.727,0.297,8.477,0,8,0S7.273,0.297,7,0.555  L0.55,7C0.238,7.325,0,7.562,0,8c0,0.563,0.432,1,1,1h1v6c0,0.55,0.45,1,1,1h3v-5c0-0.55,0.45-1,1-1h2c0.55,0,1,0.45,1,1v5h3  c0.55,0,1-0.45,1-1V9h1c0.568,0,1-0.437,1-1C16,7.562,15.762,7.325,15.45,7z"/>
 </svg>    
+                 </a>
+                 <a  href ="javascript:void(0)"  class ="rule" onclick ="showRule()">
+                        Luật chơi
                  </a>
             </div>
             <div class="flex-center banner__header--right">
@@ -335,10 +342,46 @@
 <div   class= "bg-smoke"   style ="height:50px">
 
 </div>
+
+<div id="tipsGuildLine" class="ai-skin__tips" style="display:none">
+                    <div class="ai-skin__tips__content">
+                        <span class="ai-skin__tips__content-header">
+                                Thử thách gì nhỉ?
+                        </span>
+                        <ol class="ai-skin__tips__content-body">
+                            <li>Nếu sau khi soi da online, tuổi da của bạn BẰNG với tuổi da trên banner, bạn nhận được quà từ Shop</li>
+                            <li>Bạn có thể thử nhiều lần miễn là soi da online tự nhiên
+                                    Mỗi tuần shop sẽ update MỘT tuổi da nhất định
+                            </li>
+                            
+                               
+                        </ol>
+
+                        <span class="ai-skin__tips__content-header">
+                                     Chúc bạn ngày càng xinh đẹp
+
+                        </span>
+                        <div class="ai-skin__button ai-skin__tips__button">
+                            <button type="button" onclick="hidetipGame()">Chơi game</button>
+                        </div>
+                    </div>
+                </div>
 </body>
 
         <script type="text/javascript" src="/js/history.js"></script>
 
-        
+        <script>
+            function showRule() {
+                var tips = document.getElementById("tipsGuildLine");
+                tips.style.display = "block";
+            }
+
+            function hidetipGame() {
+                var tips = document.getElementById("tipsGuildLine");
+                tips.style.display = "none"; 
+                var tips = document.getElementById("tips");
+                tips.style.display = "block";
+            }
+        </script>
 
 </html>
