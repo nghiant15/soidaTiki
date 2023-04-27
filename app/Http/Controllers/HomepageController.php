@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Jenssegers\Agent\Agent;
 use Illuminate\Support\Facades\Log;
-
+use Carbon\Carbon;
 use PhpParser\Node\Expr\FuncCall;
 use View;
 
@@ -382,6 +382,8 @@ public function getDataInfo (Request $request)
             $checkresult = $res->getBody()->getContents();
             $checkresult = json_decode($checkresult);
             $result = $checkresult->data;
+            session(['dataGame' =>$result]);
+            
             return $result;
             
          }
@@ -390,10 +392,6 @@ public function getDataInfo (Request $request)
     }
     public function skinIndex (Request $request, $slug =null) 
     {
-        
-   
-
-      
         $isCheck  = true;
         $isTurnOfFooter =  true;
 
@@ -433,7 +431,7 @@ public function getDataInfo (Request $request)
       
         if(!$isCheck)
         {
-        return view("notfound");
+            return view("notfound");
        
         }
 
@@ -447,7 +445,7 @@ public function getDataInfo (Request $request)
     public function result (Request $request, $slug =null) 
     {
         $data  =  session('dataResult', null);
-        $dataGame = session('dataGame', null);
+        $dataGame = Session('dataGame', null);
         $successGame = false;
         $dataUserSession =  session('dataCompany', null);
 
@@ -458,38 +456,45 @@ public function getDataInfo (Request $request)
         }
         
         $turnOffGame = false;
-
+    
     
         if( $dataGame != null)
         {
-          
-            $successGame = false;
-            if($dataGame->typeGame =="1")
-            {
-               
-                $skin =  $data->data->facedata->generalResult->data[0]->data[0]->value;
-   
-                if( $skin*1  >=  $dataGame->min* 1  && $skin*1 <= $dataGame->max *1)
+                $successGame = true;
+                $currentTime = Carbon::now()->addHour(7);
+                $converTextString = $currentTime->format('H:i');
+                $fromDate = Carbon::parse($dataGame->fromDate); 
+                $todate = Carbon::parse(  $dataGame->todate); 
+                $timefrom = $dataGame->fromtime;
+                $timeto = $dataGame->totime;
+                if(
+                    $currentTime >= $fromDate && $currentTime <= $todate
+                )
                 {
-
-                    $successGame = true;
-                    session(['successGame' =>$successGame]);
-
+                    if($timefrom<= $converTextString && $converTextString <=$timeto)
+                    {
+                        if($dataGame->typeGame =="1")
+                        {
+                            $skin =  $data->data->facedata->generalResult->data[0]->data[0]->value;
+                            if( $skin*1  == $dataGame->skinNumber*1)
+                            {
+                                    $successGame = true;
+                                    session(['successGame' =>$successGame]);
+                                    session(['gameType' =>1]);
+                            }
+                        }
+                        else if( $dataGame->typeGame =="2")
+                        {   
+                            $successGame = false;
+                        }
+                        if( $dataGame->statusGame == true)
+                        {
+                            $turnOffGame = true;
+                        }
+                       
+                    }
                 }
-            }
-            else if( $dataGame->typeGame =="2")
-    
-            {
-                  $successGame = false;
-            }
-
-            if( $dataGame->status == true)
-            {
-                $turnOffGame = true;
-            }
-
-
-        }
+         }
 
         
         
@@ -512,9 +517,7 @@ public function getDataInfo (Request $request)
     {
         // dd($this->getCompanyId());
         $companyId = $this->getCompanyId();
-    
         $agent = new Agent();
-  
         return view("recomendProduct", compact("slug", "companyId", "agent"));
     }
 

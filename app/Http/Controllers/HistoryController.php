@@ -286,7 +286,7 @@ class HistoryController extends Controller
        
         $successGame   =  session('successGame', false);
         $typeLogin =  session('typeLogin', null);
-
+        $gameType =session('gameType', "");
     
         $client1 = new Client();
         $linkUrl = "http://ip-api.com/json/".$ipClient;
@@ -295,42 +295,24 @@ class HistoryController extends Controller
         {
             $checkresult1 = $res1->getBody()->getContents();
             $data1 = json_decode($checkresult1);
-          
-            //   if($historyId)
-            //     {
-            //              return  ["is_success" =>true];
-            //     }
-            //     else 
-            //     {
 
-            //     }
-               
                 $dataJson = $request->json()->all();
-        
                 $result  = $dataJson['Result'];
-                
                 $loginUrl = API_BaseUrl."/".EndUser_SaveHistory;
                 $dataUserSession =  session('dataCompany', null);
                 $tokenCode ="";
                 $successGame   =  session('successGame', false);
-
-             
                 if($dataUserSession)
                 {
                     $tokenCode =  $dataUserSession->token;
                 }
                 else 
                 {
-                    
                     $loginUrl = API_BaseUrl."/".EndUser_SaveHistory_no_user;
-                
                 }
-        
                 $email =  $request->input("email");
                 $imageObject = json_decode($result);
-
                 $imagelInk =  "";
-            
                 if($imageObject)
                 {
                     try {
@@ -338,11 +320,9 @@ class HistoryController extends Controller
                     } catch (\Throwable $th) {
                         $imagelInk = $imageObject->data->facedata->image_info->url;
                     }
-                  
                 }
              
                 $slug = $slug;
-                
                 $dataUpdate = [
                     "Company_Id"=> $this->getCompanyId(),
                     "Image"=> $imagelInk,
@@ -353,28 +333,24 @@ class HistoryController extends Controller
                     "slug2"=> "tikicare",
                     "ipRequest" => $this->get_ip(),
                     "Sale_Id"=>  null,
+                    "gameType"=> $gameType,
                     "successGame"=> $successGame,
                     "typeLogin"=>$typeLogin,
                     "Result"=> $result
                 ];
-
-              
-                // $object = json_decode($result);
-        
                 $client = new Client();
                 $res = $client->request('post',$loginUrl , [
-                'headers' => 
-                [
-                    'Authorization' => "Bearer ".$tokenCode
-                ],
-                'json' =>$dataUpdate
-                ]);
+                                        'headers' => 
+                                        [
+                                            'Authorization' => "Bearer ".$tokenCode
+                                        ],
+                                        'json' =>$dataUpdate
+                                        ]   
+                );
                 if($res->getStatusCode() ==200)
-                {   
-                
+                { 
                     $checkresult = $res->getBody()->getContents();
                     $checkresult = json_decode($checkresult);
-                    
                     $this->setHistoryId($checkresult->data->_id);
                     session(['noUser' =>  true]);
                     return  [
@@ -382,14 +358,8 @@ class HistoryController extends Controller
                         ];
                 }
                 return  ["is_success" =>false];
-        
-        }
-
-
-
-        
- 
-     }
+             }
+}
  
 
      public function setType (Request $request) 

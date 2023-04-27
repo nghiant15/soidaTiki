@@ -17,8 +17,6 @@ define('EndUser_SaveHistory',   "api/add-history-skin-plugin");
 
 define('EndUser_SaveHistory_no_user',   "api/add-history-no-user");
 
-
-
 define('EndUser_GetHistory',   "api/get-history-skin-by-user");
 
 define('EndUser_GetHistoryById',   "api/get-detail-history-by-id");
