@@ -282,12 +282,10 @@ class HistoryController extends Controller
      public function SaveHistory (Request $request, $slug =null, $saleId =null) 
      {
         $historyId =  $this->getHistoryId();
-        $ipClient = $request->ip();
-       
+        $ipClient = "118.69.182.32";
         $successGame   =  session('successGame', false);
         $typeLogin =  session('typeLogin', null);
         $gameType =session('gameType', "");
-    
         $client1 = new Client();
         $linkUrl = "http://ip-api.com/json/".$ipClient;
         $res1 = $client1->request('get',$linkUrl);

@@ -446,6 +446,7 @@ public function getDataInfo (Request $request)
     {
         $data  =  session('dataResult', null);
         $dataGame = Session('dataGame', null);
+        // dd($dataGame);
         $successGame = false;
         $dataUserSession =  session('dataCompany', null);
 
@@ -478,18 +479,22 @@ public function getDataInfo (Request $request)
                             $skin =  $data->data->facedata->generalResult->data[0]->data[0]->value;
                             if( $skin*1  == $dataGame->skinNumber*1)
                             {
-                                    $successGame = true;
-                                    session(['successGame' =>$successGame]);
-                                    session(['gameType' =>1]);
+                                $successGame = true;
+                                session(['successGame' =>$successGame]);
+                                session(['gameType' =>1]);
+                            }
+                            else 
+                            {
+                                $successGame = false;
                             }
                         }
                         else if( $dataGame->typeGame =="2")
                         {   
-                            $successGame = false;
+                                $successGame = false;
                         }
                         if( $dataGame->statusGame == true)
-                        {
-                            $turnOffGame = true;
+                        {   
+                                $turnOffGame = true;
                         }
                        
                     }
@@ -509,6 +514,7 @@ public function getDataInfo (Request $request)
         $companyId = $this->getCompanyId();
         $agent = new Agent();
 
+      
         $rewardCheck  =  session('rewardCheck', false);
         return view("result", compact("slug", "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame"));
     }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-define('API_BaseUrl', env('API_URL', 'https://api-soida.applamdep.com') );
+define('API_BaseUrl', env('API_URL', 'http://localhost:3002') );
 define('API_URL_Tikitech', env('API_URL_Tikitech', '') );
 define('EndUser_Add',   "api/add-end-user");
 define('Collaborators_Add',   "api/collaborator/add");
@@ -22,7 +22,6 @@ define('EndUser_GetHistory',   "api/get-history-skin-by-user");
 define('EndUser_GetHistoryById',   "api/get-detail-history-by-id");
 
 define('Get_Recomend_Pproduct',   "itemSdk/get_product_result");
-
 
 define('Brand_GetAll',   "api/banner/all");
 define('Facebook_login', "api/login-with-facebook");

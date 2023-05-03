@@ -111,7 +111,7 @@ $.ajax({
   dataType: "json",
   contentType: "application/json; charset=utf-8",
   success: async function (data) {
-   
+     return;
     
     // setTimeout(() => {
     //   if (isRedirect) {

@@ -310,10 +310,10 @@ function isVietnamesePhoneNumber(number) {
         phoneNumber: $("#phoneNumberGame").val(),
       },
       success: function (response) {
-
-   
+        debugger;
         if (response.is_success) {
-            
+          saveHistory(false);
+          return;
           if (isRequireLogin == null || isRequireLogin == false) {
             setTimeout(() => {
               if (loading) {
@@ -352,7 +352,7 @@ function isVietnamesePhoneNumber(number) {
         debugger;
       },
     });
-   saveHistoryAfterSkinScreen();
+  //  saveHistoryAfterSkinScreen();
   }
   function loginGetVoucherAia() {
     var loading = document.querySelector(".status-loader-22-get-voucher-aia");
