@@ -147,7 +147,7 @@ $.ajax({
     // }, 1000);
   },
   complete: function (data) {
-    return;
+ 
             setTimeout(() => {
             
               // window.location.href = "/ket-qua";

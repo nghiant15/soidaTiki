@@ -446,6 +446,9 @@ public function getDataInfo (Request $request)
     {
         $data  =  session('dataResult', null);
         $dataGame = Session('dataGame', null);
+        $contetnFail ="Chúc Quý khách may mắn lần sau NHƯNG  bạn vẫn được nhận  Ưu Đãi từ Nhãn Hàng chính hãng tài trợ";
+        $contentSuccess = "CHÚC MỪNG BẠN ĐÃ TRÚNG THƯỞNG";
+    
         // dd($dataGame);
         $successGame = false;
         $dataUserSession =  session('dataCompany', null);
@@ -457,11 +460,13 @@ public function getDataInfo (Request $request)
         }
         
         $turnOffGame = false;
-    
-    
+
         if( $dataGame != null)
         {
                 $successGame = true;
+                $contetnFail = $dataGame->popupfail;
+            
+                $contentSuccess = $dataGame->pupupSuccess;
                 $currentTime = Carbon::now()->addHour(7);
                 $converTextString = $currentTime->format('H:i');
                 $fromDate = Carbon::parse($dataGame->fromDate); 
@@ -477,7 +482,7 @@ public function getDataInfo (Request $request)
                         if($dataGame->typeGame =="1")
                         {
                             $skin =  $data->data->facedata->generalResult->data[0]->data[0]->value;
-                            if( $skin*1  == $dataGame->skinNumber*1)
+                            if( $skin*1  != $dataGame->skinNumber*1)
                             {
                                 $successGame = true;
                                 session(['successGame' =>$successGame]);
@@ -516,7 +521,7 @@ public function getDataInfo (Request $request)
 
       
         $rewardCheck  =  session('rewardCheck', false);
-        return view("result", compact("slug", "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame"));
+        return view("result", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame"));
     }
 
     public function recomendProduct (Request $request, $slug =null) 

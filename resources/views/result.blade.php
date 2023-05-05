@@ -60,11 +60,13 @@
         var turnOfGame = {!! json_encode($turnOffGame) !!};
         var successGame = {!! json_encode($successGame) !!};
         var displayGame = {!! json_encode($displayGame) !!};
+        var contetnFail = {!! json_encode($contetnFail) !!};
+        var contentSuccess = {!! json_encode($contentSuccess) !!};
         if( turnOfGame == true && successGame == true && displayGame == true )
         {
 
                  var htmlTemplate = '';
-                htmlTemplate += '<div class ="titlepopup" >  CHÚC MỪNG BẠN ĐÃ TRÚNG THƯỞNG</div> <p >Xin vui lòng đăng ký/ đăng nhập </p><p>Để chúng tôi liên hệ trả thưởng sớm </p>';
+                htmlTemplate += '<div class ="titlepopup" >'+contentSuccess+'</div> <p >Xin vui lòng đăng ký/ đăng nhập </p><p>Để chúng tôi liên hệ trả thưởng sớm </p>';
                 var boxPopupSuccess=  document.getElementById("contentPopup");
                 if(boxPopupSuccess)
                 {
@@ -85,7 +87,7 @@
             // Xin vui lòng Đăng ký / Đăng nhập 
             // để chúng tôi liên hệ  sớm”
                 var htmlTemplate = '';
-                htmlTemplate += '<div class ="titlepopup" > Chúc Quý khách may mắn lần sau NHƯNG  bạn vẫn được nhận  Ưu Đãi từ Nhãn Hàng chính hãng tài trợ.</div> <p >Xin vui lòng đăng ký/ đăng nhập </p><p>Để chúng tôi liên hệ trả thưởng sớm </p>';
+                htmlTemplate += '<div class ="titlepopup" > '+contetnFail+'</div> <p >Xin vui lòng đăng ký/ đăng nhập </p><p>Để chúng tôi liên hệ trả thưởng sớm </p>';
                 var boxPopupSuccess=  document.getElementById("contentPopup");
                 
                 if(boxPopupSuccess)

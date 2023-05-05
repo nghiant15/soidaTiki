@@ -310,10 +310,10 @@ function isVietnamesePhoneNumber(number) {
         phoneNumber: $("#phoneNumberGame").val(),
       },
       success: function (response) {
-        debugger;
+       
         if (response.is_success) {
-          saveHistory(false);
-          return;
+      
+     
           if (isRequireLogin == null || isRequireLogin == false) {
             setTimeout(() => {
               if (loading) {
@@ -466,24 +466,24 @@ function isVietnamesePhoneNumber(number) {
               
             $(".status_alert_isVoucher").show();                     
             $("#btnLoginInputGetVoucher").attr("disabled", false);
-  
-           
-        if (response.is_success) {  
+        
+            if (response.is_success) {  
               sessionStorage.setItem("userNameLogin", userNameInputGetVoucher);          
               $("#name_after_login").html(userNameInputGetVoucher);
               $("#name_after_login").show();
               toggleContentResult();
               // $('#title__form__get-voucher--logined').html("Hãy chọn thương hiệu mà bạn mong muốn");
               checkLoginUserVoucher = true;
-        } else {
+        }
+         else {
   
-          Swal.fire({
-            position: "top-center",
-            icon: "error",
-            title: "Hãy kiểm tra lại thông tin tài khoản",
-            showConfirmButton: false,
-            timer: 1000,
-          });
+            Swal.fire({
+              position: "top-center",
+              icon: "error",
+              title: "Hãy kiểm tra lại thông tin tài khoản",
+              showConfirmButton: false,
+              timer: 1000,
+            });
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {},
