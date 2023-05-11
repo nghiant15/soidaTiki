@@ -100,8 +100,8 @@
             color: {{$dataColor}} !important; 
         }
         .rule{
-            position: abouabsolute;
-            left:50%;
+        
+           
         }
     </style>
 
@@ -166,14 +166,20 @@
 <div class="box-position-header">
     <div class="position_header">
         <div class="banner_header flex-center-space">
-            <div class="banner__header--left">
+            <div class="banner__header--left" style ="width:40%">
                 <a href ="javascript:void(0)" onclick="openHomePage()">
 <svg width="24px" id="Layer_1" fill="{{$dataColor}}" style="enable-background:new 0 0 16 16;" version="1.1" 
     viewBox="0 0 16 16" width="16px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <path d="M15.45,7L14,5.551V2c0-0.55-0.45-1-1-1h-1c-0.55,0-1,0.45-1,1v0.553L9,0.555C8.727,0.297,8.477,0,8,0S7.273,0.297,7,0.555  L0.55,7C0.238,7.325,0,7.562,0,8c0,0.563,0.432,1,1,1h1v6c0,0.55,0.45,1,1,1h3v-5c0-0.55,0.45-1,1-1h2c0.55,0,1,0.45,1,1v5h3  c0.55,0,1-0.45,1-1V9h1c0.568,0,1-0.437,1-1C16,7.562,15.762,7.325,15.45,7z"/>
 </svg>    
                  </a>
-                 <a  href ="javascript:void(0)"  class ="rule" onclick ="showRule()">
+                 <a  href ="javascript:void(0)"  style = " position: absolute;
+                        color: red;
+                        background-color: blue !important;
+                        left: 40%;
+                        text-decoration: none !important;
+                        color: #ffffff !important;
+                        padding: 2px 8px;" class ="rule" onclick ="showRule()">
                         Luật chơi
                  </a>
             </div>
@@ -215,29 +221,28 @@
                     </div>
                     @else
                             @if($slug !="bibabo")
-
-                            <div class="flex" >
-                                <a onclick="ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online')"
-                                    href="javascript:void(0)"
-                                    id="status__text__login"
-                                    class=" btn_nav btn_nav-no-after navbar-a navbar-a"
-                                    style="margin:auto;box-shadow:none">
-                                    Đăng nhập/Đăng ký
-                                </a>
-                                <div class="hover-after-login" >
-                                    <a id="name_after_login" href="javascript:void(0)"
-                                        
-                                        class=" btn_nav  navbar-a navbar-a"
+                                <div class="flex" >
+                                    <a onclick="ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online')"
+                                        href="javascript:void(0)"
+                                        id="status__text__login"
+                                        class=" btn_nav btn_nav-no-after navbar-a navbar-a"
                                         style="margin:auto;box-shadow:none">
-                                        
+                                        Đăng nhập/Đăng ký
                                     </a>
-                                    <div class="status-form-after-login position_form_information_user">
-                                        <div class="form-function-user">
-                                            <p onclick="reloadWeb()">Click để xem thông tin</p>
+                                    <div class="hover-after-login" >
+                                        <a id="name_after_login" href="javascript:void(0)"
+                                            
+                                            class=" btn_nav  navbar-a navbar-a"
+                                            style="margin:auto;box-shadow:none">
+                                            
+                                        </a>
+                                        <div class="status-form-after-login position_form_information_user">
+                                            <div class="form-function-user">
+                                                <p onclick="reloadWeb()">Click để xem thông tin</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
                     
 

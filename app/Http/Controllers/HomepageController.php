@@ -242,6 +242,7 @@ public function getDataInfo (Request $request)
         }
        
     }
+    
     public function index (Request $request, $slug =null) 
     {  
         
@@ -261,8 +262,6 @@ public function getDataInfo (Request $request)
         $dataGlobal =null;
         if($res->getStatusCode() ==200)
         {
-            // return  ["is_success" =>false];
-
             $checkresult = $res->getBody()->getContents();
             $data = json_decode($checkresult);
             $dataGlobal = $data->data;
@@ -303,12 +302,8 @@ public function getDataInfo (Request $request)
         if($dataUserSession)
         {
            $dataUser =  $dataUserSession->data;
-        //    dd($dataUser);
             $dataUser->token = $dataUserSession->token;
-        
-            // $dataUser = $this->getInfo($request);
-         
-            // $dataUser = $dataUser["data"]->data;
+            
         }
         
         $isCheck  = true;
@@ -426,10 +421,7 @@ public function getDataInfo (Request $request)
             $this->loginUser($dataRequestInput);
            
         }
-
-
-      
-        if(!$isCheck)
+         if(!$isCheck)
         {
             return view("notfound");
        
@@ -438,8 +430,6 @@ public function getDataInfo (Request $request)
         $agent = new Agent();
         $gameJoinTo= false;
         return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
-       
-
     }
 
     public function result (Request $request, $slug =null) 
@@ -473,9 +463,7 @@ public function getDataInfo (Request $request)
                 $todate = Carbon::parse(  $dataGame->todate); 
                 $timefrom = $dataGame->fromtime;
                 $timeto = $dataGame->totime;
-                if(
-                    $currentTime >= $fromDate && $currentTime <= $todate
-                )
+                if( $currentTime >= $fromDate && $currentTime <= $todate  )
                 {
                     if($timefrom<= $converTextString && $converTextString <=$timeto)
                     {
