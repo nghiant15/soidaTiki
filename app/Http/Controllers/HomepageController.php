@@ -402,10 +402,8 @@ public function getDataInfo (Request $request)
         $dataCompanyId =  $this->getCompanyId();
      
         $dataGame = $this->getGameActive($dataCompanyId);
-      
-
+        
         if($slug == "bibabo")
-
         {
             $isTurnOfFooter = false;
             $userName = $request['name'];
@@ -421,12 +419,11 @@ public function getDataInfo (Request $request)
             $this->loginUser($dataRequestInput);
            
         }
-         if(!$isCheck)
+        if(!$isCheck)
         {
             return view("notfound");
        
         }
-
         $agent = new Agent();
         $gameJoinTo= false;
         return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo"));

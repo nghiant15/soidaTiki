@@ -81,11 +81,7 @@
         else 
         if( turnOfGame == true && successGame == false && displayGame == true )
         {
-            // Chúc Quý khách may mắn lần sau
-            // NHƯNG  bạn vẫn được nhận  Ưu Đãi từ
-            // Nhãn Hàng chính hãng tài trợ
-            // Xin vui lòng Đăng ký / Đăng nhập 
-            // để chúng tôi liên hệ  sớm”
+           
                 var htmlTemplate = '';
                 htmlTemplate += '<div class ="titlepopup" > '+contetnFail+'</div> <p >Xin vui lòng đăng ký/ đăng nhập </p><p>Để chúng tôi liên hệ trả thưởng sớm </p>';
                 var boxPopupSuccess=  document.getElementById("contentPopup");
