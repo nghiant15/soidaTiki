@@ -426,6 +426,11 @@ public function getDataInfo (Request $request)
         }
         $agent = new Agent();
         $gameJoinTo= false;
+
+        if($slug =="soida")
+        {
+            return view("welcomeZalo", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
+        }
         return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
     }
 

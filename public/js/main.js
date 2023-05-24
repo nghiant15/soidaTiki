@@ -537,6 +537,17 @@ function ToggleDisplayClass(myClass, status) {
   }
 
 
+  function ToggleDisplayFormFollow(myClass, status) {
+
+    var lastSegement = window.location.pathname.split("/").pop();
+
+    if (status) {
+      document.querySelector(myClass).style.display = "block";
+    } else {
+      document.querySelector(myClass).style.display = "none";
+    }
+  }
+
   function updateInfoUser() {
   
 
