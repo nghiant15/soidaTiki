@@ -1,4 +1,30 @@
 .status-modal-follow{
+
+     
+    .avatar-folow{
+        a{
+            text-decoration: none !important;
+            outline: none !important;
+        }
+
+        a:hover, a:active, a:visited, a:focus {
+            text-decoration:none !important;
+            
+            
+        }
+        
+    
+    }
+   
+    position: relative;
+    .position-close3{
+        position: absolute;
+        /* right: 0; */
+        left: 300px;
+        top : unset !important;
+        right:unset !important;
+        
+    }
     .data-follow{
             background-color: #cde0fa;
             border: 1px solid green;
@@ -56,8 +82,9 @@
      .fist-column{
         display: inline-flex;
                 img {
-                width: 32px;
-                height: 32px;
+                    width: 34px;
+                    height: 34px;
+                    border-radius: 50%;
                 }
                 span {
                 margin: auto;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-define('API_BaseUrl', env('API_URL', 'http://localhost:3002') );
+define('API_BaseUrl', env('API_URL', 'https://api-soida.applamdep.com') );
 define('API_URL_Tikitech', env('API_URL_Tikitech', '') );
 define('EndUser_Add',   "api/add-end-user");
 define('Collaborators_Add',   "api/collaborator/add");

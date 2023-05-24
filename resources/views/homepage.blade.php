@@ -14,7 +14,7 @@ $dataSeo = "Soida liền tay";
     $dataSeo-> title ="Soi da online";
     $dataSeo->description ="Soi Da Online .Ngay tại nhà, Kiểm tra, tuổi da & hơn 40 thông số về da khác. Một lần quét, nói với bạn mọi điều .#soidaonline";
 @endphp
-@extends('layoutZalo')
+@extends('layout')
 
 @section('header')
     <meta charset="UTF-8">
@@ -33,8 +33,6 @@ $dataSeo = "Soida liền tay";
 
     <link rel="stylesheet" href="./styles/global/index.css">
     <link rel="stylesheet" href="./styles/global/global_responsive.css">
-
-    <link rel ="stylesheet" href ="/css/welcomNew.css">
     <!-- ASSETS CDN SLICK -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 
@@ -1374,7 +1372,7 @@ $dataSeo = "Soida liền tay";
             <div class="container text-center">
                 
                 <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-                    <a href= "javascript:void(0)"  onclick="openZaloFollow()" ><img style= "height: 50px" src ="/zalophoneGroup.png"> </a></p>
+                    <a href= "javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/phoneNew2.png"> </a></p>
             </div>
         </div>
         @else
@@ -1382,7 +1380,7 @@ $dataSeo = "Soida liền tay";
             <div class="container text-center">
                 
                 <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-                    <a href="javascript:void(0)"  onclick="openZaloFollow()" ><img style= "height: 50px" src ="/zalophoneGroup.png"> </a></p>
+                    <a href="javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/desktopNew2.png"> </a></p>
             </div>
         </div>
         @endif
@@ -1394,8 +1392,11 @@ $dataSeo = "Soida liền tay";
 <script>
 
 function openFormRegister() {
-    ToggleDisplayFormFollow('.status-modal-follow',true);
-    
+    ToggleDisplayLogin('.status-modal-account',true,'Để tư vấn da ngay & 100% Miễn Phí')
+
 }
+
+
+
 
 </script>

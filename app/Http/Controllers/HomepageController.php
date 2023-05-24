@@ -440,7 +440,7 @@ public function getDataInfo (Request $request)
         $dataGame = Session('dataGame', null);
         $contetnFail ="Chúc Quý khách may mắn lần sau NHƯNG  bạn vẫn được nhận  Ưu Đãi từ Nhãn Hàng chính hãng tài trợ";
         $contentSuccess = "CHÚC MỪNG BẠN ĐÃ TRÚNG THƯỞNG";
-    
+        
         // dd($dataGame);
         $successGame = false;
         $dataUserSession =  session('dataCompany', null);
@@ -498,19 +498,26 @@ public function getDataInfo (Request $request)
 
         
         
-         if($slug =="soida")
-        {
-            $slug = null;
-        }
-        if($slug == null )
-        {
+        //  if($slug =="soida")
+        // {
+        //     $slug = null;
+        // }
+        // if($slug == null )
+        // {
 
-        }
+        // }
         $companyId = $this->getCompanyId();
         $agent = new Agent();
-
+        $turnOffGame = false;
       
         $rewardCheck  =  session('rewardCheck', false);
+
+        
+        if($slug =="soida")
+        {
+              return view("resultZalo", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
+        }
+
         return view("result", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame"));
     }
 

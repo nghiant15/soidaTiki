@@ -131,7 +131,7 @@
             @include('profile.update')
             @include('profile.history')
             @include('profile.isVoucher')
-            @include('login.login')
+            @include('loginZalo.login2')
 
 
 
@@ -139,10 +139,11 @@
             @include('profile.update')
             @include('profile.history')
             @include('profile.isVoucher')
-            @include('loginZalo.login')
+            @include('loginZalo.login2')
 
     @endif
 
+    @include('loginZalo.login')
     <div class="content-page">
 
     <div class="content-plugin">
@@ -219,7 +220,7 @@
                                         id="status__text__login"
                                         class=" btn_nav btn_nav-no-after navbar-a navbar-a"
                                         style="margin:auto;box-shadow:none">
-                                        Đăng nhập/Đăng ký
+                                        Để xem lịch sử soi da online
                                     </a>
                                     <div class="hover-after-login" >
                                         <a id="name_after_login" href="javascript:void(0)"

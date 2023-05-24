@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutZalo')
 
 
 
@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="/styles/skin_screening/responsive.css">
     <link rel="stylesheet" href="/styles/global/index.css">
     <link rel="stylesheet" href="/styles/global/global_responsive.css">
+    <link rel ="stylesheet" href ="/css/welcomNew.css">
     <!-- ASSETS CDN SLICK -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -469,7 +470,7 @@ margin: auto;
                     <div class="hcn">
 
                     </div>
-                    <div class="title-larger">
+                    <div class="title-larger" id ="ketluachitiet">
                         Kết luận chi tiết
                     </div>
 
@@ -1459,15 +1460,43 @@ margin: auto;
             }
 
         });
+    </script>
+@endsection
 
-        setTimeout(() => {
+
+<script>
+   var refreshIntervalId;
+   setTimeout(() => {
     if(!isLogin)
     {
         ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online');
     }
      
    }, 4000);
-    </script>
 
-    
-@endsection
+    setTimeout(() => {
+        refreshIntervalId = setInterval(myTimer, 5000);
+    }, 7000);
+
+
+function myTimer() {
+
+        
+    if(isOnScreen($('#ketluachitiet'))) { 
+        
+
+            openZaloFollow();
+            clearInterval(refreshIntervalId);
+
+    };
+}
+
+
+function isOnScreen(element)
+{
+    var curPos = element.offset();
+    var curTop = curPos.top;
+    var screenHeight = $(window).height();
+    return (curTop > screenHeight) ? false : true;
+}
+</script>
