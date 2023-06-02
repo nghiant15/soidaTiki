@@ -362,7 +362,7 @@ public function getDataInfo (Request $request)
     private function getGameActive($companyId)
     {
 
-        $url ="http://localhost:3002/api/get-game-active";
+        $url ="https://api-soida.applamdep.com/api/get-game-active";
         $client = new Client();
       
 

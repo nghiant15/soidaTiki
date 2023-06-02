@@ -503,11 +503,12 @@ function drawConcludeDetail(dataRequest) {
   for (var i = 0; i < dataRequest.length; i++)
   {
       var item = dataRequest[i];
+    
       var groupK = item['level'];
       if(groupK < "K5") 
          continue;
       var valueGroupK = item['sdktype'];
-      drawConcludev2( groupK, valueGroupK);
+      drawConcludev2( groupK, valueGroupK, item);
   }
 
 return;
@@ -554,7 +555,7 @@ function drawConcludeOverview( dataRequest)
       if(groupK < "K5") 
          continue;
       var valueGroupK = item['sdktype'];
-      drawConcludeOverview2( groupK, valueGroupK);
+      drawConcludeOverview2( groupK, valueGroupK, item);
 
       
     
@@ -562,15 +563,33 @@ function drawConcludeOverview( dataRequest)
 }
 
 
-function drawConcludeOverview2 ( groupk, valuek) 
+function drawConcludeOverview2 ( groupk, valuek, item) 
 {
   var tilte = "";
   var des = "";
   
   var text = "Mức độ nhẹ";
+  var valueRel =  item['avg'];
+  if( typeof(valueRel) =="undefined")
+  {
+    return;
+  }
+  if(  valueRel < 1)
+  {
+    valuek = 1;
+  }
+  else if( valueRel < 2)
+  {
+    valuek = 2;
+  }
+  else if( valueRel < 3)
+  {
+    valuek = 3;
+  }
 
   if(valuek >3)
     valuek = 3;
+    
     valuek=  valuek+'';
 
 
@@ -702,16 +721,31 @@ $("#idtuvantongquan").append(htmlTemp);
 
 }
 
-function drawConcludev2 ( groupk, valuek) 
+function drawConcludev2 ( groupk, valuek, item) 
 {
   var tilte = "";
   var des = "";
-  
+  var valueRel =  item['avg'];
+  if( typeof(valueRel) =="undefined")
+  {
+    return;
+  }
+  if(  valueRel < 1)
+  {
+    valuek = 1;
+  }
+  else if( valueRel < 2)
+  {
+    valuek = 2;
+  }
+  else if( valueRel < 3)
+  {
+    valuek = 3;
+  }
   var text = "Mức độ nhẹ";
 
-  if(valuek >3)
-    valuek = 3;
     valuek=  valuek+'';
+  
 
 
     if( groupk == "K6")
@@ -832,15 +866,15 @@ function drawConcludev2 ( groupk, valuek)
    if(valuek>3)
       valuek =3;
 
-     var valueLevel = valuek*1 + 0.3;
+     var valueLevel1 = valueRel*1;
 
-     if(valueLevel >3)
-      valueLevel = 3;
-   var percentage =  Math.round((valueLevel /3) * 100);
+     if(valueLevel1 >3)
+     valueLevel1 = 3;
+   var percentage =  Math.round((valueLevel1/3) * 100);
    
    
    var htmlTemp = ' <div class="ConcludeItem"><p class ="paragraph-text-pa"> <span class ="bold-text-pa">'+tilte+': </span>\
-<span> '+text+' (Mức '+valuek +'/3) </span>\
+<span> '+text+' (Mức '+valueRel +'/3) </span>\
    </p > \
    <div class="progress-bar-container">\
        <div class="progress-bar-indicator" style ="width: '+percentage+'%;" >\
@@ -848,7 +882,7 @@ function drawConcludev2 ( groupk, valuek)
        </div> \
 \
        <span class="tooltip-target">\
-               <span class="tooltip-content" style =" left: calc('+percentage +'% - 35px);"><p class ="title-score"> Điểm của bạn</p><p> <span class ="score">'+valueLevel+'</span>/3</p> </span>\
+               <span class="tooltip-content" style =" left: calc('+percentage +'% - 35px);"><p class ="title-score"> Điểm của bạn</p><p> <span class ="score">'+valueLevel1+'</span>/3</p> </span>\
        </span>\
    </div>\
    <div id="textbox">\
