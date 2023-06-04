@@ -152,7 +152,7 @@
     <div class="container text-center">
         
           <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-            <a href="/soida"  target ="_blank"><img style= "height: 50px" src ="/phonenew.jpg"> </a></p>
+            <a href="/soida"  target ="_blank"><img style= "height: 50px" src ="/phoneNew2.png"> </a></p>
     </div>
 </div>
 @endif
