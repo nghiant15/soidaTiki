@@ -470,7 +470,7 @@ margin: auto;
                     <div class="hcn">
 
                     </div>
-                    <div class="title-larger" id ="ketluachitiet" style ="display:none">
+                    <div class="title-larger" id ="ketluachitiet" >
                         Kết luận chi tiết
                     </div>
 
@@ -574,13 +574,13 @@ margin: auto;
             </style>
 
 
-            <div id ="ConcludeItemArea" style ="display:none">
+            <div id ="ConcludeItemArea" >
         
             </div>
         
 
 
-                <div class="title-overview" style ="display:none">
+                <div class="title-overview" >
                     <div class="hcn">
 
                     </div>

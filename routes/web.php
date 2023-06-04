@@ -18,7 +18,7 @@ Route::get('{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage'
 Route::get('/{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage');
 // Route::post('/skin/add-history-skin-plugin', 'HistoryController@saveHistory')->name('saveHistory');
 Route::post('/{slug}/skin/call-soi-da', 'HomepageController@callSikin');
-Route::post('/skin/call-soi-da', 'HomepageController@');
+Route::post('/skin/call-soi-da', 'HomepageController@callSikin');
 
 Route::get('/get-all-history', 'HistoryController@GetAllHistory');
 Route::get('/lichsu-soida', 'HistoryController@historySoida');

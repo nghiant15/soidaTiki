@@ -429,7 +429,7 @@ public function getDataInfo (Request $request)
 
         if($slug =="soida")
         {
-            return view("welcomeZalo", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
+            return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
         }
         return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
     }
