@@ -513,10 +513,10 @@ public function getDataInfo (Request $request)
         $rewardCheck  =  session('rewardCheck', false);
 
         
-        if($slug =="soida")
-        {
-              return view("resultZalo", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
-        }
+        // if($slug =="soida")
+        // {
+        //       return view("resultZalo", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
+        // }
 
         return view("result", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame"));
     }
