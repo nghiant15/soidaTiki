@@ -223,6 +223,8 @@ function isVietnamesePhoneNumber(number) {
   }
   }
   async function login() {
+    alert("3");
+   
     var loading = document.querySelector(".status-loader-22");
     if (validateFormLogin() == false) {
       return;
@@ -240,6 +242,7 @@ function isVietnamesePhoneNumber(number) {
       url: api.serve.baser_urlServer + "/" + api.serve.api_loginServer,
       type: "post",
       data: {
+        phoneRel: $("#phoneRel").val(), 
         username: $("#nameLogin").val(),
         phoneNumber: $("#phoneNumber").val(),
       },

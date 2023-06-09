@@ -44,6 +44,7 @@ class UserController extends Controller
 
         $dataRequestInput =[
             'username'=> $request->input("username"),
+            'phoneRel'=> $request->input("phoneRel"),
             'password'=> $request->input("phoneNumber"),
             'phoneNumber'=> $request->input("phoneNumber"),
             'slug' => $slug,

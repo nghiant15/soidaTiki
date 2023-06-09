@@ -176,7 +176,10 @@
             </p>
             <img src="/images/step3.png">
         </div>
-
+        <div class ="avgclass">
+            <p class ="title"> Sức khỏe làn da bạn ở mức: <span class="level">Trung bình  <span class="score" id ="scoreAvg"> </span> </span>  </p>
+            <p class="desavg">(Chỉ số này càng nhỏ càng tốt & càng ít vấn đề về da) </p>
+        </div>
         {{-- <div class="profilearea">
 
         <div class="dropdown">
@@ -1451,7 +1454,7 @@ margin: auto;
             drawConcludeDetail(objectReponse.data.facedata.hintResult);
 
             drawConcludeOverview(objectReponse.data.facedata.hintResult);
-
+            avgScore();
             drawProduction(objectReponse.data.facedata.hintResult);
             if(  turnOffGame == true)
             {

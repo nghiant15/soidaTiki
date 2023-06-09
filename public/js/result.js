@@ -574,6 +574,7 @@ function drawConcludeOverview2 ( groupk, valuek, item)
   {
     return;
   }
+ 
   if(  valueRel < 1)
   {
     valuek = 1;
@@ -748,11 +749,6 @@ function drawConcludev2 ( groupk, valuek, item)
   
 
 
-    if( groupk == "K6")
-    {
-      return;
-    }
-  
     switch(groupk) {
       case "K5":
         tilte = "Lão hoá da";
@@ -908,6 +904,8 @@ function drawConclude (item)
 
 if(item)
 {
+
+
 for (var i = 0; i < item.length; i++) {
 var itemIndex = item[i];
    var tilte = itemIndex.Title;
@@ -1173,4 +1171,153 @@ $('.dataProduct').slick({
 }
 
 
+function avgScore()
+{
+  var x = JSON.parse(sessionStorage._t);
 
+  var dataSpeech =  x.data.facedata.generalConclusion.data;
+
+  var ageITem = null;
+  dataSpeech.forEach(element => {
+      if(element.key =='SkinAge')
+      {
+        ageITem = element;
+        return;
+      }
+  });
+   var vulueAge = ageITem.value;
+
+   var avgAge = 0;
+
+   if( vulueAge <20)
+   {
+      avgAge =0;
+   }
+   else if(vulueAge <30 )
+   {
+    avgAge =1;
+   }
+   else if(vulueAge<40)
+   {
+    avgAge =2;
+   }
+   else 
+   {
+    avgAge =3;
+   }
+
+    var hintScore = x.data.facedata.hintResult;
+    var sumAvg = 0;
+
+    hintScore.forEach(item1 => {
+
+      if(item1.sdktype < 5 )
+      {
+       
+      }
+      else 
+      {
+        sumAvg+=  item1.avg*1.0;
+      }
+      
+    });
+
+    let avgFinal = sumAvg;
+    avgFinal = (sumAvg+avgAge)/6;
+
+    document.getElementById("scoreAvg").textContent = ""+ parseFloat(avgFinal).toFixed(2) +" /3";
+
+   
+
+}
+
+
+
+function readTextConclude()
+{
+  var x = JSON.parse(sessionStorage._t);
+
+   
+    var hintScore = x.data.facedata.hintResult;
+
+    let text ='';
+    let begintext ="";
+    hintScore.forEach(item1 => {
+      if(item1.sdktype*1.0 <5)
+          return;
+      let avg = item1.avg*1.0;
+      let textDegree = "";
+      let endpoint ="";
+    
+      if(avg <= 1 )
+      {
+        textDegree =" Nhẹ";
+      }
+      else if(avg <=2)
+      {
+        textDegree =" Trung bình";
+      }
+      else if(avg <=3)
+      {
+        textDegree =" Nặng";
+
+      }
+      endpoint= " " +avg + " trên 3 ;";
+  
+
+      
+      switch (item1.sdktype) {
+        case "5":
+               begintext+= "Bạn có dấu hiệu Lão Hóa Da tình trạng";
+               break;
+       
+          case "6":
+            begintext+= "Bạn có mụn và mụn viêm đỏ tình trạng ";
+          break;
+          case "7":
+            begintext+= "Bạn có Quầng thâm mắt tình trạng ";
+          break;
+          case "8":
+            begintext+= "Bạn có các vấn đề do lỗ chân lông tình trạng ";
+          break;
+          case "9":
+            begintext+= "Bạn có Đốm thâm nám tình trạng ";
+          break;
+      
+        default:
+          break;
+      }
+      begintext+= ""+textDegree+""+endpoint;
+
+    
+    });
+    let d = begintext;
+    $.ajax({
+      url: "https://api.fpt.ai/hmi/tts/v5?api_key",
+      type: "post",
+      headers: {
+           "api_key": "3EdTMXVJyYds5pPqwcLur48IAq8WnVdf",
+           "voice": "banmai"
+    
+        },
+      data: {
+        d 
+      },
+      success: function (response) {
+          
+           var ourAudio = document.createElement('audio'); // Create a audio element using the DOM
+           ourAudio.style.display = "none"; // Hide the audio element
+           ourAudio.src =response.async; // Set resource to our URL
+           ourAudio.autoplay = true; // Automatically play sound
+           ourAudio.onended = function() {
+             this.remove(); // Remove when played.
+           };
+           document.body.appendChild(ourAudio);
+       
+      },
+      error: function (jqXHR, textStatus, errorThrown) {},
+    })
+
+  }
+    
+      

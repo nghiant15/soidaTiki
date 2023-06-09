@@ -429,7 +429,7 @@ public function getDataInfo (Request $request)
 
         if($slug =="soida")
         {
-            return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
+            return view("welcomeZalo", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
         }
         return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
     }
@@ -513,10 +513,10 @@ public function getDataInfo (Request $request)
         $rewardCheck  =  session('rewardCheck', false);
 
         
-        // if($slug =="soida")
-        // {
-        //       return view("resultZalo", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
-        // }
+        if($slug =="soida")
+        {
+              return view("resultZalo", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
+        }
 
         return view("result", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame"));
     }
@@ -625,7 +625,7 @@ public function getDataInfo (Request $request)
             ];
 
  
-            $url = "https://portal.applamdep.com/api/skin/portalApp";
+            $url = "http://localhost:3014/api/skin/portalApp";
 
             $client = new Client();
             $res = $client->request('post',$url , [

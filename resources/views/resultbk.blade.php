@@ -38,7 +38,7 @@
     <script> 
     
         var slugGlobal = {!! json_encode($slug) !!};
-       
+        
     </script>
     <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">

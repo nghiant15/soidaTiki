@@ -177,6 +177,10 @@
             </p>
             <img src="/images/step3.png">
         </div>
+        <div class ="avgclass">
+            <p class ="title"> Sức khỏe làn da bạn ở mức: <span class="level">Trung bình  <span  id ="scoreAvg" class="score"> </span> </span>  </p>
+            <p class="desavg">(Chỉ số này càng nhỏ càng tốt & càng ít vấn đề về da) </p>
+        </div>
 
         {{-- <div class="profilearea">
 
@@ -227,14 +231,7 @@
             }
         </style>
 
-        {{-- <div class="header_promo" style="
-width: 100%;
-max-width: 709px;
-margin: auto;
-">
-        <img src="/banner1.jpg">
-    </div> --}}
-
+       
 
         <div class="ai-skin__container">
             <div id="output">
@@ -327,85 +324,7 @@ margin: auto;
                 </div>
                 <div id="idGeneralResult">
 
-                    {{-- <div class="record-content">
-                        <div class="record-content-tab">
-                            <div class="image">
-                                <img src="/images/face1.png">
-            
-                            </div>
-                            <div class="description">
-            
-                                <div class="description-content">
-                                    <div class="center-div">
-            
-                                        <p class="title-description-content"> Tuổi da </p>
-            
-                                        <p class="content-paragraph"> Tuổi da vào khoảng 30</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="record-content">
-                        <div class="record-content-tab">
-                            <div class="image">
-                                <img src="/images/tongquan-step2.png">
-            
-                            </div>
-                            <div class="description">
-            
-                                <div class="description-content">
-                                    <div class="center-div">
-            
-                                        <p class="title-description-content"> Da kết hợp giữa khô và dầu </p>
-            
-                                        <p class="content-paragraph">Vùng da nhờn với các vùng da khô</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="record-content">
-                        <div class="record-content-tab">
-                            <div class="image">
-                                <img src="/images/tongquan-step3.png">
-            
-                            </div>
-                            <div class="description">
-            
-                                <div class="description-content">
-                                    <div class="center-div">
-            
-                                        <p class="title-description-content"> Nhận diện tone màu da </p>
-            
-                                        <p class="content-paragraph"> Màu sắc của da: Vàng</p>
-                                        <p class="content-paragraph"> Độ sáng màu da: Ngăm đen</p>
-                                        <p class="content-paragraph">Cấp độ bảng màu quốc tế: 96</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="record-content">
-                        <div class="record-content-tab">
-                            <div class="image">
-                                <img src="/images/tongquan-step3.png">
-            
-                            </div>
-                            <div class="description">
-            
-                                <div class="description-content">
-                                    <div class="center-div">
-            
-                                        <p class="title-description-content">Nốt ruồi </p>
-            
-                                        <p class="content-paragraph"> Số nốt ruồi 0</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
+               
                 </div>
               
 
@@ -615,7 +534,7 @@ margin: auto;
                 </style>
                 <div id="idtuvantongquan"  style="
                 text-align: justify;
-                display:none;
+           
                 padding: 10px;
             ">
 
@@ -1346,6 +1265,25 @@ margin: auto;
 
     </div>
 
+    @if ($agent->isMobile() )
+        <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
+            <div class="container text-center">
+                
+                <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
+                    <a href= "javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/phoneNew2.png"> </a></p>
+            </div>
+        </div>
+        @else
+        <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
+            <div class="container text-center">
+                
+                <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
+                    <a href="javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/desktopNew2.png"> </a></p>
+            </div>
+        </div>
+        @endif
+
+
     <script>
             var companyIdGlobal = {!! json_encode($companyId) !!};
     </script>
@@ -1453,7 +1391,7 @@ margin: auto;
             drawConcludeDetail(objectReponse.data.facedata.hintResult);
 
             drawConcludeOverview(objectReponse.data.facedata.hintResult);
-
+            avgScore();
             drawProduction(objectReponse.data.facedata.hintResult);
             if(  turnOffGame == true)
             {
@@ -1486,7 +1424,8 @@ function myTimer() {
     if(isOnScreen($('#ketluachitiet'))) { 
         
 
-            openZaloFollow();
+            // openFormRegister();
+            readTextConclude();
             clearInterval(refreshIntervalId);
 
     };

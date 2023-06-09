@@ -176,7 +176,10 @@
         </p>
         <img src="/images/step3.png"> 
       </div>
-
+      <div class ="avgclass">
+            <p class ="title"> Sức khỏe làn da bạn ở mức: <span class="level">Trung bình  <span  id ="scoreAvg" class="score"> </span> </span>  </p>
+            <p class="desavg">(Chỉ số này càng nhỏ càng tốt & càng ít vấn đề về da) </p>
+        </div>
 
     <div class="ai-skin__container">
          <div id="output">
@@ -1085,7 +1088,7 @@
 
         drawConcludeDetail(objectReponse.data.facedata.hintResult);
         drawConcludeOverview(objectReponse.data.facedata.hintResult);
-        
+        avgScore();
 
     });
 </script>

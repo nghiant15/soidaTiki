@@ -48,8 +48,17 @@
                         <div class="form-group">
                             <div id="toggleNumber">
                                 <input name="phoneNumber" type="text" class="my-form-control userName" id="phoneNumber"
-                                    placeholder="Số điện thoại của bạn" />
+                                    placeholder="Số điện thoại của bạn " />
                                 <div class="errorMesssage" id="phoneNumbererrorMesssage">
+                                    Không dược bỏ trống
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                                <input name="phoneRel" type="text" class="my-form-control userName" id="phoneRel"
+                                    placeholder="Số điện thoại người giới thiệu" />
+                                <div class="errorMesssage" id="phoneRel">
                                     Không dược bỏ trống
                                 </div>
                             </div>
