@@ -1232,6 +1232,66 @@ function avgScore()
 }
 
 
+function avgScorev2(dataDraw)
+{
+  var x =dataDraw.data;
+
+  var dataSpeech =  x.facedata.generalResult.data;
+
+  var ageITem = null;
+  dataSpeech.forEach(element => {
+      if(element.key =='SkinAge')
+      {
+        ageITem = element;
+        return;
+      }
+  });
+   var vulueAge = ageITem.value;
+
+   var avgAge = 0;
+
+   if( vulueAge <20)
+   {
+      avgAge =0;
+   }
+   else if(vulueAge <30 )
+   {
+    avgAge =1;
+   }
+   else if(vulueAge<40)
+   {
+    avgAge =2;
+   }
+   else 
+   {
+    avgAge =3;
+   }
+
+    var hintScore = x.facedata.hintResult;
+    var sumAvg = 0;
+
+    hintScore.forEach(item1 => {
+
+      if(item1.sdktype < 5 )
+      {
+       
+      }
+      else 
+      {
+        sumAvg+=  item1.avg*1.0;
+      }
+      
+    });
+
+    let avgFinal = sumAvg;
+    avgFinal = (sumAvg+avgAge)/6;
+
+    document.getElementById("scoreAvg").textContent = ""+ parseFloat(avgFinal).toFixed(2) +" /3";
+
+   
+
+}
+
 
 function readTextConclude()
 {
@@ -1295,19 +1355,18 @@ function readTextConclude()
     $.ajax({
       url: "https://api.fpt.ai/hmi/tts/v5?api_key",
       type: "post",
+      contentType: "application/json",
       headers: {
-           "api_key": "3EdTMXVJyYds5pPqwcLur48IAq8WnVdf",
+           "api_key": "6gDh74q75Dl7yIuZTmVjqnYSBsuh2A3O",
            "voice": "banmai"
     
         },
-      data: {
-        d 
-      },
+      data: JSON.stringify(d),
       success: function (response) {
           
            var ourAudio = document.createElement('audio'); // Create a audio element using the DOM
            ourAudio.style.display = "none"; // Hide the audio element
-           ourAudio.src =response.async; // Set resource to our URL
+           ourAudio.src = response.async;
            ourAudio.autoplay = true; // Automatically play sound
            ourAudio.onended = function() {
              this.remove(); // Remove when played.

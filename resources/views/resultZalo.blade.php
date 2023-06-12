@@ -1265,6 +1265,12 @@
 
     </div>
 
+
+
+
+
+    @if (!Session()->has('dataCompany'))
+
     @if ($agent->isMobile() )
         <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
             <div class="container text-center">
@@ -1283,6 +1289,7 @@
         </div>
         @endif
 
+        @endif
 
     <script>
             var companyIdGlobal = {!! json_encode($companyId) !!};
@@ -1438,5 +1445,9 @@ function isOnScreen(element)
     var curTop = curPos.top;
     var screenHeight = $(window).height();
     return (curTop > screenHeight) ? false : true;
+}
+function openFormRegister() {
+    ToggleDisplayFormFollow2('.status-modal-follow',true);
+    
 }
 </script>

@@ -1088,8 +1088,11 @@
 
         drawConcludeDetail(objectReponse.data.facedata.hintResult);
         drawConcludeOverview(objectReponse.data.facedata.hintResult);
-        avgScore();
+   
+        avgScorev2(objectReponse);
 
     });
 </script>
+
+<script type="text/javascript" src="/js/result.js"></script>
 @endsection

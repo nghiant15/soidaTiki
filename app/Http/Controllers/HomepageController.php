@@ -625,7 +625,7 @@ public function getDataInfo (Request $request)
             ];
 
  
-            $url = "http://localhost:3014/api/skin/portalApp";
+            $url = "https://portal.applamdep.com/api/skin/portalApp";
 
             $client = new Client();
             $res = $client->request('post',$url , [

@@ -111,7 +111,7 @@ $dataColor = $dataColor->data;
        
         @include("campaign.header")
         <div class="banner_evoucher">
-            <a href="/soida">
+            <a href="/zasaly">
             <video autoplay muted loop id="myVideo">
                 <source src="/hero-banner.mp4" type="video/mp4">
                 Your browser does not support HTML5 video.

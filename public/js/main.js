@@ -536,17 +536,90 @@ function ToggleDisplayClass(myClass, status) {
       }
   }
 
-
-  function ToggleDisplayFormFollow(myClass, status) {
+  function ToggleDisplayLogin2(myClass, status, title = '') {
 
     var lastSegement = window.location.pathname.split("/").pop();
 
-    if (status) {
-      document.querySelector(myClass).style.display = "block";
-    } else {
-      document.querySelector(myClass).style.display = "none";
+    var typeLogin = null;
+    // if( lastSegement == "ket-qua" )
+    // {
+    //    title = 'Để Xem kết luận chi tiết & tư vấn tổng quát';
+    //    typeLogin ="2";
+    // }
+
+    if(title =="Để xem lịch sử soi da online")
+    {
+      typeLogin ="3";
     }
+
+    if(title =="Để tư vấn da ngay & 100% Miễn Phí")
+    {
+      typeLogin ="1";
+    }
+
+    if(title =="Để tư vấn da ngay & 100% Miễn Phí")
+    {
+      typeLogin ="1";
+    }
+
+    if( title != '')
+    {
+        $("#titleLogin").html(title);
+    }
+    var urlUpdate = api.serve.baser_urlServer + "/" + "typeLogin/setType";
+  
+    $.ajax({
+      type: "post",
+      url: urlUpdate,
+      data: {
+        typeLogin: typeLogin
+      },
+  
+      success: function (data) {
+        if (data.is_success) {         
+        }
+      },
+      error: function (data) {},
+    });
+
+
+      if (document.querySelector(myClass)) {
+        if (status) {
+          document.querySelector(myClass).style.display = "block";
+        } else {
+          document.querySelector(myClass).style.display = "none";
+        }
+      }
   }
+
+
+
+  function ToggleDisplayFormFollow(myClass, status) {
+
+      // var lastSegement = window.location.pathname.split("/").pop();
+
+      // if (status) {
+      //   document.querySelector(myClass).style.display = "block";
+      // } else {
+      //   document.querySelector(myClass).style.display = "none";
+      // }
+      // ToggleDisplayLogin('.status-modal-account',true,'ĐỂ XEM KẾT LUẬN CHI TIẾT & TƯ VẤN TỔNG QUÁT');
+      ToggleDisplayLogin('.status-modal-account',true,"ĐỂ XEM LỊCH SỬ SOI DA ONLINE");
+  }
+
+  function ToggleDisplayFormFollow2(myClass, status) {
+
+    // var lastSegement = window.location.pathname.split("/").pop();
+
+    // if (status) {
+    //   document.querySelector(myClass).style.display = "block";
+    // } else {
+    //   document.querySelector(myClass).style.display = "none";
+    // }
+    ToggleDisplayLogin2('.status-modal-account',true,'ĐỂ TƯ VẤN DA NGAY & 100% MIỄN PHÍ');
+    // ToggleDisplayLogin('.status-modal-account',true,"ĐỂ XEM LỊCH SỬ SOI DA ONLINE");
+}
+
 
   function updateInfoUser() {
   
