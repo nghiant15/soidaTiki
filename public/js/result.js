@@ -1240,11 +1240,14 @@ function avgScorev2(dataDraw)
 
   var ageITem = null;
   dataSpeech.forEach(element => {
+    element.data.forEach(element => {
       if(element.key =='SkinAge')
       {
         ageITem = element;
         return;
       }
+      });
+    
   });
    var vulueAge = ageITem.value;
 

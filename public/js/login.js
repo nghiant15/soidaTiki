@@ -223,7 +223,7 @@ function isVietnamesePhoneNumber(number) {
   }
   }
   async function login() {
-    alert("3");
+
    
     var loading = document.querySelector(".status-loader-22");
     if (validateFormLogin() == false) {

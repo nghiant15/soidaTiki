@@ -387,6 +387,11 @@ public function getDataInfo (Request $request)
     }
     public function skinIndex (Request $request, $slug =null) 
     {
+
+        if($slug=="soida")
+        {
+            return redirect()->to('/zasaly');
+        }
         $isCheck  = true;
         $isTurnOfFooter =  true;
 
@@ -427,7 +432,18 @@ public function getDataInfo (Request $request)
         $agent = new Agent();
         $gameJoinTo= false;
 
-        if($slug =="soida")
+        $dataUserSession =  session('dataCompany', null);
+
+            
+        if($dataUserSession)
+        {
+            $isTurnOfFooter=false;
+        }
+        else 
+        {
+       
+        }
+        if($slug !="")
         {
             return view("welcomeZalo", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
         }
@@ -513,7 +529,7 @@ public function getDataInfo (Request $request)
         $rewardCheck  =  session('rewardCheck', false);
 
         
-        if($slug =="soida")
+        if($slug !="")
         {
               return view("resultZalo", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
         }

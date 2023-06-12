@@ -1431,7 +1431,7 @@ function myTimer() {
     if(isOnScreen($('#ketluachitiet'))) { 
         
 
-            // openFormRegister();
+            openFormRegister();
             readTextConclude();
             clearInterval(refreshIntervalId);
 
@@ -1447,7 +1447,11 @@ function isOnScreen(element)
     return (curTop > screenHeight) ? false : true;
 }
 function openFormRegister() {
-    ToggleDisplayFormFollow2('.status-modal-follow',true);
+    if(!isLogin)
+    {
+        ToggleDisplayFormFollow2('.status-modal-follow',true);
+    }
+    
     
 }
 </script>

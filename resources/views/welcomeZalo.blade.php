@@ -1369,7 +1369,7 @@ $dataSeo = "Soida liền tay";
 @if ($isTurnOfFooter)
    
 
-@if ($agent->isMobile() )
+        @if ($agent->isMobile() )
         <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
             <div class="container text-center">
                 
