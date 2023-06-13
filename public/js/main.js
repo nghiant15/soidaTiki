@@ -235,31 +235,29 @@ document.addEventListener("DOMContentLoaded", function(){
 
     var tips = document.getElementById("tips");
 
-    // var isHasTips = sessionStorage.getItem("tips");
+    var isHasTips = sessionStorage.getItem("tips");
  
 
-    // if(isHasTips || isHasTips ==true)
-    // {
-    //     if(tips != null)
-    //     {
-    //         tips.style.display ="none";
-    //     }     
-    // }
-    // else 
-    // { 
-    //     if(tips != null)
-    //     {
-    //         tips.style.display ="block";
-    //         sessionStorage.setItem("tips", true);
-    //     }
+    if(isHasTips || isHasTips ==true)
+    {
+        if(tips != null)
+        {
+            tips.style.display ="none";
+        }     
+    }
+    else 
+    { 
+        if(tips != null)
+        {
+            tips.style.display ="block";
+            sessionStorage.setItem("tips", true);
+        }
        
         
 
-    // }
-    if(tips)
-    {
-      tips.style.display ="none";
+        
     }
+ 
    
     if(dataUser != null)
     {

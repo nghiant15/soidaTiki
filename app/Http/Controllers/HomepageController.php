@@ -629,7 +629,7 @@ public function getDataInfo (Request $request)
 
     public function callSikin (Request $request, $slug =null,$saleId =null) 
     {
-          
+        
             $this->setHistoryId(null);
             $isDesktop = "-1";
              if ($request->has('isDesktop')) {

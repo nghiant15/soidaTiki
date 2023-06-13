@@ -197,7 +197,7 @@ $dataSeo = "Soida liền tay";
                  $dataImage = $gameData->des;
                 @endphp 
                         
-                <div id="tips" class="ai-skin__tips" style="display:none">
+                <div id="tips" class="ai-skin__tips" style="displa">
                     <div class="ai-skin__tips__content" style= "width:400px">
                     <img src  = "{{$dataImage}}"/> 
 
