@@ -242,6 +242,7 @@ document.addEventListener("DOMContentLoaded", function(){
     {
         if(tips != null)
         {
+         
             tips.style.display ="none";
         }     
     }
@@ -249,8 +250,13 @@ document.addEventListener("DOMContentLoaded", function(){
     { 
         if(tips != null)
         {
-            tips.style.display ="block";
-            sessionStorage.setItem("tips", true);
+           
+
+            setTimeout(() => {
+              tips.style.display ="block";
+              sessionStorage.setItem("tips", true);
+            }, 3000);
+           
         }
        
         
