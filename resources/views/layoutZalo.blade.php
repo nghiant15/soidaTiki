@@ -178,6 +178,8 @@
             </div>
             <div class="flex-center banner__header--right">
                 <div class="hoverBlock_form_account relative">
+
+           
                     @if (session()->has('dataCompany'))
                     <div class="account_hover">
                         <a href="javascript:void(0)" class="btn btn_nav scroll-nav-font navbar-a"
@@ -222,6 +224,8 @@
                                         style="margin:auto;box-shadow:none">
                                         Để xem lịch sử soi da online
                                     </a>
+
+                                    <a class ="popupgame">Luật chơi</a>
                                     <div class="hover-after-login" >
                                         <a id="name_after_login" href="javascript:void(0)"
                                             
@@ -235,6 +239,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                   
                                 </div>
                             @endif
                     

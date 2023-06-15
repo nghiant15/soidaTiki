@@ -1298,7 +1298,7 @@ function avgScorev2(dataDraw)
     avgFinal = avgFinal/3*10;
 
     document.getElementById("scoreAvg").textContent = ""+ parseFloat(avgFinal).toFixed(2) +" /10";
-
+                                                                       
    
 
 }
