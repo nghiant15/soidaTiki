@@ -866,11 +866,16 @@ function drawConcludev2 ( groupk, valuek, item)
 
      if(valueLevel1 >3)
      valueLevel1 = 3;
+
+
+    
    var percentage =  Math.round((valueLevel1/3) * 100);
+
+   var valuerel2 =  Math.round(valueRel/3*10);
    
    
    var htmlTemp = ' <div class="ConcludeItem"><p class ="paragraph-text-pa"> <span class ="bold-text-pa">'+tilte+': </span>\
-<span> '+text+' (Mức '+valueRel +'/3) </span>\
+<span> '+text+' (Mức '+valuerel2 +'/10) </span>\
    </p > \
    <div class="progress-bar-container">\
        <div class="progress-bar-indicator" style ="width: '+percentage+'%;" >\
@@ -878,13 +883,13 @@ function drawConcludev2 ( groupk, valuek, item)
        </div> \
 \
        <span class="tooltip-target">\
-               <span class="tooltip-content" style =" left: calc('+percentage +'% - 35px);"><p class ="title-score"> Điểm của bạn</p><p> <span class ="score">'+valueLevel1+'</span>/3</p> </span>\
+               <span class="tooltip-content" style =" left: calc('+percentage +'% - 35px);"><p class ="title-score"> Điểm của bạn</p><p> <span class ="score">'+valuerel2+'</span>/10</p> </span>\
        </span>\
    </div>\
    <div id="textbox">\
    <p class="alignleft">0</p>\
    <p class="aligncenter">Điểm trung bình</p>\
-   <p class="alignright">3</p>\
+   <p class="alignright">10</p>\
    </div>\
    <div style="clear: both;"></div>\
     <div class="concludeDetalText" style="">\
@@ -1225,7 +1230,9 @@ function avgScore()
     let avgFinal = sumAvg;
     avgFinal = (sumAvg+avgAge)/6;
 
-    document.getElementById("scoreAvg").textContent = ""+ parseFloat(avgFinal).toFixed(2) +" /3";
+    avgFinal = avgFinal/3*10;
+   
+    document.getElementById("scoreAvg").textContent = ""+ parseFloat(avgFinal).toFixed(2) +" /10";
 
    
 
@@ -1288,6 +1295,7 @@ function avgScorev2(dataDraw)
 
     let avgFinal = sumAvg;
     avgFinal = (sumAvg+avgAge)/6;
+    avgFinal = avgFinal/3*10;
 
     document.getElementById("scoreAvg").textContent = ""+ parseFloat(avgFinal).toFixed(2) +" /3";
 

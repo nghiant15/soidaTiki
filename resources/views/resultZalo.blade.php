@@ -567,7 +567,7 @@
                 
 
             </div>
-            <div class="recomend-title-box"> 
+            <div class="recomend-title-box" id ="hideProductList"> 
 
 <div class="centerText"> 
 <p>GỢI Ý TỪ CHUYÊN GIA</p>
@@ -586,7 +586,7 @@
 </div>
 
             @if (1==1)
-            <div class="content-plugin">
+            <div class="content-plugin" id ="buttonRecomand">
                 
                
                 <div class="box-class-center" style="height:77px">
@@ -1375,6 +1375,22 @@
         var objectReponse = null;
         document.addEventListener("DOMContentLoaded", function() {
 
+            var urlHref =  window.location.href;
+
+            if(urlHref.includes("bibabibo"))
+            {
+
+            }
+            else 
+            {
+                 
+                $("#hideProductList").hide();
+                $("#list-product").hide();
+                $("#buttonRecomand").hide();
+            }
+
+    
+
             var resultCheck = sessionStorage.getItem("_t");
             if (resultCheck == null) {
 
@@ -1392,9 +1408,6 @@
             {
                 drawProduction(objectReponse.data.facedata.hintResult);
             }
-
-
-            // drawKLCT(objectReponse.data.facedata.hintResult);
             drawConcludeDetail(objectReponse.data.facedata.hintResult);
 
             drawConcludeOverview(objectReponse.data.facedata.hintResult);
