@@ -1,6 +1,11 @@
 @extends('layoutZalo')
 
 
+    <script>
+        var successGameTrue =  {!! json_encode($successGame) !!};
+      
+    </script>
+
 
 @section('header')
     <title>Thông tin kết quả soi da</title>
@@ -52,10 +57,16 @@
   100% { background-position: -200% 0; }
 }   
     </style>
+
+
+
 @endsection
 @section('contentpage')
 
+    @include("popupGame.popupFailed")
+
     @include("game.popupRegigerGame")
+    @include ("popupGame.popup")
     <script>
         var slugGlobal = {!! json_encode($slug) !!};
         var turnOfGame = {!! json_encode($turnOffGame) !!};
@@ -1276,7 +1287,7 @@
             <div class="container text-center">
                 
                 <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-                    <a href= "javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/phoneNew2.png"> </a></p>
+                    <a href= "javascript:void(0)"  onclick="openFormRegister2()" ><img style= "height: 50px" src ="/phoneNew2.png"> </a></p>
             </div>
         </div>
         @else
@@ -1284,7 +1295,7 @@
             <div class="container text-center">
                 
                 <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-                    <a href="javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/desktopNew2.png"> </a></p>
+                    <a href="javascript:void(0)"  onclick="openFormRegister2()" ><img style= "height: 50px" src ="/desktopNew2.png"> </a></p>
             </div>
         </div>
         @endif
@@ -1317,7 +1328,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "https://api-soida.applamdep.com/api/add-customer-request",
+                url: "http://192.168.1.37:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1427,8 +1438,16 @@
    var refreshIntervalId;
    setTimeout(() => {
     if(!isLogin)
-    {
-        ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online');
+    {  
+         if(turnOnGame == false)
+         {
+            ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online');
+         }
+       
+          
+        
+       
+       
     }
      
    }, 4000);
@@ -1442,7 +1461,7 @@ function myTimer() {
 
         
     if(isOnScreen($('#ketluachitiet'))) { 
-        
+
 
             openFormRegister();
             readTextConclude();
@@ -1462,9 +1481,22 @@ function isOnScreen(element)
 function openFormRegister() {
     if(!isLogin)
     {
+        ToggleDisplayFormFollow3('.status-modal-follow',true);
+    }
+    
+    
+}
+
+
+function openFormRegister2() {
+    if(!isLogin)
+    {
         ToggleDisplayFormFollow2('.status-modal-follow',true);
     }
     
     
 }
+// setTimeout(() => {
+//     showPupupSuccess();       
+// }, 10000);
 </script>

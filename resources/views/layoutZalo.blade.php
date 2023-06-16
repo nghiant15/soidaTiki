@@ -24,8 +24,8 @@
     else 
     {
         $bannerPage =   new \stdClass();
-        $bannerPage->imageBannerDesktop= "https://api-soida.applamdep.com/image_brand/applamdep1320 (1).png";
-        $bannerPage->imageBannerMobile  = "https://api-soida.applamdep.com/image_brand/applamdep1320 (1).png";
+        $bannerPage->imageBannerDesktop= "http://192.168.1.37:3002/image_brand/applamdep1320 (1).png";
+        $bannerPage->imageBannerMobile  = "http://192.168.1.37:3002/image_brand/applamdep1320 (1).png";
         
     }
 
@@ -115,6 +115,8 @@
     <script>
         var isLogin = false;
 
+        var turnOnGame = false;
+
         var slug;
     </script>
 
@@ -124,6 +126,12 @@
     </script>
     @endif
    
+
+    @if (Session()->has('turnOnGame'))
+    <script>
+         turnOnGame = true;
+    </script>
+    @endif
     
     {{-- @include('login.login') --}}
 
@@ -217,7 +225,8 @@
                     @else
                             @if($slug !="bibabo")
                                 <div class="flex" >
-                                    <a onclick="ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online')"
+                                     <a  id ="poupgameJoin" class ="popupgame" style="display:none" onclick ="showRule()" href ="javascript:void(0)" >Luật chơi</a>
+                                     <a onclick="ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online')"
                                         href="javascript:void(0)"
                                         id="status__text__login"
                                         class=" btn_nav btn_nav-no-after navbar-a navbar-a"
@@ -225,7 +234,7 @@
                                         Để xem lịch sử soi da online
                                     </a>
 
-                                    <a class ="popupgame">Luật chơi</a>
+                                  
                                     <div class="hover-after-login" >
                                         <a id="name_after_login" href="javascript:void(0)"
                                             
@@ -349,22 +358,29 @@
 
 <div id="tipsGuildLine" class="ai-skin__tips" style="display:none">
                     <div class="ai-skin__tips__content">
-                        <span class="ai-skin__tips__content-header">
-                                Thử thách gì nhỉ?
-                        </span>
-                        <ol class="ai-skin__tips__content-body">
-                            <li>Nếu sau khi soi da online, tuổi da của bạn BẰNG với tuổi da trên banner, bạn nhận được quà từ Shop</li>
-                            <li>Bạn có thể thử nhiều lần miễn là soi da online tự nhiên
-                                    Mỗi tuần shop sẽ update MỘT tuổi da nhất định
-                            </li>
-                            
-                               
-                        </ol>
+                       
 
-                        <span class="ai-skin__tips__content-header">
-                                     Chúc bạn ngày càng xinh đẹp
+                         <p class ="titleMain"> 
+                                 Thử thách gì nhỉ?
 
-                        </span>
+                         </p>
+
+                        <br>
+                      
+                         <p class="des"> 
+                         Nếu sau khi soi da online, tuổi da của bạn BẰNG với tuổi da trên banner, bạn nhận được quà từ Shop
+
+                         </p>
+                         <br>
+                         <p class="des"> 
+                                Bạn có thể thử nhiều lần miễn là soi da online tự nhiên
+                                Mỗi tuần shop sẽ update MỘT tuổi da nhất định
+                        </p>
+                        <br>
+                        <p class ="titleMain2"> 
+                        Chúc bạn ngày càng xinh đẹp
+                        </p>
+                        <br>
                         <div class="ai-skin__button ai-skin__tips__button">
                             <button type="button" onclick="hidetipGame()">Chơi game</button>
                         </div>
@@ -373,19 +389,9 @@
 </body>
 
         <script type="text/javascript" src="/js/history.js"></script>
+        <script type="text/javascript" src="/js/game1.js"></script>
+        
 
-        <script>
-            function showRule() {
-                var tips = document.getElementById("tipsGuildLine");
-                tips.style.display = "block";
-            }
-
-            function hidetipGame() {
-                var tips = document.getElementById("tipsGuildLine");
-                tips.style.display = "none"; 
-                var tips = document.getElementById("tips");
-                tips.style.display = "block";
-            }
-        </script>
+      
 
 </html>

@@ -61,15 +61,12 @@ class UserController extends Controller
     {
         $historyId =  $this->getHistoryId();
         $company_id = $this->getCompanyId();
-       
-      
     
         $dataRequestInput =[
             'username'=> $request->input("username"),
             'password'=> $request->input("phoneNumber"),
             'phoneNumber'=> $request->input("phoneNumber"),
             'slug' => $slug,
-             
             'company_id'=> $company_id,
             'historyId' => $historyId
         ];

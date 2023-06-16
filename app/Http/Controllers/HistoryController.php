@@ -69,10 +69,10 @@ class HistoryController extends Controller
     {
 
      
-        $checkacssSlugUrl ="https://api-soida.applamdep.com/api/check-access-slug";
+        $checkacssSlugUrl ="http://192.168.1.37:3002/api/check-access-slug";
         $client = new Client();
 
-        $res = $client->request('post', 'https://api-soida.applamdep.com/api/check-access-slug', [
+        $res = $client->request('post', 'http://192.168.1.37:3002/api/check-access-slug', [
             'json' => [
                 'slug'=> $slug
               ]
@@ -283,8 +283,16 @@ class HistoryController extends Controller
      {
         $historyId =  $this->getHistoryId();
         $ipClient = $this->get_ip();
+
+        if($ipClient =="127.0.0.1")
+        {
+            $ipClient = "118.69.182.32";
+        }
         $successGame   =  session('successGame', false);
         $typeLogin =  session('typeLogin', null);
+        $gameJoinType1 = session('gameJoinType1', false);
+        $ageGame =  session('ageGame', null);
+        $ageGameReal =  session('ageGameReal', null);
         $gameType =session('gameType', "");
         $client1 = new Client();
         $linkUrl = "http://ip-api.com/json/".$ipClient;
@@ -299,7 +307,7 @@ class HistoryController extends Controller
                 $loginUrl = API_BaseUrl."/".EndUser_SaveHistory;
                 $dataUserSession =  session('dataCompany', null);
                 $tokenCode ="";
-                $successGame   =  session('successGame', false);
+              
                 if($dataUserSession)
                 {
                     $tokenCode =  $dataUserSession->token;
@@ -329,9 +337,12 @@ class HistoryController extends Controller
                     "regionName"=>$data1->regionName,
                     "dataCheckRegion"=> $data1,
                     "slug2"=> "tikicare",
+                    "ageGame"=>$ageGame,
+                    "ageGameReal"=> $ageGameReal,
                     "ipRequest" => $this->get_ip(),
                     "Sale_Id"=>  null,
                     "gameType"=> $gameType,
+                    "gameJoinType1"=> $gameJoinType1,
                     "successGame"=> $successGame,
                     "typeLogin"=>$typeLogin,
                     "Result"=> $result

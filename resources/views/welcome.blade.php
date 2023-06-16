@@ -187,7 +187,7 @@ $dataSeo = "Soida liền tay";
                 </div>
             </div>
 
-            @if($gameJoinTo == true )
+            <!-- @if($gameJoinTo == true )
             
                 @php
                  $gameData  =  session('dataGame', null);
@@ -217,7 +217,10 @@ $dataSeo = "Soida liền tay";
                             </div>
                      </div>       
             @else 
-                <div id="tips" class="ai-skin__tips" style="display:none">
+               
+
+            @endif -->
+            <div id="tips" class="ai-skin__tips" style="display:none">
                     <div class="ai-skin__tips__content">
                         <span class="ai-skin__tips__content-header">
                             Ứng dụng sẽ chụp gương mặt của bạn. Sau đây là một số
@@ -236,9 +239,6 @@ $dataSeo = "Soida liền tay";
                         </div>
                     </div>
                 </div>
-
-            @endif
-           
 
 
 
@@ -769,7 +769,7 @@ $dataSeo = "Soida liền tay";
                     };
                     $.ajax({
                         type: "POST",
-                        url: "https://api-soida.applamdep.com/itemSdk/get_product_result",
+                        url: "http://192.168.1.37:3002/itemSdk/get_product_result",
                         data: JSON.stringify(bodyRequest),
                         contentType: "application/json",
                         dataType: "json",
@@ -806,7 +806,7 @@ $dataSeo = "Soida liền tay";
                             var itemProduct = listProduct[i];
 
                             if (itemProduct.image_link.length > 0) {
-                                imagelink = "https://api-soida.applamdep.com/public/image_plugin/" + itemProduct
+                                imagelink = "http://192.168.1.37:3002/public/image_plugin/" + itemProduct
                                     .image_link;
                             } else {
                                 imagelink = itemProduct.image;
@@ -1294,7 +1294,7 @@ $dataSeo = "Soida liền tay";
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "https://api-soida.applamdep.com/api/add-customer-request",
+                url: "http://192.168.1.37:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1317,7 +1317,7 @@ $dataSeo = "Soida liền tay";
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "https://api-soida.applamdep.com/api/add-customer-request",
+                url: "http://192.168.1.37:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),

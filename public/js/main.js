@@ -233,36 +233,36 @@ document.addEventListener("DOMContentLoaded", function(){
     
     var dataUser =  sessionStorage.getItem("dataUser");
 
-    var tips = document.getElementById("tips");
+    // var tips = document.getElementById("tips");
 
-    var isHasTips = sessionStorage.getItem("tips");
+    // var isHasTips = sessionStorage.getItem("tips");
  
 
-    if(isHasTips || isHasTips ==true)
-    {
-        if(tips != null)
-        {
+    // if(isHasTips || isHasTips ==true)
+    // {
+    //     if(tips != null)
+    //     {
          
-            tips.style.display ="none";
-        }     
-    }
-    else 
-    { 
-        if(tips != null)
-        {
+    //         tips.style.display ="none";
+    //     }     
+    // }
+    // else 
+    // { 
+    //     if(tips != null)
+    //     {
            
 
-            setTimeout(() => {
-              tips.style.display ="block";
-              sessionStorage.setItem("tips", true);
-            }, 3000);
+    //         setTimeout(() => {
+    //           tips.style.display ="block";
+    //           sessionStorage.setItem("tips", true);
+    //         }, 3000);
            
-        }
+    //     }
        
         
 
         
-    }
+    // }
  
    
     if(dataUser != null)
@@ -624,6 +624,20 @@ function ToggleDisplayClass(myClass, status) {
     // ToggleDisplayLogin('.status-modal-account',true,"ĐỂ XEM LỊCH SỬ SOI DA ONLINE");
 }
 
+
+
+function ToggleDisplayFormFollow3(myClass, status) {
+
+  // var lastSegement = window.location.pathname.split("/").pop();
+
+  // if (status) {
+  //   document.querySelector(myClass).style.display = "block";
+  // } else {
+  //   document.querySelector(myClass).style.display = "none";
+  // }
+  ToggleDisplayLogin2('.status-modal-account',true,'ĐỂ XEM KẾT LUẬN CHI TIẾT & TƯ VẤN TỔNG QUÁT');
+  // ToggleDisplayLogin('.status-modal-account',true,"ĐỂ XEM LỊCH SỬ SOI DA ONLINE");
+}
 
   function updateInfoUser() {
   

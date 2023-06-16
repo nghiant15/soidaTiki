@@ -12,6 +12,7 @@ use PhpParser\Node\Expr\FuncCall;
 use View;
 
 use Illuminate\Support\Facades\Cache;
+
 class HomepageController extends Controller
 {
 
@@ -26,10 +27,10 @@ class HomepageController extends Controller
     {
 
      
-        $checkacssSlugUrl ="https://api-soida.applamdep.com/api/check-access-slug";
+        $checkacssSlugUrl ="http://192.168.1.37:3002/api/check-access-slug";
         $client = new Client();
 
-        $res = $client->request('post', 'https://api-soida.applamdep.com/api/check-access-slug', [
+        $res = $client->request('post', 'http://192.168.1.37:3002/api/check-access-slug', [
             'json' => [
                 'slug'=> $slug
               ]
@@ -52,6 +53,7 @@ class HomepageController extends Controller
                 else 
                 {
                     $this->setdataInfoCompany ($checkresult->data->company_data);
+                    
 ;                    
                 }
             
@@ -255,7 +257,7 @@ public function getDataInfo (Request $request)
             'company_id' => "-1"
              ]
         ];
-        $url = "https://api-soida.applamdep.com/api/baner/getAllBannerWeb";
+        $url = "http://192.168.1.37:3002/api/baner/getAllBannerWeb";
         $client = new Client();
         $res = $client->request('get', $url, $params);
 
@@ -331,7 +333,7 @@ public function getDataInfo (Request $request)
     private function checkGameStatus($slug)
     {
 
-        $url ="https://api-soida.applamdep.com/api/get-game-active";
+        $url ="http://192.168.1.37:3002/api/get-game-active";
         $client = new Client();
 
         $res = $client->request('get', $url, [
@@ -362,7 +364,7 @@ public function getDataInfo (Request $request)
     private function getGameActive($companyId)
     {
 
-        $url ="https://api-soida.applamdep.com/api/get-game-active";
+        $url ="http://192.168.1.37:3002/api/get-game-active";
         $client = new Client();
       
 
@@ -406,8 +408,20 @@ public function getDataInfo (Request $request)
 
         $dataCompanyId =  $this->getCompanyId();
      
+      
+     
         $dataGame = $this->getGameActive($dataCompanyId);
-        
+
+        $fromDate = Carbon::parse($dataGame->fromDate); 
+        $todate = Carbon::parse(  $dataGame->todate); 
+        $currentTime = Carbon::now()->addHour(7);
+        $turnOnGame =false;
+        if( $currentTime >= $fromDate && $currentTime <= $todate  )
+        {
+
+             session(['turnOnGame' =>true]);
+            $turnOnGame =true;
+        }
         if($slug == "bibabo")
         {
             $isTurnOfFooter = false;
@@ -447,7 +461,8 @@ public function getDataInfo (Request $request)
         {
             return view("welcomeZalo", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
         }
-        return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
+        dd($turnOnGame);
+        return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo", "turnOnGame"));
     }
 
     public function result (Request $request, $slug =null) 
@@ -457,8 +472,7 @@ public function getDataInfo (Request $request)
         $contetnFail ="Chúc Quý khách may mắn lần sau NHƯNG  bạn vẫn được nhận  Ưu Đãi từ Nhãn Hàng chính hãng tài trợ";
         $contentSuccess = "CHÚC MỪNG BẠN ĐÃ TRÚNG THƯỞNG";
         
-        // dd($dataGame);
-        $successGame = false;
+      
         $dataUserSession =  session('dataCompany', null);
 
         $displayGame = true;
@@ -468,10 +482,11 @@ public function getDataInfo (Request $request)
         }
         
         $turnOffGame = false;
-
+        $successGame = false;
+        session(['gameJoinType1' =>false]);
         if( $dataGame != null)
         {
-                $successGame = true;
+               
                 $contetnFail = $dataGame->popupfail;
             
                 $contentSuccess = $dataGame->pupupSuccess;
@@ -483,15 +498,26 @@ public function getDataInfo (Request $request)
                 $timeto = $dataGame->totime;
                 if( $currentTime >= $fromDate && $currentTime <= $todate  )
                 {
+                    session(['gameJoinType1' =>True]);
+                    $skin =  $data->data->facedata->generalResult->data[0]->data[0]->value;
+
+                    session(['ageGame' =>$skin]);
+                    session(['ageGameReal' =>$skin]);
                     if($timefrom<= $converTextString && $converTextString <=$timeto)
                     {
+                       
                         if($dataGame->typeGame =="1")
                         {
-                            $skin =  $data->data->facedata->generalResult->data[0]->data[0]->value;
-                            if( $skin*1  != $dataGame->skinNumber*1)
+                            session(['ageGame' =>$skin]);
+                            session(['ageGameReal' =>$skin]);
+                           
+                            if( $skin*1  == $dataGame->skinNumber*1)
                             {
                                 $successGame = true;
-                                session(['successGame' =>$successGame]);
+                            
+                                
+                          
+                               
                                 session(['gameType' =>1]);
                             }
                             else 
@@ -499,20 +525,38 @@ public function getDataInfo (Request $request)
                                 $successGame = false;
                             }
                         }
-                        else if( $dataGame->typeGame =="2")
-                        {   
-                                $successGame = false;
-                        }
-                        if( $dataGame->statusGame == true)
-                        {   
-                                $turnOffGame = true;
-                        }
+                        
+                      
                        
+                    }
+                    else 
+                    {
+                       
+
+                        if( $skin*1  == $dataGame->skinNumber*1)
+                        {
+                            $successGame = true;
+                          
+                      
+                            session(['ageGame' =>($skin*1 + 1)]);
+                            session(['ageGameReal' =>$skin]);
+                            session(['gameType' =>1]);
+                        }
+                        else 
+                        {
+                            $successGame = false;
+                        }
+
+                        $successGame = false;
                     }
                 }
          }
 
-        
+      
+
+         session(['successGame' =>$successGame]);
+
+       
         
         //  if($slug =="soida")
         // {
@@ -572,9 +616,9 @@ public function getDataInfo (Request $request)
           return ;
         }
         $slug = "";
-        $checkacssSlugUrl ="https://api-soida.applamdep.com/api/get-detail-history-skin";
+        $checkacssSlugUrl ="http://192.168.1.37:3002/api/get-detail-history-skin";
         $client = new Client();
-        $res = $client->request('post', 'https://api-soida.applamdep.com/api/get-detail-history-skin', [
+        $res = $client->request('post', 'http://192.168.1.37:3002/api/get-detail-history-skin', [
             'json' => [
                  'id'=> $id
               ]

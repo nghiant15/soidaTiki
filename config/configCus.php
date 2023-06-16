@@ -4,7 +4,7 @@ return [
 
     'urlSystem' => [
 
-        'checkAcessSlug' =>"https://api-soida.applamdep.com/api/check-access-slug",
+        'checkAcessSlug' =>"http://192.168.1.37:3002/api/check-access-slug",
        
 
     ],
