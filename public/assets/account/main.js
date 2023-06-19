@@ -73,7 +73,7 @@ function submitRequest() {
 
     var form = $("#formrequest");
     $.ajax({
-        url: "http://http://localhost:3002:3002/api/plugin-add-company-auto-wa",
+        url: "http://http://192.168.1.37:3002:3002/api/plugin-add-company-auto-wa",
         type: "post",
         data: form.serialize(),
         success: function(response) {

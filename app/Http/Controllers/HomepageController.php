@@ -27,10 +27,10 @@ class HomepageController extends Controller
     {
 
      
-        $checkacssSlugUrl ="http://localhost:3002/api/check-access-slug";
+        $checkacssSlugUrl ="http://192.168.1.37:3002/api/check-access-slug";
         $client = new Client();
 
-        $res = $client->request('post', 'http://localhost:3002/api/check-access-slug', [
+        $res = $client->request('post', 'http://192.168.1.37:3002/api/check-access-slug', [
             'json' => [
                 'slug'=> $slug
               ]
@@ -257,7 +257,7 @@ public function getDataInfo (Request $request)
             'company_id' => "-1"
              ]
         ];
-        $url = "http://localhost:3002/api/baner/getAllBannerWeb";
+        $url = "http://192.168.1.37:3002/api/baner/getAllBannerWeb";
         $client = new Client();
         $res = $client->request('get', $url, $params);
 
@@ -333,7 +333,7 @@ public function getDataInfo (Request $request)
     private function checkGameStatus($slug)
     {
 
-        $url ="http://localhost:3002/api/get-game-active";
+        $url ="http://192.168.1.37:3002/api/get-game-active";
         $client = new Client();
 
         $res = $client->request('get', $url, [
@@ -364,7 +364,7 @@ public function getDataInfo (Request $request)
     private function getGameActive($companyId)
     {
 
-        $url ="http://localhost:3002/api/get-game-active";
+        $url ="http://192.168.1.37:3002/api/get-game-active";
         $client = new Client();
       
 
@@ -412,17 +412,25 @@ public function getDataInfo (Request $request)
       
      
         $dataGame = $this->getGameActive($dataCompanyId);
-
-        $fromDate = Carbon::parse($dataGame->fromDate); 
-        $todate = Carbon::parse(  $dataGame->todate); 
-        $currentTime = Carbon::now()->addHour(7);
-        $turnOnGame =false;
-        if( $currentTime >= $fromDate && $currentTime <= $todate  )
+        if( $dataGame != null)
         {
-
-             session(['turnOnGame' =>true]);
-            $turnOnGame =true;
+            $fromDate = Carbon::parse($dataGame->fromDate); 
+            $todate = Carbon::parse(  $dataGame->todate); 
+            $currentTime = Carbon::now()->addHour(7);
+            $turnOnGame =false;
+            if( $currentTime >= $fromDate && $currentTime <= $todate  )
+            {
+    
+                 session(['turnOnGame' =>true]);
+                $turnOnGame =true;
+            }
         }
+        else 
+        {
+            session()->forget('turnOnGame');
+            session()->flush();
+        }
+      
         if($slug == "bibabo")
         {
             $isTurnOfFooter = false;
@@ -439,6 +447,8 @@ public function getDataInfo (Request $request)
             $this->loginUser($dataRequestInput);
            
         }
+
+      
         if(!$isCheck)
         {
             return view("notfound");
@@ -626,9 +636,9 @@ public function getDataInfo (Request $request)
           return ;
         }
         $slug = "";
-        $checkacssSlugUrl ="http://localhost:3002/api/get-detail-history-skin";
+        $checkacssSlugUrl ="http://192.168.1.37:3002/api/get-detail-history-skin";
         $client = new Client();
-        $res = $client->request('post', 'http://localhost:3002/api/get-detail-history-skin', [
+        $res = $client->request('post', 'http://192.168.1.37:3002/api/get-detail-history-skin', [
             'json' => [
                  'id'=> $id
               ]
@@ -729,7 +739,12 @@ public function getDataInfo (Request $request)
  public function HandleSkin()
  {
     $dataGame = Session('dataGame', null);
- $data  =  session('dataResult', null);
+
+    if($dataGame == null)
+    {
+        return;
+    }
+   $data  =  session('dataResult', null);
     session(['gameJoinType1' =>false]);
     if( $dataGame != null)
     {

@@ -127,11 +127,11 @@ function showPupupFailed()
     $('#popupGameFailed').show();
 }
 
-setTimeout(() => {
-
-    displayGame();
+// setTimeout(() => {
     
-}, 1000);
+//     displayGame();
+    
+// }, 1000);
 
 function  displayGameReuslt()
 {
@@ -160,6 +160,7 @@ function  displayGameReuslt()
 $( document ).ready(function() {
 
     var urlCurrent = window.location.href;
+
 
     if(urlCurrent.includes("ket"))
     {

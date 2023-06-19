@@ -187,7 +187,7 @@ $dataColor = $dataColor->data;
         var html = ``;
         data.forEach((item, i) => {
       
-            var imageLink = "http://http://localhost:3002:3002/public/image_brand/" +item.image_link;
+            var imageLink = "http://http://192.168.1.37:3002:3002/public/image_brand/" +item.image_link;
         if (i === 0) {
         li +=
         `<li data-target="#carouselExampleIndicators2" data-slide-to=${i} class="active"></li>`;
@@ -244,7 +244,7 @@ $dataColor = $dataColor->data;
         data.forEach((item, i) => {
            
 
-        var imageLink = "http://http://localhost:3002:3002/public/image_brand/" +item.image_link;
+        var imageLink = "http://http://192.168.1.37:3002:3002/public/image_brand/" +item.image_link;
         if (i === 0) {
         li +=
         `<li data-target="#carouselExampleIndicators1" data-slide-to=${i} class="active"></li>`;

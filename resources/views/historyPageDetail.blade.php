@@ -999,7 +999,7 @@
         $("#btnrewardLoading").show();
         $.ajax({
             type: "PUT",
-            url: "http://http://localhost:3002:3002/api/add-customer-request",
+            url: "http://http://192.168.1.37:3002:3002/api/add-customer-request",
             data: JSON.stringify({
                 UserName: "TIKITECH",
                 Phone: $("#mobilePhone").val(),

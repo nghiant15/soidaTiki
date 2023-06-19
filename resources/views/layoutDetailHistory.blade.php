@@ -24,8 +24,8 @@
     else 
     {
         $bannerPage =   new \stdClass();
-        $bannerPage->imageBannerDesktop= "http://http://localhost:3002:3002/image_brand/applamdep1320 (1).png";
-        $bannerPage->imageBannerMobile  = "http://http://localhost:3002:3002/image_brand/applamdep1320 (1).png";
+        $bannerPage->imageBannerDesktop= "http://http://192.168.1.37:3002:3002/image_brand/applamdep1320 (1).png";
+        $bannerPage->imageBannerMobile  = "http://http://192.168.1.37:3002:3002/image_brand/applamdep1320 (1).png";
         
     }
 
