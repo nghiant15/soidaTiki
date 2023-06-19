@@ -18,7 +18,7 @@ class OpenAccountController extends Controller
     public function openAccount (Request $request) 
     {
 
-        $url ="http://192.168.1.37:3002/api/guest/getInfoOpenAccount";
+        $url ="http://http://localhost:3002:3002/api/guest/getInfoOpenAccount";
         $client = new Client();
         $data = null;
 

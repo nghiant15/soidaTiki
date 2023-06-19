@@ -107,6 +107,8 @@ $.ajax({
     saleId: saleIdOutput,
     slug: slugOutput,
     Result: JSON.stringify(result),
+ 
+
   }),
   dataType: "json",
   contentType: "application/json; charset=utf-8",

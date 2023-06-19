@@ -74,39 +74,12 @@
         var displayGame = {!! json_encode($displayGame) !!};
         var contetnFail = {!! json_encode($contetnFail) !!};
         var contentSuccess = {!! json_encode($contentSuccess) !!};
-        if( turnOfGame == true && successGame == true && displayGame == true )
-        {
-
-                 var htmlTemplate = '';
-                htmlTemplate += '<div class ="titlepopup" >'+contentSuccess+'</div> <p >Xin vui lòng đăng ký/ đăng nhập </p><p>Để chúng tôi liên hệ trả thưởng sớm </p>';
-                var boxPopupSuccess=  document.getElementById("contentPopup");
-                if(boxPopupSuccess)
-                {
-                            boxPopupSuccess.innerHTML  =htmlTemplate;
-                        setTimeout(() => {
-                            openPopupgame();
-                        }, 3000);
-                }
-                
-              
-        }
-        else 
-        if( turnOfGame == true && successGame == false && displayGame == true )
-        {
-           
-                var htmlTemplate = '';
-                htmlTemplate += '<div class ="titlepopup" > '+contetnFail+'</div> <p >Xin vui lòng đăng ký/ đăng nhập </p><p>Để chúng tôi liên hệ trả thưởng sớm </p>';
-                var boxPopupSuccess=  document.getElementById("contentPopup");
-                
-                if(boxPopupSuccess)
-                {
-                            boxPopupSuccess.innerHTML  =htmlTemplate;
-                        setTimeout(() => {
-                            openPopupgame();
-                        }, 3000);
-                }
-        }
-        
+       
+        var ageGame = {!! json_encode($ageGame) !!};
+        var ageGameReal = {!! json_encode($ageGameReal) !!};
+        var gameType = {!! json_encode($gameType) !!};
+        var gameJoinType1 = {!! json_encode($gameJoinType1) !!};
+    
     </script>
     {{-- <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
@@ -1328,7 +1301,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "http://192.168.1.37:3002/api/add-customer-request",
+                url: "http://http://localhost:3002:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),

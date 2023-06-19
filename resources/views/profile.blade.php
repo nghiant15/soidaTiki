@@ -456,7 +456,7 @@
                         return;
                     $.ajax({
                         type: "POST",
-                        url: "http://192.168.1.37:3002/api/add-history-skin",
+                        url: "http://http://localhost:3002:3002/api/add-history-skin",
                         data: JSON.stringify({
                             "UserName": null,
                             "Result": result,
@@ -498,7 +498,7 @@
                     };
                     $.ajax({
                         type: "POST",
-                        url: "http://192.168.1.37:3002/itemSdk/get_product_result",
+                        url: "http://http://localhost:3002:3002/itemSdk/get_product_result",
                         data: JSON.stringify(bodyRequest),
                         contentType: "application/json",
                         dataType: "json",
@@ -540,7 +540,7 @@
                             var itemProduct = listProduct[i];
 
                             if (itemProduct.image_link.length > 0) {
-                                imagelink = "http://192.168.1.37:3002/public/image_plugin/" + itemProduct.image_link;
+                                imagelink = "http://http://localhost:3002:3002/public/image_plugin/" + itemProduct.image_link;
                             } else {
                                 imagelink = itemProduct.image;
                             }
@@ -999,7 +999,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "http://192.168.1.37:3002/api/add-customer-request",
+                url: "http://http://localhost:3002:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1022,7 +1022,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "http://192.168.1.37:3002/api/add-customer-request",
+                url: "http://http://localhost:3002:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),

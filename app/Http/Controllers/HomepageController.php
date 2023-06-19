@@ -27,10 +27,10 @@ class HomepageController extends Controller
     {
 
      
-        $checkacssSlugUrl ="http://192.168.1.37:3002/api/check-access-slug";
+        $checkacssSlugUrl ="http://localhost:3002/api/check-access-slug";
         $client = new Client();
 
-        $res = $client->request('post', 'http://192.168.1.37:3002/api/check-access-slug', [
+        $res = $client->request('post', 'http://localhost:3002/api/check-access-slug', [
             'json' => [
                 'slug'=> $slug
               ]
@@ -257,7 +257,7 @@ public function getDataInfo (Request $request)
             'company_id' => "-1"
              ]
         ];
-        $url = "http://192.168.1.37:3002/api/baner/getAllBannerWeb";
+        $url = "http://localhost:3002/api/baner/getAllBannerWeb";
         $client = new Client();
         $res = $client->request('get', $url, $params);
 
@@ -333,7 +333,7 @@ public function getDataInfo (Request $request)
     private function checkGameStatus($slug)
     {
 
-        $url ="http://192.168.1.37:3002/api/get-game-active";
+        $url ="http://localhost:3002/api/get-game-active";
         $client = new Client();
 
         $res = $client->request('get', $url, [
@@ -364,7 +364,7 @@ public function getDataInfo (Request $request)
     private function getGameActive($companyId)
     {
 
-        $url ="http://192.168.1.37:3002/api/get-game-active";
+        $url ="http://localhost:3002/api/get-game-active";
         $client = new Client();
       
 
@@ -390,6 +390,7 @@ public function getDataInfo (Request $request)
     public function skinIndex (Request $request, $slug =null) 
     {
 
+      
         if($slug=="soida")
         {
             return redirect()->to('/zasaly');
@@ -461,7 +462,7 @@ public function getDataInfo (Request $request)
         {
             return view("welcomeZalo", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
         }
-        dd($turnOnGame);
+      
         return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo", "turnOnGame"));
     }
 
@@ -483,6 +484,12 @@ public function getDataInfo (Request $request)
         
         $turnOffGame = false;
         $successGame = false;
+        $ageGame = 0;
+        $ageGameReal=0;
+        $gameType = 1;
+
+
+
         session(['gameJoinType1' =>false]);
         if( $dataGame != null)
         {
@@ -552,12 +559,12 @@ public function getDataInfo (Request $request)
                 }
          }
 
-      
+         
 
          session(['successGame' =>$successGame]);
 
        
-        
+      
         //  if($slug =="soida")
         // {
         //     $slug = null;
@@ -571,11 +578,14 @@ public function getDataInfo (Request $request)
         $turnOffGame = false;
       
         $rewardCheck  =  session('rewardCheck', false);
-
-        
+         $gameJoinType1 =true;
+       
         if($slug !="")
         {
-              return view("resultZalo", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
+              return view("resultZalo", compact("slug", 
+              
+             "ageGame","ageGameReal","gameType","gameJoinType1",
+              "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
         }
 
         return view("result", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame"));
@@ -616,9 +626,9 @@ public function getDataInfo (Request $request)
           return ;
         }
         $slug = "";
-        $checkacssSlugUrl ="http://192.168.1.37:3002/api/get-detail-history-skin";
+        $checkacssSlugUrl ="http://localhost:3002/api/get-detail-history-skin";
         $client = new Client();
-        $res = $client->request('post', 'http://192.168.1.37:3002/api/get-detail-history-skin', [
+        $res = $client->request('post', 'http://localhost:3002/api/get-detail-history-skin', [
             'json' => [
                  'id'=> $id
               ]
@@ -674,6 +684,7 @@ public function getDataInfo (Request $request)
     public function callSikin (Request $request, $slug =null,$saleId =null) 
     {
         
+
             $this->setHistoryId(null);
             $isDesktop = "-1";
              if ($request->has('isDesktop')) {
@@ -698,11 +709,15 @@ public function getDataInfo (Request $request)
                 $data = $data->data;
                 session(['dataResult' =>$data]);
                 session(['rewardCheck' =>true]);
+
+                $this->HandleSkin();
                  return  [
                         "is_success" =>true, 
                         "reward"=> true, 
                         "data"=> $data
                  ];
+
+
             }
             else 
             {
@@ -711,7 +726,86 @@ public function getDataInfo (Request $request)
         }
 
     
- 
+ public function HandleSkin()
+ {
+    $dataGame = Session('dataGame', null);
+ $data  =  session('dataResult', null);
+    session(['gameJoinType1' =>false]);
+    if( $dataGame != null)
+    {
+           
+            $contetnFail = $dataGame->popupfail;
+        
+            $contentSuccess = $dataGame->pupupSuccess;
+            $currentTime = Carbon::now()->addHour(7);
+            $converTextString = $currentTime->format('H:i');
+            $fromDate = Carbon::parse($dataGame->fromDate); 
+            $todate = Carbon::parse(  $dataGame->todate); 
+            $timefrom = $dataGame->fromtime;
+            $timeto = $dataGame->totime;
+            if( $currentTime >= $fromDate && $currentTime <= $todate  )
+            {
+                session(['gameJoinType1' =>True]);
+                $skin =  $data->data->facedata->generalResult->data[0]->data[0]->value;
+
+                session(['ageGame' =>$skin]);
+                session(['ageGameReal' =>$skin]);
+                if($timefrom<= $converTextString && $converTextString <=$timeto)
+                {
+                   
+                    if($dataGame->typeGame =="1")
+                    {
+                        session(['ageGame' =>$skin]);
+                        session(['ageGameReal' =>$skin]);
+                       
+                        if( $skin*1  == $dataGame->skinNumber*1)
+                        {
+                            $successGame = true;
+                        
+                            
+                      
+                           
+                            session(['gameType' =>1]);
+                        }
+                        else 
+                        {
+                            $successGame = false;
+                        }
+                    }
+                    
+                  
+                   
+                }
+                else 
+                {
+                   
+
+                    if( $skin*1  == $dataGame->skinNumber*1)
+                    {
+                        $successGame = true;
+                      
+                  
+                        session(['ageGame' =>($skin*1 + 1)]);
+                        session(['ageGameReal' =>$skin]);
+                        session(['gameType' =>1]);
+                    }
+                    else 
+                    {
+                        $successGame = false;
+                    }
+
+                    $successGame = false;
+                }
+            }
+     }
+
+     
+
+     session(['successGame' =>$successGame]);
+
+   
+  
+ }
     public function ViewhistoryWithIframe(Request $request , $id = null )
     {
 

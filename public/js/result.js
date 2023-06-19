@@ -875,7 +875,7 @@ function drawConcludev2 ( groupk, valuek, item)
    
    
    var htmlTemp = ' <div class="ConcludeItem"><p class ="paragraph-text-pa"> <span class ="bold-text-pa">'+tilte+': </span>\
-<span> '+text+' (Mức '+valuerel2 +'/10) </span>\
+<span class ="leveldegree"> '+text+' (Mức '+valuerel2 +'/10) </span>\
    </p > \
    <div class="progress-bar-container">\
        <div class="progress-bar-indicator" style ="width: '+percentage+'%;" >\
