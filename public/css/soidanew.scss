@@ -1018,3 +1018,77 @@ li {
     font-weight: bold;
     color: rgb(219, 73, 73);
 }
+
+
+#subscribleId{
+
+    .contentModal1 {
+
+        padding-top: 50px;
+        padding-bottom: 50px;
+        width: 380px;
+        margin: auto;
+        margin-top: 30px;
+    margin-bottom: 30px
+    }
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: max-content;
+    bottom: 0;
+    z-index: 1000;
+    left: 0;
+
+    h6 {
+     flex: 1 1 auto;
+    margin: auto 0;
+    color: var(--main_color);
+    font-family: var(--font-main);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: uppercase;
+    }
+   
+}
+.blurdiv .ConcludeItem:first-child .concludeDetalText{
+    opacity: 0.6;
+}
+.blurdiv .ConcludeItem:nth-child(2){
+    opacity: 0.3;
+}
+.blurdiv .ConcludeItem:nth-child(2) .concludeDetalText{
+    opacity: 0.1;
+}
+
+.blurdiv .ConcludeItem:nth-child(3){
+   display: none;
+}
+
+.blurdiv .ConcludeItem:nth-child(4){
+    display: none;
+ }
+
+ .blurdiv .ConcludeItem:nth-child(5){
+    display: none;
+ }
+  .blurdiv#tvtq_area {
+    display: none;
+ }
+ .blurdiv#idtuvantongquan {
+    display: none;
+ }
+
+ #subscribleId {
+
+    #titleSubscrible {
+        padding: 10px;
+    }
+ }
+
+.contentModal1 {
+    background-color: white;
+    
+    ;
+
+}

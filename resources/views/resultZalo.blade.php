@@ -6,6 +6,7 @@
       
     </script>
 
+@include('popup.subscrible')
 
 @section('header')
     <title>Thông tin kết quả soi da</title>
@@ -477,13 +478,13 @@
             </style>
 
 
-            <div id ="ConcludeItemArea" >
+            <div id ="ConcludeItemArea" class ="blurdiv" >
         
             </div>
         
 
 
-                <div class="title-overview" >
+                <div class="title-overview blurdiv" id ="tvtq_area"  >
                     <div class="hcn">
 
                     </div>
@@ -516,7 +517,7 @@
 
                     }
                 </style>
-                <div id="idtuvantongquan"  style="
+                <div id="idtuvantongquan" class="blurdiv"  style="
                 text-align: justify;
            
                 padding: 10px;
