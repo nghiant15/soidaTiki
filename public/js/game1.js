@@ -106,6 +106,68 @@ async function handleLoginGame() {
   //  saveHistoryAfterSkinScreen();
   }
 
+
+
+  async function handleLoginView() {
+   
+  
+
+
+    
+
+    Swal.fire({
+    title: 'Đang xử lý...',
+    position: 'bottom-center',
+    html: 'Vui lòng chờ',
+    allowEscapeKey: false,
+    allowOutsideClick: false,
+    didOpen: () => {
+        Swal.showLoading()
+    }
+    });
+
+   
+
+    $.ajaxSetup({
+      headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+      },
+    });
+    await $.ajax({
+      url: api.serve.baser_urlServer + "/" + api.serve.api_loginServerGame,
+      type: "post",
+      data: {
+        username: $("#txtNameCon").val(),
+        phoneNumber: $("#txtPhoneCon").val(),
+      },
+      success: function (response) {
+      
+        Swal.close();
+                    if (response.is_success) {
+                       
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'Thao tác thành công',
+                            showConfirmButton: false,
+                            timer: 1000
+                        })
+                        .then(function () {
+                             sessionStorage.setItem("popupReward", true);
+                             location.reload();
+                        });
+                        $("#subscribleId").hide();
+                        isRequireLogin = false;
+                        saveHistory(false);
+                }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+      
+      },
+    });
+
+  }
+
 function CloseFormPopupGame ()
 {   
     $('#popupGame').hide();

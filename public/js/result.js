@@ -1229,10 +1229,27 @@ function avgScore()
 
     let avgFinal = sumAvg;
     avgFinal = (sumAvg+avgAge)/6;
+    
+    var textDegree = "Ổn";
+    if(avgFinal <1)
+    {
+      textDegree = "Ổn";
+    }
+    else if( avgFinal  <= 2 )
+    {
+      textDegree = "có nhiều vấn đề về da";
+    }
+    else 
+    {
+      textDegree = "Có nhiều vấn đề về da";
+    }
 
     avgFinal = avgFinal/3*10;
+
+    avgFinal = (10 - avgFinal);
    
-    document.getElementById("scoreAvg").textContent = ""+ parseFloat(avgFinal).toFixed(2) +" /10";
+   document.getElementById("score2").textContent =  ""+ parseFloat(avgFinal).toFixed(1) +"/10";
+    document.getElementById("scoreAvg").textContent = "   ( " + textDegree + " )" ;
 
    
 
@@ -1296,8 +1313,22 @@ function avgScorev2(dataDraw)
     let avgFinal = sumAvg;
     avgFinal = (sumAvg+avgAge)/6;
     avgFinal = avgFinal/3*10;
+    var textDegree = "Ổn";
+    if(avgFinal <1)
+    {
+      textDegree = "Ổn";
+    }
+    else if( avgFinal  <= 2 )
+    {
+      textDegree = "Bình thường";
+    }
+    else 
+    {
+      textDegree = "Có nhiều vấn đề về da";
+    }
 
-    document.getElementById("scoreAvg").textContent = ""+ parseFloat(avgFinal).toFixed(2) +" /10";
+    avgFinal = (10 - avgFinal);
+    document.getElementById("scoreAvg").textContent = ""+ parseFloat(avgFinal).toFixed(1) +"/10" +"   ( " + textDegree + " )" ;
                                                                        
    
 
@@ -1391,3 +1422,58 @@ function readTextConclude()
   }
     
       
+
+  function  ExapandForm() {
+
+      $("#foolterBlu").hide();
+      setTimeout(() => {
+        $("#subscribleId").show();
+      }, 300);
+     
+
+  }
+
+  function closeExpandForm() {
+    $("#subscribleId").hide();
+    setTimeout(() => {
+      $("#foolterBlu").show();
+    }, 300);
+  }
+
+  function loginConclude(){
+
+    var fullNameInput = document.getElementById("txtNameCon").value;
+
+    var phoneInput = document.getElementById("txtPhoneCon").value;
+    var index2 =0;
+    if(fullNameInput=="")
+    {
+        $("#txtNameConError").show();
+        index2++;
+    }
+    else 
+    {
+        $("#txtNameConError").hide();
+    }
+
+
+    if(phoneInput=="")
+    {
+      index2++;
+        $("#txtPhoneConError").show();
+    }
+    else 
+    {
+        $("#txtPhoneConError").hide();
+
+
+    }
+    if( index2 > 0)
+    {
+      return;
+
+
+    }
+
+    handleLoginView();
+  }

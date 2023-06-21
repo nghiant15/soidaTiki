@@ -125,10 +125,7 @@
 .tooltip-target:hover .tooltip-content {
     display: block;
 }
-.score {
-    display: inline-flex;
-    font-weight: bold;
-}
+
 
 #textbox {
     display: flex;

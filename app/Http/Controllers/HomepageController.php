@@ -408,9 +408,9 @@ public function getDataInfo (Request $request)
         } 
 
         $dataCompanyId =  $this->getCompanyId();
-     
-      
-     
+
+
+
         $dataGame = $this->getGameActive($dataCompanyId);
         if( $dataGame != null)
         {
@@ -421,14 +421,14 @@ public function getDataInfo (Request $request)
             if( $currentTime >= $fromDate && $currentTime <= $todate  )
             {
     
-                 session(['turnOnGame' =>true]);
+             session(['turnOnGame' =>true]);
                 $turnOnGame =true;
             }
         }
         else 
         {
             session()->forget('turnOnGame');
-            session()->flush();
+        
         }
       
         if($slug == "bibabo")
@@ -468,6 +468,8 @@ public function getDataInfo (Request $request)
         {
        
         }
+
+        
         if($slug !="")
         {
             return view("welcomeZalo", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
@@ -584,6 +586,7 @@ public function getDataInfo (Request $request)
 
         // }
         $companyId = $this->getCompanyId();
+ 
         $agent = new Agent();
         $turnOffGame = false;
       

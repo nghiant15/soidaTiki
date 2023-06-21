@@ -962,8 +962,8 @@ li {
     .title {
         font-weight: bold;
         font-size: 1.34rem;
-        color: #2866BA;
-        display: inline-flex;
+        color: #4A6C99;
+     
         .level{
               background-color:#FF66C4;
                 color: #ffffff;
@@ -971,6 +971,7 @@ li {
     }
     .desavg {
         color: #FF7474;
+        display: none;
     }
 }
 
@@ -1023,13 +1024,13 @@ li {
 #subscribleId{
 
     .contentModal1 {
-
-        padding-top: 50px;
-        padding-bottom: 50px;
-        width: 380px;
+         width: 380px;
         margin: auto;
+        padding-top: 5px;
         margin-top: 30px;
-    margin-bottom: 30px
+        margin-bottom: 30px;
+        border-radius: 10px;
+
     }
     background-color: black;
     position: absolute;
@@ -1042,7 +1043,7 @@ li {
     h6 {
      flex: 1 1 auto;
     margin: auto 0;
-    color: var(--main_color);
+    color: #ffffff;
     font-family: var(--font-main);
     font-style: normal;
     font-weight: 400;
@@ -1079,16 +1080,87 @@ li {
     display: none;
  }
 
- #subscribleId {
 
+ 
+.contentModal1 {
+  
+
+}
+
+
+ #subscribleId {
+    form {
+        width: 80%;
+        margin: auto;
+    }
     #titleSubscrible {
+        
+
+        color:  #ffffff;
+        font-family: var(--font-main);
+        padding-bottom: 10px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .btnCotinue {
+        cursor: pointer;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        width: 100%;
         padding: 10px;
+        font-size: 1.2rem;
+        background-color: transparent;
+        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .btnCotinue:hover{
+        opacity: .3;
     }
  }
 
-.contentModal1 {
-    background-color: white;
-    
-    ;
+ 
 
+ .expandableBanner{
+    position: absolute;
+    right: 10;
+    top: 10;
+ }
+
+ #foolterBlu {
+    z-index: 10000;
+    
+    padding: 15px;
+
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    span {
+        color:  #ffffff;
+        font-size: 1.3rem;
+        font-weight: bold;
+        display: block;
+    }
+ }
+ #subscribleId {
+    display: none;
+ }
+
+
+
+#foolterBlu {
+    display: none;
+}
+
+.score {
+    /* display: inline-flex; */
+    font-weight: bold;
+    margin-left: 5px;
+    color: #B2414B;
 }

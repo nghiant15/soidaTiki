@@ -163,9 +163,14 @@
             <img src="/images/step3.png">
         </div>
         <div class ="avgclass">
-            <p class ="title"> Sức khỏe làn da bạn ở mức: <span class="level">Trung bình  <span  id ="scoreAvg" class="score"> </span> </span>  </p>
-            <p class="desavg">(Chỉ số này càng nhỏ càng tốt & càng ít vấn đề về da) </p>
+            <span class ="title">
+                 Sức khỏe làn da bạn ở mức <span id ="score2" class="score"> </span> 
+                 
+            </span>
+           
         </div>
+
+        <span  id ="scoreAvg" class="score">  </span>  
 
         {{-- <div class="profilearea">
 
@@ -458,10 +463,7 @@
 .tooltip-target:hover .tooltip-content {
     display: block;
 }
-.score {
-    display: inline-flex;
-    font-weight: bold;
-}
+
 
 #textbox {
     display: flex;
@@ -592,12 +594,7 @@
         </div>
 
             
-        <!-- <div class="banner3 " style="background-image: url('/assets/bannernew/2.png">
-
-
-        </div> -->
-
-        <!-- FOOTER -->
+       
 
 
 
@@ -1237,6 +1234,12 @@
 
                 });
 
+            
+
+             
+
+             
+
                 
             });
 
@@ -1254,27 +1257,7 @@
 
 
 
-    @if (!Session()->has('dataCompany'))
 
-    @if ($agent->isMobile() )
-        <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
-            <div class="container text-center">
-                
-                <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-                    <a href= "javascript:void(0)"  onclick="openFormRegister2()" ><img style= "height: 50px" src ="/phoneNew2.png"> </a></p>
-            </div>
-        </div>
-        @else
-        <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
-            <div class="container text-center">
-                
-                <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-                    <a href="javascript:void(0)"  onclick="openFormRegister2()" ><img style= "height: 50px" src ="/desktopNew2.png"> </a></p>
-            </div>
-        </div>
-        @endif
-
-        @endif
 
     <script>
             var companyIdGlobal = {!! json_encode($companyId) !!};
@@ -1410,39 +1393,72 @@
 
 <script>
    var refreshIntervalId;
-   setTimeout(() => {
-    if(!isLogin)
-    {  
-         if(turnOnGame == false)
-         {
-            ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online');
-         }
+//    setTimeout(() => {
+//     if(!isLogin)
+//     {  
+//          if(turnOnGame == false)
+//          {
+//             ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online');
+//          }
        
           
         
        
        
-    }
+//     }
      
-   }, 4000);
+//    }, 4000);
+
+
 
     setTimeout(() => {
-        refreshIntervalId = setInterval(myTimer, 5000);
-    }, 7000);
+        refreshIntervalId = setInterval(myTimer, 1000);
+    }, 4000);
 
+setTimeout(() => {
+    
+    if(isLogin )
+    {   
+        $("#subscribleId").hide();
+
+       $(".blurdiv").removeClass( "blurdiv" );
+
+       var  popupRequest = sessionStorage.getItem("popupReward");
+       if(popupRequest)
+       {
+        setTimeout(() => {
+      
+            
+        }, 2000);
+       }
+    }
+    else
+    {
+        $("#subscribleId").show();
+    }
+}, 3000);
 
 function myTimer() {
 
         
     if(isOnScreen($('#ketluachitiet'))) { 
+             
+            if(!isLogin )
+            { 
+                setTimeout(() => {
+                        ExapandForm(); 
 
-
-            openFormRegister();
-            readTextConclude();
-            clearInterval(refreshIntervalId);
+                        // openFormRegister();
+                        readTextConclude();
+                        clearInterval(refreshIntervalId);  
+                }, 2000);
+                
+            }  
 
     };
 }
+
+
 
 
 function isOnScreen(element)
@@ -1467,6 +1483,7 @@ function openFormRegister2() {
     {
         ToggleDisplayFormFollow2('.status-modal-follow',true);
     }
+    
     
     
 }

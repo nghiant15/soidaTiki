@@ -169,7 +169,7 @@
   background-color: #aaa;
 }
 .modal-information {
-  z-index: 101 !important;
+  z-index: 10000 !important;
 }
 .z-999 {
   z-index: 999 !important;
