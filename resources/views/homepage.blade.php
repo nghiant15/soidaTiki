@@ -769,7 +769,7 @@ $dataSeo = "Soida liền tay";
                     };
                     $.ajax({
                         type: "POST",
-                        url: "http://http://192.168.1.37:3002:3002/itemSdk/get_product_result",
+                        url: "http://https://api-soida.applamdep.com:3002/itemSdk/get_product_result",
                         data: JSON.stringify(bodyRequest),
                         contentType: "application/json",
                         dataType: "json",
@@ -806,7 +806,7 @@ $dataSeo = "Soida liền tay";
                             var itemProduct = listProduct[i];
 
                             if (itemProduct.image_link.length > 0) {
-                                imagelink = "http://http://192.168.1.37:3002:3002/public/image_plugin/" + itemProduct
+                                imagelink = "http://https://api-soida.applamdep.com:3002/public/image_plugin/" + itemProduct
                                     .image_link;
                             } else {
                                 imagelink = itemProduct.image;
@@ -1294,7 +1294,7 @@ $dataSeo = "Soida liền tay";
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "http://http://192.168.1.37:3002:3002/api/add-customer-request",
+                url: "http://https://api-soida.applamdep.com:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1317,7 +1317,7 @@ $dataSeo = "Soida liền tay";
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "http://http://192.168.1.37:3002:3002/api/add-customer-request",
+                url: "http://https://api-soida.applamdep.com:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),

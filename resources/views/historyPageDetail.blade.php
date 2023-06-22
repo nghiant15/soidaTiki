@@ -173,11 +173,16 @@
         </p>
         <img src="/images/step3.png"> 
       </div>
-      <div class ="avgclass">
-            <p class ="title"> Sức khỏe làn da bạn ở mức: <span class="level">Trung bình  <span  id ="scoreAvg" class="score"> </span> </span>  </p>
-            <p class="desavg">(Chỉ số này càng nhỏ càng tốt & càng ít vấn đề về da) </p>
-        </div>
+   
 
+        <div class ="avgclass">
+            <span class ="title">
+                 Sức khỏe làn da bạn ở mức <span id ="score2" class="score"> </span> 
+                 
+            </span>
+           
+        </div>
+        <span  id ="scoreAvg" class="score">  </span>  
     <div class="ai-skin__container">
          <div id="output">
                 <div class="ai-skin__result-top">
@@ -996,7 +1001,7 @@
         $("#btnrewardLoading").show();
         $.ajax({
             type: "PUT",
-            url: "http://http://192.168.1.37:3002:3002/api/add-customer-request",
+            url: "http://https://api-soida.applamdep.com:3002/api/add-customer-request",
             data: JSON.stringify({
                 UserName: "TIKITECH",
                 Phone: $("#mobilePhone").val(),

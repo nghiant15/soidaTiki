@@ -27,10 +27,10 @@ class HomepageController extends Controller
     {
 
      
-        $checkacssSlugUrl ="http://192.168.1.37:3002/api/check-access-slug";
+        $checkacssSlugUrl ="https://api-soida.applamdep.com/api/check-access-slug";
         $client = new Client();
 
-        $res = $client->request('post', 'http://192.168.1.37:3002/api/check-access-slug', [
+        $res = $client->request('post', 'https://api-soida.applamdep.com/api/check-access-slug', [
             'json' => [
                 'slug'=> $slug
               ]
@@ -257,7 +257,7 @@ public function getDataInfo (Request $request)
             'company_id' => "-1"
              ]
         ];
-        $url = "http://192.168.1.37:3002/api/baner/getAllBannerWeb";
+        $url = "https://api-soida.applamdep.com/api/baner/getAllBannerWeb";
         $client = new Client();
         $res = $client->request('get', $url, $params);
 
@@ -333,7 +333,7 @@ public function getDataInfo (Request $request)
     private function checkGameStatus($slug)
     {
 
-        $url ="http://192.168.1.37:3002/api/get-game-active";
+        $url ="https://api-soida.applamdep.com/api/get-game-active";
         $client = new Client();
 
         $res = $client->request('get', $url, [
@@ -364,7 +364,7 @@ public function getDataInfo (Request $request)
     private function getGameActive($companyId)
     {
 
-        $url ="http://192.168.1.37:3002/api/get-game-active";
+        $url ="https://api-soida.applamdep.com/api/get-game-active";
         $client = new Client();
       
 
@@ -639,9 +639,9 @@ public function getDataInfo (Request $request)
           return ;
         }
         $slug = "";
-        $checkacssSlugUrl ="http://192.168.1.37:3002/api/get-detail-history-skin";
+        $checkacssSlugUrl ="https://api-soida.applamdep.com/api/get-detail-history-skin";
         $client = new Client();
-        $res = $client->request('post', 'http://192.168.1.37:3002/api/get-detail-history-skin', [
+        $res = $client->request('post', 'https://api-soida.applamdep.com/api/get-detail-history-skin', [
             'json' => [
                  'id'=> $id
               ]

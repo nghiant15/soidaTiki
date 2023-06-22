@@ -69,10 +69,10 @@ class HistoryController extends Controller
     {
 
      
-        $checkacssSlugUrl ="http://192.168.1.37:3002/api/check-access-slug";
+        $checkacssSlugUrl ="https://api-soida.applamdep.com/api/check-access-slug";
         $client = new Client();
 
-        $res = $client->request('post', 'http://192.168.1.37:3002/api/check-access-slug', [
+        $res = $client->request('post', 'https://api-soida.applamdep.com/api/check-access-slug', [
             'json' => [
                 'slug'=> $slug
               ]

@@ -412,7 +412,7 @@ var bodyRequest = {
 };
 $.ajax({
  type: "POST",
- url: "http://192.168.1.37:3002/itemSdk/get_product_result",
+ url: "https://api-soida.applamdep.com/itemSdk/get_product_result",
  data: JSON.stringify(bodyRequest),
  contentType: "application/json",
  dataType: "json",
@@ -449,7 +449,7 @@ var bodyRequest = {
 };
 $.ajax({
 type: "POST",
-url: "http://192.168.1.37:3002/api/paramenterRecomed/getAllCocludeOverView",
+url: "https://api-soida.applamdep.com/api/paramenterRecomed/getAllCocludeOverView",
 data: JSON.stringify(bodyRequest),
 contentType: "application/json",
 dataType: "json",
@@ -530,7 +530,7 @@ var bodyRequest = {
 };
 $.ajax({
 type: "POST",
-url: "http://192.168.1.37:3002/api/paramenterRecomed/getAllCocludeDetail",
+url: "https://api-soida.applamdep.com/api/paramenterRecomed/getAllCocludeDetail",
 data: JSON.stringify(bodyRequest),
 contentType: "application/json",
 dataType: "json",
@@ -995,7 +995,7 @@ var listDataProducts = dataProducts.list_product;
 
 listDataProducts.forEach(element => {
  
-var pathImage = 'http://192.168.1.37:3002/public/image_plugin/' +'' +element.image_link +'';
+var pathImage = 'https://api-soida.applamdep.com/public/image_plugin/' +'' +element.image_link +'';
 
 var xhr = new XMLHttpRequest();
 xhr.open('HEAD', pathImage, false);
@@ -1105,7 +1105,7 @@ htmlTemplate+='  <div class="dataProduct">';
          htmlTemplate += '<div class="product-item">\
                          <div> \
                          <img\
-                         src="http://192.168.1.37:3002/public/image_plugin/toner-Dashu-0x0.jpg"\
+                         src="https://api-soida.applamdep.com/public/image_plugin/toner-Dashu-0x0.jpg"\
                          alt="">\
                          </div>\
                          <div class="product-title">\
@@ -1231,13 +1231,14 @@ function avgScore()
     avgFinal = (sumAvg+avgAge)/6;
     
     var textDegree = "Ổn";
+  
     if(avgFinal <1)
     {
       textDegree = "Ổn";
     }
     else if( avgFinal  <= 2 )
     {
-      textDegree = "có nhiều vấn đề về da";
+      textDegree = "Bình thường";
     }
     else 
     {
@@ -1245,9 +1246,8 @@ function avgScore()
     }
 
     avgFinal = avgFinal/3*10;
-
     avgFinal = (10 - avgFinal);
-   
+
    document.getElementById("score2").textContent =  ""+ parseFloat(avgFinal).toFixed(1) +"/10";
     document.getElementById("scoreAvg").textContent = "   ( " + textDegree + " )" ;
 
@@ -1312,8 +1312,6 @@ function avgScorev2(dataDraw)
 
     let avgFinal = sumAvg;
     avgFinal = (sumAvg+avgAge)/6;
-    avgFinal = avgFinal/3*10;
-    var textDegree = "Ổn";
     if(avgFinal <1)
     {
       textDegree = "Ổn";
@@ -1326,11 +1324,17 @@ function avgScorev2(dataDraw)
     {
       textDegree = "Có nhiều vấn đề về da";
     }
+  
+    
+    avgFinal = avgFinal/3*10;
+    var textDegree = "Ổn";
+
+    
 
     avgFinal = (10 - avgFinal);
-    document.getElementById("scoreAvg").textContent = ""+ parseFloat(avgFinal).toFixed(1) +"/10" +"   ( " + textDegree + " )" ;
-                                                                       
-   
+                                                               
+    document.getElementById("score2").textContent =  ""+ parseFloat(avgFinal).toFixed(1) +"/10";
+    document.getElementById("scoreAvg").textContent = "   ( " + textDegree + " )" ;
 
 }
 
