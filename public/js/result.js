@@ -1327,7 +1327,7 @@ function avgScorev2(dataDraw)
   
     
     avgFinal = avgFinal/3*10;
-    var textDegree = "Ổn";
+
 
     
 
