@@ -241,14 +241,14 @@ $( document ).ready(function() {
        
     }
 
-    setTimeout(() => {
-        var tips = document.getElementById("tips");
-       if(tips != null)
-        {
-            tips.style.display ="block";
-            sessionStorage.setItem("tips", true);
+    // setTimeout(() => {
+    //     var tips = document.getElementById("tips");
+    //    if(tips != null)
+    //     {
+    //         tips.style.display ="block";
+    //         sessionStorage.setItem("tips", true);
         
-        }
+    //     }
         
-    }, 3000);
+    // }, 3000);
 });
