@@ -1018,19 +1018,24 @@ li {
 .leveldegree {
 
     font-weight: bold;
-    color: rgb(219, 73, 73);
+    color: #b2414b;
 }
 
 
 #subscribleId{
-
+    margin-top: 50px;
     .contentModal1 {
-         width: 380px;
+        margin-top: 50px !important;
+
+        padding: 20px;
+         width: 360px;
+     
         margin: auto;
-        padding-top: 5px;
-        margin-top: 30px;
-        margin-bottom: 30px;
+
+      
         border-radius: 10px;
+        background-color: #ffffff;
+
 
     }
     background-color: black;
@@ -1044,7 +1049,7 @@ li {
     h6 {
      flex: 1 1 auto;
     margin: auto 0;
-    color: #ffffff;
+    color: var(--main_color);
     font-family: var(--font-main);
     font-style: normal;
     font-weight: 400;
@@ -1097,24 +1102,27 @@ li {
     #titleSubscrible {
         
 
-        color:  #ffffff;
+        color:  var(--main_color);
         font-family: var(--font-main);
         padding-bottom: 10px;
         font-style: normal;
         font-weight: 600;
-        font-size: 18;
+        font-size: 15px;
         text-transform: uppercase;
         text-align: center;
     }
 
     .btnCotinue {
         cursor: pointer;
-        border: 1px solid #ffffff;
+     
+        background-color: var(--main_color);
+        z-index: 1000;
+
         color: #ffffff;
         width: 100%;
         padding: 10px;
         font-size: 1.2rem;
-        background-color: transparent;
+        
         box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
     }
 
@@ -1151,6 +1159,7 @@ li {
  }
  #subscribleId {
     display: none;
+    height: 360px !important;
  }
 
 
@@ -1166,4 +1175,24 @@ li {
     color: #B2414B;
     text-align: center;
     font-size: 1.34rem;
+}
+
+// .titleScore2{
+//     display: inline-flex;
+//     text-align: center;
+    
+// }
+// .score2 {
+//     color: red;
+// }
+
+.score2 {
+    color: red;
+    font-weight: bold;
+}
+
+.titleScore2{
+    display: inline-flex;
+    text-align: center;
+    
 }

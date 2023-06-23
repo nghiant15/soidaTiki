@@ -731,19 +731,19 @@ function drawConcludev2 ( groupk, valuek, item)
   {
     return;
   }
-  if(  valueRel < 1)
+  if(  valueRel<= 1)
   {
     valuek = 1;
   }
-  else if( valueRel < 2)
+  else if( valueRel <= 2)
   {
     valuek = 2;
   }
-  else if( valueRel < 3)
+  else if( valueRel <= 3)
   {
     valuek = 3;
   }
-  var text = "Mức độ nhẹ";
+  var text = "Tốt";
 
     valuek=  valuek+'';
   
@@ -848,13 +848,13 @@ function drawConcludev2 ( groupk, valuek, item)
 
    if(valuek ==2)
    {
-       text = "Mức độ trung bình";
+       text = "Bình thường";
      
    }
 
    if(valuek >=3)
    {
-       text = "Mức độ nặng";
+       text = "Có nhiều vấn đề về da";
      
    }
 
@@ -868,14 +868,21 @@ function drawConcludev2 ( groupk, valuek, item)
      valueLevel1 = 3;
 
 
-    
+
+
+  
    var percentage =  Math.round((valueLevel1/3) * 100);
 
    var valuerel2 =  Math.round(valueRel/3*10);
+
+   var value23 = Math.round(10 - valuerel2);
+
+    percentage =  Math.round((value23/10) * 100);
+
    
    
    var htmlTemp = ' <div class="ConcludeItem"><p class ="paragraph-text-pa"> <span class ="bold-text-pa">'+tilte+': </span>\
-<span class ="leveldegree"> '+text+' (Mức '+valuerel2 +'/10) </span>\
+<span class ="leveldegree"> '+text+' (Mức '+value23 +'/10) </span>\
    </p > \
    <div class="progress-bar-container">\
        <div class="progress-bar-indicator" style ="width: '+percentage+'%;" >\
@@ -883,7 +890,7 @@ function drawConcludev2 ( groupk, valuek, item)
        </div> \
 \
        <span class="tooltip-target">\
-               <span class="tooltip-content" style =" left: calc('+percentage +'% - 35px);"><p class ="title-score"> Điểm của bạn</p><p> <span class ="score">'+valuerel2+'</span>/10</p> </span>\
+               <span class="tooltip-content" style =" left: calc('+percentage +'% - 35px);"><p class ="title-score"> Điểm của bạn</p><p class="titleScore2"> <span class ="score2">'+value23+'</span>/10</p> </span>\
        </span>\
    </div>\
    <div id="textbox">\
@@ -915,20 +922,20 @@ for (var i = 0; i < item.length; i++) {
 var itemIndex = item[i];
    var tilte = itemIndex.Title;
    var des = itemIndex.Content;
-   var text = "Mức độ nhẹ";
+   var text = "Tốt";
   
 
    var level = itemIndex.Level;
 
    if(level ==2)
    {
-       text = "Mức độ trung bình";
+       text = "Bình thường";
      
    }
 
    if(level ==3)
    {
-       text = "Mức độ nặng";
+       text = "Có nhiều vấn đề về da";
      
    }
 
@@ -952,7 +959,7 @@ var itemIndex = item[i];
        </div> \
 \
        <span class="tooltip-target">\
-               <span class="tooltip-content" style =" left: calc('+percentage +'% - 35px);"><p class ="title-score"> Điểm của bạn</p><p> <span class ="score">'+valueLevel+'</span>/3</p> </span>\
+               <span class="tooltip-content" style =" left: calc('+percentage +'% - 35px);"><p class ="title-score"> Điểm của bạn</p><p class="titleScore2"> <span class ="score2">'+valueLevel+'</span>/3</p> </span>\
        </span>\
    </div>\
    <div id="textbox">\
