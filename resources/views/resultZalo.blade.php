@@ -1434,7 +1434,7 @@ setTimeout(() => {
     }
     else
     {
-        $("#subscribleId").show();
+       
     }
 }, 3000);
 
@@ -1446,10 +1446,11 @@ function myTimer() {
             if(!isLogin )
             { 
                 setTimeout(() => {
-                        ExapandForm(); 
-
-                        // openFormRegister();
-                        readTextConclude();
+                        // ExapandForm(); 
+                        $("#foolterBlu").hide();
+                        $("#subscribleId").show();
+                        // == openFormRegister();
+                       readTextConclude();
                         clearInterval(refreshIntervalId);  
                 }, 2000);
                 
