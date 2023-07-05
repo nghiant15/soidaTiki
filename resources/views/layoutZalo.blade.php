@@ -277,6 +277,17 @@
         </div>
     </div>
 </div>
+
+<div class="scoreBeauty"> 
+        <div class ="title-main">   
+
+            Điểm đẹp:<strong>0 đ</strong>(1 điểm = 1 vnđ)
+
+        </div>
+   
+       <p>( Thưởng 200 điểm/ lần soi & tối đa 1000 đ/ngày)</p>
+
+</div>
 <div class="hadernav">
     <div class="title-header">
         <span class="soida"> SOI DA </span>
