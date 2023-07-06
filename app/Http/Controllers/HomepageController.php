@@ -444,10 +444,10 @@ public function getDataInfo (Request $request)
     {
 
       
-        // if($slug=="soida")
-        // {
-        //     return redirect()->to('/zema');
-        // }
+        if($slug=="soida")
+        {
+            return redirect()->to('/zema');
+        }
         $isCheck  = true;
         $isTurnOfFooter =  true;
 
