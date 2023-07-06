@@ -360,7 +360,60 @@ public function getDataInfo (Request $request)
          session(['dataGame' =>null]);
          return false;
     }
+    private function getDataById($id)
+    {
+    
+        $url ="https://api-soida.applamdep.com/api/getInfoUser?id=".$id;
+        $client = new Client();
+        $res = $client->request('get', $url, [
+            'json' => [
+                'id'=> $id
+              ]
+        ]);
 
+        if($res->getStatusCode() ==200)
+        {
+            $checkresult = $res->getBody()->getContents();
+            $checkresult = json_decode($checkresult);
+          
+            $result = $checkresult->data;
+
+           
+            return $result;
+          
+           
+         }
+         
+         return null;
+    }
+
+    private function getBeauty($slug)
+    {
+    
+        $url ="https://api-soida.applamdep.com/api/gameBeauty/getInfo2?slug=".$slug;
+        $client = new Client();
+
+        $res = $client->request('get', $url, [
+            'json' => [
+                'slug'=> $slug
+              ]
+        ]);
+
+        if($res->getStatusCode() ==200)
+        {
+            $checkresult = $res->getBody()->getContents();
+            $checkresult = json_decode($checkresult);
+          
+            $result = $checkresult->data;
+
+           
+      
+          
+              session(['beautyData' =>$result]);
+         }
+         
+         return false;
+    }
     private function getGameActive($companyId)
     {
 
@@ -391,10 +444,10 @@ public function getDataInfo (Request $request)
     {
 
       
-        if($slug=="soida")
-        {
-            return redirect()->to('/zema');
-        }
+        // if($slug=="soida")
+        // {
+        //     return redirect()->to('/zema');
+        // }
         $isCheck  = true;
         $isTurnOfFooter =  true;
 
@@ -408,7 +461,10 @@ public function getDataInfo (Request $request)
         } 
 
         $dataCompanyId =  $this->getCompanyId();
-
+       ;
+       
+        $this->getBeauty($slug);
+       
 
 
         $dataGame = $this->getGameActive($dataCompanyId);
@@ -459,6 +515,20 @@ public function getDataInfo (Request $request)
 
         $dataUserSession =  session('dataCompany', null);
 
+      
+
+        if($dataUserSession)
+        {
+            $dataUserId=  $dataUserSession->data->_id;
+         
+           
+            $dataUserSession->data = $this->getDataById($dataUserId);
+            session(['dataCompany' =>$dataUserSession]);
+            $dataUserSession =  session('dataCompany', null);
+
+        }
+
+
             
         if($dataUserSession)
         {
@@ -468,6 +538,8 @@ public function getDataInfo (Request $request)
         {
        
         }
+
+        
 
         
         if($slug !="")
@@ -484,6 +556,7 @@ public function getDataInfo (Request $request)
         $dataGame = Session('dataGame', null);
         $contetnFail ="Chúc Quý khách may mắn lần sau NHƯNG  bạn vẫn được nhận  Ưu Đãi từ Nhãn Hàng chính hãng tài trợ";
         $contentSuccess = "CHÚC MỪNG BẠN ĐÃ TRÚNG THƯỞNG";
+        
         
       
         $dataUserSession =  session('dataCompany', null);

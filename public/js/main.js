@@ -229,6 +229,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
     
      checkslug();
+     var urlcurrent =  window.location.href;
+
+     if(!urlcurrent.includes("ket-qua"))
+     {
+          $(".scoreBeauty").show();
+     }
+
      
     
     var dataUser =  sessionStorage.getItem("dataUser");

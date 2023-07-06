@@ -33,15 +33,18 @@
 
    
     $dataUserSales = session('dataCompany', null);
-
-   
     
+    $beautyData = session('beautyData', null);
+    
+
     $dataUser = null;
 
 
         if($dataUserSales)
         {
             $dataUser = $dataUserSales->data;
+
+           
         }
     
  
@@ -278,16 +281,62 @@
     </div>
 </div>
 
-<div class="scoreBeauty"> 
-        <div class ="title-main">   
 
-            Điểm đẹp:<strong>0 đ</strong>(1 điểm = 1 vnđ)
+@if ($dataUser) 
+
+<div class="scoreBeauty"> 
+        <div class ="title-main"> 
+          
+            @php
+            $score = 0;
+            $scoreInput = 200;
+
+            $scoremaxt =1000;
+
+            if($beautyData)
+            {
+                $scoreInput = $beautyData->score;
+                $scoremaxt = $beautyData->scoreMax;
+            }
+            if($dataUser->score >0)
+                    {
+                        $score = $dataUser->score;
+                        $score = number_format($score, 0, '.', '.');
+                    }
+                    $scoremaxt = number_format($scoremaxt, 0, '.', '.');
+            @endphp
+            Điểm đẹp:<strong>{{$score}} đ</strong>(1 điểm = 1 vnđ)
 
         </div>
    
-       <p>( Thưởng 200 điểm/ lần soi & tối đa 1000 đ/ngày)</p>
+       <p>( Thưởng {{$scoreInput}} điểm/ lần soi & tối đa {{$scoremaxt}} đ/ngày)</p>
 
 </div>
+@else 
+
+<div class="scoreBeauty"> 
+      
+@php
+            $score = 0;
+            $scoreInput = 200;
+
+            $scoremaxt =1000;
+
+            if($beautyData)
+            {
+                $scoreInput = $beautyData->score;
+                $scoremaxt = $beautyData->scoreMax;
+
+                
+            }
+           
+                    $scoremaxt = number_format($scoremaxt, 0, '.', '.');
+            @endphp
+       <p> Thưởng {{$scoreInput}} điểm/ lần soi & tối đa {{$scoremaxt}} đ/ngày</p>
+
+</div>
+@endif
+
 <div class="hadernav">
     <div class="title-header">
         <span class="soida"> SOI DA </span>
