@@ -446,7 +446,7 @@ public function getDataInfo (Request $request)
       
         if($slug=="soida")
         {
-            return redirect()->to('/zema');
+            return redirect()->to('/zasaly');
         }
         $isCheck  = true;
         $isTurnOfFooter =  true;
