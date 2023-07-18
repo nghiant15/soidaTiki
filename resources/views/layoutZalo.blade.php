@@ -142,9 +142,6 @@
             @include('profile.history')
             @include('profile.isVoucher')
             @include('loginZalo.login2')
-
-
-
     @else
             @include('profile.update')
             @include('profile.history')
