@@ -3,9 +3,7 @@
         <div class="w-100">
             <div class="container-layout">
                 <div class="content-nav ">
-                    {{-- <a href="/" class="a_none_hover" >
-                        <img class="scroll-nav-height" src="/images/logo24h.png" />
-                    </a> --}}
+              
 
                     <a href="https://tikitech.vn" target="_blank" class="link--unstyled header-logo">TIKITECH
                     

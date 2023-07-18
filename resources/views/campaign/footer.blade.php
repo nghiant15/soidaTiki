@@ -1,3 +1,6 @@
+<?php
+    
+>
 <footer class="footer__homepage">
     <div class="container-layout">
         <div class="row footer-row-1">
@@ -105,7 +108,7 @@
         <div class="">
             <div class="text-center">
             <div class="footer__homepage-info--font">
-                CÔNG TY TNHH CÔNG NGHỆ TIKITECH
+                CÔNG TY TNHH CÔNG NGHỆ TIKITECH 
             </div>
             <div class="flex-center footer__homepage-info--font">
                 Holine:  

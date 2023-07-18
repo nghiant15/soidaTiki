@@ -364,7 +364,7 @@
 
     @include('new.popupSuccess')
 
-@if($slug != "bibabo")
+@if($slug == "ngocdung")
 
 <footer class="bg-smoke">
     <div class="content-page">
@@ -384,12 +384,143 @@
                         
                     </div>   
                     </div>   
-                </div>                
+                </div>   
+                             
+                <div class="footer__col2--padding">             
+                        <div div="" class="footer__space--mobi">
+                        </div>    
+                            <div class="footer__global-title font--main">
+                                <span> Công ty TNHH Thẩm Mỹ Ngọc Dung  </span>
+                            </div>
+                         
+                            <div class="footer__global font--main">
+                            Số ĐKKD 0307935853 do Sở KHĐT Tp. HCM cấp ngày 20/07/2009
+                            </div> 
+                           
+                            <div class="footer__global font--main"> 
+                                Email: <a class="font--main" href="mailto:thammyngocdung2023@gmail.com">thammyngocdung2023@gmail.com</a>
+                            </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</footer> 
+
+@elseif($slug == "zema")
+
+<footer class="bg-smoke">
+    <div class="content-page">
+        <div class="content-plugin">
+            <div class="row" style="padding: 20px 0;margin:0">                     
+                <div class="footer__col1--padding">   
+                    <div class="desktop-inline">
+                    <div class="footer__col1--column">
+                        <img class="footer__logo-shynh" src="/footerLogo.png" alt="logo">
+                        <div class="footer__global-title text-center font--main">
+                            <a>
+                                <span class="font--main">
+                                    
+                                </span>
+                            </a>
+                        </div>  
+                        
+                    </div>   
+                    </div>   
+                </div>   
+                             
+                <div class="footer__col2--padding">             
+                        <div div="" class="footer__space--mobi">
+                        </div>    
+                            <div class="footer__global-title font--main">
+                                <span> CÔNG TY TNHH ZEMA VIỆT NAM  </span>
+                            </div>
+                            <div class="footer__global font--main">
+                            Mã số thuế 0315426909
+                            </div> 
+                             <div class="footer__global font--main">
+                             Địa chỉ: Số 146 đường 6A, Khu nhà ở Rạch Bà Tánh, Ấp 5, Xã Bình Hưng, Huyện Bình Chánh, Thành phố Hồ Chí Minh, Việt Nam
+                            </div> 
+                            <div class="footer__global font--main"> 
+                                Email: <a class="font--main" href="info@zema.com.vn">info@zema.com.vn</a>
+                            </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</footer> 
+
+@elseif($slug == "zasaly")
+        <footer class="bg-smoke">
+            <div class="content-page">
+                <div class="content-plugin">
+                    <div class="row" style="padding: 20px 0;margin:0">                     
+                        <div class="footer__col1--padding">   
+                            <div class="desktop-inline">
+                            <div class="footer__col1--column">
+                                <img class="footer__logo-shynh" src="/footerLogo.png" alt="logo">
+                                <div class="footer__global-title text-center font--main">
+                                    <a>
+                                        <span class="font--main">
+                                            
+                                        </span>
+                                    </a>
+                                </div>  
+                                
+                            </div>   
+                            </div>   
+                        </div>   
+                                    
+                        <div class="footer__col2--padding">             
+                                <div div="" class="footer__space--mobi">
+                                </div>    
+                                    <div class="footer__global-title font--main">
+                                        <span> Công ty TNHH Zasaly  </span>
+                                    </div>
+                                    <div class="footer__global font--main">
+                                    Số đăng ký kinh doanh: 0316541679
+                                    </div> 
+                                   
+                                    <div class="footer__global font--main"> 
+                                        Email: <a class="font--main" href="info@zasaly.com">info@zasaly.com</a>
+                                    </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+        </footer> 
+
+@else 
+<footer class="bg-smoke">
+    <div class="content-page">
+        <div class="content-plugin">
+            <div class="row" style="padding: 20px 0;margin:0">                     
+                <div class="footer__col1--padding">   
+                    <div class="desktop-inline">
+                    <div class="footer__col1--column">
+                        <img class="footer__logo-shynh" src="/footerLogo.png" alt="logo">
+                        <div class="footer__global-title text-center font--main">
+                            <a>
+                                <span class="font--main">
+                                    
+                                </span>
+                            </a>
+                        </div>  
+                        
+                    </div>   
+                    </div>   
+                </div>   
+
                 <div class="footer__col2--padding">             
                     <div div="" class="footer__space--mobi">
                     </div>    
                           <div class="footer__global-title font--main">
-                                <span> CÔNG TY TNHH CÔNG NGHỆ TIKITECH </span>
+                                <span> CÔNG TY TNHH CÔNG NGHỆ TIKITECH  </span>
                             </div>
                          
                             <div class="footer__global font--main">
