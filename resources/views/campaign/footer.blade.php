@@ -1,6 +1,4 @@
-<?php
-    
->
+
 <footer class="footer__homepage">
     <div class="container-layout">
         <div class="row footer-row-1">

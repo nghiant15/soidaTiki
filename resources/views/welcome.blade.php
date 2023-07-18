@@ -39,11 +39,23 @@ $dataSeo = "Soida liền tay";
     <link rel="stylesheet" type="text/css"
         href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-            @if (isset($dataSeo->title))
+            <!-- @if (isset($dataSeo->title))
             
             <title>{{$dataSeo->title}} </title>
             @else
             <title>soida nhận ngay yêu thương</title>
+            @endif -->
+
+            @if($slug == "zema")
+
+            <title>soida nhận ngay yêu thương</title>
+            @elseif($slug == "zasaly")
+            <title>soida nhận ngay yêu thương</title>
+
+            @elseif($slug == "ngocdung")
+            <title>soida nhận ngay yêu thương</title>
+            @else 
+                 soida online
             @endif
 
         @if (isset($dataSeo->description))
