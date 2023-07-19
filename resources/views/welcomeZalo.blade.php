@@ -1295,8 +1295,12 @@
         }
 
         function choseImage() {
+            hideTips();
+            setTimeout(() => {
+                $("#choseImageFile").click();
+            }, 1000);
 
-            $("#choseImageFile").click();
+          
 
 
         }
@@ -1357,8 +1361,12 @@
         }
 
         function haldleOpenCamera() {
-
-            opencamera();
+            
+            hideTips();
+            setTimeout(() => {
+                opencamera();
+            }, 1000);
+     
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core.js"></script>
