@@ -245,31 +245,31 @@ document.addEventListener("DOMContentLoaded", function(){
     var isHasTips = sessionStorage.getItem("tips");
  
 
-    if(isHasTips || isHasTips ==true)
-    {
-        if(tips != null)
-        {
+    // if(isHasTips || isHasTips ==true)
+    // {
+    //     if(tips != null)
+    //     {
          
-            tips.style.display ="none";
-        }     
-    }
-    else 
-    { 
-        if(tips != null)
-        {
+    //         tips.style.display ="none";
+    //     }     
+    // }
+    // else 
+    // { 
+    //     if(tips != null)
+    //     {
            
 
-            setTimeout(() => {
-              tips.style.display ="block";
-              sessionStorage.setItem("tips", true);
-            }, 3000);
+    //         setTimeout(() => {
+    //           tips.style.display ="block";
+    //           sessionStorage.setItem("tips", true);
+    //         }, 3000);
            
-        }
+    //     }
        
         
 
         
-    }
+    // }
  
    
     if(dataUser != null)
