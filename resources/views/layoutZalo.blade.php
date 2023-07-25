@@ -312,7 +312,7 @@
            
                     $scoremaxt =1000;
             @endphp
-       <p> Thưởng {{$scoreInput}} điểm/ lần soi & tối đa {{$scoremaxt}} đ/ngày</p>
+       <p> Thưởng 200 điểm/ lần soi & tối đa {{$scoremaxt}} đ/ngày</p>
 
 </div>
 @endif
