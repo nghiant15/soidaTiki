@@ -461,7 +461,7 @@ public function getDataInfo (Request $request)
         } 
 
         $dataCompanyId =  $this->getCompanyId();
-       ;
+       
        
         $this->getBeauty($slug);
        
@@ -822,6 +822,7 @@ public function getDataInfo (Request $request)
     }
    $data  =  session('dataResult', null);
     session(['gameJoinType1' =>false]);
+    $successGame =false;
     if( $dataGame != null)
     {
            
