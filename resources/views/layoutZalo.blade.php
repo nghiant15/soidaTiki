@@ -284,29 +284,12 @@
 <div class="scoreBeauty"> 
         <div class ="title-main"> 
           
-            @php
-            $score = 0;
-            $scoreInput = 200;
-
-            $scoremaxt =1000;
-
-            if($beautyData)
-            {
-                $scoreInput = $beautyData->score;
-                $scoremaxt = $beautyData->scoreMax;
-            }
-            if($dataUser->score >0)
-                    {
-                        $score = $dataUser->score;
-                        $score = number_format($score, 0, '.', '.');
-                    }
-                    $scoremaxt = number_format($scoremaxt, 0, '.', '.');
-            @endphp
-            Điểm đẹp:<strong>{{$score}} đ</strong>(1 điểm = 1 vnđ)
+            
+            Điểm đẹp:<strong>0 đ</strong>(1 điểm = 1 vnđ)
 
         </div>
    
-       <p>( Thưởng {{$scoreInput}} điểm/ lần soi & tối đa {{$scoremaxt}} đ/ngày)</p>
+       <p>( Thưởng 200 điểm/ lần soi & tối đa 1000 đ/ngày)</p>
 
 </div>
 @else 
@@ -327,7 +310,7 @@
                 
             }
            
-                    $scoremaxt = number_format($scoremaxt, 0, '.', '.');
+                    $scoremaxt =1000;
             @endphp
        <p> Thưởng {{$scoreInput}} điểm/ lần soi & tối đa {{$scoremaxt}} đ/ngày</p>
 
