@@ -108,7 +108,7 @@
         }
     </style>
 
-   
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @yield('header')
     
 </head>
@@ -229,9 +229,13 @@
                                         href="javascript:void(0)"
                                         id="status__text__login"
                                         class=" btn_nav btn_nav-no-after navbar-a navbar-a"
-                                        style="margin:auto;box-shadow:none">
-                                        Để xem lịch sử soi da online
+                                        style="margin:auto;box-shadow:none; display: inline-block;">
+                                      
+                                        Để xem lịch sử soi da online  
+                                        {{-- <i class="fa fa-gift" style="font-size:20px;color:red;"></i> --}}
                                     </a>
+                    
+                                   
 
                                   
                                     <div class="hover-after-login" >
@@ -573,6 +577,28 @@
                         </div>
                     </div>
                 </div>
+
+
+                {{-- <a href="javascript:void(0)"  class="dropdown left-hotline1 left-hotline  "  style="bottom: 200px">
+ 
+                    <span style ="width: 70px; height:70px;background: unset !important;">
+                       <img style="width:100%" src ="/scoreIcon.jpg"> 
+                     
+                    </span>
+                    <div style ="
+                        color: red;
+                    font-size: 1.5rem;
+                    
+                    "> = 0 đ </div>
+                
+                
+                
+                    <div class="dropdown-content">
+                        <p>1 điểm = 1 VND</p>
+                        <p>500 điểm/ lần soi da Online </p>
+                        <p> Nhớ đăng nhập, tích lũy điểm nhé !!</p>
+                    </div>
+                </a> --}}
 </body>
 
         <script type="text/javascript" src="/js/history.js"></script>

@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="./styles/global/index.css">
     <link rel="stylesheet" href="./styles/global/global_responsive.css">
     <link rel ="stylesheet" href ="/css/welcomNew.css">
+    <link rel ="stylesheet" href ="/css/campaign.css">
     <!-- ASSETS CDN SLICK -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css"
@@ -335,6 +336,11 @@
 <style>
     .bg-light img:hover {
         transform: scale(1.2);
+    }
+    .dropdown-content {
+        width: max-content;
+        line-height: 150%;
+        color: #548135;
     }
 </style>
 
@@ -1295,7 +1301,7 @@
         }
 
         function choseImage() {
-            hideTips();
+          
             setTimeout(() => {
                 $("#choseImageFile").click();
             }, 1000);
