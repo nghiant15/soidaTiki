@@ -1367,7 +1367,8 @@
         }
 
         function haldleOpenCamera() {
-            
+            opencamera();
+            return;
             // hideTips();
             setTimeout(() => {
                 opencamera();
