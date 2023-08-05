@@ -18,7 +18,7 @@ class OpenAccountController extends Controller
     public function openAccount (Request $request) 
     {
 
-        $url ="http://https://api-soida.applamdep.com:3002/api/guest/getInfoOpenAccount";
+        $url ="https://api-soida.applamdep.com/api/guest/getInfoOpenAccount";
         $client = new Client();
         $data = null;
 

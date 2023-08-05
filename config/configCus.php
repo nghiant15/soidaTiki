@@ -4,7 +4,7 @@ return [
 
     'urlSystem' => [
 
-        'checkAcessSlug' =>"http://https://api-soida.applamdep.com:3002/api/check-access-slug",
+        'checkAcessSlug' =>"https://api-soida.applamdep.com/api/check-access-slug",
        
 
     ],

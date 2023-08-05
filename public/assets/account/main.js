@@ -73,7 +73,7 @@ function submitRequest() {
 
     var form = $("#formrequest");
     $.ajax({
-        url: "http://https://api-soida.applamdep.com:3002/api/plugin-add-company-auto-wa",
+        url: "https://api-soida.applamdep.com/api/plugin-add-company-auto-wa",
         type: "post",
         data: form.serialize(),
         success: function(response) {

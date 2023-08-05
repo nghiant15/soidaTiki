@@ -1001,7 +1001,7 @@
         $("#btnrewardLoading").show();
         $.ajax({
             type: "PUT",
-            url: "http://https://api-soida.applamdep.com:3002/api/add-customer-request",
+            url: "https://api-soida.applamdep.com/api/add-customer-request",
             data: JSON.stringify({
                 UserName: "TIKITECH",
                 Phone: $("#mobilePhone").val(),
