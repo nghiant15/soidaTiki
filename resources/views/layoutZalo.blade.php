@@ -600,10 +600,23 @@
                 
                 if (isset($globalData)) {
                   
+                        $fabookLink =  null;
+                        if( property_exists( get_class($globalData), 'embeddFacebook' ) ){
+                              $fabookLink =  $globalData->embeddFacebook;
+                        }
                    
-                    $fabookLink =  $globalData->embeddFacebook;
-                    $zaloLink =  $globalData->embeddZalo;
-                    $hotlineLink =  $globalData->embedHotline;
+                    
+                        $zaloLink =  null;
+                        if( property_exists( get_class($globalData), 'embeddZalo' ) ){
+                              $zaloLink =  $globalData->embeddZalo;
+                        }
+
+                        $hotlineLink = null;
+                        if( property_exists( get_class($globalData), 'embedHotline' ) ){
+                            $hotlineLink =  $globalData->embedHotline;
+                        }
+               
+                   
             
                 }
              
