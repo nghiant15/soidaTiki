@@ -98,6 +98,7 @@ public function getDataInfo (Request $request)
         if($data->is_success)
         {
             $dataInfo = json_decode($data->data[0]->Value);
+            dd($dataInfo);
         
             Cache::put('webinfo', $dataInfo->value);
             return $data;
@@ -296,9 +297,6 @@ public function getDataInfo (Request $request)
             $this->getColorSystem($request);
         }
         $dataUserSession =  session('dataCompany', null);
-
-
-        
         $companyGlobalId = $this->getCompanyId();
         $dataUser =null;
         if($dataUserSession)
@@ -443,7 +441,9 @@ public function getDataInfo (Request $request)
     public function skinIndex (Request $request, $slug =null) 
     {
 
-      
+        $this->setHistoryId(null);
+        // $historyId =  session('historyId', null);
+    
         // if($slug=="soida")
         // {
         //     return redirect()->to('/ngocdung');
@@ -515,7 +515,7 @@ public function getDataInfo (Request $request)
 
         $dataUserSession =  session('dataCompany', null);
 
-      
+     
 
         if($dataUserSession)
         {
@@ -526,10 +526,10 @@ public function getDataInfo (Request $request)
             session(['dataCompany' =>$dataUserSession]);
             $dataUserSession =  session('dataCompany', null);
 
+         
         }
 
-
-            
+      
         if($dataUserSession)
         {
             $isTurnOfFooter=false;
@@ -556,8 +556,6 @@ public function getDataInfo (Request $request)
         $dataGame = Session('dataGame', null);
         $contetnFail ="Chúc Quý khách may mắn lần sau NHƯNG  bạn vẫn được nhận  Ưu Đãi từ Nhãn Hàng chính hãng tài trợ";
         $contentSuccess = "CHÚC MỪNG BẠN ĐÃ TRÚNG THƯỞNG";
-        
-        
       
         $dataUserSession =  session('dataCompany', null);
 
@@ -565,6 +563,22 @@ public function getDataInfo (Request $request)
         if($dataUserSession)
         {
             $displayGame = false;
+        }
+
+        $dataUserSession =  session('dataCompany', null);
+
+     
+
+        if($dataUserSession)
+        {
+            $dataUserId=  $dataUserSession->data->_id;
+         
+           
+            $dataUserSession->data = $this->getDataById($dataUserId);
+            session(['dataCompany' =>$dataUserSession]);
+            $dataUserSession =  session('dataCompany', null);
+
+         
         }
         
         $turnOffGame = false;
@@ -816,12 +830,23 @@ public function getDataInfo (Request $request)
  {
     $dataGame = Session('dataGame', null);
 
+  
+   $data  =  session('dataResult', null);
+    session(['gameJoinType1' =>false]);
+    if($data)
+    { 
+        $skin =  $data->data->facedata->generalResult->data[0]->data[0]->value;
+        session(['ageGame' =>$skin]);
+
+    
+
+    }
     if($dataGame == null)
     {
         return;
     }
-   $data  =  session('dataResult', null);
-    session(['gameJoinType1' =>false]);
+
+
     $successGame =false;
     if( $dataGame != null)
     {
@@ -838,7 +863,7 @@ public function getDataInfo (Request $request)
             if( $currentTime >= $fromDate && $currentTime <= $todate  )
             {
                 session(['gameJoinType1' =>True]);
-                $skin =  $data->data->facedata->generalResult->data[0]->data[0]->value;
+             
 
                 session(['ageGame' =>$skin]);
                 session(['ageGameReal' =>$skin]);
@@ -921,14 +946,6 @@ public function getDataInfo (Request $request)
             {
                 $checkresult = $res->getBody()->getContents();
                 $data = json_decode($checkresult);
-
-             
-
-              
-
-               
-            
-          
                 if($data->is_success)
                 {  
                     

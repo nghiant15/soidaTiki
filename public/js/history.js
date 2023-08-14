@@ -72,6 +72,8 @@
 
 
 function saveHistory(isRedirect, result = null) {
+  
+
 
   var loading = document.querySelector(".status-loader-22");
   

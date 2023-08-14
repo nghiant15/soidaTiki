@@ -108,13 +108,19 @@ class Controller extends BaseController
          $checkresult = $res->getBody()->getContents();
          $checkresult = json_decode($checkresult);
 
+
+   
          
          if($checkresult->is_success)
          {
             $result  = $checkresult->data;
+
+
             if($result == null)
             {
-
+               View::share('globalColor',  null );
+               View::share('globalData',  null); 
+               View::share('infobeauty',  null); 
             }
             else 
             {
@@ -122,6 +128,7 @@ class Controller extends BaseController
                
                   View::share('globalColor',  $result->dataColor );
                   View::share('globalData',  $result->data->value );  
+                  View::share('infobeauty',   $result->infobeauty); 
             }
          }
 

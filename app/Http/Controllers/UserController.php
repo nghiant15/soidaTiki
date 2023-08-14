@@ -18,7 +18,10 @@ class UserController extends Controller
     public function logout (Request $request) 
     {
       
-        $request->session()->forget("dataCompany");   
+        $request->session()->forget("dataCompany");
+        $request->session()->forget("historyId");
+    
+        $request->session()->flush();      
         return  ["is_success" =>true];
 
     }
@@ -32,7 +35,10 @@ class UserController extends Controller
 
     public function logoutUser (Request $request) 
     {
-        $request->session()->forget("dataCompany");   
+        $request->session()->forget("dataCompany");
+        $request->session()->forget("historyId");
+    
+        $request->session()->flush();      
         return  ["is_success" =>true];
    }
 

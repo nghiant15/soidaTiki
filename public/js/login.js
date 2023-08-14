@@ -3,6 +3,12 @@ function isVietnamesePhoneNumber(number) {
     return /(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/.test(number);
   }
   function saveHistoryAfterSkinScreen() {
+
+    var pathname = window.location.pathname;
+    if( pathname == "/soida")
+    {
+      return;
+    }
     let dataHistory = JSON.parse(sessionStorage.getItem("_t"));
     if (dataHistory) {
       var slugOutput = "";
@@ -39,6 +45,8 @@ function isVietnamesePhoneNumber(number) {
   }
   
   function register() {
+
+    alert("3");
     var loading = document.querySelector(".status-loader-22");
   
     if (!validateFormRegister()) {
@@ -224,7 +232,8 @@ function isVietnamesePhoneNumber(number) {
   }
   async function login() {
 
-   
+     var pathname = window.location.pathname;
+    
     var loading = document.querySelector(".status-loader-22");
     if (validateFormLogin() == false) {
       return;
@@ -269,7 +278,11 @@ function isVietnamesePhoneNumber(number) {
               frmLogin.style.display = "none";
             }
             isRequireLogin = false;
-            saveHistory(false);
+            if( pathname != "/soida")
+            {
+              saveHistory(false);
+            }
+           
           }
         } else {
           if (loading) {
@@ -288,6 +301,8 @@ function isVietnamesePhoneNumber(number) {
         debugger;
       },
     });
+
+   
    saveHistoryAfterSkinScreen();
   }
 

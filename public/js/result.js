@@ -148,8 +148,8 @@ let dataFace = objectReponse.data.faceAttitude;
 let indexDraw =0;
 ketLuanTungPhan.data.forEach((ketLuanTungPhanItem) => {
 indexDraw ++;
-let dataDrawFace  = "http://localhost:8000/images/image1.png";
-http://localhost:8000/images/image1.png
+let dataDrawFace  = "https://applamdep.com/images/image1.png";
+https://applamdep.com/images/image1.png
 if(dataFace)
 {
 
@@ -722,6 +722,8 @@ $("#idtuvantongquan").append(htmlTemp);
 
 }
 
+var sumScoreAvg  =0;
+
 function drawConcludev2 ( groupk, valuek, item) 
 {
   var tilte = "";
@@ -876,6 +878,7 @@ function drawConcludev2 ( groupk, valuek, item)
    var valuerel2 =  Math.round(valueRel/3*10);
 
    var value23 = Math.round(10 - valuerel2);
+   sumScoreAvg+= value23;
 
     percentage =  Math.round((value23/10) * 100);
 
@@ -1238,7 +1241,7 @@ function avgScore()
     avgFinal = (sumAvg+avgAge)/6;
     
     var textDegree = "Ổn";
-  
+   
     if(avgFinal <1)
     {
       textDegree = "Ổn";
@@ -1251,11 +1254,13 @@ function avgScore()
     {
       textDegree = "Có nhiều vấn đề về da";
     }
-
+    let avgfinal2 = (sumScoreAvg/5);
     avgFinal = avgFinal/3*10;
     avgFinal = (10 - avgFinal);
 
-   document.getElementById("score2").textContent =  ""+ parseFloat(avgFinal).toFixed(1) +"/10";
+    
+
+   document.getElementById("score2").textContent =  ""+ parseFloat(avgfinal2).toFixed(1) +"/10";
     document.getElementById("scoreAvg").textContent = "   ( " + textDegree + " )" ;
 
    
@@ -1336,11 +1341,11 @@ function avgScorev2(dataDraw)
     avgFinal = avgFinal/3*10;
 
 
-    
+    let avgfinal2 = (sumScoreAvg/5);
 
     avgFinal = (10 - avgFinal);
                                                                
-    document.getElementById("score2").textContent =  ""+ parseFloat(avgFinal).toFixed(1) +"/10";
+    document.getElementById("score2").textContent =  ""+ parseFloat(avgfinal2).toFixed(1) +"/10";
     document.getElementById("scoreAvg").textContent = "   ( " + textDegree + " )" ;
 
 }

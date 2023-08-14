@@ -10,6 +10,7 @@ use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 
+
 class HistoryController extends Controller
 {
     public function GetAllHistory(Request $request)
@@ -123,11 +124,9 @@ class HistoryController extends Controller
       
         if(!$isCheck)
         {
-        return view("notfound");
-       
-        }
-  
-
+              return view("notfound");
+         }
+         
         // dd($companyGlobalId);
 
         // if($slug){
@@ -281,7 +280,8 @@ class HistoryController extends Controller
    
      public function SaveHistory (Request $request, $slug =null, $saleId =null) 
      {
-        $historyId =  $this->getHistoryId();
+     
+      
         $ipClient = $this->get_ip();
 
         if($ipClient =="127.0.0.1")

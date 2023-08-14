@@ -33,6 +33,7 @@
 
    
     $dataUserSales = session('dataCompany', null);
+
     
     $beautyData = session('beautyData', null);
     
@@ -106,6 +107,35 @@
         
            
         }
+    </style>
+
+    <style>
+        /* LEFT FIXED SIDEBAR */
+
+.left-sidebar {
+    position: fixed;
+    left: 30px;
+    bottom: 100px;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-sidebar a {
+    display: block;
+    width: 45px;
+    height: 45px;
+    margin-bottom: 15px;
+    transition: ease-in-out .3s all;
+}
+
+.left-sidebar a:hover {
+    transform: scale(1.25);
+}
+
+
     </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -282,44 +312,45 @@
     </div>
 </div>
 
+@php
+    $turnOnGameBeauty = $infobeauty->status == "1";
+    $scoreDis = $infobeauty->score;
+    $scoreMaxDis = $infobeauty->scoreMax;
 
-@if ($dataUser) 
+
+
+@endphp
+
+@if ($turnOnGameBeauty)
+@if ($dataUser)
+
+@php
+ $scoreDisplay= $dataUser->score;
+ if($scoreDisplay < 1)
+ {
+    $scoreDisplay = 0;
+ }
+@endphp
+
 
 <div class="scoreBeauty"> 
         <div class ="title-main"> 
-          
-            
-            Điểm đẹp:<strong>0 đ</strong>(1 điểm = 1 vnđ)
-
+             Điểm đẹp:<strong>{{$scoreDisplay }} đ</strong>(1 điểm = 1 vnđ)
         </div>
    
-       <p>( Thưởng 200 điểm/ lần soi & tối đa 1000 đ/ngày)</p>
+       <p>( Thưởng {{$scoreDis }} điểm/ lần soi & tối đa {{ $scoreMaxDis }} đ/ngày)</p>
 
 </div>
 @else 
 
 <div class="scoreBeauty"> 
-      
-@php
-            $score = 0;
-            $scoreInput = 200;
-
-            $scoremaxt =1000;
-
-            if($beautyData)
-            {
-                $scoreInput = $beautyData->score;
-                $scoremaxt = $beautyData->scoreMax;
-
-                
-            }
-           
-                    $scoremaxt =1000;
-            @endphp
-       <p> Thưởng 200 điểm/ lần soi & tối đa {{$scoremaxt}} đ/ngày</p>
+      <p> Thưởng {{$scoreDis }} điểm/ lần soi & tối đa {{ $scoreMaxDis }} đ/ngày</p>
 
 </div>
+@endif    
+
 @endif
+
 
 <div class="hadernav">
     <div class="title-header">
@@ -560,28 +591,71 @@
                         </div>
                     </div>
                 </div>
+                @php
+    
+                $fabookLink =  null;
+                
+                $zaloLink =  null;
+                $hotlineLink =null;
+                
+                if (isset($globalData)) {
+                  
+                   
+                    $fabookLink =  $globalData->embeddFacebook;
+                    $zaloLink =  $globalData->embeddZalo;
+                    $hotlineLink =  $globalData->embedHotline;
+            
+                }
+             
+            
+            
+            @endphp
+            
 
-
-                {{-- <a href="javascript:void(0)"  class="dropdown left-hotline1 left-hotline  "  style="bottom: 200px">
- 
-                    <span style ="width: 70px; height:70px;background: unset !important;">
-                       <img style="width:100%" src ="/scoreIcon.jpg"> 
-                     
+                @if ($hotlineLink)
+                <a href="tel:{{ $hotlineLink }}" title="" class="left-hotline">
+                    <strong>{{ $hotlineLink }}</strong>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"></path>
+                          </svg>
                     </span>
-                    <div style ="
-                        color: red;
-                    font-size: 1.5rem;
-                    
-                    "> = 0 đ </div>
+                </a>
+   
+                @endif
+
+             
+
+
+
+                <div class="left-sidebar">
+                    {{-- <a href="tel:0903969952" rel="nofollow">
+                        <img src="https://tikitech.vn/resources/images/sidebar/phone2.svg" alt="phone">
+                    </a> --}}
+        
+                    {{-- <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;tf=1&amp;to=hi@tikitech.vn" target="_blank"><img src="https://tikitech.vn/resources/images/sidebar/email.png" alt="mail"></a>
+         --}}
                 
+                        @if ( $zaloLink)
+
+                        <a href="{{ $zaloLink }}" target="_blank" rel="nofollow"><img src="https://tikitech.vn/resources/images//sidebar/zalo.png" alt="zalo"></a>
+
+                        @endif
+
+
+                    @if ( $fabookLink)
+                             <a href="{{$fabookLink}}" target="_blank" rel="nofollow"><img src="https://tikitech.vn/resources/images/sidebar/mess.png" alt="facebook"></a>
+         
+                    @endif
+
+         
+                 
+                 
+        
+                  
+                </div>
+
                 
-                
-                    <div class="dropdown-content">
-                        <p>1 điểm = 1 VND</p>
-                        <p>500 điểm/ lần soi da Online </p>
-                        <p> Nhớ đăng nhập, tích lũy điểm nhé !!</p>
-                    </div>
-                </a> --}}
 </body>
 
         <script type="text/javascript" src="/js/history.js"></script>
