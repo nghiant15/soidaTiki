@@ -1205,3 +1205,123 @@ li {
     text-align: center;
     color: green;
 }
+
+
+.bookdisplay {
+    width: 100%;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    
+    .search-box {
+        width: 60%;
+        margin-left: auto;
+
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .booknav{
+        .nav {
+            .nav-item {
+                text-align: center;
+                border-radius: 30px;
+                background-color: #aeae1175;
+                width: 25%;
+                a{
+                    text-decoration: none;
+                    color: blue;
+                }
+            }
+            @media only screen and (max-width: 600px) {
+                 
+                .nav-item {
+                   
+                   
+                    width: 50% !important;
+                    margin-top: 10px;
+                   
+                }
+            }
+        }
+    }
+
+    .databook {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        .book-item {
+            width: 20%;
+            padding: 1%;
+            margin-bottom: 10px;
+            img { 
+                width: 98%;
+                height: 220px;
+                
+            }
+            p{
+                text-align: center;
+            }
+            @media only screen and (max-width: 600px) {
+                 
+                img { 
+                    width: 98%;
+                    height: 100px !important;
+                    
+                }
+            }
+        }
+
+    }
+ 
+ .pagination {
+  display: inline-block;
+  text-align: center;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+ }
+
+ .viewpdf {
+    display:none;
+
+    .display-title{
+        text-align: center;
+
+        color: var(--main_color) !important;
+        .title{
+            font-weight: bold;
+        }
+    }
+    a {
+        color: white !important;
+    }
+    .btnBack {
+        
+        padding: 2px 3px;
+        background-color: blue;
+        color: var(--primary-text-color);
+    }
+    margin-top: 10px;
+    margin-bottom: 10px;
+ }
+ 
+

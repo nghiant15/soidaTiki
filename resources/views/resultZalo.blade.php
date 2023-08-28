@@ -1385,7 +1385,7 @@
             {
 
             }
-
+            DowloadBook();
         });
     </script>
 @endsection
@@ -1488,7 +1488,26 @@ function openFormRegister2() {
     
     
 }
-// setTimeout(() => {
-//     showPupupSuccess();       
-// }, 10000);
+
+function DowloadBook() 
+{   
+    var item =  sessionStorage.linkhref;
+
+    
+
+    if(item != null &&  item != '')
+    {
+            var link = document.createElement("a");
+            link.setAttribute('download', name);
+            link.href = item;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            sessionStorage.removeItem("linkhref");
+            
+
+    }
+
+
+}
 </script>

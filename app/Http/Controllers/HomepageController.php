@@ -550,6 +550,76 @@ public function getDataInfo (Request $request)
         return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo", "turnOnGame"));
     }
 
+    public function booking (Request $request, $slug =null, $book = null) 
+    {
+         
+       
+        $this->setHistoryId(null);
+       
+        $isCheck  = true;
+        $isTurnOfFooter =  true;
+
+        if($slug == "" ||$slug ==null)
+        {
+            $this->setdataInfoCompany(null);            
+        }
+        else 
+        {
+            $isCheck = $this->CheckUrl($slug);
+        } 
+
+        $dataCompanyId =  $this->getCompanyId();
+       
+       
+        $this->getBeauty($slug);
+         if(!$isCheck)
+        {
+            return view("notfound");
+       
+        }
+        $agent = new Agent();
+        $gameJoinTo= false;
+
+        $dataUserSession =  session('dataCompany', null);
+
+     
+
+        if($dataUserSession)
+        {
+            $dataUserId=  $dataUserSession->data->_id;
+         
+           
+            $dataUserSession->data = $this->getDataById($dataUserId);
+            session(['dataCompany' =>$dataUserSession]);
+            $dataUserSession =  session('dataCompany', null);
+
+         
+        }
+
+      
+        if($dataUserSession)
+        {
+            $isTurnOfFooter=false;
+        }
+        else 
+        {
+       
+        }
+
+        
+        $turnOnGame = false;
+        $slugBook = $book;
+
+
+        if($slug !="")
+        {
+            return view("bookingZalo", compact( "slugBook", "slug","agent","isTurnOfFooter","gameJoinTo"));
+        }
+       
+        return view("bookingZalo", compact("slugBook","slug","agent","isTurnOfFooter","gameJoinTo", "turnOnGame"));
+    }
+    
+
     public function result (Request $request, $slug =null) 
     {
         $data  =  session('dataResult', null);
@@ -687,6 +757,9 @@ public function getDataInfo (Request $request)
              "ageGame","ageGameReal","gameType","gameJoinType1",
               "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
         }
+
+
+    
 
         return view("result", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame"));
     }

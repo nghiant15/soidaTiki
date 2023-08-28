@@ -23,6 +23,7 @@ class OpenAccountController extends Controller
         $data = null;
 
 
+
         $res = $client->request('post', $url, [
             
         ]);

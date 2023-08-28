@@ -8,14 +8,17 @@ Route::get("/mo-tai-khoan-thanh-cong", function(){
    return View::make("success");
 });
 
+// Route::get('/khosach', 'HomepageController@booking')->name('homePage');
+
 Route::post('/typeLogin/setType', 'HistoryController@setType');
 
 Route::get('/{slug}/nhan-de-xuat-cham-soc-da', 'HomepageController@recomendProduct')->name('homePage');
 Route::get('/nhan-de-xuat-cham-soc-da', 'HomepageController@recomendProduct')->name('homePage');
 Route::get('/ket-qua', 'HomepageController@result')->name('redireHOmePage');
 Route::get('/{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage');
-Route::get('{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage');
-Route::get('/{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage');
+Route::get('{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage2');
+Route::get('/{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage3');
+Route::get('/{slug}/{book}', 'HomepageController@booking')->name('redireHOmePage4');
 // Route::post('/skin/add-history-skin-plugin', 'HistoryController@saveHistory')->name('saveHistory');
 Route::post('/{slug}/skin/call-soi-da', 'HomepageController@callSikin');
 Route::post('/skin/call-soi-da', 'HomepageController@callSikin');
@@ -59,7 +62,10 @@ Route::get('/{slug}/thong-tin-tai-khoan', 'HomepageController@profile')->name('h
 
 Route::get('/makeup', 'HomepageController@redireHomePage')->name('redireHOmePage');
 Route::get('/makeup/{slug}', 'HomepageController@redireHomePage')->name('redireHOmePage');
+
 Route::get('/{slug}', 'HomepageController@skinIndex')->name('homePage');
+
+
 Route::get('/', 'HomepageController@index')->name('homePage');
 
 
