@@ -331,8 +331,15 @@
 
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script type="text/javascript" src="/js/pdfobject.min.js"></script>
 
+        
 
+        <script type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.111/pdf.min.js"></script>
+       
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
         </script>
@@ -355,11 +362,13 @@
                 top: 0,
                 behavior: "smooth",
             });
-            
+            var adobeDCView = null;
         
        
         </script>
         <script>
+
+
               function hideTips() {
                 var tips = document.getElementById("tips");
                 tips.style.display = "none";
@@ -1396,7 +1405,7 @@
         style="position: absolute; display: none; width: 50px; height: 50px; z-index: 2147483647; border-style: none; background: transparent;"></iframe>
 
 
-<div class ="bookdisplay">
+<div class ="bookdisplay" style = "display:none" >
 
     
  <div class ="booknav"> 
@@ -1429,11 +1438,7 @@
 
  </div> --}}
       <div class="databook" id = "dataBook0">
-     {{-- <div class ="book-item" onclick="openBook()"> 
-        <img src ="/bannersach.jpeg">
-        <p>Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022) </p>
-    </div>
-    --}}
+    
 </div>
 
 
@@ -1463,13 +1468,21 @@
 <div class ="viewpdf">
    
     <div class="display-title">
-           <p class="title">KHÔNG CÓ GÌ CHẾT ĐI BAO GIỜ </p>
-           <p class="title1">Việt nam và ký ức chiến tranh </p>
-           <p class="author">   NGUYỄN THANH VIỆT</p>
+           <p class="title" id ="titleid">KHÔNG CÓ GÌ CHẾT ĐI BAO GIỜ </p>
+           <p class="title1" id ="title1id" >Việt nam và ký ức chiến tranh </p>
+           <p class="author" id ="authorid">   NGUYỄN THANH VIỆT</p>
      </div>
-    <iframe  id = "pdfviewer" src="https://drive.internxt.com/sh/file/ed6ea51ce11f92774440/ad860036384e7dc66cb17046b8876551ccdd2bcf3a13b82be2ab5edb2c5ae1f6" style="width:100%; height:100%;"  
-    toolbar=0
-    frameborder="0"></iframe> 
+     <div>
+     <div id="pdfviewer"></div>
+
+     <!-- <embed src="https://applamdep.com/Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"> -->
+     <!-- <img src="https://applamdep.com/Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf"> -->
+     <!-- <iframe src="https://docs.google.com/viewer?url=https://applamdep.com/233.pdf&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe> -->
+
+     <!-- <embed src="https://applamdep.com/Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf" width="800" height="500" type='application/pdf'> -->
+    <!-- <iframe  id = "pdfviewer1" src="https://drive.internxt.com/sh/file/ed6ea51ce11f92774440/ad860036384e7dc66cb17046b8876551ccdd2bcf3a13b82be2ab5edb2c5ae1f6" style="width:100%; height:100%;"   -->
+    <!-- toolbar=0
+    frameborder="0"></iframe>  -->
 
 </div>
 
@@ -1548,21 +1561,56 @@ function openFormRegister() {
 function openBook(itembook)
 {  
     
-    var linkhref = "/Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf#toolbar=0";
+   
+    var linkhref = itembook.linkFiePdf;
     sessionStorage.setItem("linkhref", linkhref);
-    $(".bookdisplay").hide();
 
+        var titleTemp=  itembook.title;
+        var title1Temp=  itembook.title2;
+        var authorTemp=  itembook.author;
 
-        let calendar = document.getElementById("pdfviewer");
-        calendar.setAttribute("src", linkhref);
+        if(titleTemp != "")
+        {
+            $("#titleid").text(titleTemp);
+        }
+        else 
+        {
+            $("#titleid").hide();
+        }
+
+        if(title1Temp != "")
+        {
+            $("#title1id").text(title1Temp);
+        }
+        else 
+        {
+            $("#title1id").hide();
+        }
+
+        if(authorTemp != "")
+        {
+            $("#authorid").text(authorTemp);
+        }
+        else 
+        {
+            $("#authorid").hide();
+        }
+       $(".bookdisplay").hide();
+     
         $(".bg-smoke").hide();
 
-    setTimeout(() => {
-        $(".viewpdf").show();
-        $(".bg-smoke").show();
-        $(".bg-light").show();
-        
-    }, 2000);
+        adobeDCView.previewFile(
+     {
+         content:  {location: {url: linkhref}},
+         metaData: {fileName: itembook.title}
+     });
+
+        setTimeout(() => {
+            $(".viewpdf").show();
+            $(".bg-smoke").show();
+            $(".bg-light").show();
+            
+        }, 2000);
 }
 
 
@@ -1582,7 +1630,41 @@ function backToHomePage()
 
 }
 
-function getAllBook(type =0) 
+
+function getBySlug(sluginput) 
+{
+    $.ajax({
+                type: "GET",
+                url: "https://api-soida.applamdep.com/api/book/getbySlug?slug=" + sluginput,
+                data:{
+                 
+                    slug: sluginput,
+                    companyid: companyIdData.company_id
+                },
+                contentType: "application/json",
+                dataType: "json",
+                complete: function(data) {
+                    if(data.responseJSON.status == 200)
+                    {
+                            var temp = data.responseJSON;
+                            var tiem = temp.data;
+                            openBook(tiem);
+                            setTimeout(() => {
+                            getAllBook(0, false);
+
+                            }, 1000);
+                    }
+                    else 
+                    {
+                        getAllBook();
+                    }
+                   
+ 
+                },
+            });
+
+}
+function getAllBook(type =0, turnon = true) 
 {
     $.ajax({
                 type: "GET",
@@ -1597,7 +1679,9 @@ function getAllBook(type =0)
                 complete: function(data) {
                     $("#dataBook0").empty();
 
-                            Swal.fire({
+                    if(turnon ==false)
+                    {
+                        Swal.fire({
                     title: 'Đang lấy dữ liệu...',
                     html: 'Vui lòng chờ...',
                     allowEscapeKey: false,
@@ -1606,13 +1690,16 @@ function getAllBook(type =0)
                     Swal.showLoading()
                     }
                     });
+                    }
+
+                          
                 
                     var dataDraw = data.responseJSON.data;
                     for (let i = 0; i < dataDraw.length; i++) {
                          let itemBook = dataDraw[i];
-                         var imagecover =  itemBook.image;
+                         var imagecover =  itemBook.linkCover;
                          var  title = itemBook.title;
-                         var linkFile = itemBook.hrefLink;
+                         var linkFile = itemBook.linkFiePdf;
                          var stringifiedObj = JSON.stringify(itemBook);
                          let div1 =  document.createElement('DIV');
                          div1.className = "book-item";
@@ -1658,10 +1745,22 @@ window.addEventListener('load', function () {
 
     if( slugBookInput != "khosach")
     {
-        openBook();
+
+        getBySlug(slugBookInput);
+      
 
        
     }
-    getAllBook(0);
+    else 
+    {
+        getAllBook(0);
+    }
+   
 })
+
+document.addEventListener("adobe_dc_view_sdk.ready", function()
+   {
+      adobeDCView = new AdobeDC.View({clientId: "f2ca61bb930e452f94e2a43f779e5261", divId: "pdfviewer"});
+     
+   });
 </script>

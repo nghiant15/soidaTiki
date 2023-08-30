@@ -552,9 +552,7 @@ public function getDataInfo (Request $request)
 
     public function booking (Request $request, $slug =null, $book = null) 
     {
-         
-       
-        $this->setHistoryId(null);
+         $this->setHistoryId(null);
        
         $isCheck  = true;
         $isTurnOfFooter =  true;
