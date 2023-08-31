@@ -13,8 +13,13 @@ function setActiveClass(itemActive) {
     });
 };
 function Setindicator(e) {
-    indicator.style.left = e.offsetLeft + "px";
-    indicator.style.width = e.offsetWidth + "px";
+
+    if(indicator)
+    {
+        indicator.style.left = e.offsetLeft + "px";
+        indicator.style.width = e.offsetWidth + "px";
+    }
+   
 };
 list.forEach(item => {
     item.addEventListener("mouseover", (e) => {
@@ -22,8 +27,16 @@ list.forEach(item => {
         Setindicator(e.target);
     });
     item.addEventListener("mouseleave", (e) => {
-        item.classList.remove("active-a-navbar");
-        indicator.style.width = 0 + "px";
+        if(item)
+        {
+            item.classList.remove("active-a-navbar");
+        }
+        if(indicator)
+        {
+            indicator.style.width = 0 + "px";
+        }
+       
+        
         // indicator.style.left = 0 + "px";
 
     });

@@ -24,7 +24,6 @@ $dataColor = $dataColor->data;
 @endphp
 @endif
 <html>
-
 <head>
 
     <meta charset="UTF-8">
@@ -110,14 +109,7 @@ $dataColor = $dataColor->data;
     <div class="content-page">
        
         @include("campaign.header")
-        <div class="banner_evoucher">
-            <a href="/zasaly">
-            <video autoplay muted loop id="myVideo">
-                <source src="/hero-banner.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
-              </video>
-            </a>
-        </div>
+       
         <section class="banner_section1">
             <div class="container-layout">
 
@@ -132,16 +124,79 @@ $dataColor = $dataColor->data;
         </section>
         
         <section class="banner_section3">
-            <div class="container-layout">
-                <div class="title-section ">
-                    <h2>
-                            Nhà cung cấp nổi bật
-                    </h2>
-                </div>
-                <div class="row  js-scroll" id="renderBanner-new" style="margin:0">
-                </div>
-            </div>
+    
+
+
+            <div class ="bookdisplay"  >
+
+    
+<div class ="booknav"> 
+    <ul class="nav ">
+           <li class="nav-item">
+               
+                   <a class="nav-link"  onclick="getData(0)"  aria-current="page" href="javascript:void(0)">Sách tiếng anh</a>
+           </li>
+           <li class="nav-item">
+                 <a class="nav-link" onclick="getData(1)" href="javascript:void(0)">Sách nuôi day con</a>
+           </li>
+           <li class="nav-item">
+                 <a class="nav-link" onclick="getData(2)" href="javascript:void(0)">Tạp chí thời trang</a>
+           </li>
+
+           <li class="nav-item">
+               <a class="nav-link" onclick="getData(3)"   href="javascript:void(0)">Tiểu thuyết & sách nói</a>
+           </li>
+       
+     </ul>
+     
+
+</div>
+
+
+<div class="databook" id = "dataBook0">
+
+</div>
+
+
+
+
+
+{{-- <div class="pagination">
+ <a href="#">&laquo;</a>
+ <a href="#">1</a>
+ <a href="#" class="active">2</a>
+ <a href="#">3</a>
+ <a href="#">4</a>
+ <a href="#">5</a>
+ <a href="#">6</a>
+ <a href="#">&raquo;</a>
+</div> --}}
+</div>
+
+<div class ="viewpdf">
+   <a class ="btnBack" onclick="backToHomePage()" style ="color: var(--main_color) !important;background-color: transparent;font-weight: bolder;text-decoration: underline !important;"> 
+       Danh mục sách
+   </a>
+
+   
+</div>
+
+<div class ="viewpdf">
+  
+   <div class="display-title">
+          <p class="title" id ="titleid">KHÔNG CÓ GÌ CHẾT ĐI BAO GIỜ </p>
+          <p class="title1" id ="title1id" >Việt nam và ký ức chiến tranh </p>
+          <p class="author" id ="authorid">   NGUYỄN THANH VIỆT</p>
+    </div>
+    <div>
+    <div id="pdfviewer"></div>
+
+   
+
+</div>
         </section>
+
+    
     </div>
     @include('campaign.footer')
     @include('campaign.layout')
@@ -237,6 +292,7 @@ $dataColor = $dataColor->data;
     }
     renderCarousel2();
     function renderCarousel1() {
+        return;
         let data = {!!json_encode($dataGlobal->bannermain) !!};
         var li = ``;
         var itemCarousel = ``;
@@ -304,19 +360,191 @@ $dataColor = $dataColor->data;
         interval: 2000
     });
     async function callApiWeb(){
-    // await getAllCampaign("renderBanner", "0");
-    await getAllCampaign("renderBanner-new", "1");
-    // let loadingweb = document.querySelector(".loading-bg");
-    // if(loadingweb){
-    // loadingweb.style.display = "none";
-    // }
+ 
+    // await getAllCampaign("renderBanner-new", "1");
+   
     };
 
 
     var dataWeb = {!!json_encode($dataGlobal) !!};
-    callApiWeb();
+    // callApiWeb();
         
     
+function skinSoida() {
+
+// $(".bookdisplay").hide();
+// $(".bg-smoke").hide();
+// $(".viewpdf").hide();
+// $(".bg-smoke").hide();
+// $("#b-placeholder").show();
+// hideTips();
+// $(".bg-light").hide();
+// haldleOpenCamera();
+
+
+
+}
+function openBook(itembook)
+{  
+    
+    return;
+    var linkhref = itembook.linkFiePdf;
+    sessionStorage.setItem("linkhref", linkhref);
+    var titleTemp=  itembook.title;
+    var title1Temp=  itembook.title2;
+    var authorTemp=  itembook.author;
+
+    if(titleTemp != "")
+    {
+        $("#titleid").text(titleTemp);
+    }
+    else 
+    {
+        $("#titleid").hide();
+    }
+
+    if(title1Temp != "")
+    {
+        $("#title1id").text(title1Temp);
+    }
+    else 
+    {
+        $("#title1id").hide();
+    }
+
+    if(authorTemp != "")
+    {
+        $("#authorid").text(authorTemp);
+    }
+    else 
+    {
+        $("#authorid").hide();
+    }
+    $(".bookdisplay").hide();
+    
+    $(".bg-smoke").hide();
+
+    adobeDCView.previewFile(
+    {
+        content:  {location: {url: linkhref}},
+        metaData: {fileName: itembook.title}
+    });
+
+    setTimeout(() => {
+        $(".viewpdf").show();
+        $(".bg-smoke").show();
+        $(".bg-light").show();
+        
+    }, 2000);
+}
+
+
+function backToHomePage()
+{      $(".viewpdf").hide();
+        $(".bg-light").hide();
+        $(".bg-smoke").hide();
+   
+            setTimeout(() => {
+                
+            $(".bookdisplay").show();
+            $(".bg-smoke").show();
+
+        
+                
+            }, 500);
+
+}
+
+
+
+function getAllBook(type =0, turnon = true) 
+{
+    $.ajax({
+                type: "GET",
+                url: "http://localhost:3002/api/book/fe/getAll",
+                data:{
+                 
+                    Type: type
+                },
+                contentType: "application/json",
+                dataType: "json",
+                complete: function(data) {
+                    
+                    if(turnon ==true)
+                    {
+                            Swal.fire({
+                            title: 'Đang lấy dữ liệu...',
+                            html: 'Vui lòng chờ...',
+                            allowEscapeKey: false,
+                            allowOutsideClick: false,
+                            didOpen: () => {
+                            Swal.showLoading()
+                            }
+                            });
+                    }
+                    $("#dataBook0").empty();
+                    
+                    var dataDraw = data.responseJSON.data;
+                    for (let i = 0; i < dataDraw.length; i++) {
+                         let itemBook = dataDraw[i];
+                         var imagecover =  itemBook.linkCover;
+                         var  title = itemBook.title;
+                         var linkFile = itemBook.linkFiePdf;
+
+                         var hrefLink = "https://applamdep.com/soida/"+ itemBook.slug;
+                         
+                         var stringifiedObj = JSON.stringify(itemBook);
+                         let div1 =  document.createElement('div');
+                         div1.className = "book-item";
+                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a href="'+hrefLink+'" ><p>'+title+' </p></a>';
+                         div1.onclick = 
+
+                         div1.addEventListener( 'click', function(event){
+                           
+                            doSomething(event,itemBook);
+                        }, false );
+
+                        function doSomething(event, greeting) {
+                             openBook(greeting);
+                        
+                        }
+                         $("#dataBook0").append(div1);
+                    }
+                    setTimeout(() => {
+                        swal.close();
+                        
+                    }, 1000);
+                
+
+                },
+            });
+
+}
+
+var typeInput= 0;
+function getData(type)
+{
+   
+    if(typeInput != type)
+    {
+        typeInput = type;
+        getAllBook(type,true);
+
+        
+    }
+  
+}
+window.addEventListener('load', function () {
+
+    getAllBook(0, true);
+   
+})
+
+document.addEventListener("adobe_dc_view_sdk.ready", function()
+   {
+      adobeDCView = new AdobeDC.View({clientId: "f2ca61bb930e452f94e2a43f779e5261", divId: "pdfviewer"});
+     
+   });
     </script>
 </body>
 

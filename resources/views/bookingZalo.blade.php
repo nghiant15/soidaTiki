@@ -801,7 +801,7 @@
                     };
                     $.ajax({
                         type: "POST",
-                        url: "https://api-soida.applamdep.com/itemSdk/get_product_result",
+                        url: "http://localhost:3002/itemSdk/get_product_result",
                         data: JSON.stringify(bodyRequest),
                         contentType: "application/json",
                         dataType: "json",
@@ -838,7 +838,7 @@
                             var itemProduct = listProduct[i];
 
                             if (itemProduct.image_link.length > 0) {
-                                imagelink = "https://api-soida.applamdep.com/public/image_plugin/" + itemProduct
+                                imagelink = "http://localhost:3002/public/image_plugin/" + itemProduct
                                     .image_link;
                             } else {
                                 imagelink = itemProduct.image;
@@ -1330,7 +1330,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "https://api-soida.applamdep.com/api/add-customer-request",
+                url: "http://localhost:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1353,7 +1353,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "https://api-soida.applamdep.com/api/add-customer-request",
+                url: "http://localhost:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1457,13 +1457,13 @@
 </div> --}}
 </div>
 
-<div class ="viewpdf">
+<!-- <div class ="viewpdf">
     <a class ="btnBack" onclick="backToHomePage()" style ="color: var(--main_color) !important;background-color: transparent;font-weight: bolder;text-decoration: underline !important;"> 
         Danh mục sách
     </a>
 
     
-</div>
+</div> -->
 
 <div class ="viewpdf">
    
@@ -1538,26 +1538,26 @@
 
 <script>
 
-function skinSoida() {
-
-        $(".bookdisplay").hide();
-        $(".bg-smoke").hide();
-        $(".viewpdf").hide();
-        $(".bg-smoke").hide();
-        $("#b-placeholder").show();
-        hideTips();
-        $(".bg-light").hide();
-        haldleOpenCamera();
-       
-    
-
-}
 
 function openFormRegister() {
     ToggleDisplayFormFollow('.status-modal-follow',true);
     
 }
 
+function skinSoida() {
+
+$(".bookdisplay").hide();
+$(".bg-smoke").hide();
+$(".viewpdf").hide();
+$(".bg-smoke").hide();
+$("#b-placeholder").show();
+hideTips();
+$(".bg-light").hide();
+haldleOpenCamera();
+
+
+
+}
 function openBook(itembook)
 {  
     
@@ -1635,7 +1635,7 @@ function getBySlug(sluginput)
 {
     $.ajax({
                 type: "GET",
-                url: "https://api-soida.applamdep.com/api/book/getbySlug?slug=" + sluginput,
+                url: "http://localhost:3002/api/book/getbySlug?slug=" + sluginput,
                 data:{
                  
                     slug: sluginput,
@@ -1668,7 +1668,7 @@ function getAllBook(type =0, turnon = true)
 {
     $.ajax({
                 type: "GET",
-                url: "https://api-soida.applamdep.com/api/book/fe/getAll",
+                url: "http://localhost:3002/api/book/fe/getAll",
                 data:{
                  
                     Type: type,

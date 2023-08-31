@@ -27,10 +27,10 @@ class HomepageController extends Controller
     {
 
      
-        $checkacssSlugUrl ="https://api-soida.applamdep.com/api/check-access-slug";
+        $checkacssSlugUrl ="http://localhost:3002/api/check-access-slug";
         $client = new Client();
 
-        $res = $client->request('post', 'https://api-soida.applamdep.com/api/check-access-slug', [
+        $res = $client->request('post', 'http://localhost:3002/api/check-access-slug', [
             'json' => [
                 'slug'=> $slug
               ]
@@ -258,7 +258,7 @@ public function getDataInfo (Request $request)
             'company_id' => "-1"
              ]
         ];
-        $url = "https://api-soida.applamdep.com/api/baner/getAllBannerWeb";
+        $url = "http://localhost:3002/api/baner/getAllBannerWeb";
         $client = new Client();
         $res = $client->request('get', $url, $params);
 
@@ -322,7 +322,7 @@ public function getDataInfo (Request $request)
         }
         $companyGlobalId = $this->getCompanyId();
         $agent = new Agent();
-        return view("campaign.bannerCampaign", compact("slug","dataGlobal","dataUser","companyGlobalId","agent"));
+        return view("book.bannerCampaign", compact("slug","dataGlobal","dataUser","companyGlobalId","agent"));
        
     }
 
@@ -331,7 +331,7 @@ public function getDataInfo (Request $request)
     private function checkGameStatus($slug)
     {
 
-        $url ="https://api-soida.applamdep.com/api/get-game-active";
+        $url ="http://localhost:3002/api/get-game-active";
         $client = new Client();
 
         $res = $client->request('get', $url, [
@@ -361,7 +361,7 @@ public function getDataInfo (Request $request)
     private function getDataById($id)
     {
     
-        $url ="https://api-soida.applamdep.com/api/getInfoUser?id=".$id;
+        $url ="http://localhost:3002/api/getInfoUser?id=".$id;
         $client = new Client();
         $res = $client->request('get', $url, [
             'json' => [
@@ -388,7 +388,7 @@ public function getDataInfo (Request $request)
     private function getBeauty($slug)
     {
     
-        $url ="https://api-soida.applamdep.com/api/gameBeauty/getInfo2?slug=".$slug;
+        $url ="http://localhost:3002/api/gameBeauty/getInfo2?slug=".$slug;
         $client = new Client();
 
         $res = $client->request('get', $url, [
@@ -415,7 +415,7 @@ public function getDataInfo (Request $request)
     private function getGameActive($companyId)
     {
 
-        $url ="https://api-soida.applamdep.com/api/get-game-active";
+        $url ="http://localhost:3002/api/get-game-active";
         $client = new Client();
       
 
@@ -797,9 +797,9 @@ public function getDataInfo (Request $request)
           return ;
         }
         $slug = "";
-        $checkacssSlugUrl ="https://api-soida.applamdep.com/api/get-detail-history-skin";
+        $checkacssSlugUrl ="http://localhost:3002/api/get-detail-history-skin";
         $client = new Client();
-        $res = $client->request('post', 'https://api-soida.applamdep.com/api/get-detail-history-skin', [
+        $res = $client->request('post', 'http://localhost:3002/api/get-detail-history-skin', [
             'json' => [
                  'id'=> $id
               ]

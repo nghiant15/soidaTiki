@@ -272,8 +272,13 @@ document.addEventListener("DOMContentLoaded", function(){
     // }
  
     setTimeout(() => {
-      tips.style.display ="block";
-      sessionStorage.setItem("tips", true);
+      if(tips)
+      {
+        tips.style.display ="block";
+        sessionStorage.setItem("tips", true);
+      }
+      
+ 
     }, 2000);
    
     if(dataUser != null)
