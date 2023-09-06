@@ -108,24 +108,18 @@ $dataColor = $dataColor->data;
     </div>
     <div class="content-page">
        
-        @include("campaign.header")
+        @include("book.header")
        
-        <section class="banner_section1">
-            <div class="container-layout">
-
-                <div class="banner_evoucher_2">
-                    <div id="carouselExampleIndicators2" class="carousel slide classRenderCarousel2"
-                        data-ride="carousel">
-
-                    </div>
-                </div>
-            </div>
-
+        <section class="banner_sectionbook">
+             <img src ="/bannerbook.png">
         </section>
         
         <section class="banner_section3">
     
 
+            <div class ="titlepage">
+                <span class= "title1"> KHO SÁCH ONLINE </span> <span>100% DOWLOAD MIỄN PHÍ</span>
+            </div>
 
             <div class ="bookdisplay"  >
 
@@ -198,8 +192,8 @@ $dataColor = $dataColor->data;
 
     
     </div>
-    @include('campaign.footer')
-    @include('campaign.layout')
+    @include('book.footer')
+    @include('book.layout')
     <div class="status-backToTop-campaign">
         <div class="back-to-top-campaign" onclick="BackToTop()">
             <div class="flex-center">
@@ -466,10 +460,10 @@ function getAllBook(type =0, turnon = true)
                  
                     Type: type
                 },
-                contentType: "application/json",
-                dataType: "json",
+             
+              
                 complete: function(data) {
-                    
+                  
                     if(turnon ==true)
                     {
                             Swal.fire({
@@ -482,8 +476,10 @@ function getAllBook(type =0, turnon = true)
                             }
                             });
                     }
+                  
                     $("#dataBook0").empty();
-                    
+                
+                   
                     var dataDraw = data.responseJSON.data;
                     for (let i = 0; i < dataDraw.length; i++) {
                          let itemBook = dataDraw[i];
@@ -509,6 +505,7 @@ function getAllBook(type =0, turnon = true)
                         
                         }
                          $("#dataBook0").append(div1);
+                         
                     }
                     setTimeout(() => {
                         swal.close();
@@ -519,7 +516,10 @@ function getAllBook(type =0, turnon = true)
                 },
             });
 
-}
+          
+
+
+        }
 
 var typeInput= 0;
 function getData(type)
@@ -536,6 +536,7 @@ function getData(type)
 }
 window.addEventListener('load', function () {
 
+   
     getAllBook(0, true);
    
 })

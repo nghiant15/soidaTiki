@@ -1489,52 +1489,6 @@
 
       @endsection
 
-{{-- @if ($isTurnOfFooter)
-   
-
-        @if ($agent->isMobile() )
-        <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
-            <div class="container text-center">
-                
-                <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-                    <a href= "javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/phoneNew2.png"> </a></p>
-            </div>
-        </div>
-        @else
-        <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
-            <div class="container text-center">
-                
-                <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-                    <a href="javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/desktopNew2.png"> </a></p>
-            </div>
-        </div>
-        @endif
-
-
-@endif --}}
-@if ($isTurnOfFooter)
-   
-
-        @if ($agent->isMobile() )
-            <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
-                <div class="container text-center">
-                    
-                    <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-                        <a href= "javascript:void(0)"  onclick="skinSoida()" ><img style= "height: 50px" src ="/iconSkin2.jpg"> </a></p>
-                </div>
-            </div>
-        @else
-            <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
-                <div class="container text-center">
-                    
-                    <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-                    <a href="javascript:void(0)"  onclick="skinSoida()" ><img style= "height: 50px" src ="/iconSkin2.jpg"> </a></p>
-                </div>
-            </div>
-        @endif
-
-
-@endif
 
 <script>
 

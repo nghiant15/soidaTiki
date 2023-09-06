@@ -140,21 +140,4 @@
 </style>
 
 
-@if ($agent->isMobile())
-<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;">
-    <div class="container text-center">
-        
-          <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-            <a href="/zasaly"  target ="_blank"><img style= "height: 50px" src ="/desktopnew.jpg"> </a></p>
-    </div>
-</div>
-@else
-<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;">
-    <div class="container text-center">
-        
-          <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-            <a href="/zasaly"  target ="_blank"><img style= "height: 50px" src ="/phoneNew2.png"> </a></p>
-    </div>
-</div>
-@endif
 

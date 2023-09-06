@@ -1343,3 +1343,26 @@ border: 1px solid #4CAF50;
     max-width: 1200px;
     margin: auto;
 }
+
+.titlepage {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #0017A9 !important;
+  .title1{
+    background-color: #00FC86;
+
+    border-radius : 37px 37px 37px 37px;
+    
+  }
+}
+
+.banner_sectionbook {
+  max-width: 1200px;
+  margin: auto;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  
+}
