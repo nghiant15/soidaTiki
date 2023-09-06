@@ -9,7 +9,7 @@ Route::get("/mo-tai-khoan-thanh-cong", function(){
 });
 
 // Route::get('/khosach', 'HomepageController@booking')->name('homePage');
-
+Route::get('/xemchitietlichsu/{id}', 'HomepageController@historyDetailPage');
 Route::post('/typeLogin/setType', 'HistoryController@setType');
 
 Route::get('/{slug}/nhan-de-xuat-cham-soc-da', 'HomepageController@recomendProduct')->name('homePage');
@@ -46,7 +46,7 @@ Route::post('/{slug}/dang-nhap-plugin-game', 'UserController@loginGame')->name('
 Route::post('/dang-nhap-plugin-game', 'UserController@loginGame')->name('loginSystem');
 Route::post('/dang-nhap-plugin-game', 'UserController@loginGame')->name('loginSystem');
 
-Route::get('/xemchitietlichsu/{id}', 'HomepageController@historyDetailPage');
+
 Route::get('/thong-tin-tong-quan', 'HomepageController@thongtintongquan')->name('homePage');
 Route::get('/tham-gia-chuong-trinh-qua-tang', 'HomepageController@formReward')->name('homePage');
 Route::get('/{slug}/thong-tin-tong-quan', 'HomepageController@thongtintongquan')->name('redireHOmePage');

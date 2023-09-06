@@ -89,7 +89,11 @@
     @php
       
     @endphp
-    <div id="b-placeholder" style ="display:none">
+
+    
+
+        
+        <div id="b-placeholder" style ="display:none">
 
 
         <div class="ai-skin__container">
@@ -801,7 +805,7 @@
                     };
                     $.ajax({
                         type: "POST",
-                        url: "http://localhost:3002/itemSdk/get_product_result",
+                        url: "https://api-soida.applamdep.com/itemSdk/get_product_result",
                         data: JSON.stringify(bodyRequest),
                         contentType: "application/json",
                         dataType: "json",
@@ -838,7 +842,7 @@
                             var itemProduct = listProduct[i];
 
                             if (itemProduct.image_link.length > 0) {
-                                imagelink = "http://localhost:3002/public/image_plugin/" + itemProduct
+                                imagelink = "https://api-soida.applamdep.com/public/image_plugin/" + itemProduct
                                     .image_link;
                             } else {
                                 imagelink = itemProduct.image;
@@ -1330,7 +1334,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "http://localhost:3002/api/add-customer-request",
+                url: "https://api-soida.applamdep.com/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1353,7 +1357,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "http://localhost:3002/api/add-customer-request",
+                url: "https://api-soida.applamdep.com/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1553,18 +1557,21 @@ function openBook(itembook)
      
         $(".bg-smoke").hide();
 
-        adobeDCView.previewFile(
-     {
-         content:  {location: {url: linkhref}},
-         metaData: {fileName: itembook.title}
-     });
-
-        setTimeout(() => {
-            $(".viewpdf").show();
-            $(".bg-smoke").show();
-            $(".bg-light").show();
-            
-        }, 2000);
+        if(adobeDCView)
+        {
+                adobeDCView.previewFile(
+                {
+                content:  {location: {url: linkhref}},
+                metaData: {fileName: itembook.title}
+                });
+        }
+        
+            setTimeout(() => {
+                $(".viewpdf").show();
+                $(".bg-smoke").show();
+                $(".bg-light").show();
+                
+            }, 2000);
 }
 
 
@@ -1587,9 +1594,10 @@ function backToHomePage()
 
 function getBySlug(sluginput) 
 {
+   
     $.ajax({
                 type: "GET",
-                url: "http://localhost:3002/api/book/getbySlug?slug=" + sluginput,
+                url: "https://api-soida.applamdep.com/api/book/getbySlug?slug=" + sluginput,
                 data:{
                  
                     slug: sluginput,
@@ -1622,7 +1630,7 @@ function getAllBook(type =0, turnon = true)
 {
     $.ajax({
                 type: "GET",
-                url: "http://localhost:3002/api/book/fe/getAll",
+                url: "https://api-soida.applamdep.com/api/book/fe/getAll",
                 data:{
                  
                     Type: type,

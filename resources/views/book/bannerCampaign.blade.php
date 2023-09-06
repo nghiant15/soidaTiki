@@ -138,7 +138,7 @@ $dataColor = $dataColor->data;
            </li>
 
            <li class="nav-item">
-               <a class="nav-link" onclick="getData(3)"   href="javascript:void(0)">Tiểu thuyết & sách nói</a>
+               <a class="nav-link" onclick="getData(5)"   href="javascript:void(0)">Tiểu thuyết</a>
            </li>
        
      </ul>
@@ -236,7 +236,7 @@ $dataColor = $dataColor->data;
         var html = ``;
         data.forEach((item, i) => {
       
-            var imageLink = "http://localhost:3002/public/image_brand/" +item.image_link;
+            var imageLink = "https://api-soida.applamdep.com/public/image_brand/" +item.image_link;
         if (i === 0) {
         li +=
         `<li data-target="#carouselExampleIndicators2" data-slide-to=${i} class="active"></li>`;
@@ -294,7 +294,7 @@ $dataColor = $dataColor->data;
         data.forEach((item, i) => {
            
 
-        var imageLink = "http://localhost:3002/public/image_brand/" +item.image_link;
+        var imageLink = "https://api-soida.applamdep.com/public/image_brand/" +item.image_link;
         if (i === 0) {
         li +=
         `<li data-target="#carouselExampleIndicators1" data-slide-to=${i} class="active"></li>`;
@@ -455,7 +455,7 @@ function getAllBook(type =0, turnon = true)
 {
     $.ajax({
                 type: "GET",
-                url: "http://localhost:3002/api/book/fe/getAll",
+                url: "https://api-soida.applamdep.com/api/book/fe/getAll",
                 data:{
                  
                     Type: type
@@ -492,7 +492,7 @@ function getAllBook(type =0, turnon = true)
                          var stringifiedObj = JSON.stringify(itemBook);
                          let div1 =  document.createElement('div');
                          div1.className = "book-item";
-                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a href="'+hrefLink+'" ><p>'+title+' </p></a>';
+                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a class="titlenava" href="'+hrefLink+'" ><p>'+title+' </p></a>';
                          div1.onclick = 
 
                          div1.addEventListener( 'click', function(event){

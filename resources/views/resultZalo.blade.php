@@ -129,16 +129,16 @@
             <div class="modal-body loginpopup">
 
                 <form id="formRegister">
-                    <button class="login-google">Tiếp tục với google </button>
-                    <span class="break-line">Hoặc </span>
-                    <input type="text" placeholder="Email hoặc SĐT" id="userNameRegister" name="userName"
-                        class="login-input userName" required>
-                    <span class="errorMessage errorMessageUserName" style="display:none"> Bạn chưa nhập email hoặc
-                        số điện thoại</span>
-                    <input type="password" placeholder="Mật khẩu" id="passwordRegister" class="login-input password"
-                        name="password" required>
-                    <span class="errorMessage errorMessagePassword" style="display:none">Bạn chưa nhập mật
-                        khẩu</span>
+                        <button class="login-google">Tiếp tục với google </button>
+                        <span class="break-line">Hoặc </span>
+                        <input type="text" placeholder="Email hoặc SĐT" id="userNameRegister" name="userName"
+                            class="login-input userName" required>
+                        <span class="errorMessage errorMessageUserName" style="display:none"> Bạn chưa nhập email hoặc
+                            số điện thoại</span>
+                        <input type="password" placeholder="Mật khẩu" id="passwordRegister" class="login-input password"
+                            name="password" required>
+                        <span class="errorMessage errorMessagePassword" style="display:none">Bạn chưa nhập mật
+                            khẩu</span>
                 </form>
 
                 <button class="login-btn" onclick="register()">Tạo tài khoản ngay </button>
@@ -1285,7 +1285,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "http://localhost:3002/api/add-customer-request",
+                url: "https://api-soida.applamdep.com/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1341,6 +1341,8 @@
          var turnOffGame = {!! json_encode($turnOffGame,false) !!};
         
         var objectReponse = null;
+
+
         document.addEventListener("DOMContentLoaded", function() {
 
             var urlHref =  window.location.href;
@@ -1385,7 +1387,27 @@
             {
 
             }
-            DowloadBook();
+
+            if(!isLogin)
+            {
+                var item =  sessionStorage.linkhref;
+                
+                if(item != null &&  item != '')
+                {
+                     ToggleDisplayLoginbook('.status-modal-account',true,'Để tải sách miễn phí');
+                }
+
+                else 
+                {
+                    ToggleDisplayLogin('.status-modal-account',true,'Để tải sách miễn phí');  
+                }
+
+
+            }
+            setTimeout(() => {
+                DowloadBook();
+            }, 5000);
+                
         });
     </script>
 @endsection
@@ -1398,7 +1420,7 @@
 //     {  
 //          if(turnOnGame == false)
 //          {
-//             ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online');
+//            
 //          }
        
           
@@ -1450,7 +1472,7 @@ function myTimer() {
                         $("#foolterBlu").hide();
                         $("#subscribleId").show();
                         // == openFormRegister();
-                       readTextConclude();
+                         readTextConclude();
                         clearInterval(refreshIntervalId);  
                 }, 2000);
                 

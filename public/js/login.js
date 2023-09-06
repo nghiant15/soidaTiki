@@ -231,6 +231,7 @@ function isVietnamesePhoneNumber(number) {
   }
   }
   async function login() {
+    
 
      var pathname = window.location.pathname;
     

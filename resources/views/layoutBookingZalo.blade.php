@@ -22,8 +22,8 @@
     else 
     {
         $bannerPage =   new \stdClass();
-        $bannerPage->imageBannerDesktop= "http://localhost:3002/image_brand/applamdep1320 (1).png";
-        $bannerPage->imageBannerMobile  = "http://localhost:3002/image_brand/applamdep1320 (1).png";
+        $bannerPage->imageBannerDesktop= "https://api-soida.applamdep.com/image_brand/applamdep1320 (1).png";
+        $bannerPage->imageBannerMobile  = "https://api-soida.applamdep.com/image_brand/applamdep1320 (1).png";
         
     }
     
@@ -139,7 +139,13 @@
 </head>
 
 <body>
-
+<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
+                <div class="container text-center">
+                    
+                    <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
+                    <a href="javascript:void(0)"  onclick="skinSoida()" ><img style= "height: 50px" src ="/iconSkin2.jpg"> </a></p>
+                </div>
+  </div>
     <script>
         var isLogin = false;
 
