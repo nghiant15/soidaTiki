@@ -110,7 +110,11 @@
             </div>
             <div class="flex-center footer__homepage-info--font">
                 Holine:  
-                <a style="margin:0;display:inline" href="tel:0903969952"> 0903969952 </a>
+                <a style="margin:0;display:inline" href="tel:0906606986"> 0906606986 </a>
+            </div>
+            <div class="flex-center footer__homepage-info--font">
+                Holine 2:  
+                <a style="margin:0;display:inline" href="tel:0917891007"> 0917891007 </a>
             </div>
             <div class="flex-center footer__homepage-info--font">
                 E-mail: hi@tikitech.vn

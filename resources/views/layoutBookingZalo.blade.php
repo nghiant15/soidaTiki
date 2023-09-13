@@ -543,7 +543,7 @@
                             Số 91 Đường N1, Khu dân cư Hiệp Thành, Phường Hiệp Thành, Quận 12, Thành phố Hồ Chí Minhh
                             </div> 
                             <div class="footer__global font--main">
-                                Hotline: <a class="font--main" href="tel:0903 969 952">0903 969 952</a> 
+                                Hotline: <a class="font--main" href="tel:0906 606 986">0906 606 986</a> 
                                 
                             </div> 
                             <div class="footer__global font--main"> 
@@ -643,7 +643,7 @@
 
 
                 <div class="left-sidebar">
-                    {{-- <a href="tel:0903969952" rel="nofollow">
+                    {{-- <a href="tel:0906606986" rel="nofollow">
                         <img src="https://tikitech.vn/resources/images/sidebar/phone2.svg" alt="phone">
                     </a> --}}
         
