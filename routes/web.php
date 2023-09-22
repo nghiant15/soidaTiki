@@ -9,7 +9,8 @@ Route::get('/{slug}/lichsu-soida', 'HistoryController@historySoida');
 Route::get('/{slug}/lich-su-soi-da-with-iframe/{id}', 'HomepageController@ViewhistoryWithIframe');
 
 Route::get('/lich-su-soi-da-with-iframe/{id}', 'HomepageController@ViewhistoryWithIframe');
-
+Route::get('/thong-tin-tai-khoan', 'HomepageController@profile')->name('homePage');
+Route::get('/{slug}/thong-tin-tai-khoan', 'HomepageController@profile')->name('homePage');
 
 Route::get('api/evoucher/banner/getAll', 'EvoucherController@getbanner');
 Route::get('/dangky', 'OpenAccountController@openAccount')->name('openAccount');
@@ -60,8 +61,7 @@ Route::get('/{slug}/lich-su-soi-da', 'HomepageController@history');
 Route::get('/lich-su-soi-da', 'HomepageController@history')->name('redireHOmePage');
 
 
-Route::get('/thong-tin-tai-khoan', 'HomepageController@profile')->name('homePage');
-Route::get('/{slug}/thong-tin-tai-khoan', 'HomepageController@profile')->name('homePage');
+
 
 Route::get('/makeup', 'HomepageController@redireHomePage')->name('redireHOmePage');
 Route::get('/makeup/{slug}', 'HomepageController@redireHomePage')->name('redireHOmePage');
