@@ -2,26 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/lichsu-soida', 'HistoryController@historySoida');
+
+Route::get('/{slug}/{id}/lichsu-soida', 'HistoryController@historySoida');
+Route::get('/{slug}/lichsu-soida', 'HistoryController@historySoida');
+Route::get('/{slug}/lich-su-soi-da-with-iframe/{id}', 'HomepageController@ViewhistoryWithIframe');
+
+Route::get('/lich-su-soi-da-with-iframe/{id}', 'HomepageController@ViewhistoryWithIframe');
+
+
 Route::get('api/evoucher/banner/getAll', 'EvoucherController@getbanner');
 Route::get('/dangky', 'OpenAccountController@openAccount')->name('openAccount');
 Route::get("/mo-tai-khoan-thanh-cong", function(){
    return View::make("success");
 });
 
-Route::post('/update-end-user', 'ProfileController@update')->name('update');
-
-Route::get('/lich-su-soi-da', 'HomepageController@history')->name('redireHOmePage');
-
-
-Route::get('/thong-tin-tai-khoan', 'HomepageController@profile')->name('homePage');
-Route::post('/dang-nhap-plugin-game', 'UserController@loginGame')->name('loginSystem');
-Route::post('/dang-nhap-plugin-game', 'UserController@loginGame')->name('loginSystem');
-
-
-Route::post('/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
-Route::post('/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
-Route::get('/lichsu-soida', 'HistoryController@historySoida');
-Route::get('/get-all-history', 'HistoryController@GetAllHistory');
 // Route::get('/khosach', 'HomepageController@booking')->name('homePage');
 Route::get('/xemchitietlichsu/{id}', 'HomepageController@historyDetailPage');
 Route::post('/typeLogin/setType', 'HistoryController@setType');
@@ -37,7 +32,7 @@ Route::get('/{slug}/{book}', 'HomepageController@booking')->name('redireHOmePage
 Route::post('/{slug}/skin/call-soi-da', 'HomepageController@callSikin');
 Route::post('/skin/call-soi-da', 'HomepageController@callSikin');
 
-
+Route::get('/get-all-history', 'HistoryController@GetAllHistory');
 
 
 Route::post('/skin/add-history-skin-plugin', 'HistoryController@saveHistory')->name('saveHistory');
@@ -46,16 +41,13 @@ Route::post('/{slug}/{saleId}/skin/add-history-skin-plugin', 'HistoryController@
 Route::post('/{slug}/skin/add-history-skin-plugin', 'HistoryController@saveHistory')->name('saveHistory');
 
 
-
-Route::get('/{slug}/{id}/lichsu-soida', 'HistoryController@historySoida');
-Route::get('/{slug}/lichsu-soida', 'HistoryController@historySoida');
-Route::get('/{slug}/lich-su-soi-da-with-iframe/{id}', 'HomepageController@ViewhistoryWithIframe');
-
-Route::get('/lich-su-soi-da-with-iframe/{id}', 'HomepageController@ViewhistoryWithIframe');
 Route::post('/{slug}/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
-
+Route::post('/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
+Route::post('/dang-nhap-plugin', 'UserController@login')->name('loginSystem');
 
 Route::post('/{slug}/dang-nhap-plugin-game', 'UserController@loginGame')->name('loginSystem');
+Route::post('/dang-nhap-plugin-game', 'UserController@loginGame')->name('loginSystem');
+Route::post('/dang-nhap-plugin-game', 'UserController@loginGame')->name('loginSystem');
 
 
 Route::get('/thong-tin-tong-quan', 'HomepageController@thongtintongquan')->name('homePage');
@@ -65,7 +57,10 @@ Route::get('/trang-chu', 'HomepageController@test')->name('homePage');
 Route::get('/bat-dau-soi-da', 'HomepageController@start')->name('homePage');
 Route::get('/{slug}/lich-su-soi-da/{id}', 'HomepageController@history');
 Route::get('/{slug}/lich-su-soi-da', 'HomepageController@history');
+Route::get('/lich-su-soi-da', 'HomepageController@history')->name('redireHOmePage');
 
+
+Route::get('/thong-tin-tai-khoan', 'HomepageController@profile')->name('homePage');
 Route::get('/{slug}/thong-tin-tai-khoan', 'HomepageController@profile')->name('homePage');
 
 Route::get('/makeup', 'HomepageController@redireHomePage')->name('redireHOmePage');
@@ -91,6 +86,8 @@ Route::get('/{slug}/get-my-info', 'ProfileController@getInfo')->name('getInfo');
 Route::get('/get-my-info', 'ProfileController@getInfo')->name('getInfo');
 
 Route::post('/{slug}/update-end-user', 'ProfileController@update')->name('update');
+
+Route::post('/update-end-user', 'ProfileController@update')->name('update');
 
 
 Route::post('/them-moi-khach-hang', 'ProfileController@saleAddUser')->name('saleAddUser');
