@@ -313,9 +313,20 @@
 </div>
 
 @php
+
+   if(isset($infobeauty) )
+   {
     $turnOnGameBeauty = $infobeauty->status == "1";
     $scoreDis = $infobeauty->score;
     $scoreMaxDis = $infobeauty->scoreMax;
+   }
+   else 
+   {
+    $turnOnGameBeauty = "1";
+    $scoreDis = 200;
+    $scoreMaxDis = 1000;
+   }
+
 
 
 
