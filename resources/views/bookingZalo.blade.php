@@ -1600,8 +1600,8 @@ function getBySlug(sluginput)
                 url: "https://api-soida.applamdep.com/api/book/getbySlug?slug=" + sluginput,
                 data:{
                  
-                    slug: sluginput,
-                    companyid: companyIdData.company_id
+                    slug: sluginput
+                 
                 },
                 contentType: "application/json",
                 dataType: "json",
