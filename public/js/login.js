@@ -690,13 +690,17 @@ function isVietnamesePhoneNumber(number) {
     logoutUser();
   }
   function directToBegin(){
-    var baser_url = window.location.href;
-    let bare_urlNew = baser_url.replace('/ket-qua','');
-    bare_urlNew  = bare_urlNew.replace('/lichsu-soida','');
-    bare_urlNew  = bare_urlNew.replace('/thongtin-voucher','');
-    bare_urlNew  = bare_urlNew.replace('/nhan-de-xuat-cham-soc-da','');
+    // var baser_url = window.location.href;
+    // let bare_urlNew = baser_url.replace('/ket-qua','');
+    // bare_urlNew  = bare_urlNew.replace('/lichsu-soida','');
+    // bare_urlNew  = bare_urlNew.replace('/thongtin-voucher','');
+    // bare_urlNew  = bare_urlNew.replace('/nhan-de-xuat-cham-soc-da','');
     
-    window.location.href = bare_urlNew;
+    // window.location.href = bare_urlNew;
+    var urldirect = window.location.origin + "/" +window.location.pathname.split("/")[1];
+
+    // location.reload();
+    window.open(urldirect,"_self")
   }
   function logoutUser() {
     $.ajaxSetup({

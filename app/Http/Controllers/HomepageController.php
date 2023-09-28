@@ -322,10 +322,90 @@ public function getDataInfo (Request $request)
         }
         $companyGlobalId = $this->getCompanyId();
         $agent = new Agent();
-        return view("book.bannerCampaign", compact("slug","dataGlobal","dataUser","companyGlobalId","agent"));
+        return view("campaign.bannerCampaign", compact("slug","dataGlobal","dataUser","companyGlobalId","agent"));
        
     }
 
+
+    public function indexBook (Request $request, $slug =null) 
+    {  
+        
+        $typeLogin =  session('typeLogin', null);
+       
+        $dataUpdate = [];
+        
+        $params = [
+        'query' => [
+            'company_id' => "-1"
+             ]
+        ];
+        $url = "https://api-soida.applamdep.com/api/baner/getAllBannerWeb";
+        $client = new Client();
+        $res = $client->request('get', $url, $params);
+
+        $dataGlobal =null;
+        if($res->getStatusCode() ==200)
+        {
+            $checkresult = $res->getBody()->getContents();
+            $data = json_decode($checkresult);
+            $dataGlobal = $data->data;
+
+        }
+
+
+        $this->getDataInfoAdmin($request);
+        if (Cache::has('webinfo')) {
+
+        }
+        else 
+        {
+            $this->getDataInfo($request);
+
+        }
+         if (Cache::has('allFooter')) {
+              
+        }
+        else 
+        {   
+            $this->getAllFooterPage();  
+        }     
+        $dataColorSesion =  session('dataColor', null);
+        if($dataColorSesion)
+        {
+        }
+        else 
+        {
+            $this->getColorSystem($request);
+        }
+        $dataUserSession =  session('dataCompany', null);
+        $companyGlobalId = $this->getCompanyId();
+        $dataUser =null;
+        if($dataUserSession)
+        {
+           $dataUser =  $dataUserSession->data;
+            $dataUser->token = $dataUserSession->token;
+            
+        }
+        
+        $isCheck  = true;
+        if($slug == "" ||$slug ==null)
+        {
+
+        }
+        else 
+        {
+            $isCheck = $this->CheckUrl($slug);
+        }  
+        if(!$isCheck)
+        {
+        return view("404.notfound");
+       
+        }
+        $companyGlobalId = $this->getCompanyId();
+        $agent = new Agent();
+        return view("book.bannerCampaign", compact("slug","dataGlobal","dataUser","companyGlobalId","agent"));
+       
+    }
 
     
     private function checkGameStatus($slug)
@@ -553,6 +633,7 @@ public function getDataInfo (Request $request)
     public function booking (Request $request, $slug =null, $book = null) 
     {
          $this->setHistoryId(null);
+        $slug ="book";
        
         $isCheck  = true;
         $isTurnOfFooter =  true;
@@ -760,6 +841,151 @@ public function getDataInfo (Request $request)
     
 
         return view("result", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame"));
+    }
+
+    public function resultBook (Request $request, $book =null) 
+    {
+        $slug = "book";
+        $data  =  session('dataResult', null);
+        $dataGame = Session('dataGame', null);
+        $contetnFail ="Chúc Quý khách may mắn lần sau NHƯNG  bạn vẫn được nhận  Ưu Đãi từ Nhãn Hàng chính hãng tài trợ";
+        $contentSuccess = "CHÚC MỪNG BẠN ĐÃ TRÚNG THƯỞNG";
+      
+        $dataUserSession =  session('dataCompany', null);
+
+        $displayGame = true;
+        if($dataUserSession)
+        {
+            $displayGame = false;
+        }
+
+        $dataUserSession =  session('dataCompany', null);
+
+     
+
+        if($dataUserSession)
+        {
+            $dataUserId=  $dataUserSession->data->_id;
+         
+           
+            $dataUserSession->data = $this->getDataById($dataUserId);
+            session(['dataCompany' =>$dataUserSession]);
+            $dataUserSession =  session('dataCompany', null);
+
+         
+        }
+        
+        $turnOffGame = false;
+        $successGame = false;
+        $ageGame = 0;
+        $ageGameReal=0;
+        $gameType = 1;
+
+
+
+        session(['gameJoinType1' =>false]);
+        if( $dataGame != null)
+        {
+               
+                $contetnFail = $dataGame->popupfail;
+            
+                $contentSuccess = $dataGame->pupupSuccess;
+                $currentTime = Carbon::now()->addHour(7);
+                $converTextString = $currentTime->format('H:i');
+                $fromDate = Carbon::parse($dataGame->fromDate); 
+                $todate = Carbon::parse(  $dataGame->todate); 
+                $timefrom = $dataGame->fromtime;
+                $timeto = $dataGame->totime;
+                if( $currentTime >= $fromDate && $currentTime <= $todate  )
+                {
+                    session(['gameJoinType1' =>True]);
+                    $skin =  $data->data->facedata->generalResult->data[0]->data[0]->value;
+
+                    session(['ageGame' =>$skin]);
+                    session(['ageGameReal' =>$skin]);
+                    if($timefrom<= $converTextString && $converTextString <=$timeto)
+                    {
+                       
+                        if($dataGame->typeGame =="1")
+                        {
+                            session(['ageGame' =>$skin]);
+                            session(['ageGameReal' =>$skin]);
+                           
+                            if( $skin*1  == $dataGame->skinNumber*1)
+                            {
+                                $successGame = true;
+                            
+                                
+                          
+                               
+                                session(['gameType' =>1]);
+                            }
+                            else 
+                            {
+                                $successGame = false;
+                            }
+                        }
+                        
+                      
+                       
+                    }
+                    else 
+                    {
+                       
+
+                        if( $skin*1  == $dataGame->skinNumber*1)
+                        {
+                            $successGame = true;
+                          
+                      
+                            session(['ageGame' =>($skin*1 + 1)]);
+                            session(['ageGameReal' =>$skin]);
+                            session(['gameType' =>1]);
+                        }
+                        else 
+                        {
+                            $successGame = false;
+                        }
+
+                        $successGame = false;
+                    }
+                }
+         }
+
+         
+
+         session(['successGame' =>$successGame]);
+
+       
+      
+        //  if($slug =="soida")
+        // {
+        //     $slug = null;
+        // }
+        // if($slug == null )
+        // {
+
+        // }
+        $companyId = $this->getCompanyId();
+ 
+        $agent = new Agent();
+        $turnOffGame = false;
+      
+        $rewardCheck  =  session('rewardCheck', false);
+         $gameJoinType1 =true;
+       
+        if($slug !="")
+        {
+              return view("resultZaloBook", compact("slug", 
+              
+             "ageGame","ageGameReal","gameType","gameJoinType1",
+              "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
+        }
+
+
+    
+
+        return view("resultBook", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame"));
     }
 
     public function recomendProduct (Request $request, $slug =null) 

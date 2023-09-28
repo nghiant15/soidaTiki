@@ -121,8 +121,47 @@ $dataColor = $dataColor->data;
                 <span class= "title1"> KHO SÁCH ONLINE </span> <span>100% DOWLOAD MIỄN PHÍ</span>
             </div>
 
-            <div class ="bookdisplay"  >
+            <div class="searchBook">
 
+                    <div class ="search-area">
+                        
+                        <input type="text" id="txtSearch" name="searchBox"  placeholder="Nhập mã số sách">
+                        <button onclick="searchBook()"> Tìm kiếm </button>
+                    </div>
+            
+              
+                    
+
+                    
+
+            </div>
+
+
+         
+
+            <div class ="bookdisplay booksearchResult"  >
+                <h6>KẾT QUẢ TÌM KIẾM </h6> 
+
+                <div class="databook " id = "dataBook0Search">
+
+                </div>
+
+            </div>
+
+            <div class ="bookdisplay booksearchNoFound"  >
+                <span class ="p1">Không tìm thấy sách có mã sách tương ứng, Vui lòng thử lại mã </span>  <br>
+                <span class ="p2" > Hoặc </span>  <br>
+                <a onclick= "resetSearch()"> Tìm lại sách </a>
+            
+
+            </div>
+
+
+            <div class ="bookdisplay bookdisplay1"  >
+                    
+           
+               
+    
     
 <div class ="booknav"> 
     <ul class="nav ">
@@ -378,6 +417,31 @@ function skinSoida() {
 
 
 }
+function showsearchResult()
+{
+     $(".bookdisplay1").hide();
+    setTimeout(() => {
+        $(".booksearchResult").show(); 
+    }, 1000);
+
+}
+
+function shownotFoundSearch()
+{
+        $(".bookdisplay1").hide();
+    setTimeout(() => {
+        $(".booksearchNoFound").show();
+    }, 1000);
+
+}
+function resetSearch() {
+    $(".booksearchResult").hide();
+    $(".booksearchNoFound").hide();
+    $(".booksearchResult").hide();
+
+    $("#txtSearch").val('');
+    $(".bookdisplay1").show();
+;}
 function openBook(itembook)
 {  
     
@@ -449,6 +513,101 @@ function backToHomePage()
 
 }
 
+function searchBook () { 
+
+   var inputsearch =  $("#txtSearch").val();
+
+   if(inputsearch.length < 1)
+   {
+     getAllBook();
+     return;
+
+    // return;
+   }
+   searchItems(inputsearch);
+
+}
+
+
+function searchItems(searchCode,turnon =true ) 
+{
+    $.ajax({
+                type: "GET",
+                url: "https://api-soida.applamdep.com/api/book/fe/getAll",
+                data:{
+                 
+                    code: searchCode
+                },
+             
+              
+                complete: function(data) {
+                  
+                    if(turnon ==true)
+                    {
+                            Swal.fire({
+                            title: 'Đang tìm sách...',
+                            html: 'Vui lòng chờ...',
+                            allowEscapeKey: false,
+                            allowOutsideClick: false,
+                            didOpen: () => {
+                            Swal.showLoading()
+                            }
+                            });
+                    }
+                  
+                    $("#dataBook0Search").empty();
+                
+                   
+                    var dataDraw = data.responseJSON.data;
+
+                   
+                    for (let i = 0; i < dataDraw.length; i++) {
+                         let itemBook = dataDraw[i];
+                         var imagecover =  itemBook.linkCover;
+                         var  title = itemBook.title;
+                         var linkFile = itemBook.linkFiePdf;
+
+                         var hrefLink = "https://applamdep.com/soida/"+ itemBook.slug;
+                         
+                         var stringifiedObj = JSON.stringify(itemBook);
+                         let div1 =  document.createElement('div');
+                         div1.className = "book-item";
+                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a class="titlenava" href="'+hrefLink+'" ><p>'+title+' </p></a>';
+                         div1.onclick = 
+
+                         div1.addEventListener( 'click', function(event){
+                           
+                            doSomething(event,itemBook);
+                        }, false );
+
+                        function doSomething(event, greeting) {
+                             openBook(greeting);
+                        
+                        }
+                         $("#dataBook0Search").append(div1);
+                         
+                    }
+
+                    if(dataDraw.length <1)
+                     {
+                        shownotFoundSearch();
+                     }
+                     else {
+                        showsearchResult();
+                     }
+                    setTimeout(() => {
+                        swal.close();
+                        
+                    }, 1000);
+                
+
+                },
+            });
+
+          
+
+
+        }
 
 
 function getAllBook(type =0, turnon = true) 
@@ -487,7 +646,7 @@ function getAllBook(type =0, turnon = true)
                          var  title = itemBook.title;
                          var linkFile = itemBook.linkFiePdf;
 
-                         var hrefLink = "https://applamdep.com/soida/"+ itemBook.slug;
+                         var hrefLink = "https://applamdep.com/book/"+ itemBook.slug;
                          
                          var stringifiedObj = JSON.stringify(itemBook);
                          let div1 =  document.createElement('div');

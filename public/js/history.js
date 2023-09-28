@@ -161,6 +161,11 @@ $.ajax({
                   base_url = window.location.origin + "/" + slugGlobal +"/" + "ket-qua";
           
               }
+              if(slugGlobal =="book")
+              {
+                var bookSlug =  window.location.pathname.split("/").pop();
+                base_url = window.location.origin + "/" + slugGlobal +"/"+ bookSlug +"/" + "ket-qua";
+              }
               window.open(base_url,"_self")
           
               //     if( slugGlobal == null)

@@ -88,6 +88,7 @@ class Controller extends BaseController
       // dd(request()->getPathInfo());
       $slugInput = request()->segment(1);
 
+ 
       if($slugInput)
       {
 
@@ -108,16 +109,19 @@ class Controller extends BaseController
          $checkresult = $res->getBody()->getContents();
          $checkresult = json_decode($checkresult);
 
-
+        
    
          
          if($checkresult->is_success)
          {
             $result  = $checkresult->data;
 
-
+            
+               
+            
             if($result == null)
             {
+               
                View::share('globalColor',  null );
                View::share('globalData',  null); 
                View::share('infobeauty',  null); 

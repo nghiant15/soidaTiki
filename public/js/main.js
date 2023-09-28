@@ -298,6 +298,7 @@ document.addEventListener("DOMContentLoaded", function(){
 function logout () 
 {
 
+
     if(globalUser != null)
     {
         var auth2 = gapi.auth2.getAuthInstance();
@@ -306,7 +307,11 @@ function logout ()
         });
     }
     sessionStorage.clear();
-    location.reload();
+
+    var urldirect = window.location.origin + "/" +window.location.pathname.split("/")[1];
+
+    // location.reload();
+    window.open(urldirect,"_self")
 }
 
 function getInfomationUser(data) 
