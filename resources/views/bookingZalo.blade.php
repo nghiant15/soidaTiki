@@ -1598,11 +1598,7 @@ function getBySlug(sluginput)
     $.ajax({
                 type: "GET",
                 url: "https://api-soida.applamdep.com/api/book/getbySlug?slug=" + sluginput,
-                data:{
-                 
-                    slug: sluginput
-                 
-                },
+                
                 contentType: "application/json",
                 dataType: "json",
                 complete: function(data) {
@@ -1633,8 +1629,7 @@ function getAllBook(type =0, turnon = true)
                 url: "https://api-soida.applamdep.com/api/book/fe/getAll",
                 data:{
                  
-                    Type: type,
-                    companyid: companyIdData.company_id
+                    Type: type
                 },
                 contentType: "application/json",
                 dataType: "json",
@@ -1705,9 +1700,11 @@ function getData(type)
 window.addEventListener('load', function () {
    
 
+
     if( slugBookInput != "khosach")
     {
 
+       
         getBySlug(slugBookInput);
       
 

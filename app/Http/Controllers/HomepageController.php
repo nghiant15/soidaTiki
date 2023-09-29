@@ -630,10 +630,11 @@ public function getDataInfo (Request $request)
         return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo", "turnOnGame"));
     }
 
-    public function booking (Request $request, $slug =null, $book = null) 
+    public function booking (Request $request, $book = null) 
     {
          $this->setHistoryId(null);
         $slug ="book";
+
        
         $isCheck  = true;
         $isTurnOfFooter =  true;
