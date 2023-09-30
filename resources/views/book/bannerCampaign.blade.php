@@ -567,7 +567,7 @@ function searchItems(searchCode,turnon =true )
                          var  title = itemBook.title;
                          var linkFile = itemBook.linkFiePdf;
 
-                         var hrefLink = "https://applamdep.com/soida/"+ itemBook.slug;
+                         var hrefLink = "https://applamdep.com/book/"+ itemBook.slug;
                          
                          var stringifiedObj = JSON.stringify(itemBook);
                          let div1 =  document.createElement('div');
