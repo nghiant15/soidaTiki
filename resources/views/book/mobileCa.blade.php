@@ -5,13 +5,13 @@ $dataCompany = Cache::get('webinfo');
 
 
 
- $dataCompany_admin = Cache::get('webinfo_admin');
+ $dataCompany_admin                                                                       = Cache::get('webinfo_admin');
 
 
 $dataSale = session('dataSale', null);
 $dataUserSales = session('dataCompany', null);
 
-if($dataColor)
+if($dataColor)                                                                      
 {
 $dataColor = $dataColor->data;
 }
@@ -65,8 +65,8 @@ $dataColor = $dataColor->data;
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/css/all.css">
 
-   
-    <link rel="stylesheet" href="/css/campaign.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/campaignmobile.css">
 
     @yield('header')
 
@@ -134,9 +134,62 @@ $dataColor = $dataColor->data;
 
     </div>
 
+    <div class ="nav-mobile-cate">
+        <span class="right"><a onclick ="opencategoryMobile()">Chọn danh mục sách</a></span><span class="left" id ="nametitle">Sách tiếng anh</span>        
+    </div>
+        
+        <!-- <div class ="bookNavMenubar">
+
+             <a class="fa fa-list nameCategory" >Sách tiếng anh</a><br>
+             
+    
+
+        </div>
+        <div class ="bookNavMenubar">
+                <a class ="khac" > Chọn danh mục sách </a>
+        </div> -->
+        <div class ="bookCategory">
+                
+                    <p class ="titleCategory">Danh mục</p>
+                 
+                    <ul> 
+                        <li onclick = "getBookData(this, 0)" >Tiếng anh </li>
+                        <li onclick = "getBookData(this, 1)" >Nuôi dạy con </li>
+                        <li  onclick = "getBookData(this, 2)" >Tạp chí thời trang </li>
+                        <li  onclick = "getBookData(this, 3)" >Lý thuyết và sách nói</li>
+                        <li  onclick = "getBookData(this, 5)">Tiểu thuyết</li>
+                        <li  onclick = "getBookData(this, 6)" >Tryện ngắn</li>
+                        <li  onclick = "getBookData(this, 7)">Lịch sử</li>
+                        <li  onclick = "getBookData(this, 8)" >Sách văn học</li>
+                        <li  onclick = "getBookData(this, 9)" >Sách kinh tế</li>
+                        <li  onclick = "getBookData(this, 10)" >Sách thiếu nhi</li>
+                        <li  onclick = "getBookData(this, 11)" >Sách kĩ năng sống</li>
+                        <li  onclick = "getBookData(this, 12)">Sách bà mẹ- Em bé</li>
+                        <li onclick = "getBookData(this, 13)">Sách giáo khoa- giáo trình</li>
+                        <li onclick = "getBookData(this, 14)">Sách học ngoại ngữ</li>
+                        <li onclick = "getBookData(this, 15)">Sách tham khảo</li>
+                        <li onclick = "getBookData(this, 16)">Sách từ điển</li>
+                        <li onclick = "getBookData(this, 17)">Sách kiến thức tổng hợp</li>
+                        <li onclick = "getBookData(this, 18)">Sách khoa học kỹ thuật</li>
+                        <li onclick = "getBookData(this, 19)">Điện ảnh- nhạc - họa</li>
+                        <li onclick = "getBookData(this, 20)">Truyện tranh</li>
+
+                        <li onclick = "getBookData(this, 21)">Tôn giáo tâm linh</li>
+                        <li onclick = "getBookData(this, 22)">Văn hóa</li>
+                        <li onclick = "getBookData(this, 24)">Nông-lâm- ngư nghiệp</li>
+                        <li onclick = "getBookData(this, 25)">Công nghệ thông tin</li>
+                        <li onclick = "getBookData(this, 26)">Tạp chí- catelogue</li>
+                        <li onclick = "getBookData(this, 28)">Tâm lý giới tính</li>
+                        <li onclick = "getBookData(this, 29)">Thưởng thức gia đình</li>
+                        <li onclick = "getBookData(this, 30)">Thể dục thể thao</li>
+                    
+                    </ul>
+            </div>
+
         <div class= "bookContainer">
             <div class ="bookCategory">
                     <p class ="titleCategory">Danh mục</p>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <ul> 
                         <li onclick = "getBookData(this, 0)" >Tiếng anh </li>
                         <li onclick = "getBookData(this, 1)" >Nuôi dạy con </li>
@@ -571,7 +624,7 @@ function searchItems(searchCode,turnon =true )
                          var stringifiedObj = JSON.stringify(itemBook);
                          let div1 =  document.createElement('div');
                          div1.className = "book-item";
-                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a class="titlenava" href="'+hrefLink+'" ><p>'+ codeBook+ ': '+title+' </p></a>';
+                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a class="titlenava" href="'+hrefLink+'" ><p>'+title+' </p></a>';
                          div1.onclick = 
 
                          div1.addEventListener( 'click', function(event){
@@ -586,8 +639,9 @@ function searchItems(searchCode,turnon =true )
                          $("#dataBook0Search").append(div1);
                          
                     }
-                    $(".bookCategory").hide();
-                    $(".bookData").css("width","100%");
+                    // $(".bookCategory").hide();
+                    // $(".bookData").css("width","100%");
+                    $(".nav-mobile-cate").hide();
                     if(dataDraw.length <1)
                      {
                         shownotFoundSearch();
@@ -644,6 +698,7 @@ function getAllBook(type =0, turnon = true)
                          let itemBook = dataDraw[i];
                          var imagecover =  itemBook.linkCover;
                          var  title = itemBook.title;
+                         var codeBook = itemBook.code;
                          var linkFile = itemBook.linkFiePdf;
 
                          var hrefLink = "https://applamdep.com/book/"+ itemBook.slug;
@@ -651,7 +706,7 @@ function getAllBook(type =0, turnon = true)
                          var stringifiedObj = JSON.stringify(itemBook);
                          let div1 =  document.createElement('div');
                          div1.className = "book-item";
-                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a class="titlenava" href="'+hrefLink+'" ><p>'+title+' </p></a>';
+                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a class="titlenava" href="'+hrefLink+'" ><p>'+ codeBook+ ': '+title+' </p></a>';
                          div1.onclick = 
 
                          div1.addEventListener( 'click', function(event){
@@ -695,12 +750,17 @@ function getData(type)
 }
 
 function getBookData(element, type) {
-     console.log("log", element);
+    var textcontent = element.textContent;
+    $("#nametitle").text(textcontent);
+
+    
+    
      $( ".bookCategory li" ).removeClass( "activemenu" );
      element.className ="activemenu";
      getData(type);
-
-
+     setTimeout(() => {
+              $(".bookCategory").hide();
+     }, 1000);
 }
 window.addEventListener('load', function () {
 
@@ -714,6 +774,15 @@ document.addEventListener("adobe_dc_view_sdk.ready", function()
       adobeDCView = new AdobeDC.View({clientId: "f2ca61bb930e452f94e2a43f779e5261", divId: "pdfviewer"});
      
    });
+
+   function closeNav() {
+    $(".bookCategory").hide();
+   }
+
+   function opencategoryMobile() {
+
+        $(".bookCategory").show();
+   }
     </script>
 </body>
 

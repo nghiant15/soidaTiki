@@ -205,6 +205,7 @@ public function getDataInfo (Request $request)
 
     public function getAllFooterPage ( )
     {
+        return;
         $dataUpdate = [
             
             // "company_id"=>  $this->getCompanyId()
@@ -403,6 +404,10 @@ public function getDataInfo (Request $request)
         }
         $companyGlobalId = $this->getCompanyId();
         $agent = new Agent();
+        if( $agent->isMobile())
+        {
+            return view("book.mobileCa", compact("slug","dataGlobal","dataUser","companyGlobalId","agent"));
+        }
         return view("book.bannerCampaign", compact("slug","dataGlobal","dataUser","companyGlobalId","agent"));
        
     }
