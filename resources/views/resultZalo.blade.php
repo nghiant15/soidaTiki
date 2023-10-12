@@ -1359,7 +1359,11 @@
                 $("#buttonRecomand").hide();
             }
 
-    
+            if(urlHref.includes("hasaki") )
+            { 
+
+                $("#buttonRecomand").show();
+            }
 
             var resultCheck = sessionStorage.getItem("_t");
             if (resultCheck == null) {
