@@ -565,13 +565,24 @@ function searchItems(searchCode,turnon =true )
                          var imagecover =  itemBook.linkCover;
                          var  title = itemBook.title;
                          var linkFile = itemBook.linkFiePdf;
+                         let codebook = itemBook.code;
 
                          var hrefLink = "https://applamdep.com/book/"+ itemBook.slug;
                          
                          var stringifiedObj = JSON.stringify(itemBook);
                          let div1 =  document.createElement('div');
                          div1.className = "book-item";
-                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a class="titlenava" href="'+hrefLink+'" ><p>'+ codeBook+ ': '+title+' </p></a>';
+                        
+                        let tilebook ="";
+                         if(codebook) 
+                         {
+                            tilebook += codebook +": ";
+                         }
+                         if(title)
+                         {
+                            tilebook += title + " ";
+                         }
+                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a class="titlenava" href="'+hrefLink+'" ><p>'+tilebook+' </p></a>';
                          div1.onclick = 
 
                          div1.addEventListener( 'click', function(event){
@@ -643,6 +654,7 @@ function getAllBook(type =0, turnon = true)
                     for (let i = 0; i < dataDraw.length; i++) {
                          let itemBook = dataDraw[i];
                          var imagecover =  itemBook.linkCover;
+                         var codebook = itemBook.code;
                          var  title = itemBook.title;
                          var linkFile = itemBook.linkFiePdf;
 
@@ -651,7 +663,16 @@ function getAllBook(type =0, turnon = true)
                          var stringifiedObj = JSON.stringify(itemBook);
                          let div1 =  document.createElement('div');
                          div1.className = "book-item";
-                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a class="titlenava" href="'+hrefLink+'" ><p>'+title+' </p></a>';
+                         let tilebook = "";
+                         if(codebook)
+                         {
+                            tilebook += codebook +": ";
+                         }
+                         if(title)
+                         {
+                            tilebook += title + " ";
+                         }
+                         div1.innerHTML = ' <a href="'+hrefLink+'"><img src ="'+imagecover+'"/></a>   <a class="titlenava" href="'+hrefLink+'" ><p>'+tilebook+' </p></a>';
                          div1.onclick = 
 
                          div1.addEventListener( 'click', function(event){
