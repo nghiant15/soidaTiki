@@ -123,7 +123,7 @@ $dataColor = $dataColor->data;
 
             <div class ="search-area">
                 
-                <input type="text" id="txtSearch" name="searchBox"  placeholder="Nhập mã số sách">
+                <input type="text" id="txtSearch" name="searchBox"  placeholder="Bạn tìm gì hôm nay">
                 <button onclick="searchBook()"> Tìm kiếm </button>
             </div>
     
