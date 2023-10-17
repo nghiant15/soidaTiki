@@ -197,6 +197,7 @@
                                 </div>
                                 <p onclick="openPageHistory()">Lịch sử soi da</p>
                               
+                                <p onclick="openSoida()">Soi da online </p>
                                 <hr />
                                 <div class="flex-center" onclick="questionLogout()">
                                     <p  style="color:var(--main_color)">

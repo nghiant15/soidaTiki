@@ -15,7 +15,7 @@ class HistoryController extends Controller
 {
     public function GetAllHistory(Request $request)
     {
-             
+          
                 $urlRequest = API_BaseUrl."/".UserGetAllHistory;  
                 $dataUserSession =  session('dataCompany', null);
 

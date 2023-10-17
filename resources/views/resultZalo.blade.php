@@ -305,7 +305,7 @@
                     </p>
                 </div>
 
-                <div class="resultNote">
+                <div class="resultNote" id ="viewhistory">
 
                     <p class="text-title-paragraph">
 
@@ -1345,6 +1345,8 @@
 
         document.addEventListener("DOMContentLoaded", function() {
 
+            var showRecomend =  sessionStorage.getItem("showRecomend");
+
             var urlHref =  window.location.href;
 
             if(urlHref.includes("bibabibo"))
@@ -1359,16 +1361,42 @@
                 $("#buttonRecomand").hide();
             }
 
-            if(urlHref.includes("hasaki") )
+            if(urlHref.includes("hasaki") || showRecomend ==true )
             { 
 
                 $("#buttonRecomand").show();
+
+
+            }
+            if(showRecomend==true)
+            {
+              $("#subscribleId").hide();
+
+              $(".blurdiv").removeClass( "blurdiv" );
+
+              setTimeout(() => {
+              document.getElementById('viewhistory').scrollIntoView();
+              
+                }, 300);
+
+                sessionStorage.setItem("showRecomend",false);
+
             }
 
             var resultCheck = sessionStorage.getItem("_t");
             if (resultCheck == null) {
 
-                window.location.href = "/";
+                            var locationHost = window.location.origin;
+                            const firstPath = window.location.pathname.split('/')[1]; 
+
+                            if(firstPath == null || firstPath == "")
+                            {
+                            window.open(locationHost);
+                            }
+                            else 
+                            {
+                            window.open(locationHost+"/" +firstPath,"_self");
+                            }
 
             } else {
                 objectReponse = JSON.parse(resultCheck);

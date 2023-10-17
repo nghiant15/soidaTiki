@@ -145,6 +145,7 @@
                 <a href="/profile.html">Thông tin tài khoản</a>
                 <a href="javascript:void(0)" onclick ="openHomePage()">Soi da online</a>
                 <a href="javascript:void(0)" onclick ="openHistoryPage()">Lịch sử soi da</a>
+                <a onclick="openSoida()">Soi da online </a>
                 <a href="javascript:void(0)" onclick="logout()"  >Đăng xuất</a>
                 </div>
             </div>

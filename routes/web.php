@@ -3,16 +3,19 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomepageController@index')->name('homePage');
-Route::get('/book', 'HomepageController@indexBook')->name('homePage');
-Route::get('/book/{book}', 'HomepageController@booking')->name('homePage');
-
-Route::get('/book/{book}/ket-qua', 'HomepageController@resultBook')->name('homePage');
-Route::get('/{slug}/{id}/lichsu-soida', 'HistoryController@historySoida');
+Route::get('/get-all-history', 'HistoryController@GetAllHistory');
 Route::get('/{slug}/lichsu-soida', 'HistoryController@historySoida');
+Route::get('/{slug}/{id}/lichsu-soida', 'HistoryController@historySoida');
+
 Route::get('/{slug}/lich-su-soi-da-with-iframe/{id}', 'HomepageController@ViewhistoryWithIframe');
 
 Route::get('/lich-su-soi-da-with-iframe/{id}', 'HomepageController@ViewhistoryWithIframe');
 Route::get('/lichsu-soida', 'HistoryController@historySoida');
+Route::get('/book', 'HomepageController@indexBook')->name('homePage');
+Route::get('/book/{book}', 'HomepageController@booking')->name('homePage');
+
+Route::get('/book/{book}/ket-qua', 'HomepageController@resultBook')->name('homePage');
+
 
 Route::get('/dangky', 'OpenAccountController@openAccount')->name('openAccount');
 Route::get("/mo-tai-khoan-thanh-cong", function(){
@@ -39,7 +42,7 @@ Route::get('/{slug}/ket-qua', 'HomepageController@result')->name('redireHOmePage
 Route::post('/{slug}/skin/call-soi-da', 'HomepageController@callSikin');
 Route::post('/skin/call-soi-da', 'HomepageController@callSikin');
 
-Route::get('/get-all-history', 'HistoryController@GetAllHistory');
+
 
 
 Route::post('/skin/add-history-skin-plugin', 'HistoryController@saveHistory')->name('saveHistory');

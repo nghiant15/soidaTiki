@@ -1,24 +1,24 @@
-@import "./recommend.css";
+/* @import "./recommend.css"; */
 @import "./main.css";
-@import "./history.css";
+/* @import "./history.css"; */
 @import "./layout.css";
 @import "./welcome.css";
-@import "./result.css";
-@import "./templateForm.css";
-@import "./makeup.css";
-@import "./footer.css";
-@import "./global.css";
+/* @import "./result.css"; */
+/* @import "./templateForm.css"; */
+/* @import "./makeup.css"; */
+/* @import "./footer.css"; */
+/* @import "./global.css"; */
 @import "./status.css";
 @import "./table.css";
 @import "./button.css";
 @import "./form.css";
-@import "./aia.css";
-@import './evoucher.css';
-@import './header.css';
+/* @import "./aia.css"; */
+/* @import './evoucher.css'; */
+/* @import './header.css'; */
 @import "./general.css";
 @import "./animation.css";
 @import "./reponsive.css";
-@import "./updateResponsive.css";
+/* @import "./updateResponsive.css"; */
 
 @font-face {
   font-family: "SFU Futura";

@@ -233,7 +233,7 @@
                                     <p id="active-form-information-user">Thông tin cá nhân</p>
                                 </div>
                                 <p onclick="openPageHistory()">Lịch sử soi da</p>
-                              
+                                <a onclick="openSoida()">Soi da online </a>
                                 <hr />
                                 <div class="flex-center" onclick="questionLogout()">
                                     <p  style="color:var(--main_color)">

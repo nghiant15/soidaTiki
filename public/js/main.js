@@ -428,6 +428,12 @@ function updateUser ( ) {
 
   function openHomePage() {
 
+    if(location.href.includes("ket-qua") )
+    {
+      alert("3");
+        // sessionStorage.setItem("lastname", "Smith");
+    }
+
     if( typeof slugGlobal === "undefined" || slugGlobal == null )
     {
      window.location.href = "/";
@@ -800,6 +806,34 @@ function ToggleDisplayFormFollow3(myClass, status) {
   function openHomePage ()
   {
 
+    if(location.href.includes("ket-qua") )
+    {
+         $("#buttonRecomand").show();
+
+         $("#subscribleId").hide();
+
+            $(".blurdiv").removeClass( "blurdiv" );
+
+            setTimeout(() => {
+              document.getElementById('viewhistory').scrollIntoView();
+              
+            }, 300);
+        return;
+    }
+
+    if(location.href.includes("lichsu"))
+    {
+      sessionStorage.setItem("showRecomend",true);
+      var locationHost = window.location.origin;
+      const firstPath = window.location.pathname.split('/')[1] +"/ket-qua";
+
+
+        window.open(locationHost+"/" +firstPath,"_self");
+        return;
+    }
+    // sessionStorage.getItem("showRecomend");
+
+
     var locationHost = window.location.origin;
     const firstPath = window.location.pathname.split('/')[1]; 
 
@@ -813,4 +847,18 @@ function ToggleDisplayFormFollow3(myClass, status) {
     }
    
     
+    }
+    function openSoida() {
+
+      var locationHost = window.location.origin;
+    const firstPath = window.location.pathname.split('/')[1]; 
+
+    if(firstPath == null || firstPath == "")
+    {
+      window.open(locationHost);
+    }
+    else 
+    {
+      window.open(locationHost+"/" +firstPath,"_self");
+    }
     }
