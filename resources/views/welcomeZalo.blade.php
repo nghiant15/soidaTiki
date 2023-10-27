@@ -78,6 +78,41 @@
    
 @endsection
 @section('contentpage')
+
+
+<a href="http://zalo.me/769304971095062899?src=qr" target="_blank"><div style="position:fixed;bottom:80px;right:43px;z-index:9999;" class="messenger"><noscript>
+    <img style="height:58px;" src="/zalo96.png"/></noscript>
+    <img class=" lazyloaded" style="height:58px;" src="/zalo96.png" data-src="/zalo96.png"></div></a>
+
+<style>
+.call-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 165px;
+    background: #37c837;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+    z-index: 99;
+    transition: all .3s;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 3px 10px 0px 38px;
+    font-size: 18px;
+    line-height: 25px;
+}
+.call-btn img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 5px 7px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 5px 0 0 5px;
+    animation: blinking 1s ease-in-out infinite;
+}	
+	
+</style>
+
     <script>
         var slugGlobal = {!! json_encode($slug) !!};
     </script>
