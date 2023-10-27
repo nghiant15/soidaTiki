@@ -639,6 +639,7 @@ public function getDataInfo (Request $request)
     {
          $this->setHistoryId(null);
         $slug ="book";
+      
 
        
         $isCheck  = true;

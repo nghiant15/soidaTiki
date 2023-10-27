@@ -129,7 +129,61 @@
 .left-sidebar a:hover {
     transform: scale(1.25);
 }
+.bg-light1  p:first-child  {
+    color: #0017a9;
+    font-weight: bolder;
+    font-size: 32px !important;
+}
 
+.bg-light1  p {
+    color: #0017a9;
+    font-weight: bolder;
+    font-size: 24px !important;
+}
+.bg-light1  strong {
+   background-color: rgb(24, 129, 210) !important;
+   width: 100px;
+   border-radius: 15px;
+   color: #ffffff !important;
+   padding: 3px;
+}
+.bg-light1{
+    background-color: #e9cf81 !important;
+}
+.clickGame {
+  text-decoration: none;
+
+}
+.clickGame:hover {
+    text-decoration: none !important;
+}
+.clickGame:hover p{
+
+    color: red !important;
+    text-decoration: none !important;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .bg-light1  p:first-child  {
+    color: #0017a9;
+    font-weight: bolder;
+    font-size: 22px !important;
+}
+
+.bg-light1  p {
+    color: #0017a9;
+    font-weight: bolder;
+    font-size: 16px !important;
+}
+.bg-light1  strong {
+   background-color: rgb(24, 129, 210) !important;
+ 
+   border-radius: 15px;
+   color: #ffffff !important;
+   padding: 3px;
+}
+}
 
     </style>
 
@@ -139,11 +193,13 @@
 </head>
 
 <body>
-<div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
+<div class=" bg-light1" style=" background-color: #f9be0d ;position: fixed;bottom: 0;width: 100%;z-index: 1000;">
                 <div class="container text-center">
                     
-                    <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
-                    <a href="javascript:void(0)"  onclick="skinSoida()" ><img style= "height: 50px" src ="/iconSkin2.jpg"> </a></p>
+                    {{-- <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
+                    <a href="javascript:void(0)"  onclick="skinSoida()" ><img style= "height: 50px" src ="/iconSkin2.jpg"> </a></p> --}}
+                   <a class ="clickGame" onclick="skinSoida()" > <p>Soi da ngay & Tải ebook miễn phí </p>
+                    <p>100% Miễn phí & không cài đặt </p> </a>
                 </div>
   </div>
     <script>
@@ -380,7 +436,7 @@
 
     @include('new.popupSuccess')
 
-@if($slug == "ngocdung")
+{{-- @if($slug == "ngocdung")
 
 <footer class="bg-smoke">
     <div class="content-page">
@@ -557,7 +613,7 @@
   
 </footer> 
 
-@endif
+@endif --}}
 <div   class= "bg-smoke"   style ="height:50px">
 
 </div>

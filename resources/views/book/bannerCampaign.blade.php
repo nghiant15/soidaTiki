@@ -175,7 +175,7 @@ $dataColor = $dataColor->data;
  
 
     <div class ="bookdisplay booksearchResult"  >
-        <h6>KẾT QUẢ TÌM KIẾM </h6> 
+        <h6 id ="ketquaSearch">KẾT QUẢ TÌM KIẾM  </h6>
 
         <div class="databook " id = "dataBook0Search">
 
@@ -184,9 +184,10 @@ $dataColor = $dataColor->data;
     </div>
 
     <div class ="bookdisplay booksearchNoFound"  >
-        <span class ="p1">Không tìm thấy sách có mã sách tương ứng, Vui lòng thử lại mã </span>  <br>
-        <span class ="p2" > Hoặc </span>  <br>
-        <a onclick= "resetSearch()"> Tìm lại sách </a>
+         
+        <span class ="p1">Không tìm thấy sách nào khớp với lựa chọn của bạn. </span>  <br>
+        <span class ="p2" >  </span>  <br>
+        <a onclick= "resetSearch()"> Quay lại </a>
     
 
     </div>
@@ -530,6 +531,11 @@ function searchBook () {
 
 function searchItems(searchCode,turnon =true ) 
 {
+    var  searchInfo = $("#ketquaSearch");
+    if(searchBook)
+    {
+        searchInfo.text("KẾT QUẢ TÌM KIẾM "+ '"' + searchCode +'"');
+    }
     $.ajax({
                 type: "GET",
                 url: "https://api-soida.applamdep.com/api/book/fe/getAll",

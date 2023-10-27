@@ -6,7 +6,7 @@
       
     </script>
 
-@include('popup.subscrible')
+@include('popup.subscrible1')
 
 @section('header')
     <title>Thông tin kết quả soi da</title>
@@ -1525,7 +1525,7 @@ function DowloadBook()
             document.body.appendChild(link);
             link.click();
             link.remove();
-            sessionStorage.removeItem("linkhref");
+            // sessionStorage.removeItem("linkhref");
             
 
     }
