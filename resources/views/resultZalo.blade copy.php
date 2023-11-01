@@ -65,7 +65,7 @@
 @section('contentpage')
 
 
-<a  id ="zaloMessage" style ="display:none"  href="http://zalo.me/769304971095062899?src=qr" target="_blank"><div style="position:fixed;bottom:70px;right:30px; z-index:1000" class="messenger"><noscript>
+<a href="http://zalo.me/769304971095062899?src=qr" target="_blank"><div style="position:fixed;bottom:80px;right:43px;z-index:9999;" class="messenger"><noscript>
     <img style="height:58px;" src="/zalo96.png"/></noscript>
     <img class=" lazyloaded" style="height:58px;" src="/zalo96.png" data-src="/zalo96.png"></div></a>
 
@@ -360,9 +360,9 @@
                     <p class="maincontent text-suggest-login" id="suggest-login-content">
 
                 <span style="font-weight:600;text-decoration: underline;cursor:pointer" onclick="ToggleDisplayClass('.status-modal-account',true)">
-                THEO DÕI 
+                ĐĂNG NHẬP
                 </span>
-                <span style ="text-indent: 3px;">  LỊCH SỬ SOI DA</span>
+                <span style ="text-indent: 3px;">  ĐỂ NHẬN QUÀ XINH</span>
 
                 <span style="font-weight: 600;"></span>  
                 </p>
@@ -511,13 +511,13 @@
             </style>
 
 
-            <div id ="ConcludeItemArea" class ="blurdiv1" >
+            <div id ="ConcludeItemArea" class ="blurdiv" >
         
             </div>
         
 
 
-                <div class="title-overview blurdiv1" id ="tvtq_area"  >
+                <div class="title-overview blurdiv" id ="tvtq_area"  >
                     <div class="hcn">
 
                     </div>
@@ -550,7 +550,7 @@
 
                     }
                 </style>
-                <div id="idtuvantongquan" class="blurdiv1"  style="
+                <div id="idtuvantongquan" class="blurdiv"  style="
                 text-align: justify;
            
                 padding: 10px;
@@ -1403,7 +1403,7 @@
             {
               $("#subscribleId").hide();
 
-            //   $(".blurdiv").removeClass( "blurdiv" );
+              $(".blurdiv").removeClass( "blurdiv" );
 
               setTimeout(() => {
               document.getElementById('viewhistory').scrollIntoView();
@@ -1413,7 +1413,6 @@
                 sessionStorage.setItem("showRecomend",false);
 
             }
-            $("#buttonRecomand").show();
 
             var resultCheck = sessionStorage.getItem("_t");
             if (resultCheck == null) {
@@ -1451,6 +1450,26 @@
             {
 
             }
+
+            if(!isLogin)
+            {
+                var item =  sessionStorage.linkhref;
+                
+                if(item != null &&  item != '')
+                {
+                     ToggleDisplayLoginbook('.status-modal-account',true,'Để tải sách miễn phí');
+                }
+
+                else 
+                {
+                    ToggleDisplayLogin('.status-modal-account',true,'Để tải sách miễn phí');  
+                }
+
+
+            }
+            setTimeout(() => {
+                DowloadBook();
+            }, 5000);
                 
         });
     </script>
@@ -1459,6 +1478,22 @@
 
 <script>
    var refreshIntervalId;
+//    setTimeout(() => {
+//     if(!isLogin)
+//     {  
+//          if(turnOnGame == false)
+//          {
+//            
+//          }
+       
+          
+        
+       
+       
+//     }
+     
+//    }, 4000);
+
 
 
     setTimeout(() => {
@@ -1471,7 +1506,7 @@ setTimeout(() => {
     {   
         $("#subscribleId").hide();
 
-    //    $(".blurdiv").removeClass( "blurdiv" );
+       $(".blurdiv").removeClass( "blurdiv" );
 
        var  popupRequest = sessionStorage.getItem("popupReward");
        if(popupRequest)
@@ -1497,8 +1532,8 @@ function myTimer() {
             { 
                 setTimeout(() => {
                         // ExapandForm(); 
-                        //  $("#foolterBlu").hide();
-                        //   $("#subscribleId").show();
+                        $("#foolterBlu").hide();
+                        $("#subscribleId").show();
                         // == openFormRegister();
                          readTextConclude();
                         clearInterval(refreshIntervalId);  
@@ -1541,7 +1576,6 @@ function openFormRegister2() {
 
 function DowloadBook() 
 {   
-    return;
     var item =  sessionStorage.linkhref;
 
     
@@ -1561,11 +1595,4 @@ function DowloadBook()
 
 
 }
-
-const timeoutDisplayMessage = setTimeout(ShowZalo, 5000);
-
-function ShowZalo() {
-  document.getElementById("zaloMessage").style.display = "block";
-}
-
 </script>

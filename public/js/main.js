@@ -569,15 +569,22 @@ function ToggleDisplayClass(myClass, status) {
   }
 
   function ToggleDisplayLogin(myClass, status, title = '') {
+  
 
     var lastSegement = window.location.pathname.split("/").pop();
 
     var typeLogin = null;
+    // if( lastSegement == "ket-qua" )
+    // {
+    //    title = 'Để Xem kết luận chi tiết & tư vấn tổng quát';
+    //    typeLogin ="2";
+    // }
     if( lastSegement == "ket-qua" )
     {
-       title = 'Để Xem kết luận chi tiết & tư vấn tổng quát';
+       title = title;
        typeLogin ="2";
     }
+  
 
     if(title =="Để xem lịch sử soi da online")
     {

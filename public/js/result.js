@@ -1350,13 +1350,11 @@ function avgScorev2(dataDraw)
 
 }
 
-
+var ourAudio = null;
 function readTextConclude()
 {
   var x = JSON.parse(sessionStorage._t);
-
-   
-    var hintScore = x.data.facedata.hintResult;
+  var hintScore = x.data.facedata.hintResult;
 
     let text ='';
     let begintext ="";
@@ -1422,7 +1420,11 @@ function readTextConclude()
       data: JSON.stringify(d),
       success: function (response) {
           
-           var ourAudio = document.createElement('audio'); // Create a audio element using the DOM
+      
+         if(ourAudio ) {
+          return;
+         }
+           ourAudio = document.createElement('audio'); // Create a audio element using the DOM
            ourAudio.style.display = "none"; // Hide the audio element
            ourAudio.src = response.async;
            ourAudio.autoplay = true; // Automatically play sound

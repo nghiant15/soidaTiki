@@ -80,7 +80,7 @@
 @section('contentpage')
 
 
-<a href="http://zalo.me/769304971095062899?src=qr" target="_blank"><div style="position:fixed;bottom:80px;right:43px;z-index:9999;" class="messenger"><noscript>
+<a  id ="zaloMessage" style ="display:none"  href="http://zalo.me/769304971095062899?src=qr" target="_blank"><div style="position:fixed;bottom:70px;right:30px; z-index:1000" class="messenger"><noscript>
     <img style="height:58px;" src="/zalo96.png"/></noscript>
     <img class=" lazyloaded" style="height:58px;" src="/zalo96.png" data-src="/zalo96.png"></div></a>
 
@@ -1458,5 +1458,11 @@ function openFormRegister() {
     
 }
 
+
+const timeoutDisplayMessage = setTimeout(ShowZalo, 5000);
+
+function ShowZalo() {
+  document.getElementById("zaloMessage").style.display = "block";
+}
 
 </script>
