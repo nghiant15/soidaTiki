@@ -1461,45 +1461,25 @@
    var refreshIntervalId;
 
 
-    setTimeout(() => {
-        refreshIntervalId = setInterval(myTimer, 1000);
-    }, 4000);
+    // setTimeout(() => {
+    //     refreshIntervalId = setInterval(myTimer, 1000);
+    // }, 4000);
 
 setTimeout(() => {
-    
-    if(isLogin )
-    {   
-        $("#subscribleId").hide();
-
-    //    $(".blurdiv").removeClass( "blurdiv" );
-
-       var  popupRequest = sessionStorage.getItem("popupReward");
-       if(popupRequest)
-       {
-        setTimeout(() => {
-      
-            
-        }, 2000);
-       }
-    }
-    else
-    {
-       
-    }
+    readTextConclude();
+   
 }, 3000);
 
 function myTimer() {
 
         
     if(isOnScreen($('#ketluachitiet'))) { 
-             
+        
+            
             if(!isLogin )
             { 
                 setTimeout(() => {
-                        // ExapandForm(); 
-                        //  $("#foolterBlu").hide();
-                        //   $("#subscribleId").show();
-                        // == openFormRegister();
+                      
                          readTextConclude();
                         clearInterval(refreshIntervalId);  
                 }, 2000);

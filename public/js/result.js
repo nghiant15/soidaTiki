@@ -1350,7 +1350,7 @@ function avgScorev2(dataDraw)
 
 }
 
-var ourAudio = null;
+
 function readTextConclude()
 {
   var x = JSON.parse(sessionStorage._t);
@@ -1367,18 +1367,22 @@ function readTextConclude()
     
       if(avg <= 1 )
       {
-        textDegree =" Nhẹ";
+        textDegree =" Tốt";
       }
       else if(avg <=2)
       {
-        textDegree =" Trung bình";
+        textDegree =" Bình thường";
       }
       else if(avg <=3)
       {
         textDegree =" Nặng";
 
       }
-      endpoint= " " +avg + " trên 3 ;";
+
+      var valuerel2 =  Math.round(avg/3*10);
+      var value23 = Math.round(10 - valuerel2);
+
+      endpoint= " " +value23 + " trên 10 ;";
   
 
       
@@ -1413,7 +1417,7 @@ function readTextConclude()
       type: "post",
       contentType: "application/json",
       headers: {
-           "api_key": "6gDh74q75Dl7yIuZTmVjqnYSBsuh2A3O",
+           "api_key": "TcvP5klkJ5BZnVp4B9oZH52MOKDR7hn4",
            "voice": "banmai"
     
         },
@@ -1421,17 +1425,20 @@ function readTextConclude()
       success: function (response) {
           
       
-         if(ourAudio ) {
-          return;
-         }
-           ourAudio = document.createElement('audio'); // Create a audio element using the DOM
-           ourAudio.style.display = "none"; // Hide the audio element
-           ourAudio.src = response.async;
-           ourAudio.autoplay = true; // Automatically play sound
-           ourAudio.onended = function() {
-             this.remove(); // Remove when played.
-           };
-           document.body.appendChild(ourAudio);
+      
+         setTimeout(() => {
+       
+         var  ourAudio = document.createElement('audio'); // Create a audio element using the DOM
+          ourAudio.style.display = "none"; // Hide the audio element
+          ourAudio.src = response.async;
+          ourAudio.preload = "auto";
+          ourAudio.autoplay = true; // Automatically play sound
+          ourAudio.onended = function() {
+            this.remove(); // Remove when played.
+          };
+          document.body.appendChild(ourAudio);
+         }, 15000);
+          
        
       },
       error: function (jqXHR, textStatus, errorThrown) {},
