@@ -497,6 +497,34 @@ public function getDataInfo (Request $request)
          
          return false;
     }
+
+    private function getTuVan($slug)
+    {
+    
+        $url ="https://api-soida.applamdep.com/api/tuvan/getInfo2?slug=".$slug;
+        $client = new Client();
+
+        $res = $client->request('get', $url, [
+            'json' => [
+                'slug'=> $slug
+              ]
+        ]);
+
+        if($res->getStatusCode() ==200)
+        {
+            $checkresult = $res->getBody()->getContents();
+            $checkresult = json_decode($checkresult);
+          
+            $result = $checkresult->data;
+
+           
+      
+          
+              session(['TuVanData' =>$result]);
+         }
+         
+         return false;
+    }
     private function getGameActive($companyId)
     {
 
@@ -710,6 +738,9 @@ public function getDataInfo (Request $request)
     {
         $data  =  session('dataResult', null);
         $dataGame = Session('dataGame', null);
+         $this->getTuVan($slug);
+         
+
         $contetnFail ="Chúc Quý khách may mắn lần sau NHƯNG  bạn vẫn được nhận  Ưu Đãi từ Nhãn Hàng chính hãng tài trợ";
         $contentSuccess = "CHÚC MỪNG BẠN ĐÃ TRÚNG THƯỞNG";
       
@@ -835,6 +866,8 @@ public function getDataInfo (Request $request)
       
         $rewardCheck  =  session('rewardCheck', false);
          $gameJoinType1 =true;
+     
+     
        
         if($slug !="")
         {
@@ -845,7 +878,7 @@ public function getDataInfo (Request $request)
         }
 
 
-    
+     
 
         return view("result", compact("slug", "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame"));
     }

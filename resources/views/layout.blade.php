@@ -325,14 +325,11 @@
                             Số 91 Đường N1, Khu dân cư Hiệp Thành, Phường Hiệp Thành, Quận 12, Thành phố Hồ Chí Minhh
                             </div> 
                             <div class="footer__global font--main">
-                                Hotline: <a class="font--main" href="tel:0906 606 986">0906 606 986</a> 
+                                Hotline: <a class="font--main" href="tel:0917 891 007">0917 891 007</a> 
                                 
                             </div>
 
-                            <div class="footer__global font--main">
-                                Hotline 2 : <a class="font--main" href="tel:0917891007"> 0917 891 007 </a>
-                                
-                            </div>
+                          
                             
                             <div class="footer__global font--main"> 
                                 Email: <a class="font--main" href="mailto:hi@tikitech.vn">hi@tikitech.vn</a>

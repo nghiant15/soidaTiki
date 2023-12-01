@@ -1,3 +1,19 @@
+@php
+        $dataLikn =  session('TuVanData', null);
+         $zaloLink =  $dataLikn->zaloLink;
+         $messengerLink = $dataLikn->messengerLink;
+
+         if($zaloLink =='')
+         {
+            $zaloLink = "http://zalo.me/769304971095062899?src=qr";
+         }
+        if($messengerLink =='')
+         {
+            $messengerLink ="https://m.me/106007668343244?ref=mess";
+         }
+
+       
+@endphp
 @extends('layoutZalo')
 
 
@@ -64,10 +80,24 @@
 @endsection
 @section('contentpage')
 
+@if ( $zaloLink != "" )
+<a  id ="zaloMessage" style ="display:none"  onclick="OpenAction('zalo')" ><div style="position:fixed;bottom:70px;right:30px; z-index:1000" class="messenger"><noscript>
+    <img src="/zalo96.png"/></noscript>
+    <img class=" lazyloaded"  src="/zalo96.png" data-src="/zalo96.png"></div></a>  
 
-<a  id ="zaloMessage" style ="display:none"  href="http://zalo.me/769304971095062899?src=qr" target="_blank"><div style="position:fixed;bottom:70px;right:30px; z-index:1000" class="messenger"><noscript>
-    <img style="height:58px;" src="/zalo96.png"/></noscript>
-    <img class=" lazyloaded" style="height:58px;" src="/zalo96.png" data-src="/zalo96.png"></div></a>
+@endif
+
+@if ( $messengerLink != "" )
+    
+<a  id ="messenger" style ="display:none" onclick="OpenAction('messenger')" ><div style="position:fixed;bottom:170px;right:30px; z-index:1000" class="messenger"><noscript>
+    <img src="/tikiFacebook.png"/></noscript>
+    <img class=" lazyloaded"  src="/tikiFacebook.png" data-src="/tikiFacebook.png"></div>
+</a>
+
+@endif
+
+
+
 
 <style>
 .call-btn {
@@ -629,8 +659,9 @@
 
 
 
-
         <script>
+            var zaloLink = '{!! $zaloLink !!}';
+            var messengerLink = '{!! $messengerLink !!}';
             function openRecomendProduct() {
 
                 var base_url = window.location.origin + "/" + "soida/nhan-de-xuat-cham-soc-da";
@@ -1545,7 +1576,43 @@ function DowloadBook()
 const timeoutDisplayMessage = setTimeout(ShowZalo, 5000);
 
 function ShowZalo() {
+  document.getElementById("messenger").style.display = "block";
   document.getElementById("zaloMessage").style.display = "block";
+  
+}
+
+var timeGet = new Date().getTime();
+function OpenAction ( connectionType)
+{   
+    addContionType(connectionType);
+  setTimeout(() => {
+
+
+    if(zaloLink =="")
+    {
+        zaloLink =  "http://zalo.me/769304971095062899?src=qr";
+    }
+    if(messengerLink =="")
+    {
+        messengerLink =  "https://m.me/106007668343244?ref=mess";
+    }
+    if(connectionType =="messenger")
+    {
+        window.open(messengerLink,'_blank');
+    }
+    else 
+    {
+        window.open(zaloLink,'_blank');
+        
+    }
+    
+  }, 1000);
+  
+    
+
+ 
+    
+
 }
 
 </script>

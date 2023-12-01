@@ -196,6 +196,28 @@ function getHistory(data) {
     error: function (jqXHR, textStatus, errorThrown) {},
   });
 }
+
+function addContionType(typeConnection) {
+  
+  $.ajaxSetup({
+    headers: {
+      "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+    },
+  });
+  $.ajax({
+    type: "POST",
+    url: api.serve.baser_urlServer + "/AddClickZalo",
+    data: JSON.stringify({
+      connectionType: typeConnection
+    }),
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    success: async function (data) {
+   
+    },
+    complete: function (data) {},
+  });
+}
 function saveHistoryNoAction(isRedirect, result = null) {
   var loading = document.querySelector(".status-loader-22");
   

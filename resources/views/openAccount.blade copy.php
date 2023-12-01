@@ -130,7 +130,7 @@
 
 
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Tên đăng nhập/ tên sales/ tên shop:(ghi chú: viết thường & viết liền) <span class="requiredTip"> (*) </span></label>
+                                        <label for="exampleInputEmail1">Tên đăng nhập: <span class="requiredTip"> (*) </span></label>
                                         <input type="text" id="txtUserName" name="UserName" onchange="genslug()" class="form-control">
                                         <!-- <p class="tip">
                                             
@@ -165,7 +165,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-12">
 
-                                            <label for="exampleInputEmail1">Số điện thoai:(ghi chú: Ưu tiên số điện thoại có Zalo) <span class="requiredTip"> (*) </span></label>
+                                            <label for="exampleInputEmail1">Số điện thoai: <span class="requiredTip"> (*) </span></label>
                                             <input type="text" minlength="10" id="txtphoneNumber" maxlength="10" name="Phone" class="form-control" placeholder="" value="">
                                             <!-- <p class="tip">
                                                     Số điện thoại đăng ký hệ thống.
@@ -228,7 +228,7 @@
 
                                         <div class="col-sm-6">
 
-                                            <label for="exampleInputEmail1">Công ty: <span class="requiredTip"> (*) </span></label>
+                                            <label for="exampleInputEmail1">Nhân viên tư vấn: <span class="requiredTip"> (*) </span></label>
                                            
                                             <select class="form-control form-select" id = "txtEmployee" name ="saleId">
 

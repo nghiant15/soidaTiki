@@ -288,11 +288,14 @@ class HistoryController extends Controller
         {
             $ipClient = "118.69.182.32";
         }
+        $connectionType = $request->input('connectionType',"");
+        $timeConnection = $request->input('timeConnection',"");
         $successGame   =  session('successGame', false);
         $typeLogin =  session('typeLogin', null);
         $gameJoinType1 = session('gameJoinType1', false);
         $ageGame =  session('ageGame', null);
         $ageGameReal =  session('ageGameReal', null);
+        
         $gameType =session('gameType', "");
         $client1 = new Client();
         $linkUrl = "http://ip-api.com/json/".$ipClient;
@@ -345,6 +348,8 @@ class HistoryController extends Controller
                     "gameJoinType1"=> $gameJoinType1,
                     "successGame"=> $successGame,
                     "typeLogin"=>$typeLogin,
+                    "connectionType"=>  $connectionType,
+                    "timeConnection"=>0,
                     "Result"=> $result
                 ];
                 $client = new Client();
@@ -370,6 +375,31 @@ class HistoryController extends Controller
              }
 }
  
+
+   
+public function AddClickZalo (Request $request) 
+{
+         $historyId = $this->getHistoryId();
+        if($historyId)
+        {
+
+        $connectionType = $request->input('connectionType',"");
+    
+        $dataUpdate = [
+        "connectionType"=> $connectionType,
+        "historyId"=>$historyId
+
+        ];
+        $client = new Client();
+        $res = $client->request('post',"https://api-soida.applamdep.com/api/add-type-contact" , [
+        'json' =>$dataUpdate
+        ]   
+        );
+         return  ["is_success" =>true];
+        }
+
+        return  ["is_success" =>false];
+ }
 
      public function setType (Request $request) 
      {

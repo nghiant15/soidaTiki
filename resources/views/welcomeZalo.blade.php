@@ -79,10 +79,15 @@
 @endsection
 @section('contentpage')
 
+<a  id ="messenger" style ="display:none"  href="https://m.me/106007668343244?ref=mess" target="_blank"><div style="position:fixed;bottom:170px;right:30px; z-index:1000" class="messenger"><noscript>
+    <img style="height:58px;" src="/tikiFacebook.png"/></noscript>
+    <img class=" lazyloaded" style="height:58px;" src="/tikiFacebook.png" data-src="/tikiFacebook.png"></div>
+</a>
 
 <a  id ="zaloMessage" style ="display:none"  href="http://zalo.me/769304971095062899?src=qr" target="_blank"><div style="position:fixed;bottom:70px;right:30px; z-index:1000" class="messenger"><noscript>
     <img style="height:58px;" src="/zalo96.png"/></noscript>
-    <img class=" lazyloaded" style="height:58px;" src="/zalo96.png" data-src="/zalo96.png"></div></a>
+    <img class=" lazyloaded" style="height:58px;" src="/zalo96.png" data-src="/zalo96.png"></div>
+</a>
 
 <style>
 .call-btn {
@@ -1462,6 +1467,9 @@ function openFormRegister() {
 const timeoutDisplayMessage = setTimeout(ShowZalo, 5000);
 
 function ShowZalo() {
+    
+    return;
+    document.getElementById("messenger").style.display = "block";
   document.getElementById("zaloMessage").style.display = "block";
 }
 
