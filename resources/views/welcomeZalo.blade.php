@@ -827,7 +827,7 @@
                     };
                     $.ajax({
                         type: "POST",
-                        url: "https://api-soida.applamdep.com/itemSdk/get_product_result",
+                        url: "http://localhost:3002/itemSdk/get_product_result",
                         data: JSON.stringify(bodyRequest),
                         contentType: "application/json",
                         dataType: "json",
@@ -864,7 +864,7 @@
                             var itemProduct = listProduct[i];
 
                             if (itemProduct.image_link.length > 0) {
-                                imagelink = "https://api-soida.applamdep.com/public/image_plugin/" + itemProduct
+                                imagelink = "http://localhost:3002/public/image_plugin/" + itemProduct
                                     .image_link;
                             } else {
                                 imagelink = itemProduct.image;
@@ -1356,7 +1356,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "https://api-soida.applamdep.com/api/add-customer-request",
+                url: "http://localhost:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1379,7 +1379,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "https://api-soida.applamdep.com/api/add-customer-request",
+                url: "http://localhost:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1474,3 +1474,4 @@ function ShowZalo() {
 }
 
 </script>
+

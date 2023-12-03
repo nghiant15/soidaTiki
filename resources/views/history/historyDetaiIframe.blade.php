@@ -181,7 +181,7 @@
                 <a id="myBtn" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Đăng nhập</a>
             </li>
             <li class="right-text login">
-                <a href="https://applamdep.com/" href="javascript:void(0)" data-toggle="modal"
+                <a href="http://localhost:8000/" href="javascript:void(0)" data-toggle="modal"
                     data-target="#signUpModal">Đăng ký</a>
             </li>
         </ul>
@@ -1546,7 +1546,7 @@ margin: auto;
         $("#btnrewardLoading").show();
         $.ajax({
             type: "PUT",
-            url: "https://api-soida.applamdep.com/api/add-customer-request",
+            url: "http://localhost:3002/api/add-customer-request",
             data: JSON.stringify({
                 UserName: "TIKITECH",
                 Phone: $("#mobilePhone").val(),

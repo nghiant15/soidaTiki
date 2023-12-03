@@ -137,7 +137,7 @@
                         <a id ="myBtn" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal" >Đăng nhập</a>
                     </li>
                     <li class="right-text login">
-                        <a href="https://applamdep.com/" href="javascript:void(0)" data-toggle="modal" data-target="#signUpModal" >Đăng ký</a>
+                        <a href="http://localhost:8000/" href="javascript:void(0)" data-toggle="modal" data-target="#signUpModal" >Đăng ký</a>
                     </li>
                 </ul>   
 
@@ -457,7 +457,7 @@
                         return;
                     $.ajax({
                         type: "POST",
-                        url: "https://api-soida.applamdep.com/api/add-history-skin",
+                        url: "http://localhost:3002/api/add-history-skin",
                         data: JSON.stringify({
                             "UserName": null,
                             "Result": result,
@@ -499,7 +499,7 @@
                     };
                     $.ajax({
                         type: "POST",
-                        url: "https://api-soida.applamdep.com/itemSdk/get_product_result",
+                        url: "http://localhost:3002/itemSdk/get_product_result",
                         data: JSON.stringify(bodyRequest),
                         contentType: "application/json",
                         dataType: "json",
@@ -541,7 +541,7 @@
                             var itemProduct = listProduct[i];
 
                             if (itemProduct.image_link.length > 0) {
-                                imagelink = "https://api-soida.applamdep.com/public/image_plugin/" + itemProduct.image_link;
+                                imagelink = "http://localhost:3002/public/image_plugin/" + itemProduct.image_link;
                             } else {
                                 imagelink = itemProduct.image;
                             }
@@ -1000,7 +1000,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "https://api-soida.applamdep.com/api/add-customer-request",
+                url: "http://localhost:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),
@@ -1023,7 +1023,7 @@
             $("#btnrewardLoading").show();
             $.ajax({
                 type: "PUT",
-                url: "https://api-soida.applamdep.com/api/add-customer-request",
+                url: "http://localhost:3002/api/add-customer-request",
                 data: JSON.stringify({
                     UserName: "TIKITECH",
                     Phone: $("#mobilePhone").val(),

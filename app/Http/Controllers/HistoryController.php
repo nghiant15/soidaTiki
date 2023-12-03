@@ -70,10 +70,10 @@ class HistoryController extends Controller
     {
 
      
-        $checkacssSlugUrl ="https://api-soida.applamdep.com/api/check-access-slug";
+        $checkacssSlugUrl ="http://localhost:3002/api/check-access-slug";
         $client = new Client();
 
-        $res = $client->request('post', 'https://api-soida.applamdep.com/api/check-access-slug', [
+        $res = $client->request('post', 'http://localhost:3002/api/check-access-slug', [
             'json' => [
                 'slug'=> $slug
               ]
@@ -391,7 +391,7 @@ public function AddClickZalo (Request $request)
 
         ];
         $client = new Client();
-        $res = $client->request('post',"https://api-soida.applamdep.com/api/add-type-contact" , [
+        $res = $client->request('post',"http://localhost:3002/api/add-type-contact" , [
         'json' =>$dataUpdate
         ]   
         );
