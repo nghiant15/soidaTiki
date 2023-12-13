@@ -70,10 +70,10 @@ class HistoryController extends Controller
     {
 
      
-        $checkacssSlugUrl ="http://localhost:3002/api/check-access-slug";
+        $checkacssSlugUrl ="https://api-soida.applamdep.com/api/check-access-slug";
         $client = new Client();
 
-        $res = $client->request('post', 'http://localhost:3002/api/check-access-slug', [
+        $res = $client->request('post', 'https://api-soida.applamdep.com/api/check-access-slug', [
             'json' => [
                 'slug'=> $slug
               ]
@@ -284,7 +284,7 @@ class HistoryController extends Controller
       
         $ipClient = $this->get_ip();
 
-        if($ipClient =="127.0.0.1")
+        if($ipClient =="127.0.0.1" || $ipClient =="192.168.1.24")
         {
             $ipClient = "118.69.182.32";
         }
@@ -304,6 +304,8 @@ class HistoryController extends Controller
         {
             $checkresult1 = $res1->getBody()->getContents();
             $data1 = json_decode($checkresult1);
+
+     
 
                 $dataJson = $request->json()->all();
                 $result  = $dataJson['Result'];
@@ -391,7 +393,7 @@ public function AddClickZalo (Request $request)
 
         ];
         $client = new Client();
-        $res = $client->request('post',"http://localhost:3002/api/add-type-contact" , [
+        $res = $client->request('post',"https://api-soida.applamdep.com/api/add-type-contact" , [
         'json' =>$dataUpdate
         ]   
         );
@@ -401,6 +403,26 @@ public function AddClickZalo (Request $request)
         return  ["is_success" =>false];
  }
 
+ public function addClickZalo2 (Request $request) 
+{
+         $historyId = $this->getHistoryId();
+         $connectionType = $request->input('connectionType',"");
+    
+         $dataUpdate = [
+            "location" => $this->get_ip(),
+         "connectionType"=> $connectionType,
+         "Company_Id"=> $this->getCompanyId()
+         ];
+         $client = new Client();
+         $res = $client->request('post',"https://api-soida.applamdep.com/api/add-type-contact2" , [
+         'json' =>$dataUpdate
+         ]   
+         );
+          return  ["is_success" =>true];
+       
+ }
+
+
      public function setType (Request $request) 
      {
           session(['typeLogin' => $request->input("typeLogin")]);
@@ -409,3 +431,5 @@ public function AddClickZalo (Request $request)
    
     
 }
+
+

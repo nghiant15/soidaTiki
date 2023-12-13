@@ -869,3 +869,26 @@ function ToggleDisplayFormFollow3(myClass, status) {
       window.open(locationHost+"/" +firstPath,"_self");
     }
     }
+
+
+    function addClickZalo2(typeConnection) {
+
+      $.ajaxSetup({
+        headers: {
+          "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+      });
+      $.ajax({
+        type: "post",
+        url: api.serve.baser_urlServer + "/addtype2",
+        data: JSON.stringify({
+          connectionType: typeConnection
+        }),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: async function (data) {
+       
+        },
+        complete: function (data) {},
+      });
+    }

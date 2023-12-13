@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::post('/addtype2', 'HistoryController@AddClickZalo2');
 Route::get('/', 'HomepageController@index')->name('homePage');
 Route::get('/get-all-history', 'HistoryController@GetAllHistory');
 Route::post('/AddClickZalo', 'HistoryController@AddClickZalo');
+
 
 Route::get('/{slug}/lichsu-soida', 'HistoryController@historySoida');
 Route::get('/{slug}/{id}/lichsu-soida', 'HistoryController@historySoida');

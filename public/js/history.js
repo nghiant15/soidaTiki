@@ -117,44 +117,14 @@ $.ajax({
   success: async function (data) {
      return;
     
-    // setTimeout(() => {
-    //   if (isRedirect) {
 
-    //     uploading = false;
-    //     skinModule.toggleUploadBtn((show = true));
-    //     skinModule.toggleUploadingBtn((show = false));
-    //     var slug = window.location.pathname.split("/")[1];
-    //     var id = window.location.pathname.split("/")[2];
-
-    //     if (loading) {
-    //       loading.classList.remove("block");
-    //     }
-
-    //     if (id && id !== "") {
-    //       location.href = "/ket-qua";
-    //     } else {
-    //       location.href = "/ket-qua";
-    //     }
-
-    //     setTimeout(() => {
-    //       if (document.getElementById("imageShow")) {
-    //         document.getElementById("imageShow").style.display = "none";
-    //       }
-    //     }, 2000);
-    //   } else {
-    //     ToggleAlert(false, "", false);
-    //     if (loading) {
-    //       loading.classList.remove("block");
-    //     }
-    //     location.reload();
-    //   }
-    // }, 1000);
   },
   complete: function (data) {
+    
  
             setTimeout(() => {
+              
             
-              // window.location.href = "/ket-qua";
               var base_url = window.location.origin + "/" + "soida/ket-qua";
               if(slugGlobal != null  &&  slugGlobal !== "")
               {
