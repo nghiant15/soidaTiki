@@ -93,7 +93,7 @@
 
 
 
-@if( $slug != 'bibabo' )
+@if( $slug == 'bibabo' )
 <div class="nav-button-reward">
 
 <a href="javasript:void(0)" > <img src="/images/arrow.png"> THAM GIA ĐIỀN FORM NHẬN QUÀ HẤP DẤN </a> 
