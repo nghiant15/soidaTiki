@@ -284,7 +284,7 @@ class HistoryController extends Controller
       
         $ipClient = $this->get_ip();
 
-        if($ipClient =="127.0.0.1" || $ipClient =="192.168.1.24")
+        if($ipClient =="127.0.0.1" || $ipClient =="192.168.1.24" || $ipClient ="125.235.233.250" )
         {
             $ipClient = "118.69.182.32";
         }
