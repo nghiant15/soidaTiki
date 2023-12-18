@@ -103,7 +103,7 @@
                    <div class ="bottom-button">
                         <a class ="zalobac" onclick="OpenAction('zalo')" >
                              <img src = "/zaloClick.jpg">  
-                             <span> Tư vấn chăm sóc Zalo </span>   
+                             <span> Tư vấn chăm sóc da Zalo </span>   
                         </a>
                         
                     </div>
@@ -111,7 +111,7 @@
                     <div class ="bottom-button">
                         <a onclick="OpenAction('messenger')">
                              <img src = "/messengerClick.png">  
-                             <span> Tư vấn chăm sóc Messenger </span>   
+                             <span> Tư vấn chăm sóc da Messenger </span>   
                         </a>
                         
                     </div>
