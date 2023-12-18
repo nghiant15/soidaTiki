@@ -1575,7 +1575,7 @@ function DowloadBook()
 
 }
 
-const timeoutDisplayMessage = setTimeout(ShowZalo, 3000);
+const timeoutDisplayMessage = setTimeout(ShowZalo, 1000);
 
 function ShowZalo() {
   document.getElementById("socialBLock").style.display = "block";

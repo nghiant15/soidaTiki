@@ -324,10 +324,10 @@
             {{-- </div> --}}
 
 
-            <div class="nav-menu" id ="cammeraButton" style ="display:none">
+            <div class="nav-menu" id ="cammeraButton"  style ="display:none">
 
 
-                <div class="uploadButton cameraNow">
+                <div class="uploadButton cameraNow" >
 
                     <div class="nav-avatar nav-avatar__camera" onclick="haldleOpenCamera()" style="
                     background-color: red;
@@ -414,6 +414,15 @@
        
         </script>
         <script>
+            setTimeout(() => {
+                    document.getElementById("cammeraButton").style.display ="grid";
+                
+
+                    
+
+
+                    
+                }, 2500);
               function hideTips() {
                 var tips = document.getElementById("tips");
                 tips.style.display = "none";
@@ -437,6 +446,7 @@
                 
                
                 audio.onended = function() {
+                          return;
                         setTimeout(() => {
                             var audio1     = document.createElement("AUDIO")
                             document.body.appendChild(audio1);
@@ -1515,6 +1525,7 @@ function OpenAction ( connectionType)
   }, 1000);
 
 }
+
 </script>
 
 
