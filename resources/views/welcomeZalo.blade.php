@@ -329,9 +329,15 @@
 
                 <div class="uploadButton cameraNow">
 
-                    <div class="nav-avatar nav-avatar__camera" onclick="haldleOpenCamera()">
+                    <div class="nav-avatar nav-avatar__camera" onclick="haldleOpenCamera()" style="
+                    background-color: red;
+                ">
                         
-                        <svg class="nav-menu-svg nav-svg-camera" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="52px" height="52px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
+                        <svg class="nav-menu-svg nav-svg-camera" xmlns="http://www.w3.org/2000/svg" 
+                        style="
+    background-color: red;
+"
+                        x="0px" y="0px" width="52px" height="52px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
                             <g>
                                 <path d="M26,20c-4.4,0-8,3.6-8,8s3.6,8,8,8s8-3.6,8-8S30.4,20,26,20z"></path>
                                 <path d="M46,14h-5.2c-1.4,0-2.6-0.7-3.4-1.8l-2.3-3.5C34.4,7,32.7,6,30.9,6h-9.8c-1.8,0-3.5,1-4.3,2.7l-2.3,3.5   c-0.7,1.1-2,1.8-3.4,1.8H6c-2.2,0-4,1.8-4,4v24c0,2.2,1.8,4,4,4h40c2.2,0,4-1.8,4-4V18C50,15.8,48.2,14,46,14z M26,40   c-6.6,0-12-5.4-12-12s5.4-12,12-12s12,5.4,12,12S32.6,40,26,40z"></path>
@@ -341,7 +347,7 @@
 
                     </div>
                     <div class="text">
-                                                <a href="javascript:void(0)" onclick="haldleOpenCamera()">Chụp ảnh ngay
+                                                <a href="javascript:void(0)" onclick="haldleOpenCamera()">Soi da ngay
                         </a>
                                             </div>
                 </div>
@@ -1521,7 +1527,7 @@ function OpenAction ( connectionType)
 			<div class="toolbar-item toolbar-item-zalo">
 				<a class="toolbar-item--boxlink cta-chatzalo" onclick="OpenAction('zalo')"  target="_blank" rel="noopener noreferrer" aria-label="zalo">
 					<img src ="/zaloClick.jpg"> 
-					<span class="box-text">Tư vấn chăm sóc Zalo</span>
+					<span class="box-text">Tư vấn chăm sóc qua Zalo</span>
 				</a>
 			</div>
 			

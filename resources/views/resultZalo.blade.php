@@ -80,6 +80,8 @@
 @endsection
 @section('contentpage')
 
+@includeIf("tuvan")
+
 @if ( $zaloLink != "" )
 <a  id ="zaloMessage" style ="display:none"  onclick="OpenAction('zalo')" ><div style="position:fixed;bottom:70px;right:30px; z-index:1000" class="messenger"><noscript>
     <img src="/zalo96.png"/></noscript>
@@ -1608,6 +1610,11 @@ function OpenAction ( connectionType)
 
 }
 
+
+setTimeout(() => {
+    $(".tuvanform").show();
+              
+    }, 5000);
 </script>
 
 
@@ -1620,7 +1627,7 @@ function OpenAction ( connectionType)
 			<div class="toolbar-item toolbar-item-zalo">
 				<a class="toolbar-item--boxlink cta-chatzalo" onclick="OpenAction('zalo')"  target="_blank" rel="noopener noreferrer" aria-label="zalo">
                     <img src ="/zaloClick.jpg">
-					<span class="box-text">Tư vấn chăm sóc Zalo</span>
+					<span class="box-text">Tư vấn chăm sóc qua Zalo</span>
 				</a>
 			</div>
 			
@@ -1758,3 +1765,5 @@ background-color: transparent;
  color: #ffffff;
 }
 </style>
+
+
