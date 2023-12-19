@@ -1538,7 +1538,7 @@ function OpenAction ( connectionType)
 			<div class="toolbar-item toolbar-item-zalo">
 				<a class="toolbar-item--boxlink cta-chatzalo" onclick="OpenAction('zalo')"  target="_blank" rel="noopener noreferrer" aria-label="zalo">
 					<img src ="/zaloClick.jpg"> 
-					<span class="box-text">Tư vấn chăm sóc qua Zalo</span>
+					<span class="box-text">Tư vấn chăm sóc da Zalo</span>
 				</a>
 			</div>
 			
