@@ -1575,7 +1575,7 @@ function DowloadBook()
 
 }
 
-const timeoutDisplayMessage = setTimeout(ShowZalo, 1000);
+const timeoutDisplayMessage = setTimeout(ShowZalo, 5000);
 
 function ShowZalo() {
   document.getElementById("socialBLock").style.display = "block";
@@ -1627,7 +1627,7 @@ setTimeout(() => {
 			<div class="toolbar-item toolbar-item-zalo">
 				<a class="toolbar-item--boxlink cta-chatzalo" onclick="OpenAction('zalo')"  target="_blank" rel="noopener noreferrer" aria-label="zalo">
                     <img src ="/zaloClick.jpg">
-					<span class="box-text">Tư vấn chăm sóc qua Zalo</span>
+					<span class="box-text">Tư vấn chăm sóc da Zalo</span>
 				</a>
 			</div>
 			
