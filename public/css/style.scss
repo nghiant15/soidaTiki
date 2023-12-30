@@ -916,3 +916,38 @@ img {
 #displayLoading {
     display: none;
 }
+
+
+.iconClose{
+   text-align: center;
+   float: right;
+   color:#ffffff;
+   width: 32px;
+   height: 32px;
+   justify-content: center;
+   font-weight: 700;
+   border-radius: 50%;
+  
+   a:hover {
+     color:#ffffff;
+    
+
+   }
+}
+.iconClose:hover{
+    transform: scale(1.2);
+    text-align: center;
+    color:#ffffff;
+    width: 32px;
+    font-weight: 700;
+    border-radius: 50%;
+   
+    a {
+      color:#ffffff !important;
+      text-decoration: none;
+    
+     
+     
+ 
+    }
+ }

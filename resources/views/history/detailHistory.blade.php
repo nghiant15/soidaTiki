@@ -141,7 +141,7 @@
                     <a id="myBtn" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Đăng nhập</a>
                 </li>
                 <li class="right-text login">
-                    <a href="https://applamdep.com/" href="javascript:void(0)" data-toggle="modal"
+                    <a href="http://192.168.250.108:8000/" href="javascript:void(0)" data-toggle="modal"
                         data-target="#signUpModal">Đăng ký</a>
                 </li>
             </ul>
