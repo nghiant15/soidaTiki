@@ -384,7 +384,9 @@ public function AddClickZalo (Request $request)
          $historyId = $this->getHistoryId();
         if($historyId)
         {
-
+        
+    
+       
         $connectionType = $request->input('connectionType',"");
     
         $dataUpdate = [
@@ -406,7 +408,12 @@ public function AddClickZalo (Request $request)
  public function addClickZalo2 (Request $request) 
 {
          $historyId = $this->getHistoryId();
+         
          $connectionType = $request->input('connectionType',"");
+         if($connectionType =="minisize")
+         {
+
+         }
     
          $dataUpdate = [
             "location" => $this->get_ip(),

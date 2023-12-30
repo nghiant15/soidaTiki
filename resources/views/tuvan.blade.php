@@ -1,10 +1,17 @@
 
 <style>
     /* bannerTuVan.jpg */
+    .form1{
+       
+    }
     .tuvanform1 {
-        background-image: url("/bannerTuVan.png");
-        background-size: cover;
+     
         border-radius: 25px;
+
+        width: 380px !important;
+        background-image: url("/bannerTuVan.png");
+        background-position: center;
+    background-size: 100% 100%;
 
     }
 
@@ -19,19 +26,28 @@
     }
     .body-tu-van {
 
-        margin-top: 100px;
+        margin-top: 50px;
     }
    
-    .title_nav-tuvan  h4 {
-    font-size: 22px !important;
-    color: red;
-    font-weight: bolder !important;
+    .title_nav-tuvan  
+
+    {
+       
+   }
+   .title_nav-tuvan p {
+    font-size: 30.9px;
+    color:  rgb(252, 22, 35);
+
+
+    -webkit-text-stroke: 1.1px  rgb(252, 22, 35);
+    font-weight: bold;
    }
    .bottom-button {
-    width: 80%;
+    width: 100%;
     text-align: center;
     font-size: 13px;
     margin: auto;
+    margin-top: 10px;
     margin-bottom: 10px;
    }
    .bottom-button a:hover {
@@ -57,18 +73,69 @@
      margin: auto;
    }
    .des-introduction{
-    font-size: 22px !important;
-    color: black;
     text-align: center;
-    margin-bottom: 14px;
+    color:  rgb(2, 52, 157);
+    -webkit-text-stroke: 0.01px  rgb(241, 163, 173);
+    font-size: 18px;
+    font-weight: bold;
     margin-bottom: 10px;
-    font-weight: bolder !important;
+   }
+   .des-title{
+    text-align: center;
+    color:  rgb(2, 52, 157);
+    -webkit-text-stroke: 0.6px   rgb(2, 52, 157);
+    font-size:27px;
+    font-weight: bold;
+    
+   }
+   .des-price{
+    text-align: center;
+    color:  rgb(247, 27, 41);
+    font-size:27px;
+    font-weight: bold;
+    -webkit-text-stroke: 0.4px   rgb(247, 27, 41);
+    margin-bottom: 30px;
+   }
+   .des-register{
+    margin: ạuto;
+
+    text-align: center;
+    color:  rgb(250,251,254);
+    font-size:25px;
+    font-weight: bold;
+   }
+   .des-register a {
+    width: max-content;
+    background-color:  rgb(252, 0, 22);
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-text-stroke: 0.5px  rgb(250,251,254);
+    margin: auto;
+
+   }
+   .des-register a {
+    width: max-content;
+    background-color:  rgb(252, 0, 22);
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-text-stroke: 0.5px  rgb(250,251,254);
+    margin: auto;
+
+
+   }
+   .des-register a:hover {
+    text-decoration: none;
+    color:  rgb(250,251,254 )!important;
+    opacity: 0.7;
+
    }
 </style>
 <div class="status-modal-account tuvanform " >
     
-    <div class="modal-information ">
-        <div class="form-information-user tuvanform1"  id="formTuVan">
+    <div class="modal-information form1 ">
+        <div class="form-information-user tuvanform1" id="formTuVan" style="
+        padding: 8px !important;
+    ">
             <div class="status-loader-22">
                 <div class="border-loading-spin">
                     <svg class="loading-spin" viewBox="0 0 100 100">
@@ -92,14 +159,24 @@
             <div class="status__isLogin body-tu-van">
                 <div class="">
                     <div class="title_nav-tuvan">
-                        <h4>Đăng ký </h4>
-                        <h4>Tư vấn chăm sóc da Online </h4>
+                        <p>Đăng ký </p>
+                        <p>Nhận Miễn Phí Minisize Xịn</p>
                    </div>
                   
                     <div class ="des-introduction">
-                            Cùng các chuyên gia Da Liễu
+                            Số lượng có hạn, đăng ký khi bạn thật cần nhé!
+                            (Không gồm ship & đóng gói)
                     </div>
+                    <div class ="des-title">
+                       La Roche-Posay Effaclar (50ml)
+                     </div>
+                     <div class ="des-price">
+                        Giá niêm yết 210.000 đ
+                      </div>
 
+                     <div class="des-register">
+                          <a onclick ="openRegister('minisize')"> Đăng ký nhận miễn  Minisize xịn</a>
+                    </div>
                    <div class ="bottom-button">
                         <a class ="zalobac" onclick="OpenAction('zalo')" >
                              <img src = "/zaloClick.jpg">  
@@ -108,13 +185,7 @@
                         
                     </div>
 
-                    <div class ="bottom-button">
-                        <a onclick="OpenAction('messenger')">
-                             <img src = "/messengerClick.png">  
-                             <span> Tư vấn chăm sóc da Messenger </span>   
-                        </a>
-                        
-                    </div>
+                   
 
                    
                 </div>

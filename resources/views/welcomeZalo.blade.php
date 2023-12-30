@@ -275,7 +275,11 @@
                      </div>       
             @else 
                 <div id="tips" class="ai-skin__tips" style="display:none">
+                 
                     <div class="ai-skin__tips__content">
+                        <div onclick="hideTips()"  class ="iconClose">
+                           <img src="/iconClose.png">
+                        </div>
                         <span class="ai-skin__tips__content-header">
                             Ứng dụng sẽ chụp gương mặt của bạn. Sau đây là một số
                             hướng dẫn để có những bức ảnh chuẩn xác nhất
@@ -289,7 +293,7 @@
                             </li>
                         </ol>
                         <div class="ai-skin__button ai-skin__tips__button">
-                            <button type="button" onclick="hideTips()">TÔI ĐÃ HIỂU</button>
+                            <button type="button" onclick="hideTips()">ĐÃ HIỂU</button>
                         </div>
                     </div>
                 </div>
@@ -414,15 +418,15 @@
        
         </script>
         <script>
-            setTimeout(() => {
-                    document.getElementById("cammeraButton").style.display ="grid";
+            // setTimeout(() => {
+            //         document.getElementById("cammeraButton").style.display ="grid";
                 
 
                     
 
 
                     
-                }, 2500);
+            //     }, 2500);
               function hideTips() {
                 var tips = document.getElementById("tips");
                 tips.style.display = "none";
@@ -458,6 +462,48 @@
                         }, 1000);
                         
                 };
+            }
+
+            function hideTips3() {
+               
+                var audio = document.createElement("AUDIO")
+                document.body.appendChild(audio);
+                audio.src = "/hdsd.m4a";
+                audio.autoplay  = true;
+                audio.muted = true;
+                audio.muted = false;
+                audio.play();
+              
+                
+               
+                audio.onended = function() {
+                          return;
+                        setTimeout(() => {
+                            var audio1     = document.createElement("AUDIO")
+                            document.body.appendChild(audio1);
+                            audio1.src = "/whileSkin.m4a";
+                            audio1.autoplay  = true;
+                            audio1.muted = true;
+                            audio1.muted = false;
+                            audio1.play(); 
+                        }, 1000);
+                        
+                };
+            }
+
+            function hideTips2() {
+                var tips = document.getElementById("tips");
+                tips.style.display = "none";
+                setTimeout(() => {
+                    document.getElementById("cammeraButton").style.display ="grid";
+                    document.getElementById("socialBLock").style.display = "block";
+
+                    
+
+
+                    
+                }, 500);
+               
             }
         </script>
         <script>

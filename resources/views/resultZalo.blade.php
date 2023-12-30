@@ -1443,6 +1443,8 @@
               
                 }, 300);
 
+
+
                 sessionStorage.setItem("showRecomend",false);
 
             }
@@ -1502,6 +1504,11 @@ setTimeout(() => {
     readTextConclude();
    
 }, 3000);
+
+setTimeout(() => {  
+    document.getElementById("fromResiger").style.display ="block";
+   
+}, 5000);
 
 function myTimer() {
 
@@ -1586,13 +1593,14 @@ function ShowZalo() {
 var timeGet = new Date().getTime();
 function OpenAction ( connectionType)
 {   
+
     addContionType(connectionType);
   setTimeout(() => {
     if(zaloLink =="")
     {
         zaloLink =  "http://zalo.me/769304971095062899?src=qr";
     }
-    if(messengerLink =="")
+     if(messengerLink =="")
     {
         messengerLink =  "https://m.me/106007668343244?ref=mess";
     }
@@ -1600,16 +1608,29 @@ function OpenAction ( connectionType)
     {
         window.open(messengerLink,'_blank');
     }
-    else 
+    else  if (connectionType =="zalo" )
     {
+        
         window.open(zaloLink,'_blank');
         
     }
+    else 
+    return;
     
   }, 1000);
 
 }
 
+
+function openRegister ( connectionType ="minisize")
+{   
+
+   addContionType(connectionType);
+   zaloLink =  "https://forms.gle/HqF7udLueiYcvJvz7";
+   changeFormTuvan();
+   window.open(zaloLink,'_self');
+   return;
+}
 
 setTimeout(() => {
     $(".tuvanform").show();
@@ -1643,6 +1664,11 @@ setTimeout(() => {
 </div>
 
 
+<div class ="imagebackground" id ="fromResiger" >
+    <a  onclick ="openRegister()" >
+    <img src ="/minisize.png">
+    </a>
+</div>
 <style>
 
 .actionToolbar_mobile.toolbar_style_2 {
