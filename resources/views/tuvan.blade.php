@@ -35,11 +35,11 @@
        
    }
    .title_nav-tuvan p {
-    font-size: 30.9px;
+    font-size: 29.9px;
     color:  rgb(252, 22, 35);
 
 
-    -webkit-text-stroke: 1.1px  rgb(252, 22, 35);
+    -webkit-text-stroke: 0.7px  rgb(252, 22, 35);
     font-weight: bold;
    }
    .bottom-button {
@@ -94,28 +94,28 @@
     font-size:27px;
     font-weight: bold;
     -webkit-text-stroke: 0.4px   rgb(247, 27, 41);
-    margin-bottom: 30px;
+    margin-bottom: 15px;
    }
    .des-register{
     margin: ạuto;
-
+    background-color:  rgb(252, 0, 22);
+    border-radius: 10px;
+    width: 100%;
     text-align: center;
     color:  rgb(250,251,254);
-    font-size:25px;
+    font-size:24px;
     font-weight: bold;
    }
    .des-register a {
     width: max-content;
-    background-color:  rgb(252, 0, 22);
-    padding-left: 10px;
-    padding-right: 10px;
-    -webkit-text-stroke: 0.5px  rgb(250,251,254);
+   
+    -webkit-text-stroke: 0.2px  rgb(250,251,254);
     margin: auto;
 
    }
    .des-register a {
     width: max-content;
-    background-color:  rgb(252, 0, 22);
+   
     padding-left: 10px;
     padding-right: 10px;
     -webkit-text-stroke: 0.5px  rgb(250,251,254);
@@ -177,13 +177,13 @@
                      <div class="des-register">
                           <a onclick ="openRegister('minisize')"> Đăng ký nhận miễn  Minisize xịn</a>
                     </div>
-                   <div class ="bottom-button">
+                   {{-- <div class ="bottom-button">
                         <a class ="zalobac" onclick="OpenAction('zalo')" >
                              <img src = "/zaloClick.jpg">  
                              <span> Tư vấn chăm sóc da Zalo </span>   
                         </a>
                         
-                    </div>
+                    </div> --}}
 
                    
 

@@ -400,15 +400,15 @@
 
 
         <script>
-              setTimeout(() => {
+            //   setTimeout(() => {
                   
-                    document.getElementById("socialBLock").style.display = "block";
+            //         document.getElementById("socialBLock").style.display = "block";
 
                     
 
 
                     
-                }, 1000);
+            //     }, 1000);
             window.scrollTo({
                 top: 0,
                 behavior: "smooth",
@@ -432,7 +432,7 @@
                 tips.style.display = "none";
                 setTimeout(() => {
                     document.getElementById("cammeraButton").style.display ="grid";
-                    document.getElementById("socialBLock").style.display = "block";
+                    // document.getElementById("socialBLock").style.display = "block";
 
                     
 
@@ -496,7 +496,7 @@
                 tips.style.display = "none";
                 setTimeout(() => {
                     document.getElementById("cammeraButton").style.display ="grid";
-                    document.getElementById("socialBLock").style.display = "block";
+                    // document.getElementById("socialBLock").style.display = "block";
 
                     
 
@@ -1572,12 +1572,22 @@ function OpenAction ( connectionType)
 
 }
 
+
+setTimeout(() => {  
+    document.getElementById("fromResiger").style.display ="block";
+   
+}, 1000);
 </script>
 
 
+<div class ="imagebackground2" id ="fromResiger" style ="display:none" >
+    <a  onclick ="openRegister()" >
+    <img src ="/minisize.png">
+    </a>
+</div>
 
-<div id ="socialBLock" class="actionToolbar_mobile toolbar_style_2  " style="
-    display: none;
+<div id ="socialBLock" class="actionToolbar_mobile toolbar_style_2  " style="display:none
+
 ">
 	<div class=" container-pd">
 		<div class="toolbar-wrapper d-flex justify-content-around">
