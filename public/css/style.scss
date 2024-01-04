@@ -952,9 +952,26 @@ img {
     }
  }
 
- .imagebackground {
+ .imagebackground 
+ {
     position:fixed;
-    max-width: 600px;
+   width:100%;
+   text-align: center;
+   img {
+    width: 600px;
+   }
+    display:none;
+    bottom: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+ }
+ .imagebackground2 {
+    position:fixed;
+   width:100%;
+   text-align: center;
+   img {
+    width: 600px;
+   }
     display:none;
     bottom: 0;
     z-index: 1000;
@@ -1034,13 +1051,13 @@ img {
     
    }
    .des-price{
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
     color:  rgb(247, 27, 41);
     font-size:26px !important;
     font-weight: bold;
-    -webkit-text-stroke: 0.4px   rgb(247, 27, 41);
-    margin-bottom: 30px;
+    -webkit-text-stroke: 0.2px   rgb(247, 27, 41);
+    margin-bottom: 15px;
    }
    .des-register{
     margin: ạuto;
@@ -1049,21 +1066,18 @@ img {
     color:  rgb(250,251,254);
     font-size:22px !important;
     font-weight: bold;
+    margin-bottom: 30px;
    }
    .des-register a {
     width: max-content;
-    background-color:  rgb(252, 0, 22);
-    padding-left: 10px;
-    padding-right: 10px;
-    -webkit-text-stroke: 0.5px  rgb(250,251,254);
+   
+    -webkit-text-stroke: 0.1px  rgb(250,251,254);
     margin: auto;
 
    }
    .des-register a {
     width: max-content;
-    background-color:  rgb(252, 0, 22);
-    padding-left: 10px;
-    padding-right: 10px;
+  
     -webkit-text-stroke: 0.5px  rgb(250,251,254);
     margin: auto;
 

@@ -98,7 +98,7 @@ public function getDataInfo (Request $request)
         if($data->is_success)
         {
             $dataInfo = json_decode($data->data[0]->Value);
-            dd($dataInfo);
+        
         
             Cache::put('webinfo', $dataInfo->value);
             return $data;
@@ -1032,7 +1032,7 @@ public function getDataInfo (Request $request)
 
     public function recomendProduct (Request $request, $slug =null) 
     {
-        // dd($this->getCompanyId());
+    
         $companyId = $this->getCompanyId();
         $agent = new Agent();
         return view("recomendProduct", compact("slug", "companyId", "agent"));
