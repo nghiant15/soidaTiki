@@ -1090,7 +1090,7 @@ public function getDataInfo (Request $request)
             {
                 
                     $result  = $checkresult->data;
-                    dd($result);
+                
                     return view("historyPageDetail",compact("id","result", "slug","agent"));
 
             }
