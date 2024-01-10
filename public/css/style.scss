@@ -1000,11 +1000,11 @@ img {
        
    }
    .title_nav-tuvan p {
-    font-size: 25px !important;
+    font-size: 23px !important;
     
 
 
-    -webkit-text-stroke: 0.8px  rgb(252, 22, 35) !important;
+ 
     
    }
    .bottom-button {
@@ -1045,7 +1045,7 @@ img {
     text-align: center;
     color:  rgb(2, 52, 157);
     -webkit-text-stroke: 0.5px   rgb(2, 52, 157) !important;
-    font-size:25px !important;
+    font-size:22px !important;
     margin-top: 15px;
    
     
@@ -1054,31 +1054,32 @@ img {
     margin-top: 10px;
     text-align: center;
     color:  rgb(247, 27, 41);
-    font-size:26px !important;
+    font-size:22px !important;
     font-weight: bold;
     -webkit-text-stroke: 0.2px   rgb(247, 27, 41);
     margin-bottom: 15px;
    }
    .des-register{
-    margin: ạuto;
+    margin: auto;
+    margin-bottom: 20px;
 
     text-align: center;
     color:  rgb(250,251,254);
-    font-size:22px !important;
+    font-size:18px !important;
     font-weight: bold;
     margin-bottom: 30px;
    }
    .des-register a {
     width: max-content;
    
-    -webkit-text-stroke: 0.1px  rgb(250,251,254);
+   
     margin: auto;
 
    }
    .des-register a {
     width: max-content;
   
-    -webkit-text-stroke: 0.5px  rgb(250,251,254);
+    
     margin: auto;
 
 
@@ -1090,4 +1091,8 @@ img {
 
    }
   }
- 
+  .position-close3 {
+    position: absolute;
+    right: 28px;
+    top: 28px;
+}

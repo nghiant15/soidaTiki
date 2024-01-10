@@ -1486,6 +1486,11 @@
             {
 
             }
+
+            setTimeout(() => {
+    $(".tuvanform").show();
+              
+    }, 1000);
                 
         });
     </script>
@@ -1633,10 +1638,7 @@ function openRegister ( connectionType ="minisize")
    return;
 }
 
-setTimeout(() => {
-    $(".tuvanform").show();
-              
-    }, 5000);
+
 </script>
 
 

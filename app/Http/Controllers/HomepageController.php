@@ -9,7 +9,9 @@ use Jenssegers\Agent\Agent;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 use PhpParser\Node\Expr\FuncCall;
+
 use View;
+
 
 use Illuminate\Support\Facades\Cache;
 
@@ -1063,7 +1065,9 @@ public function getDataInfo (Request $request)
         if($id ==null)
         {
           return ;
+
         }
+        
         $slug = "";
         $checkacssSlugUrl ="https://api-soida.applamdep.com/api/get-detail-history-skin";
         $client = new Client();
@@ -1074,24 +1078,84 @@ public function getDataInfo (Request $request)
         ]);
         
      
+       
+  
         if($res->getStatusCode() ==200)
         {
             $checkresult = $res->getBody()->getContents();
 
-         
+            
             $checkresult = json_decode($checkresult);
-             if($checkresult->is_success)
+                if($checkresult->is_success)
             {
-                 $result  = $checkresult->data;
-                  return view("historyPageDetail",compact("id","result", "slug","agent"));
+                
+                    $result  = $checkresult->data;
+                    dd($result);
+                    return view("historyPageDetail",compact("id","result", "slug","agent"));
 
             }
-             return  "Không có dữ liệu";
-           
-         }
+                return  "Không có dữ liệu";
+            
+            }
+            else 
+            {
+            
+            }
         return view("historyPageDetail",compact("id","slug","agent"));
+
+       
+        
         
     }
+
+    public function historyDetailPage2 (Request $request , $id =null) 
+    {
+        $agent = new Agent();
+        if($id ==null)
+        {
+          return ;
+
+        }
+        
+        $slug = "";
+        $checkacssSlugUrl ="http://207.148.71.172:3006/api/get-detail-history-skin";
+        $client = new Client();
+        $res = $client->request('post', 'http://207.148.71.172:3006/api/get-detail-history-skin', [
+            'json' => [
+                 'id'=> $id
+              ]
+        ]);
+        
+     
+       
+  
+        if($res->getStatusCode() ==200)
+        {
+            $checkresult = $res->getBody()->getContents();
+
+            
+            $checkresult = json_decode($checkresult);
+                if($checkresult->is_success)
+            {
+                
+                    $result  = $checkresult->data;
+                    $result->Result = json_decode( $result->Result);
+
+                   
+                    return view("historyPageDetail",compact("id","result", "slug","agent"));
+
+            }
+                return  "Không có dữ liệu";
+            
+            }
+            else 
+            {
+            
+            }
+        return view("historyPageDetail",compact("id","slug","agent"));    
+        
+    }
+
 
     public function detailHistory(Request $request, $id)
     {

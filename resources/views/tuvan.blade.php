@@ -8,7 +8,7 @@
      
         border-radius: 25px;
 
-        width: 380px !important;
+        max-width: 380px !important;
         background-image: url("/bannerTuVan.png");
         background-position: center;
     background-size: 100% 100%;
@@ -35,11 +35,11 @@
        
    }
    .title_nav-tuvan p {
-    font-size: 29.9px;
+    font-size: 25px;
     color:  rgb(252, 22, 35);
 
 
-    -webkit-text-stroke: 0.7px  rgb(252, 22, 35);
+    -webkit-text-stroke: 0.05px  rgb(252, 22, 35);
     font-weight: bold;
    }
    .bottom-button {
@@ -84,42 +84,43 @@
     text-align: center;
     color:  rgb(2, 52, 157);
     -webkit-text-stroke: 0.6px   rgb(2, 52, 157);
-    font-size:27px;
-    font-weight: bold;
+    font-size:22px;
+    font-weight: 600;
+    margin-top: 35px;
     
    }
    .des-price{
     text-align: center;
-    color:  rgb(247, 27, 41);
-    font-size:27px;
-    font-weight: bold;
-    -webkit-text-stroke: 0.4px   rgb(247, 27, 41);
+    color: rgb(247, 27, 41);
+    font-size: 22px;
+    font-weight: 600;
+    -webkit-text-stroke: 0.05px rgb(247, 27, 41);
     margin-bottom: 15px;
+    margin-top: 15px;
    }
    .des-register{
     margin: ạuto;
-    background-color:  rgb(252, 0, 22);
+    margin-bottom: 20px;
+   
     border-radius: 10px;
     width: 100%;
     text-align: center;
     color:  rgb(250,251,254);
-    font-size:24px;
+    font-size:20px;
     font-weight: bold;
    }
    .des-register a {
     width: max-content;
-   
-    -webkit-text-stroke: 0.2px  rgb(250,251,254);
+    background-color:  rgb(252, 0, 22);
+    
     margin: auto;
-
+border-radius:30px;
    }
    .des-register a {
     width: max-content;
+    padding: 5px 14px;
    
-    padding-left: 10px;
-    padding-right: 10px;
-    -webkit-text-stroke: 0.5px  rgb(250,251,254);
-    margin: auto;
+ 
 
 
    }
@@ -143,7 +144,7 @@
                     </svg>
                 </div>
             </div>
-            <div class="position-close2" onclick="changeFormTuvan()">
+            <div class="position-close2 position-close3" onclick="changeFormTuvan()">
                 <svg viewBox="0 0 24 24" size="24" class="sc-11csm01-0 fivNSm">
                     <path
                         d="M14.8284 12L19.4142 16.5858C20.1953 17.3668 20.1953 18.6332 19.4142 19.4142
@@ -159,13 +160,11 @@
             <div class="status__isLogin body-tu-van">
                 <div class="">
                     <div class="title_nav-tuvan">
-                        <p>Đăng ký </p>
                         <p>Nhận Miễn Phí Minisize Xịn</p>
                    </div>
                   
                     <div class ="des-introduction">
-                            Số lượng có hạn, đăng ký khi bạn thật cần nhé!
-                            (Không gồm ship & đóng gói)
+                          Số lượng có hạn
                     </div>
                     <div class ="des-title">
                        La Roche-Posay Effaclar (50ml)
@@ -175,15 +174,9 @@
                       </div>
 
                      <div class="des-register">
-                          <a onclick ="openRegister('minisize')"> Đăng ký nhận miễn  Minisize xịn</a>
+                          <a onclick ="openRegister('minisize')"> Đăng ký</a>
                     </div>
-                   {{-- <div class ="bottom-button">
-                        <a class ="zalobac" onclick="OpenAction('zalo')" >
-                             <img src = "/zaloClick.jpg">  
-                             <span> Tư vấn chăm sóc da Zalo </span>   
-                        </a>
-                        
-                    </div> --}}
+                  
 
                    
 

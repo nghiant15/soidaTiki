@@ -1545,6 +1545,15 @@ function ShowZalo() {
 </script>
 
 <script>
+    function openRegister ( connectionType ="minisize")
+{   
+
+ 
+   zaloLink =  "https://forms.gle/HqF7udLueiYcvJvz7";
+   
+   window.open(zaloLink,'_self');
+ 
+}
     var timeGet = new Date().getTime();
 function OpenAction ( connectionType)
 {   
@@ -1727,3 +1736,4 @@ background-color: transparent;
  color: #ffffff;
 }
 </style>
+

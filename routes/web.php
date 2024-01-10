@@ -34,6 +34,7 @@ Route::get('api/evoucher/banner/getAll', 'EvoucherController@getbanner');
 
 
 Route::get('/xemchitietlichsu/{id}', 'HomepageController@historyDetailPage');
+Route::get('/xemchitietlichsu2/{id}', 'HomepageController@historyDetailPage2');
 Route::post('/typeLogin/setType', 'HistoryController@setType');
 
 Route::get('/{slug}/nhan-de-xuat-cham-soc-da', 'HomepageController@recomendProduct')->name('homePage');
