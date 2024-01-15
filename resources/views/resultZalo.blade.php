@@ -12,6 +12,8 @@
             $messengerLink ="https://m.me/106007668343244?ref=mess";
          }
 
+         $dataMinisize =  session('dataminisize', null);
+
        
 @endphp
 @extends('layoutZalo')
@@ -1632,7 +1634,7 @@ function openRegister ( connectionType ="minisize")
 {   
 
    addContionType(connectionType);
-   zaloLink =  "https://forms.gle/HqF7udLueiYcvJvz7";
+   zaloLink =  "{{$dataMinisize->linkRegister}}";
    changeFormTuvan();
    window.open(zaloLink,'_self');
    return;
@@ -1669,7 +1671,7 @@ function openRegister ( connectionType ="minisize")
 
 <div class ="imagebackground" id ="fromResiger" >
     <a  onclick ="openRegister()" >
-    <img src ="/minisize.png">
+        <img src ="{{$dataMinisize->minisize}}">
     </a>
 </div>
 <style>

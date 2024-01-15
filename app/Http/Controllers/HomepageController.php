@@ -27,8 +27,6 @@ class HomepageController extends Controller
 
     public function CheckUrl ($slug) 
     {
-
-     
         $checkacssSlugUrl ="https://api-soida.applamdep.com/api/check-access-slug";
         $client = new Client();
 
@@ -46,9 +44,7 @@ class HomepageController extends Controller
             if($checkresult->is_success)
             {
                 $result  = $checkresult->data;
-
-               
-                if($result == null)
+                 if($result == null)
                 {
                     return  false;
                 }
@@ -553,6 +549,33 @@ public function getDataInfo (Request $request)
       
          return null;
     }
+
+    private function getGameMinisize($companyId)
+    {
+
+        $url ="https://api-soida.applamdep.com/api/minisize/getInfoAdmin";
+        $client = new Client();
+      
+
+        $res = $client->request('get', $url, [
+            'query' => [
+                'company_id'=> $companyId
+              ]
+        ]);
+
+        if($res->getStatusCode() ==200)
+        {
+            $checkresult = $res->getBody()->getContents();
+            $checkresult = json_decode($checkresult);
+            $result = $checkresult->data;
+           
+            session(['dataminisize' =>$result]);
+             return $result;
+            
+         }
+      
+         return null;
+    }
     public function skinIndex (Request $request, $slug =null) 
     {
 
@@ -585,6 +608,12 @@ public function getDataInfo (Request $request)
 
 
         $dataGame = $this->getGameActive($dataCompanyId);
+
+      
+
+        $gameMinisize = $this->getGameMinisize($dataCompanyId);
+
+
         if( $dataGame != null)
         {
             $fromDate = Carbon::parse($dataGame->fromDate); 
@@ -604,22 +633,22 @@ public function getDataInfo (Request $request)
         
         }
       
-        if($slug == "bibabo")
-        {
-            $isTurnOfFooter = false;
-            $userName = $request['name'];
+        // if($slug == "bibabo")
+        // {
+        //     $isTurnOfFooter = false;
+        //     $userName = $request['name'];
 
-            $dataRequestInput =[
-                'username'=>  $userName,
-                'password'=> $userName,
-                'phoneNumber'=> $userName,
-                'slug' => $slug,
-                'company_id'=> "63fdd4abf2e4d61bd539962b",
-                'historyId' => $this->getHistoryId()
-            ];
-            $this->loginUser($dataRequestInput);
+        //     $dataRequestInput =[
+        //         'username'=>  $userName,
+        //         'password'=> $userName,
+        //         'phoneNumber'=> $userName,
+        //         'slug' => $slug,
+        //         'company_id'=> "63fdd4abf2e4d61bd539962b",
+        //         'historyId' => $this->getHistoryId()
+        //     ];
+        //     $this->loginUser($dataRequestInput);
            
-        }
+        // }
 
       
         if(!$isCheck)

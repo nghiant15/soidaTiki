@@ -1,10 +1,10 @@
 @php
     $dataSeo = "Soida liền tay";
     $dataLikn =  session('TuVanData', null);
-         $zaloLink =  $dataLikn->zaloLink;
-         $messengerLink = $dataLikn->messengerLink;
-    
-     
+
+    $dataMinisize =  session('dataminisize', null);
+    $zaloLink =  $dataLikn->zaloLink;
+    $messengerLink = $dataLikn->messengerLink;
     if (isset($globalData)) 
     {
         $dataSeo = $globalData->seoInfo;
@@ -1591,7 +1591,7 @@ setTimeout(() => {
 
 <div class ="imagebackground2" id ="fromResiger" style ="display:none" >
     <a  onclick ="openRegister()" >
-    <img src ="/minisize.png">
+    <img src ="{{$dataMinisize->minisize}}">
     </a>
 </div>
 

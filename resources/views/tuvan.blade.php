@@ -1,4 +1,7 @@
 
+@php
+     $dataMinisize =  session('dataminisize', null);
+@endphp
 <style>
     /* bannerTuVan.jpg */
     .form1{
@@ -9,7 +12,7 @@
         border-radius: 25px;
 
         max-width: 380px !important;
-        background-image: url("/bannerTuVan.png");
+        background-image: url("{{ $dataMinisize->imageLink }}");
         background-position: center;
     background-size: 100% 100%;
 
@@ -160,21 +163,21 @@ border-radius:30px;
             <div class="status__isLogin body-tu-van">
                 <div class="">
                     <div class="title_nav-tuvan">
-                        <p>Nhận Miễn Phí Minisize Xịn</p>
+                        <p>{{ $dataMinisize->title }}</p>
                    </div>
                   
                     <div class ="des-introduction">
-                          Số lượng có hạn
+                        {{ $dataMinisize->slch }}
                     </div>
                     <div class ="des-title">
-                       La Roche-Posay Effaclar (50ml)
+                        {{ $dataMinisize->titleProduct }}
                      </div>
                      <div class ="des-price">
-                        Giá niêm yết 210.000 đ
+                        {{ $dataMinisize->priceText }}
                       </div>
 
                      <div class="des-register">
-                          <a onclick ="openRegister('minisize')"> Đăng ký</a>
+                          <a onclick ="openRegister('minisize')"> {{ $dataMinisize->butonText }}</a>
                     </div>
                   
 
