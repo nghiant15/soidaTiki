@@ -1583,8 +1583,8 @@ function OpenAction ( connectionType)
 
 
 setTimeout(() => {  
-    document.getElementById("fromResiger").style.display ="block";
-   
+     document.getElementById("fromResiger").style.display ="block";
+    //document.getElementById("socialBLock").style.display = "block";   
 }, 1000);
 </script>
 

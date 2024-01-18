@@ -685,12 +685,20 @@ public function getDataInfo (Request $request)
        
         }
 
-        
+        if($slug =="demo" || $slug =="soida")
+        {
+            return view("welcomeZalo", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
+        }
+        else 
+        {
+            
+            return view("welcomeNormal", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
+        }
 
         
         if($slug !="")
         {
-            return view("welcomeZalo", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
+           
         }
       
         return view("welcome", compact("slug","agent","isTurnOfFooter","gameJoinTo", "turnOnGame"));
@@ -904,12 +912,23 @@ public function getDataInfo (Request $request)
        
         if($slug !="")
         {
-              return view("resultZalo", compact("slug", 
-              
-             "ageGame","ageGameReal","gameType","gameJoinType1",
-              "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
+          
         }
-
+        
+        if($slug =="demo" || $slug =="soida")
+        {
+            return view("resultZalo", compact("slug", 
+             "ageGame","ageGameReal","gameType","gameJoinType1",
+             "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
+        }
+        else 
+        {
+            
+            return view("resultZalo", compact("slug", 
+              
+            "ageGame","ageGameReal","gameType","gameJoinType1",
+             "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
+        }
 
      
 

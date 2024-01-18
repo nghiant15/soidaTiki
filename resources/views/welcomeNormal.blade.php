@@ -1,6 +1,10 @@
 @php
     $dataSeo = "Soida liền tay";
+    $dataLikn =  session('TuVanData', null);
 
+    $dataMinisize =  session('dataminisize', null);
+    $zaloLink =  $dataLikn->zaloLink;
+    $messengerLink = $dataLikn->messengerLink;
     if (isset($globalData)) 
     {
         $dataSeo = $globalData->seoInfo;
@@ -31,9 +35,7 @@
   
     $dataSeo->description ="Soi Da Online .Ngay tại nhà, Kiểm tra, tuổi da & hơn 40 thông số về da khác. Một lần quét, nói với bạn mọi điều .#soidaonline";
 @endphp
-@extends('layoutBookingZalo')
-
-
+@extends('layoutZalo')
 
 @section('header')
     <meta charset="UTF-8">
@@ -80,20 +82,50 @@
    
 @endsection
 @section('contentpage')
+
+<a  id ="messenger" style ="display:none"  href="https://m.me/106007668343244?ref=mess" target="_blank"><div style="position:fixed;bottom:170px;right:30px; z-index:1000" class="messenger"><noscript>
+    <img style="height:58px;" src="/tikiFacebook.png"/></noscript>
+    <img class=" lazyloaded" style="height:58px;" src="/tikiFacebook.png" data-src="/tikiFacebook.png"></div>
+</a>
+
+<a  id ="zaloMessage" style ="display:none"  href="http://zalo.me/769304971095062899?src=qr" target="_blank"><div style="position:fixed;bottom:70px;right:30px; z-index:1000" class="messenger"><noscript>
+    <img style="height:58px;" src="/zalo96.png"/></noscript>
+    <img class=" lazyloaded" style="height:58px;" src="/zalo96.png" data-src="/zalo96.png"></div>
+</a>
+
+<style>
+.call-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 165px;
+    background: #37c837;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+    z-index: 99;
+    transition: all .3s;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 3px 10px 0px 38px;
+    font-size: 18px;
+    line-height: 25px;
+}
+.call-btn img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 5px 7px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 5px 0 0 5px;
+    animation: blinking 1s ease-in-out infinite;
+}	
+	
+</style>
+
     <script>
         var slugGlobal = {!! json_encode($slug) !!};
-        var companyIdData = {!! json_encode($globalColor) !!};
-        var slugBookInput = {!! json_encode($slugBook) !!};
-        
     </script>
-    @php
-      
-    @endphp
-
-    
-
-        
-        <div id="b-placeholder" style ="display:none">
+    <div id="b-placeholder">
 
 
         <div class="ai-skin__container">
@@ -243,7 +275,11 @@
                      </div>       
             @else 
                 <div id="tips" class="ai-skin__tips" style="display:none">
+                 
                     <div class="ai-skin__tips__content">
+                        <div onclick="hideTips()"  class ="iconClose">
+                           <img src="/iconClose.png">
+                        </div>
                         <span class="ai-skin__tips__content-header">
                             Ứng dụng sẽ chụp gương mặt của bạn. Sau đây là một số
                             hướng dẫn để có những bức ảnh chuẩn xác nhất
@@ -257,7 +293,7 @@
                             </li>
                         </ol>
                         <div class="ai-skin__button ai-skin__tips__button">
-                            <button type="button" onclick="hideTips()">TÔI ĐÃ HIỂU</button>
+                            <button type="button" onclick="hideTips()">ĐÃ HIỂU</button>
                         </div>
                     </div>
                 </div>
@@ -292,14 +328,20 @@
             {{-- </div> --}}
 
 
-            <div class="nav-menu">
+            <div class="nav-menu" id ="cammeraButton"  style ="display:none">
 
 
-                <div class="uploadButton cameraNow">
+                <div class="uploadButton cameraNow" >
 
-                    <div class="nav-avatar nav-avatar__camera" onclick="haldleOpenCamera()">
+                    <div class="nav-avatar nav-avatar__camera" onclick="haldleOpenCamera()" style="
+                    background-color: red;
+                ">
                         
-                        <svg class="nav-menu-svg nav-svg-camera" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="52px" height="52px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
+                        <svg class="nav-menu-svg nav-svg-camera" xmlns="http://www.w3.org/2000/svg" 
+                        style="
+    background-color: red;
+"
+                        x="0px" y="0px" width="52px" height="52px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
                             <g>
                                 <path d="M26,20c-4.4,0-8,3.6-8,8s3.6,8,8,8s8-3.6,8-8S30.4,20,26,20z"></path>
                                 <path d="M46,14h-5.2c-1.4,0-2.6-0.7-3.4-1.8l-2.3-3.5C34.4,7,32.7,6,30.9,6h-9.8c-1.8,0-3.5,1-4.3,2.7l-2.3,3.5   c-0.7,1.1-2,1.8-3.4,1.8H6c-2.2,0-4,1.8-4,4v24c0,2.2,1.8,4,4,4h40c2.2,0,4-1.8,4-4V18C50,15.8,48.2,14,46,14z M26,40   c-6.6,0-12-5.4-12-12s5.4-12,12-12s12,5.4,12,12S32.6,40,26,40z"></path>
@@ -309,7 +351,7 @@
 
                     </div>
                     <div class="text">
-                                                <a href="javascript:void(0)" onclick="haldleOpenCamera()">Chụp ảnh ngay
+                                                <a href="javascript:void(0)" onclick="haldleOpenCamera()">Soi da ngay
                         </a>
                                             </div>
                 </div>
@@ -333,17 +375,13 @@
 
         </div>
 
+
+       
+
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        <script type="text/javascript" src="/js/pdfobject.min.js"></script>
 
-        
 
-        <script type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.111/pdf.min.js"></script>
-       
-        <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-        <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
         </script>
@@ -362,21 +400,45 @@
 
 
         <script>
+            //   setTimeout(() => {
+                  
+            //         document.getElementById("socialBLock").style.display = "block";
+
+                    
+
+
+                    
+            //     }, 1000);
             window.scrollTo({
                 top: 0,
                 behavior: "smooth",
             });
-            var adobeDCView = null;
+            
         
        
         </script>
         <script>
+            // setTimeout(() => {
+            //         document.getElementById("cammeraButton").style.display ="grid";
+                
+
+                    
 
 
+                    
+            //     }, 2500);
               function hideTips() {
                 var tips = document.getElementById("tips");
                 tips.style.display = "none";
-                
+                setTimeout(() => {
+                    document.getElementById("cammeraButton").style.display ="grid";
+                    // document.getElementById("socialBLock").style.display = "block";
+
+                    
+
+
+                    
+                }, 500);
                 var audio = document.createElement("AUDIO")
                 document.body.appendChild(audio);
                 audio.src = "/hdsd.m4a";
@@ -384,8 +446,11 @@
                 audio.muted = true;
                 audio.muted = false;
                 audio.play();
+              
                 
+               
                 audio.onended = function() {
+                          return;
                         setTimeout(() => {
                             var audio1     = document.createElement("AUDIO")
                             document.body.appendChild(audio1);
@@ -398,8 +463,52 @@
                         
                 };
             }
+
+            function hideTips3() {
+               
+                var audio = document.createElement("AUDIO")
+                document.body.appendChild(audio);
+                audio.src = "/hdsd.m4a";
+                audio.autoplay  = true;
+                audio.muted = true;
+                audio.muted = false;
+                audio.play();
+              
+                
+               
+                audio.onended = function() {
+                          return;
+                        setTimeout(() => {
+                            var audio1     = document.createElement("AUDIO")
+                            document.body.appendChild(audio1);
+                            audio1.src = "/whileSkin.m4a";
+                            audio1.autoplay  = true;
+                            audio1.muted = true;
+                            audio1.muted = false;
+                            audio1.play(); 
+                        }, 1000);
+                        
+                };
+            }
+
+            function hideTips2() {
+                var tips = document.getElementById("tips");
+                tips.style.display = "none";
+                setTimeout(() => {
+                    document.getElementById("cammeraButton").style.display ="grid";
+                    // document.getElementById("socialBLock").style.display = "block";
+
+                    
+
+
+                    
+                }, 500);
+               
+            }
         </script>
         <script>
+               var zaloLink = '{!! $zaloLink !!}';
+            var messengerLink = '{!! $messengerLink !!}';
             var skinModule = (function() {
                 var width = 300; // We will scale the video width to this
                 var height = 0; // This will be computed based on the input stream
@@ -560,32 +669,10 @@
                                 
 
                                  
-
-                                // Store response before navigating to result page.
-
-                                // var typeLevel = JSON.parse(secondResponse.responseText);
-                                // drawProduction(typeLevel.data.facedata.hintResult);
-                                // saveHistory(encodedData);
                                 sessionStorage.setItem("_t", JSON.stringify(secondResponse.data));
                              
                                 saveHistory(true, secondResponse.data.data);
-                                // disabledUpload = false;
-                                // console.log(secondResponse);
-
-
-                                // ToggleAlert(true,"Soi da thành công",true);
-
-                                // setTimeout(()=>{
-
-                                // ToggleAlert(false,"",false);
-
-                                // },1500)                         
-                                // sessionStorage.setItem("_t", JSON.stringify(secondResponse.data.data));
-                                // document.querySelector(".animation_photo").style.display = "none";
-                                // document.querySelector(".bg_upload_photo").style.display = "none";
-
-
-                                // await saveHistory(true, secondResponse.data.data);     
+                                
                             } else {
 
                                 $(".nav-menu").show();
@@ -1393,6 +1480,9 @@
             }, 1000);
      
         }
+
+       
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
@@ -1407,319 +1497,239 @@
     <div id="eJOY__extension_root" class="eJOY__extension_root_class" style="all: unset;"></div><iframe
         id="nr-ext-rsicon"
         style="position: absolute; display: none; width: 50px; height: 50px; z-index: 2147483647; border-style: none; background: transparent;"></iframe>
+@endsection
 
-
-<div class ="bookdisplay" style = "display:none" >
-
-    
- <div class ="booknav"> 
-     <ul class="nav ">
-            <li class="nav-item">
-                
-                    <a class="nav-link"  onclick="getData(0)"  aria-current="page" href="javascript:void(0)">Sách tiếng anh</a>
-            </li>
-            <li class="nav-item">
-                  <a class="nav-link" onclick="getData(1)" href="javascript:void(0)">Sách nuôi day con</a>
-            </li>
-            <li class="nav-item">
-                  <a class="nav-link" onclick="getData(2)" href="javascript:void(0)">Tạp chí thời trang</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" onclick="getData(3)"   href="javascript:void(0)">Tiểu thuyết & sách nói</a>
-            </li>
-        
-      </ul>
-      
-
- </div>
-
- {{-- <div class="search-box" >
-    <div class="input-group">
-        <input type="search" class="form-control rounded" placeholder="Tìm kiếm bằng tên sách" aria-label="Search" aria-describedby="search-addon" />
-        <button type="button" class="btn btn-outline-primary">Tìm kiếm</button>
-      </div>
-
- </div> --}}
-      <div class="databook" id = "dataBook0">
-    
-</div>
-
-
-
-
-
-{{-- <div class="pagination">
-  <a href="#">&laquo;</a>
-  <a href="#">1</a>
-  <a href="#" class="active">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a href="#">&raquo;</a>
-</div> --}}
-</div>
-
-<!-- <div class ="viewpdf">
-    <a class ="btnBack" onclick="backToHomePage()" style ="color: var(--main_color) !important;background-color: transparent;font-weight: bolder;text-decoration: underline !important;"> 
-        Danh mục sách
-    </a>
-
-    
-</div> -->
-
-<div class ="viewpdf">
+@if (1==2)
    
-    <div class="display-title">
-           <p class="title" id ="titleid">KHÔNG CÓ GÌ CHẾT ĐI BAO GIỜ </p>
-           <p class="title1" id ="title1id" >Việt nam và ký ức chiến tranh </p>
-           <p class="author" id ="authorid">   NGUYỄN THANH VIỆT</p>
-     </div>
-     <div>
-     <div id="pdfviewer"></div>
 
-     <!-- <embed src=" http://localhost:8000/Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"> -->
-     <!-- <img src=" http://localhost:8000/Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf"> -->
-     <!-- <iframe src="https://docs.google.com/viewer?url= http://localhost:8000/233.pdf&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe> -->
+        @if ($agent->isMobile() )
+        <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
+            <div class="container text-center">
+                
+                <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
+                    <a href= "javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/phoneNew2.png"> </a></p>
+            </div>
+        </div>
+        @else
+        <div class="bg-light" style="position: fixed;bottom: 0;width: 100%;z-index: 100;">
+            <div class="container text-center">
+                
+                <p style ="color:#ffffff !important; font-weight: bold !important;" class="text-muted mb-0 py-2">
+                    <a href="javascript:void(0)"  onclick="openFormRegister()" ><img style= "height: 50px" src ="/desktopNew2.png"> </a></p>
+            </div>
+        </div>
+        @endif
 
-     <!-- <embed src=" http://localhost:8000/Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf" width="800" height="500" type='application/pdf'> -->
-    <!-- <iframe  id = "pdfviewer1" src="https://drive.internxt.com/sh/file/ed6ea51ce11f92774440/ad860036384e7dc66cb17046b8876551ccdd2bcf3a13b82be2ab5edb2c5ae1f6" style="width:100%; height:100%;"   -->
-    <!-- toolbar=0
-    frameborder="0"></iframe>  -->
 
-</div>
-
-
-      @endsection
+@endif
 
 
 <script>
-
 
 function openFormRegister() {
     ToggleDisplayFormFollow('.status-modal-follow',true);
     
 }
 
-function skinSoida() {
-
-$(".bookdisplay").hide();
-$(".bg-smoke").hide();
-$(".viewpdf").hide();
-$(".bg-smoke").hide();
-$("#b-placeholder").show();
-hideTips();
-$(".bg-light").hide();
-haldleOpenCamera();
 
 
+const timeoutDisplayMessage = setTimeout(ShowZalo, 5000);
 
-}
-function openBook(itembook)
-{  
+function ShowZalo() {
     
-   
-    var linkhref = itembook.linkFiePdf;
-    sessionStorage.setItem("linkhref", linkhref);
-
-        var titleTemp=  itembook.title;
-        var title1Temp=  itembook.title2;
-        var authorTemp=  itembook.author;
-
-        if(titleTemp != "")
-        {
-            $("#titleid").text(titleTemp);
-        }
-        else 
-        {
-            $("#titleid").hide();
-        }
-
-        if(title1Temp != "")
-        {
-            $("#title1id").text(title1Temp);
-        }
-        else 
-        {
-            $("#title1id").hide();
-        }
-
-        if(authorTemp != "")
-        {
-            $("#authorid").text(authorTemp);
-        }
-        else 
-        {
-            $("#authorid").hide();
-        }
-       $(".bookdisplay").hide();
-     
-        $(".bg-smoke").hide();
-
-        if(adobeDCView)
-        {
-                adobeDCView.previewFile(
-                {
-                content:  {location: {url: linkhref}},
-                metaData: {fileName: itembook.title}
-                });
-        }
-        
-            setTimeout(() => {
-                $(".viewpdf").show();
-                $(".bg-smoke").show();
-                $(".bg-light").show();
-                
-            }, 2000);
+    return;
+    document.getElementById("messenger").style.display = "block";
+  document.getElementById("zaloMessage").style.display = "block";
 }
 
+</script>
 
-function backToHomePage()
-{      $(".viewpdf").hide();
-        $(".bg-light").hide();
-        $(".bg-smoke").hide();
-   
-            setTimeout(() => {
-                
-            $(".bookdisplay").show();
-            $(".bg-smoke").show();
+<script>
+    function openRegister ( connectionType ="minisize")
+{   
 
-        
-                
-            }, 500);
-
-}
-
-
-function getBySlug(sluginput) 
-{
-   
-    $.ajax({
-                type: "GET",
-                url: "https://api-soida.applamdep.com/api/book/getbySlug?slug=" + sluginput,
-                
-                contentType: "application/json",
-                dataType: "json",
-                complete: function(data) {
-                    if(data.responseJSON.status == 200)
-                    {
-                            var temp = data.responseJSON;
-                            var tiem = temp.data;
-                            openBook(tiem);
-                            setTimeout(() => {
-                            getAllBook(0, false);
-
-                            }, 1000);
-                    }
-                    else 
-                    {
-                        getAllBook();
-                    }
-                   
  
-                },
-            });
-
-}
-function getAllBook(type =0, turnon = true) 
-{
-    $.ajax({
-                type: "GET",
-                url: "https://api-soida.applamdep.com/api/book/fe/getAll",
-                data:{
-                 
-                    Type: type
-                },
-                contentType: "application/json",
-                dataType: "json",
-                complete: function(data) {
-                    $("#dataBook0").empty();
-
-                    if(turnon ==false)
-                    {
-                        Swal.fire({
-                    title: 'Đang lấy dữ liệu...',
-                    html: 'Vui lòng chờ...',
-                    allowEscapeKey: false,
-                    allowOutsideClick: false,
-                    didOpen: () => {
-                    Swal.showLoading()
-                    }
-                    });
-                    }
-
-                          
-                
-                    var dataDraw = data.responseJSON.data;
-                    for (let i = 0; i < dataDraw.length; i++) {
-                         let itemBook = dataDraw[i];
-                         var imagecover =  itemBook.linkCover;
-                         var  title = itemBook.title;
-                         var linkFile = itemBook.linkFiePdf;
-                         var stringifiedObj = JSON.stringify(itemBook);
-                         let div1 =  document.createElement('DIV');
-                         div1.className = "book-item";
-                         div1.innerHTML = ' <img src ="'+imagecover+'"/>   <p>'+title+' </p>';
-                         div1.onclick = 
-
-                         div1.addEventListener( 'click', function(event){
-                           
-                            doSomething(event,itemBook);
-                        }, false );
-
-                        function doSomething(event, greeting) {
-                             openBook(greeting);
-                        
-                        }
-                         $("#dataBook0").append(div1);
-                    }
-                    setTimeout(() => {
-                        swal.close();
-                        
-                    }, 1000);
-                
-
-                },
-            });
-
-}
-
-var typeInput= 0;
-function getData(type)
-{
-    if(typeInput != type)
-    {
-        typeInput = type;
-        getAllBook(type);
-
-        
-    }
-  
-}
-window.addEventListener('load', function () {
+   zaloLink =  "https://forms.gle/HqF7udLueiYcvJvz7";
    
-
-
-    if( slugBookInput != "khosach")
+   window.open(zaloLink,'_self');
+ 
+}
+    var timeGet = new Date().getTime();
+function OpenAction ( connectionType)
+{   
+    addClickZalo2(connectionType);
+  setTimeout(() => {
+    if(zaloLink =="")
     {
-
-       
-        getBySlug(slugBookInput);
-      
-
-       
+        zaloLink =  "http://zalo.me/769304971095062899?src=qr";
+    }
+    if(messengerLink =="")
+    {
+        messengerLink =  "https://m.me/106007668343244?ref=mess";
+    }
+    if(connectionType =="messenger")
+    {
+        window.open(messengerLink,'_blank');
     }
     else 
     {
-        getAllBook(0);
+        window.open(zaloLink,'_blank');
+        
     }
-   
-})
+    
+  }, 1000);
 
-document.addEventListener("adobe_dc_view_sdk.ready", function()
-   {
-      adobeDCView = new AdobeDC.View({clientId: "f2ca61bb930e452f94e2a43f779e5261", divId: "pdfviewer"});
-     
-   });
+}
+
+
+setTimeout(() => {  
+  
+    document.getElementById("socialBLock").style.display = "block";   
+}, 1000);
 </script>
+
+
+
+
+<div id ="socialBLock" class="actionToolbar_mobile toolbar_style_2  " style="display:none
+
+">
+	<div class=" container-pd">
+		<div class="toolbar-wrapper d-flex justify-content-around">
+			<div class="toolbar-item toolbar-item-zalo">
+				<a class="toolbar-item--boxlink cta-chatzalo" onclick="OpenAction('zalo')"  target="_blank" rel="noopener noreferrer" aria-label="zalo">
+					<img src ="/zaloClick.jpg"> 
+					<span class="box-text">Tư vấn chăm sóc da Zalo</span>
+				</a>
+			</div>
+			
+			<div class="toolbar-item toolbar-item-msg">
+				<a class="toolbar-item--boxlink cta-chatmessager" onclick="OpenAction('messenger')"  target="_blank" rel="noopener" aria-label="messenger">
+					<img src ="/messengerClick.png" >
+                    <span class="box-text">Tư vấn chăm sóc da Messenger</span>
+				</a>
+			</div>
+		
+		</div>
+	</div>
+</div>
+
+
+<style>
+
+.actionToolbar_mobile.toolbar_style_2 {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 991px)
+.actionToolbar_mobile {
+    display: block;
+}
+.actionToolbar_mobile {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    background: #fff;
+    display: none;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-wrapper {
+    margin: 0 -2px;
+    padding: 5px;
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item {
+    padding: 0 1px;
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    max-width: 96%;
+}
+
+.actionToolbar_mobile.toolbar_style_2 .toolbar-wrapper {
+    margin: 0 -2px;
+    padding: 5px;
+}
+
+.justify-content-around {
+    -ms-flex-pack: distribute!important;
+    justify-content: space-around!important;
+}
+
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item {
+    padding: 0 1px;
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    max-width: 96%%;
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item-zalo .toolbar-item--boxlink {
+    background: #1272e8;
+}
+
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item--boxlink {
+    border-radius: 20px;
+    padding: 2px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    background: var(--shop-color-main);
+    color: #ffffff;
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item--boxlink svg {
+    display: block;
+    border-radius: 50%;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.11);
+}
+
+.actionToolbar_mobil svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item--boxlink .box-text {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(100% - 30px);
+    padding: 2px 6px 2px 4px;
+    line-height: 1.3;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    white-space: initial;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item--boxlink {
+    border-radius: 20px;
+    padding: 2px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    background: var(--shop-color-main);
+    color: #ffffff;
+    background: #9946e8;
+}
+.actionToolbar_mobile img {
+width: 24px;
+background-color: transparent;
+}
+.actionToolbar_mobile a:hover {
+ opacity: 0.8;
+ text-decoration: none;
+}
+#socialBLock a:hover {
+ opacity: 0.7;
+ color: #ffffff;
+}
+</style>
+

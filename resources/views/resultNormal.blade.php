@@ -82,7 +82,7 @@
 @endsection
 @section('contentpage')
 
-@includeIf("tuvanMinisize")
+@includeIf("tuvan")
 
 @if ( $zaloLink != "" )
 <a  id ="zaloMessage" style ="display:none"  onclick="OpenAction('zalo')" ><div style="position:fixed;bottom:70px;right:30px; z-index:1000" class="messenger"><noscript>
@@ -1513,7 +1513,7 @@ setTimeout(() => {
 }, 3000);
 
 setTimeout(() => {  
-    document.getElementById("fromResiger").style.display ="block";
+    //document.getElementById("fromResiger").style.display ="block";
    
 }, 5000);
 
@@ -1592,7 +1592,7 @@ function DowloadBook()
 const timeoutDisplayMessage = setTimeout(ShowZalo, 5000);
 
 function ShowZalo() {
-    return;
+
   document.getElementById("socialBLock").style.display = "block";
 
   
@@ -1636,7 +1636,6 @@ function openRegister ( connectionType ="minisize")
    addContionType(connectionType);
    zaloLink =  "{{$dataMinisize->linkRegister}}";
    changeFormTuvan();
-
    window.open(zaloLink,'_self');
    return;
 }
