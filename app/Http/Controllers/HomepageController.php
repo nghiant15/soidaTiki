@@ -917,14 +917,14 @@ public function getDataInfo (Request $request)
         
         if($slug =="demo" || $slug =="soida")
         {
-            return view("resultNormal", compact("slug", 
+            return view("resultZalo", compact("slug", 
              "ageGame","ageGameReal","gameType","gameJoinType1",
              "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
         }
         else 
         {
             
-            return view("resultZalo", compact("slug", 
+            return view("resultNormal", compact("slug", 
               
             "ageGame","ageGameReal","gameType","gameJoinType1",
              "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
