@@ -114,7 +114,8 @@
    }
    .des-register a {
     width: max-content;
-    background-color:  rgb(252, 0, 22);
+    background-color:  rgb(20, 88, 223);
+    color:#ffffff;
     
     margin: auto;
 border-radius:30px;
@@ -123,6 +124,13 @@ border-radius:30px;
     width: max-content;
     padding: 5px 14px;
    
+ 
+
+
+   }
+   .des-register img {
+    width:32px;
+  
  
 
 
@@ -177,7 +185,10 @@ border-radius:30px;
                       </div>
 
                      <div class="des-register">
-                          <a onclick ="openRegister('minisize')"> {{ $dataMinisize->butonText }}</a>
+                    
+                          <a class ="minisize" onclick ="openRegister('minisize')"> {{ $dataMinisize->butonText }}
+                          <img src ="/zalo2.png"> 
+                         </a>
                     </div>
                   
 

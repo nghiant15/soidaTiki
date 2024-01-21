@@ -689,9 +689,13 @@ public function getDataInfo (Request $request)
         {
             return view("welcomeZalo", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
         }
-        else 
+        else  if($slug =="xemtuong")
         {
             
+            return view("xemtuong", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
+        }
+        else 
+        { 
             return view("welcomeNormal", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
         }
 
@@ -908,7 +912,7 @@ public function getDataInfo (Request $request)
         $rewardCheck  =  session('rewardCheck', false);
          $gameJoinType1 =true;
      
-     
+         $gameMinisize = $this->getGameMinisize($companyId);
        
         if($slug !="")
         {
