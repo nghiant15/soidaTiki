@@ -1,6 +1,15 @@
 
 @php
      $dataMinisize =  session('dataminisize', null);
+     $numberText =  3;
+
+     if(property_exists($dataMinisize, "countDown"))
+     {
+        $numberText =   $dataMinisize->countDown;
+     }
+    
+
+
 @endphp
 <style>
     /* bannerTuVan.jpg */
@@ -140,8 +149,46 @@ border-radius:30px;
     color:  rgb(250,251,254 )!important;
     opacity: 0.7;
 
+
+   }
+   .number {
+    background-color: black;
+    color: #ffffff;
+    width: 26px;
+    border-radius: 50%;
+    text-align: center;
    }
 </style>
+
+<script>    
+ const myInterval = setInterval(myTimer, 1000);
+
+ var numberTextDp = {!! json_encode($numberText) !!};
+ var countdown = numberTextDp;
+ function myTimer() {
+    countdown = countdown-1;
+    if( countdown <1)
+    {
+        myStop();
+    }
+    let countDownText = countdown +'';
+    if(countdown < 10)
+    {
+        countDownText = '0'+ countdown;
+    }
+    $("#numberText").text(countDownText);
+    
+}
+
+function myStop() {
+    
+    $("#numberText").hide();
+    setTimeout(() => {
+        $("#closeButton").show();
+    }, 300);
+  clearInterval(myInterval);
+}
+</script>
 <div class="status-modal-account tuvanform " >
     
     <div class="modal-information form1 ">
@@ -155,7 +202,12 @@ border-radius:30px;
                     </svg>
                 </div>
             </div>
+
             <div class="position-close2 position-close3" onclick="changeFormTuvan()">
+               <span class ="number" id ="numberText" >6 </span>
+            </div>
+
+            <div class="position-close2 position-close3" id ="closeButton" style ="display:none" onclick="changeFormTuvan()">
                 <svg viewBox="0 0 24 24" size="24" class="sc-11csm01-0 fivNSm">
                     <path
                         d="M14.8284 12L19.4142 16.5858C20.1953 17.3668 20.1953 18.6332 19.4142 19.4142
