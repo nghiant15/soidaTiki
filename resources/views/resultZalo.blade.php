@@ -1489,10 +1489,7 @@
 
             }
 
-            setTimeout(() => {
-    $(".tuvanform").show();
-              
-    }, 1000);
+        
                 
         });
     </script>

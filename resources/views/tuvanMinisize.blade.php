@@ -7,7 +7,15 @@
      {
         $numberText =   $dataMinisize->countDown;
      }
-    
+
+     $numbershowUp=  3;
+
+     if(property_exists($dataMinisize, "showUp"))
+     {
+        $numbershowUp =   $dataMinisize->showUp;
+     }
+     
+   
 
 
 @endphp
@@ -161,9 +169,22 @@ border-radius:30px;
 </style>
 
 <script>    
- const myInterval = setInterval(myTimer, 1000);
+  var numberTextDp = {!! json_encode($numberText) !!};
 
- var numberTextDp = {!! json_encode($numberText) !!};
+  var numbershowUpDp = {!! json_encode($numbershowUp) !!};
+ if(numbershowUpDp >0)
+ {
+    numbershowUpDp  = numbershowUpDp*1000;
+ }
+
+setTimeout(() => {  
+ 
+
+    $(".tuvanform").show();
+
+    const myInterval = setInterval(myTimer, 1000);
+
+
  var countdown = numberTextDp;
  function myTimer() {
     countdown = countdown-1;
@@ -177,10 +198,9 @@ border-radius:30px;
         countDownText = '0'+ countdown;
     }
     $("#numberText").text(countDownText);
-    
-}
 
-function myStop() {
+
+    function myStop() {
     
     $("#numberText").hide();
     setTimeout(() => {
@@ -188,6 +208,13 @@ function myStop() {
     }, 300);
   clearInterval(myInterval);
 }
+
+    
+}
+   
+}, numbershowUpDp);
+
+
 </script>
 <div class="status-modal-account tuvanform " >
     
