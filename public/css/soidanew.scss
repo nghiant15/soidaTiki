@@ -103,7 +103,7 @@ body {
 }
 .content-page .content-plugin .hadernav .title-header .soidaXemTuong {
     
-    font-size: 59px !important;
+    font-size: 3.4rem !important;
    
 }
 
@@ -1342,4 +1342,7 @@ li {
         img {
             height: 90px;
        }
+    }
+    .hideWrapper {
+        display: none;
     }

@@ -107,25 +107,33 @@ var html= '<div class="record-content">\
       <div class="description-content">\
           <div class="center-div">';
           
+          if( ketquatongquanItem.title.vi == "Nhận diện tuổi da")
+          {
+            html += '<p class="title-description-content"> '+ 'Nốt ruồi số 1 ' + ' </p>';
+            html  +=   '<p class="content-paragraph">' +'Nội dung: '+ '<strong>'+'Người sở hữu nốt ruồi ở vị trí này là người có số khắc cha mẹ, hay xảy ra mâu thuẫn, cuộc sống đều phải tự thân vận động mới có'+' </strong>' +'</p>';
+          }
           
-          html += '<p class="title-description-content"> '+ ketquatongquanItem.title.vi + ' </p>';
+          else {
+            html += '<p class="title-description-content"> '+ ketquatongquanItem.title.vi + ' </p>';
          
-          var dataList = ketquatongquanItem.data;
-          dataList.forEach(function (item, index) {
-            var tempValue = item.valueVI;
-         
-            if(item.valueVI.includes("29"))
-            {
-              
-              tempValue = tempValue.replace("29","30")
-            }
+            var dataList = ketquatongquanItem.data;
+            dataList.forEach(function (item, index) {
+              var tempValue = item.valueVI;
            
-             var templateText = tempValue.split(":");
-             var tile1 = templateText[0]+":";
-             var tile2 = templateText[1];
-
-             html  +=   '<p class="content-paragraph">'+tile1 + '<strong>'+tile2+' </strong>' +'</p>';
-           });
+              if(item.valueVI.includes("29"))
+              {
+                
+                tempValue = tempValue.replace("29","30")
+              }
+             
+               var templateText = tempValue.split(":");
+               var tile1 = templateText[0]+":";
+               var tile2 = templateText[1];
+              
+               html  +=   '<p class="content-paragraph">'+tile1 + '<strong>'+tile2+' </strong>' +'</p>';
+             });
+           
+          }
          
          
          html+= '</div>\

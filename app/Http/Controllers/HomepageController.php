@@ -925,6 +925,12 @@ public function getDataInfo (Request $request)
              "ageGame","ageGameReal","gameType","gameJoinType1",
              "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
         }
+       else if($slug =="xemtuong")
+        {
+            return view("resultXemtuong", compact("slug", 
+             "ageGame","ageGameReal","gameType","gameJoinType1",
+             "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
+        }
         else 
         {
             

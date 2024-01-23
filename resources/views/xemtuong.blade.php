@@ -1545,13 +1545,10 @@ function ShowZalo() {
 </script>
 
 <script>
-    function openRegister ( connectionType ="minisize")
+    function openRegister1 ( connectionType ="minisize")
 {   
 
- 
-   zaloLink =  "https://forms.gle/HqF7udLueiYcvJvz7";
-   
-   window.open(zaloLink,'_self');
+    ToggleDisplayLogin('.status-modal-account',true,'Để xem lịch sử soi da online');
  
 }
     var timeGet = new Date().getTime();
@@ -1590,7 +1587,7 @@ setTimeout(() => {
 
 
 <div class ="imagebackground2" id ="fromResiger" style ="display:none" >
-    <a  onclick ="openRegister()" >
+    <a  onclick ="openRegister1()" >
     <img src ="/footerImage.jpg">
     </a>
 </div>
@@ -1736,4 +1733,6 @@ background-color: transparent;
  color: #ffffff;
 }
 </style>
+
+
 

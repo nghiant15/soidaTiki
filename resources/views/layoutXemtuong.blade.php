@@ -171,12 +171,12 @@
             @include('profile.update')
             @include('profile.history')
             @include('profile.isVoucher')
-            @include('loginXemtuong.login2')
+            @include('loginXemtuong.registerXemTuong')
     @else
             @include('profile.update')
             @include('profile.history')
             @include('profile.isVoucher')
-            @include('loginXemtuong.login2')
+            @include('loginXemtuong.registerXemTuong')
 
     @endif
 
