@@ -1417,34 +1417,28 @@ function readTextConclude()
     });
     let d = begintext;
     $.ajax({
-      url: "https://api.fpt.ai/hmi/tts/v5?api_key",
+      url: "https://api.fpt.ai/hmi/tts/v5",
       type: "post",
       contentType: "application/json",
       headers: {
-           "api_key": "TcvP5klkJ5BZnVp4B9oZH52MOKDR7hn4",
+           "api_key": "5PecxlB3UM9eeeWzCBAdST1LY0cBOXkf",
            "voice": "banmai"
     
         },
       data: JSON.stringify(d),
       success: function (response) {
-          
-      
-      
-         setTimeout(() => {
-       
-         var  ourAudio = document.createElement('audio'); // Create a audio element using the DOM
-          ourAudio.style.display = "none"; // Hide the audio element
-          ourAudio.src = response.async;
-          ourAudio.preload = "auto";
-          ourAudio.autoplay = true; // Automatically play sound
-          ourAudio.onended = function() {
-            this.remove(); // Remove when played.
-          };
-          document.body.appendChild(ourAudio);
-         }, 15000);
-          
-       
-      },
+          setTimeout(() => {
+          var  ourAudio = document.createElement('audio'); // Create a audio element using the DOM
+            ourAudio.style.display = "none"; // Hide the audio element
+            ourAudio.src = response.async;
+            ourAudio.preload = "auto";
+            ourAudio.autoplay = true; // Automatically play sound
+            ourAudio.onended = function() {
+              this.remove(); // Remove when played.
+            };
+            document.body.appendChild(ourAudio);
+         }, 10000);
+       },
       error: function (jqXHR, textStatus, errorThrown) {},
     })
 
