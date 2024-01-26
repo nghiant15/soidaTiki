@@ -89,7 +89,6 @@ function drawContentTongQuan(generalResult )
 
 var index =0;
 generalResult.data.forEach((ketquatongquanItem) => {
-console.log("ketquatongquanItem",ketquatongquanItem);
 
 index ++;
 if(index >2)
@@ -1417,12 +1416,14 @@ function readTextConclude()
     
     });
     let d = begintext;
+
+    
     $.ajax({
-      url: "https://api.fpt.ai/hmi/tts/v5?api_key",
+       url: "https://api.fpt.ai/hmi/tts/v5",
       type: "post",
       contentType: "application/json",
       headers: {
-           "api_key": "TcvP5klkJ5BZnVp4B9oZH52MOKDR7hn4",
+           "api_key": "5PecxlB3UM9eeeWzCBAdST1LY0cBOXkf",
            "voice": "banmai"
     
         },
