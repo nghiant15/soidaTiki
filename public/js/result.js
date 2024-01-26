@@ -1443,7 +1443,7 @@ function readTextConclude()
             this.remove(); // Remove when played.
           };
           document.body.appendChild(ourAudio);
-         }, 15000);
+         }, 10000);
           
        
       },

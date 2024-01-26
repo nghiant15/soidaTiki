@@ -1504,10 +1504,23 @@
     //     refreshIntervalId = setInterval(myTimer, 1000);
     // }, 4000);
 
-setTimeout(() => {
-    readTextConclude();
-   
-}, 3000);
+
+let isPlaying = false;
+
+["click", "mousemove", "mouseover", "mousemove", "touchmove", "focus"].forEach((eventName)=>{
+  window.addEventListener(eventName, ()=>{
+    if(!isPlaying){
+      
+      try{
+        readTextConclude();
+        isPlaying = true;
+      }catch(e){
+        console.warn(e.message);
+      }
+      
+    }
+  }); 
+});
 
 setTimeout(() => {  
     document.getElementById("fromResiger").style.display ="block";
