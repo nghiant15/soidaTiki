@@ -415,9 +415,7 @@
                         <p class="maincontent">
                             Chúng tôi muốn bạn có thể dễ dàng nắm bắt mọi thông tin và hiểu hơn trước khi vào sâu chi tiết
                         </p>
-                        {{-- <p class="descriptionContent"> 
-                            Chúng tôi sẽ chia ra thành các thành phần trong phần tổng quan để bạn nắm rõ một số thứ trước khi chúng ta vào các phần chi tiết, hãy đọc hết tất cả các thành phần tổng quan để rõ hơn nhé.
-                        </p> --}}
+                     
                     </div>
                 </div>
                 <div class="resultNote">
@@ -1505,14 +1503,21 @@
     // }, 4000);
 
 
+
 let isPlaying = false;
 
-["click", "mousemove", "mouseover", "mousemove", "touchmove", "focus"].forEach((eventName)=>{
+["click", "mousemove", "mouseover","scroll","keypress", "touchmove", "focus"].forEach((eventName)=>{
   window.addEventListener(eventName, ()=>{
+ 
+
     if(!isPlaying){
-      
+       
+       
       try{
-        readTextConclude();
+        setTimeout(() => {
+            readTextConclude();
+        }, 5000);
+       
         isPlaying = true;
       }catch(e){
         console.warn(e.message);
@@ -1522,10 +1527,13 @@ let isPlaying = false;
   }); 
 });
 
+
 setTimeout(() => {  
     document.getElementById("fromResiger").style.display ="block";
    
 }, 5000);
+
+
 
 function myTimer() {
 

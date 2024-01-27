@@ -4,7 +4,7 @@
 
 //     $.ajax({
 //         url: api.baser_url + ""+ api.api_getHistory,
-//         type: "post",
+//         type: "post",saveHistory
 //         headers: {
 //             Authorization: 'Bearer '+tokenHeader
 //         },
@@ -120,9 +120,7 @@ $.ajax({
 
   },
   complete: function (data) {
-    
- 
-            setTimeout(() => {
+    setTimeout(() => {
               
             
               var base_url = window.location.origin + "/" + "soida/ket-qua";
@@ -138,13 +136,7 @@ $.ajax({
               }
               window.open(base_url,"_self")
           
-              //     if( slugGlobal == null)
-              // {
-              //     window.location.href = "/ket-qua";
-              // }
-              // else {
-              //     window.location.href = "/"+slugGlobal + "/ket-qua";
-              // }
+          
           }, 1000);
 
 

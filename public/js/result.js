@@ -1357,98 +1357,17 @@ function avgScorev2(dataDraw)
 
 function readTextConclude()
 {
-  var x = JSON.parse(sessionStorage._t);
-  var hintScore = x.data.facedata.hintResult;
-
-    let text ='';
-    let begintext ="";
-    hintScore.forEach(item1 => {
-      if(item1.sdktype*1.0 <5)
-          return;
-      let avg = item1.avg*1.0;
-      let textDegree = "";
-      let endpoint ="";
-    
-      if(avg <= 1 )
-      {
-        textDegree =" Tốt";
-      }
-      else if(avg <=2)
-      {
-        textDegree =" Bình thường";
-      }
-      else if(avg <=3)
-      {
-        textDegree =" Nặng";
-
-      }
-
-      var valuerel2 =  Math.round(avg/3*10);
-      var value23 = Math.round(10 - valuerel2);
-
-      endpoint= " " +value23 + " trên 10 ;";
-  
-
-      
-      switch (item1.sdktype) {
-        case "5":
-               begintext+= "Bạn có dấu hiệu Lão Hóa Da tình trạng";
-               break;
        
-          case "6":
-            begintext+= "Bạn có mụn và mụn viêm đỏ tình trạng ";
-          break;
-          case "7":
-            begintext+= "Bạn có Quầng thâm mắt tình trạng ";
-          break;
-          case "8":
-            begintext+= "Bạn có các vấn đề do lỗ chân lông tình trạng ";
-          break;
-          case "9":
-            begintext+= "Bạn có Đốm thâm nám tình trạng ";
-          break;
-      
-        default:
-          break;
-      }
-      begintext+= ""+textDegree+""+endpoint;
-
-    
-    });
-    let d = begintext;
-
-    
-    $.ajax({
-       url: "https://api.fpt.ai/hmi/tts/v5",
-      type: "post",
-      contentType: "application/json",
-      headers: {
-           "api_key": "5PecxlB3UM9eeeWzCBAdST1LY0cBOXkf",
-           "voice": "banmai"
-    
-        },
-      data: JSON.stringify(d),
-      success: function (response) {
-          
-      
-      
-         setTimeout(() => {
-       
+         var linklAudio=  JSON.parse(sessionStorage._t).data.sound.async;
          var  ourAudio = document.createElement('audio'); // Create a audio element using the DOM
           ourAudio.style.display = "none"; // Hide the audio element
-          ourAudio.src = response.async;
+          ourAudio.src = linklAudio;
           ourAudio.preload = "auto";
           ourAudio.autoplay = true; // Automatically play sound
           ourAudio.onended = function() {
             this.remove(); // Remove when played.
           };
           document.body.appendChild(ourAudio);
-         }, 10000);
-          
-       
-      },
-      error: function (jqXHR, textStatus, errorThrown) {},
-    })
 
   }
     

@@ -304,9 +304,7 @@ class HistoryController extends Controller
         {
             $checkresult1 = $res1->getBody()->getContents();
             $data1 = json_decode($checkresult1);
-
-     
-
+            
                 $dataJson = $request->json()->all();
                 $result  = $dataJson['Result'];
                 $loginUrl = API_BaseUrl."/".EndUser_SaveHistory;
@@ -376,6 +374,9 @@ class HistoryController extends Controller
                 return  ["is_success" =>false];
              }
 }
+    
+
+
  
 
    

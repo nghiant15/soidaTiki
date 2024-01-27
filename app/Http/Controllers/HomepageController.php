@@ -523,6 +523,33 @@ public function getDataInfo (Request $request)
          
          return false;
     }
+
+    private function getGameXemtuong($companyId)
+    {
+
+        $url ="https://api-soida.applamdep.com/api/xemtuong/getInfoAdmin";
+        $client = new Client();
+      
+
+        $res = $client->request('get', $url, [
+            'query' => [
+                'company_id'=> $companyId
+              ]
+        ]);
+
+        if($res->getStatusCode() ==200)
+        {
+            $checkresult = $res->getBody()->getContents();
+            $checkresult = json_decode($checkresult);
+            $result = $checkresult->data;
+           
+            session(['dataXemtuong' =>$result]);
+             return $result;
+            
+         }
+      
+         return null;
+    }
     private function getGameActive($companyId)
     {
 
@@ -613,7 +640,7 @@ public function getDataInfo (Request $request)
 
         $gameMinisize = $this->getGameMinisize($dataCompanyId);
 
-
+   
         if( $dataGame != null)
         {
             $fromDate = Carbon::parse($dataGame->fromDate); 
@@ -691,6 +718,7 @@ public function getDataInfo (Request $request)
         }
         else  if($slug =="xemtuong")
         {
+            $gameXemtuong = $this->getGameMinisize($dataCompanyId);
             
             return view("xemtuong", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
         }
@@ -927,6 +955,7 @@ public function getDataInfo (Request $request)
         }
        else if($slug =="xemtuong")
         {
+            $gameXemtuong = $this->getGameMinisize($companyId);
             return view("resultXemtuong", compact("slug", 
              "ageGame","ageGameReal","gameType","gameJoinType1",
              "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
@@ -1267,17 +1296,55 @@ public function getDataInfo (Request $request)
             { 
                 $checkresult = $res->getBody()->getContents();
                 $data = json_decode($checkresult);
+
+            
                 $data = $data->data;
+         
+
                 session(['dataResult' =>$data]);
                 session(['rewardCheck' =>true]);
+                $data  =  session('dataResult', null);
+                $skin =  $data->data->facedata->hintResult;
 
-                $this->HandleSkin();
-                 return  [
-                        "is_success" =>true, 
-                        "reward"=> true, 
-                        "data"=> $data
-                 ];
+                $d =$this->SaveSound($skin);
 
+
+                $url ="https://api.fpt.ai/hmi/tts/v5";
+                $client = new Client();
+        
+                $res1 = $client->request('post', $url, [
+                  
+                    'headers' => [
+                        'Accept'       => 'application/json',
+                        'Content-Type' => 'application/json',   
+                        'api-key'=>'5PecxlB3UM9eeeWzCBAdST1LY0cBOXkf',
+                       
+                        'voice'=>'banmai'
+                    ],
+                    'body' => $d
+                ]);             
+
+
+                if($res1->getStatusCode() ==200)
+                { 
+                    $checkresult = $res1->getBody()->getContents();
+                    $data1= json_decode($checkresult);
+                  
+                    $data->data->sound = $data1;
+                    session(['dataResult' =>$data]);
+                    $this->HandleSkin();
+                     return  [
+                            "is_success" =>true, 
+                            "reward"=> true, 
+                            "data"=> $data
+                        
+                     ];
+    
+                }
+             
+
+  
+       
 
             }
             else 
@@ -1286,7 +1353,75 @@ public function getDataInfo (Request $request)
             }
         }
 
+     public function SaveSound($hintResult)
+ {
+    $text ='';
+    $begintext ="";
+  
+    foreach ($hintResult as &$item1) {
+       
+
+        if($item1->sdktype*1.0 <5)
+        continue;
+     
+    $avg = $item1->avg*1.0;
+    $textDegree = "";
+    $endpoint ="";
+   
+    if($avg <= 1 )
+    {
+      $textDegree =" Tốt";
+    }
+    else if($avg <=2)
+    {
+      $textDegree =" Bình thường";
+    }
+    else if($avg <=3)
+    {
+        $textDegree =" Nặng";
+
+    }
     
+    $valuerel2 =  round($avg/3*10);
+    $value23 =round(10 - $valuerel2);
+
+    $endpoint= " ".$value23." trên 10 ;";
+
+
+    
+    switch ($item1->sdktype) {
+      case "5":
+             $begintext=$begintext."Bạn có dấu hiệu Lão Hóa Da tình trạng";
+             break;
+     
+        case "6":
+            $begintext=$begintext."Bạn có mụn và mụn viêm đỏ tình trạng ";
+        break;
+        case "7":
+            $begintext=$begintext."Bạn có Quầng thâm mắt tình trạng ";
+        break;
+        case "8":
+            $begintext=$begintext."Bạn có các vấn đề do lỗ chân lông tình trạng ";
+        break;
+        case "9":
+            $begintext=$begintext."Bạn có Đốm thâm nám tình trạng ";
+        break;
+    
+      default:
+        break;
+    }
+         $begintext=$begintext."".$textDegree."".$endpoint;
+
+    }
+    
+
+  
+    $d = $begintext;
+    return $d;
+   
+
+  
+ }
  public function HandleSkin()
  {
     $dataGame = Session('dataGame', null);
