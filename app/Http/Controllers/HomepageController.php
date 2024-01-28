@@ -639,7 +639,7 @@ public function getDataInfo (Request $request)
       
 
         $gameMinisize = $this->getGameMinisize($dataCompanyId);
-
+      
    
         if( $dataGame != null)
         {

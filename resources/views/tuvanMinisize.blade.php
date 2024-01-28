@@ -266,7 +266,7 @@ setTimeout(() => {
                      <div class="des-register">
                     
                           <a class ="minisize" onclick ="openRegister('minisize')"> {{ $dataMinisize->butonText }}
-                          <img src ="/zalo2.png"> 
+                          <img src ="{{ $dataMinisize->imageLink }}"> 
                          </a>
                     </div>
                   

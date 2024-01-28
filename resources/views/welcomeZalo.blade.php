@@ -5,6 +5,7 @@
     $dataMinisize =  session('dataminisize', null);
     $zaloLink =  $dataLikn->zaloLink;
     $messengerLink = $dataLikn->messengerLink;
+    $linkRegister = $dataMinisize->linkRegister;
     if (isset($globalData)) 
     {
         $dataSeo = $globalData->seoInfo;
@@ -509,6 +510,7 @@
         <script>
                var zaloLink = '{!! $zaloLink !!}';
             var messengerLink = '{!! $messengerLink !!}';
+            var linkRegister = '{!! $linkRegister !!}';
             var skinModule = (function() {
                 var width = 300; // We will scale the video width to this
                 var height = 0; // This will be computed based on the input stream
@@ -1546,18 +1548,21 @@ function ShowZalo() {
 
 <script>
     function openRegister ( connectionType ="minisize")
-{   
+{
+    
+    addClickZalo2(connectionType);
+    window.open(linkRegister,'_self');
+
+  
 
  
-   zaloLink =  "https://forms.gle/HqF7udLueiYcvJvz7";
    
-   window.open(zaloLink,'_self');
  
 }
     var timeGet = new Date().getTime();
 function OpenAction ( connectionType)
 {   
-    addClickZalo2(connectionType);
+ addClickZalo2(connectionType);
   setTimeout(() => {
     if(zaloLink =="")
     {
