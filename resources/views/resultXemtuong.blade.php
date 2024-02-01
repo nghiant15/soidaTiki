@@ -265,7 +265,7 @@
                 <a id="myBtn" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Đăng nhập/Đăng ký</a>
             </li>
             <li class="right-text login">
-                <a href=" https://applamdep.com/" href="javascript:void(0)" data-toggle="modal"
+                <a href=" http://localhost:8000/" href="javascript:void(0)" data-toggle="modal"
                     data-target="#signUpModal">Đăng ký</a>
             </li>
         </ul>
@@ -1407,6 +1407,8 @@
     <script type="text/javascript" src="/js/contant.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
     <script type="text/javascript" src="/js/resultXemtuong.js"></script>
+    <script type="text/javascript" src="/js/xemtuongcal.js"></script>
+    
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
