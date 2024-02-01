@@ -619,7 +619,7 @@ function searchItems(searchCode,turnon =true )
                          var  title = itemBook.title;
                          var linkFile = itemBook.linkFiePdf;
 
-                         var hrefLink = " http://localhost:8000/book/"+ itemBook.slug;
+                         var hrefLink = " http://localhost:8002/book/"+ itemBook.slug;
                          
                          var stringifiedObj = JSON.stringify(itemBook);
                          let div1 =  document.createElement('div');
@@ -701,7 +701,7 @@ function getAllBook(type =0, turnon = true)
                          var codeBook = itemBook.code;
                          var linkFile = itemBook.linkFiePdf;
 
-                         var hrefLink = " http://localhost:8000/book/"+ itemBook.slug;
+                         var hrefLink = " http://localhost:8002/book/"+ itemBook.slug;
                          
                          var stringifiedObj = JSON.stringify(itemBook);
                          let div1 =  document.createElement('div');

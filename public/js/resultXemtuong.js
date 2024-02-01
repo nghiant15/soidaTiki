@@ -102,15 +102,24 @@ var html= '<div class="record-content">\
       <img src="/images/face'+index+'.png">\
 \
   </div>\
-  <div class="description">\
-\
-      <div class="description-content">\
-          <div class="center-div">';
+  <div class="description">';
+
+  if( ketquatongquanItem.title.vi == "Nhận diện tuổi da")
+  {
+    html += '<div class="description-content" id ="xemtuongResult">\
+    <div class="center-div">';
+  }
+  else 
+   {
+    html += '<div class="description-content">\
+    <div class="center-div">';
+   }
+      
           
           if( ketquatongquanItem.title.vi == "Nhận diện tuổi da")
           {
-            html += '<p class="title-description-content"> '+ 'Nốt ruồi số 1 ' + ' </p>';
-            html  +=   '<p class="content-paragraph">' +'Nội dung: '+ '<strong>'+'Người sở hữu nốt ruồi ở vị trí này là người có số khắc cha mẹ, hay xảy ra mâu thuẫn, cuộc sống đều phải tự thân vận động mới có'+' </strong>' +'</p>';
+            // html += '<p class="title-description-content"> '+ 'Nốt ruồi số 1 ' + ' </p>';
+            // html  +=   '<p class="content-paragraph">' +'Nội dung: '+ '<strong>'+'Người sở hữu nốt ruồi ở vị trí này là người có số khắc cha mẹ, hay xảy ra mâu thuẫn, cuộc sống đều phải tự thân vận động mới có'+' </strong>' +'</p>';
           }
           
           else {
@@ -161,8 +170,8 @@ let dataFace = objectReponse.data.faceAttitude;
 let indexDraw =0;
 ketLuanTungPhan.data.forEach((ketLuanTungPhanItem) => {
 indexDraw ++;
-let dataDrawFace  = " http://localhost:8000/images/image1.png";
- http://localhost:8000/images/image1.png
+let dataDrawFace  = " http://localhost:8002/images/image1.png";
+ http://localhost:8002/images/image1.png
 if(dataFace)
 {
 
