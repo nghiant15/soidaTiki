@@ -4,18 +4,18 @@ var  resultHi = JSON.parse(sessionStorage._t);
 var arraySkinMoleArray = [
   {
       "height": 2.830348,
-      "left":175,
-      "top": 86,
+      "left":185,
+      "top": 130,
       "width": 2.291032
   }
 ];
 
 var arraySkinMoleArray1 = resultHi.data.facedata.generalResult.data[3].data;
 
-// if(arraySkinMoleArray1.length >0)
-// {
-//   arraySkinMoleArray = arraySkinMoleArray1[0].drawArr;
-// }
+if(arraySkinMoleArray1.length >0)
+{
+  arraySkinMoleArray = arraySkinMoleArray1[0].drawArr;
+}
 // console.log("arraySkinMoleArray1",arraySkinMoleArray1);
 
 
@@ -59,6 +59,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         {
                           
                             outPutRule = checknumber1112dowm(itemSkinMole, faceArea);
+                            if(outPutRule<0)
+                            {  
+                              outPutRule = checknumber13(itemSkinMole, faceArea);
+
+                              if(outPutRule<0)
+                              {
+                                outPutRule = checknumber1415(itemSkinMole, faceArea);
+                              }
+
+                            }
                         }
                     }
                         }
@@ -151,6 +161,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
              {
                 titlepa =  'Nốt ruồi số 13';
                 contentPa = 'Người có nốt ruồi ở vị trí này là người biết lắng nghe, ngoan ngoãn, hiền lành</br>Nhưng Chuyện tình duyên hay lận đận';
+             }
+             else if(outPutRule == 14)
+             {
+                titlepa =  'Nốt ruồi số 14';
+                contentPa = 'Hay can thiệp vào chuyện của người khác</br>Gặp nhiều chuyện bất lợi đưa tới';
+             }
+             else if(outPutRule == 15)
+             {
+                titlepa =  'Nốt ruồi số 15';
+                contentPa = 'Là người hay nóng giận, khó kiềm chế cảm xúc';
              }
              var template = '<div class="center-div"> \
              <p class="title-description-content">' +titlepa  +' </p>\
@@ -303,7 +323,7 @@ function checknumber78dowm(skinMole,faceArea )
     {
         return -1;
     }
-    alert("33"+isConditionY);
+
     
   
   if(skinMole.left <= faceArea.left +ratex*1.3 )
@@ -353,7 +373,7 @@ function checknumber1112dowm(skinMole,faceArea )
     
     var isConditionY = (faceArea.top + ratey/3  < skinMole.top 
      && skinMole.top  <=  faceArea.top + ratey/2*0.9 + ratey/3);
-    alert(isConditionY);
+   
      if( isConditionY ==false)
     {
         return -1;
@@ -376,7 +396,7 @@ function checknumber1112dowm(skinMole,faceArea )
 }
 
 
-function checknumber1314(skinMole,faceArea )
+function checknumber13(skinMole,faceArea )
 {
     var isConditionx = (faceArea.left + ratex*2.2   < skinMole.left
         && skinMole.left <= faceArea.left +ratex*3);
@@ -384,13 +404,15 @@ function checknumber1314(skinMole,faceArea )
     {
         return -1;
     }
+
     
-    
-    if(faceArea.top < skinMole.top  &&  skinMole.top <= faceArea.top+ yAnumber/2+ yAnumber/4 )
-    {
+    if(faceArea.top < skinMole.top  &&  skinMole.top <= faceArea.top+ ratey/2+ ratey/6)
+    { 
+     
+  
         return 13;
     }
-    else if( skinMole.top < faceArea +yAnumber -yAnumber/4)
+    else if( skinMole.top < faceArea.top +ratey + ratey/6)
     {  
         return 131;
     }
@@ -400,6 +422,51 @@ function checknumber1314(skinMole,faceArea )
  
 }
 
+
+
+function checknumber1415(skinMole,faceArea )
+{
+    var isConditionx = (faceArea.left + ratex*2   < skinMole.left
+        && skinMole.left <= faceArea.left +ratex*3-ratex/3);
+       
+   
+    if(isConditionx ==true)
+    {
+    
+      if(skinMole.top <= faceArea.top+ ratey*3/2 &&  skinMole.top >  faceArea.top +ratey*3/2 - ratey/2  )
+      { 
+        return 14;
+      }
+      else 
+      {
+        return -1;
+      }
+    }
+    else 
+    {
+
+     
+      isConditionx = (faceArea.left + ratex*3   < skinMole.left
+        && skinMole.left <= faceArea.left +ratex*3+ratex/3);
+    
+        if(isConditionx)
+        {
+          if(skinMole.top <= ratey*5/6   &&  skinMole.top > ratey*5/6 - ratey/2  )
+          {
+            return  15;
+          }
+          
+        }
+    
+    }
+
+  
+     return -1;
+ 
+
+ 
+}
+4
 
 
 
