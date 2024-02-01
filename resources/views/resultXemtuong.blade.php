@@ -227,13 +227,7 @@
             </p>
             <img src="/images/step3.png">
         </div>
-        <div class ="avgclass">
-            <span class ="title">
-                 Sức khỏe làn da bạn ở mức <span id ="score2" class="score"> </span> 
-                 
-            </span>
-           
-        </div>
+     
 
         <span  id ="scoreAvg" class="score">  </span>  
 
@@ -375,7 +369,7 @@
 
                     <p class="text-title-paragraph">
 
-                        Thông tin tổng quan
+                        Thông tin kết quả
                     </p>
                 </div>
                 <div id="idGeneralResult">
@@ -384,240 +378,19 @@
                 </div>
               
 
-@if (Session()->has('dataCompany'))
-
-@else
-       @if($slug !="bibabo")
-        
-
-                <div class="resultNote">
-                        
-                    <p class="maincontent text-suggest-login" id="suggest-login-content">
-
-                <span style="font-weight:600;text-decoration: underline;cursor:pointer" onclick="ToggleDisplayClass('.status-modal-account',true)">
-                THEO DÕI 
-                </span>
-                <span style ="text-indent: 3px;">  LỊCH SỬ SOI DA</span>
-
-                <span style="font-weight: 600;"></span>  
-                </p>
-
-                </div>
-        @endif
-@endif
 
 
                
 
-                @if (1==1)
-                 <div class="poupupContainer">
-                    <div class="modalpopup">
+              
+              
 
-                        <p class="maincontent">
-                            Chúng tôi muốn bạn có thể dễ dàng nắm bắt mọi thông tin và hiểu hơn trước khi vào sâu chi tiết
-                        </p>
-                        {{-- <p class="descriptionContent"> 
-                            Chúng tôi sẽ chia ra thành các thành phần trong phần tổng quan để bạn nắm rõ một số thứ trước khi chúng ta vào các phần chi tiết, hãy đọc hết tất cả các thành phần tổng quan để rõ hơn nhé.
-                        </p> --}}
-                    </div>
-                </div>
-                <div class="resultNote">
 
-                    <p class="text-title-paragraph">
-
-                        Các vấn đề cần lưu ý nhất trên làn da
-                    </p>
-
-                    <p class="description">
-                        Hiểu chi tiết hơn về làn da giúp bạn biết cách chăm sóc và có làn da tuyệt vời nhất
-                    </p>
-                </div>
-                
-                
-                <div class="result-list" id="danhsachketquatungphan">
+            
 
 
 
-
-                </div>
-
-                <div class="title-overview">
-                    <div class="hcn">
-
-                    </div>
-                    <div class="title-larger" id ="ketluachitiet" >
-                        Kết luận chi tiết
-                    </div>
-
-                </div>
-
-            </div>
-
-            <style>
-                .ConcludeItem{
-                    padding: 0px 20px;
-
-                    margin-top: 20px;
-                  
-                }
-                .ConcludeItem  {
-                font-family: SFU Futura;
-                font-style: normal;
-                font-size: 14px;
-                line-height: 20px;
-                color: #1c213f;
-                }
-
-                
-
-.progress-bar-container {
-    width: 100%;
-    height: 13px;
-    margin: 4px 0px 2px 0px;
-    background: #0000001f;
-}
-
-.progress-bar-indicator {
-  height: 100%;
-  background-image: linear-gradient(to right, #00ff4c, #ffc107, #f55581);
- 
-}
-
-#indicator-1 {
-  width: 80%;
-}
-.paragraph-text-pa {
-    display: inline-flex;
-    padding-bottom: 30px;
-
-}
-
-.bold-text-pa {
-    margin-right: 5px;
-    font-weight: bold;
-}
-.bold-text-pa1 {
-    font-weight: bold;
-}
-.tooltip-target { position: relative; }
-
-.tooltip-content { 
-    font-size: 9px;
-    background-color: snow;
-    border-radius: 20px;
-    width: 70px;
-    line-height: 10px;
-    text-align: center;
-    padding: 3px;
-    display: block;
-    position: absolute;
-     color: black;
-  
-    top: -38px;
-}
-
-.tooltip-content::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #fff transparent transparent transparent;
-}
-.tooltip-target:hover .tooltip-content {
-    display: block;
-}
-
-
-#textbox {
-    display: flex;
-    justify-content: space-between;
-}
-.concludeDeta-text-1 {
-
-    display: flex;
-}
-.concludeDetalText {
-    padding-left: 8%;
-    margin-bottom: 20px;
-}
-            </style>
-
-
-            <div id ="ConcludeItemArea" class ="blurdiv1" >
-        
-            </div>
-        
-
-
-                <div class="title-overview blurdiv1" id ="tvtq_area"  >
-                    <div class="hcn">
-
-                    </div>
-                    <div class="title-larger">
-                        Tư vấn tổng quát
-                    </div>
-
-                </div>
-                <style>
-                    .titletvtq {
-                    margin-right: 5px;
-                    font-weight: bold;
-                    font-family: SFU Futura;
-                    font-style: normal;
-                    font-size: 14px;
-                    line-height: 20px;
-                    color: #1c213f;
-                    }
-                    .paragraphText{
-
-                        font-family: SFU Futura;
-                        font-style: normal;
-                        font-size: 14px;
-                        line-height: 20px;
-                        color: #1c213f; 
-                        text-align: justify;
-                       
-                    }
-
-
-                    }
-                </style>
-                <div id="idtuvantongquan" class="blurdiv1"  style="
-                text-align: justify;
-           
-                padding: 10px;
-            ">
-
-                    {{-- <div class ="tuvantongquanItem"> 
-                        <p class ="titletvtq">Lão hoá da: </p>
-                        <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
-                    </div>
-
-                    <div class ="tuvantongquanItem"> 
-                        <p class ="titletvtq">Mụn và mụn viêm đỏ: </p>
-                        <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
-                    </div>
-
-                    <div class ="tuvantongquanItem"> 
-                        <p class ="titletvtq">Quầng thâm mắt: </p>
-                        <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
-                    </div>
-
-                    <div class ="tuvantongquanItem"> 
-                        <p class ="titletvtq">Lỗ chân lông: </p>
-                        <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
-                    </div>
-                    <div class ="tuvantongquanItem"> 
-                        <p class ="titletvtq">Đốm thâm nám: </p>
-                        <p class ="paragraphText">Làm sạch da 2 lần/ngày,bôi kem dưỡng mỗi ngày, đắp mặt nạ dưỡng ẩm 2-3 lần/tuần , tẩy tế bào chết và ngừng sử dụng các sản phẩm chăm sóc da gây dị ứng. </p>   
-                    </div> --}}
-
-                </div>
-                @endif
-                
+            
 
             </div>
             <div class="recomend-title-box" id ="hideProductList"> 
@@ -638,24 +411,7 @@
 
 </div>
 
-            @if (1==1)
-            <div class="content-plugin" id ="buttonRecomand">
-                
-               
-                <div class="box-class-center" style="height:77px">
-                    <div class=" nav-button  spaceAjustVer btnrecomend">
-
-                        <a href="javascript:void(0)" onclick="openRecomendProduct()" style="width: 234px !important">
-                            <img src="/images/arrow.png"> GỢI Ý CHĂM SÓC TỪ CHUYÊN GIA </a>
-
-                    </div>
-                </div>
-
-
-
-            </div>
-
-            @endif
+      
 
         </div>
 

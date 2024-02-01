@@ -31,7 +31,7 @@
         max-width: 380px !important;
         background-image: url("{{ $dataMinisize->imageLink }}");
         background-position: center;
-    background-size: 100% 100%;
+    /* background-size: 100% 100%; */
 
     }
 
@@ -46,7 +46,7 @@
     }
     .body-tu-van {
 
-        margin-top: 50px;
+        margin-top: 61px;
     }
    
     .title_nav-tuvan  
@@ -106,7 +106,7 @@
     -webkit-text-stroke: 0.6px   rgb(2, 52, 157);
     font-size:22px;
     font-weight: 600;
-    margin-top: 35px;
+    margin-top: 58px;
     
    }
    .des-price{
@@ -146,7 +146,7 @@ border-radius:30px;
 
    }
    .des-register img {
-    width:32px;
+    width:20px;
   
  
 
@@ -266,7 +266,7 @@ setTimeout(() => {
                      <div class="des-register">
                     
                           <a class ="minisize" onclick ="openRegister('minisize')"> {{ $dataMinisize->butonText }}
-                          <img src ="{{ $dataMinisize->imageLink }}"> 
+                          <img src ="/messenger.png"> 
                          </a>
                     </div>
                   

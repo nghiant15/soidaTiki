@@ -89,7 +89,14 @@ function drawContentTongQuan(generalResult )
 
 var index =0;
 generalResult.data.forEach((ketquatongquanItem) => {
-console.log("ketquatongquanItem",ketquatongquanItem);
+  if( ketquatongquanItem.title.vi != "Nhận diện tuổi da" && 
+  
+  ketquatongquanItem.title.vi != "Nhận diện nốt ruồi"
+  ) 
+  {
+      return;
+   
+  }
 
 index ++;
 if(index >2)
@@ -163,6 +170,7 @@ return !isNaN(parseFloat(n)) && isFinite(n);
 
 function drawContentKetLuanTungPhan(ketLuanTungPhan )
 {
+  return;
 
 let dataFace = objectReponse.data.faceAttitude;
 
@@ -170,8 +178,8 @@ let dataFace = objectReponse.data.faceAttitude;
 let indexDraw =0;
 ketLuanTungPhan.data.forEach((ketLuanTungPhanItem) => {
 indexDraw ++;
-let dataDrawFace  = " http://localhost:8002/images/image1.png";
- http://localhost:8002/images/image1.png
+let dataDrawFace  = " https://applamdep.com/images/image1.png";
+ https://applamdep.com/images/image1.png
 if(dataFace)
 {
 
@@ -748,6 +756,7 @@ var sumScoreAvg  =0;
 
 function drawConcludev2 ( groupk, valuek, item) 
 {
+  return;
   var tilte = "";
   var des = "";
   var valueRel =  item['avg'];
