@@ -1479,11 +1479,11 @@
      <div>
      <div id="pdfviewer"></div>
 
-     <!-- <embed src=" https://applamdep.com/Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"> -->
-     <!-- <img src=" https://applamdep.com/Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf"> -->
-     <!-- <iframe src="https://docs.google.com/viewer?url= https://applamdep.com/233.pdf&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe> -->
+     <!-- <embed src=" /Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"> -->
+     <!-- <img src=" /Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf"> -->
+     <!-- <iframe src="https://docs.google.com/viewer?url= /233.pdf&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe> -->
 
-     <!-- <embed src=" https://applamdep.com/Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf" width="800" height="500" type='application/pdf'> -->
+     <!-- <embed src=" /Khong-Gi-Chet-Di-Bao-Gio - Viet-Thanh-Nguyen-1.pdf" width="800" height="500" type='application/pdf'> -->
     <!-- <iframe  id = "pdfviewer1" src="https://drive.internxt.com/sh/file/ed6ea51ce11f92774440/ad860036384e7dc66cb17046b8876551ccdd2bcf3a13b82be2ab5edb2c5ae1f6" style="width:100%; height:100%;"   -->
     <!-- toolbar=0
     frameborder="0"></iframe>  -->

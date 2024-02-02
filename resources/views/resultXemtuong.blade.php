@@ -1265,14 +1265,8 @@
    var refreshIntervalId;
 
 
-    // setTimeout(() => {
-    //     refreshIntervalId = setInterval(myTimer, 1000);
-    // }, 4000);
+ 
 
-setTimeout(() => {
-    readTextConclude();
-   
-}, 3000);
 
 setTimeout(() => {  
     document.getElementById("fromResiger").style.display ="block";

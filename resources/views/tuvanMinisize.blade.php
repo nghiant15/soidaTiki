@@ -29,7 +29,7 @@
         border-radius: 25px;
 
         max-width: 380px !important;
-        background-image: url("{{ $dataMinisize->imageLink }}");
+       
         background-position: center;
     /* background-size: 100% 100%; */
 
@@ -46,7 +46,7 @@
     }
     .body-tu-van {
 
-        margin-top: 61px;
+        /* margin-top: 61px; */
     }
    
     .title_nav-tuvan  
@@ -55,11 +55,11 @@
        
    }
    .title_nav-tuvan p {
-    font-size: 25px;
+    font-size: 15px;
     color:  rgb(252, 22, 35);
 
 
-    -webkit-text-stroke: 0.05px  rgb(252, 22, 35);
+    /* -webkit-text-stroke: 0.05px  rgb(252, 22, 35); */
     font-weight: bold;
    }
    .bottom-button {
@@ -95,7 +95,7 @@
    .des-introduction{
     text-align: center;
     color:  rgb(2, 52, 157);
-    -webkit-text-stroke: 0.01px  rgb(241, 163, 173);
+    /* -webkit-text-stroke: 0.01px  rgb(241, 163, 173); */
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -103,10 +103,10 @@
    .des-title{
     text-align: center;
     color:  rgb(2, 52, 157);
-    -webkit-text-stroke: 0.6px   rgb(2, 52, 157);
-    font-size:22px;
+    /* -webkit-text-stroke: 0.6px   rgb(2, 52, 157); */
+    /* font-size:22px; */
     font-weight: 600;
-    margin-top: 58px;
+    /* margin-top: 58px; */
     
    }
    .des-price{
@@ -114,7 +114,7 @@
     color: rgb(247, 27, 41);
     font-size: 22px;
     font-weight: 600;
-    -webkit-text-stroke: 0.05px rgb(247, 27, 41);
+    /* -webkit-text-stroke: 0.05px rgb(247, 27, 41); */
     margin-bottom: 15px;
     margin-top: 15px;
    }
@@ -246,12 +246,15 @@ setTimeout(() => {
                         transform=""></path>
                 </svg>
             </div>
-
+           
             <div class="status__isLogin body-tu-van">
-                <div class="">
+                
+                    <img src ="{{ $dataMinisize->imageLink }}"> 
+                  
+                    
                     <div class="title_nav-tuvan">
                         <p>{{ $dataMinisize->title }}</p>
-                   </div>
+                    </div>
                   
                     <div class ="des-introduction">
                         {{ $dataMinisize->slch }}
@@ -272,9 +275,6 @@ setTimeout(() => {
                   
 
                    
-
-                   
-                </div>
             </div>
 
         

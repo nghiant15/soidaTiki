@@ -265,7 +265,7 @@
                 <a id="myBtn" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Đăng nhập/Đăng ký</a>
             </li>
             <li class="right-text login">
-                <a href=" https://applamdep.com/" href="javascript:void(0)" data-toggle="modal"
+                <a href=" /" href="javascript:void(0)" data-toggle="modal"
                     data-target="#signUpModal">Đăng ký</a>
             </li>
         </ul>

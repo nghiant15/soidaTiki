@@ -182,7 +182,6 @@ let dataDrawFace  = " https://applamdep.com/images/image1.png";
  https://applamdep.com/images/image1.png
 if(dataFace)
 {
-
 switch(indexDraw) {
  case 1:
 
