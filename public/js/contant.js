@@ -31,7 +31,7 @@ var  api =  {
   
 
     serve: {
-        baser_urlServer: "https://applamdep.com",
+        baser_urlServer: "http://localhost:8002",
         get_banner: `api/evoucher/banner/getAll`,
         api_logoutUser: `${slug}dang-xuat-he-thong`,
         api_registerUser: `${slug}dang-ky-nguoi-dung`,

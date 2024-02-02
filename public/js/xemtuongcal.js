@@ -4,8 +4,8 @@ var  resultHi = JSON.parse(sessionStorage._t);
 var arraySkinMoleArray = [
   {
       "height": 2.830348,
-      "left":168,
-      "top": 137,
+      "left":173,
+      "top": 112,
       "width": 2.291032
   }
 ];
@@ -73,6 +73,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
                                   if(outPutRule <0)
                                   {
                                     outPutRule = checknumber2324(itemSkinMole, faceArea);
+                                    if(outPutRule <0)
+                                    {
+                                      outPutRule = checknumber2122(itemSkinMole, faceArea);
+                                     
+                                    }
                                   }
                                 }
                               }
@@ -201,6 +206,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
              {
                 titlepa =  'Nốt ruồi số 24';
                 contentPa = 'Gặp được nhiều may mắn </br> Cuộc sống hạnh phúc, không phải lo nghĩ về tiền bạc </br> Nốt ruồi trên mặt ở vị trí 37 cho biết bạn là người hay nổi nóng, không kiềm chế được bản thân  ';
+             }
+
+             else if(outPutRule == 21)
+             {
+                titlepa =  'Nốt ruồi số 21';
+                contentPa = 'Hay vướng vào các chuyện thị phi không đáng có </br> Chú ý đến việc đi lại, nên cẩn trọng';
+             }
+             else if(outPutRule == 22)
+             {
+                titlepa =  'Nốt ruồi số 22';
+                contentPa = 'Là một người rất chung thủy, yêu thương gia đình</br> Nhưng hay nóng giận, khó kiềm chế cảm xúc ';
              }
              var template = '<div class="center-div"> \
              <p class="title-description-content">' +titlepa  +' </p>\
@@ -548,41 +564,73 @@ function checknumber1617(skinMole,faceArea )
 function checknumber2324(skinMole,faceArea )
 {
     
-  debugger;
-   var isConditionx = (faceArea.left + ratex*2   < skinMole.left
-        && skinMole.left <= faceArea.left +ratex*3-ratex/2-ratex/7 );
+
+   var isConditionx = (faceArea.left < skinMole.left &&  skinMole.left <= faceArea.left + ratex*1 + ratex/2 -ratex/6 );
+
        
   
     if(isConditionx ==true)
     {
     
-      if(  faceArea.top+ ratey*3/2 <= skinMole.top  &&  skinMole.top <=  faceArea.top +ratey*2 - ratey/6  )
+      if( faceArea.top + ratey + ratey/6  <=  skinMole.top &&  faceArea.top + ratey +ratey/2-ratey/5  )
       { 
-        return 16;
+        return 24;
       }
-      else 
+      
+    }
+    isConditionx = (faceArea.left + ratex/3   < skinMole.left
+      && skinMole.left <= faceArea.left + ratex*2 +ratex/6);
+      
+
+      if(isConditionx)
       {
-        return -1;
-      }
-    }
-    else 
-    {
-
-    
-      isConditionx = (faceArea.left + ratex*3   < skinMole.left
-        && skinMole.left <= faceArea.left +ratex*4+ratex/3);
+        if( faceArea.top + ratey/2  <= skinMole.top 
         
-
-        if(isConditionx)
+        && skinMole.top  <= faceArea.top + ratey + ratey/6  )
         {
-          if(skinMole.top <= faceArea.top + ratey + ratey/2   &&  skinMole.top >= faceArea.top + ratey + ratey/3  )
-          {
-            return  15;
-          }
-          
+          return  23;
         }
+        
+      }
+
+  
+     return -1;
+ 
+
+ 
+}
+
+function checknumber2122(skinMole,faceArea )
+{
+  debugger;
+   var isConditionx = (
+     faceArea.left + ratex*2.7 + ratex/7 < skinMole.left 
+      &&  skinMole.left<= faceArea.left + ratex*4.5 );
+   if(isConditionx ==true)
+    {
     
+      if( faceArea.top + ratey + ratey/4 >=  skinMole.top &&
+      skinMole.top >=  faceArea.top + ratey  -ratey/3  )
+      { 
+        return 22;
+      }
+      
     }
+    isConditionx = ( 
+    faceArea.left + ratex*2.9 + ratex/7 < skinMole.left 
+    &&  skinMole.left<= faceArea.left + ratex*4.5
+    );
+      
+
+      if(isConditionx)
+      {
+        if(  faceArea.top + ratey + ratey/2 +ratex/7  >=  skinMole.top &&
+        skinMole.top >=  faceArea.top + ratey +ratey/4   )
+        {
+          return  23;
+        }
+        
+      }
 
   
      return -1;
