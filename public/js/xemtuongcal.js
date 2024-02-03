@@ -2,22 +2,15 @@
 var  resultHi = JSON.parse(sessionStorage._t);
 
 var arraySkinMoleArray = [
-  {
-      "height": 2.830348,
-      "left":173,
-      "top": 112,
-      "width": 2.291032
-  }
+  
 ];
 
 var arraySkinMoleArray1 = resultHi.data.facedata.generalResult.data[3].data;
 
-// if(arraySkinMoleArray1.length >0)
-// {
-//   arraySkinMoleArray = arraySkinMoleArray1[0].drawArr;
-// }
-// console.log("arraySkinMoleArray1",arraySkinMoleArray1);
-
+if(arraySkinMoleArray1.length >0)
+{
+  arraySkinMoleArray = arraySkinMoleArray1[0].drawArr;
+}
 
 var faceArea = {
   "height": 100.6203,
@@ -32,13 +25,12 @@ var yAnumber = faceArea.top;
 var ratex = faceArea.width/5;
 var ratey = faceArea.height/2;
 var ratexy= 0.2;
-var htmlElement = '<div class="center-div"><p class="title-description-content"> Nốt ruồi số 1  </p><p class="content-paragraph">Nội dung: <strong>Người sở hữu nốt ruồi ở vị trí này là người có số khắc cha mẹ, hay xảy ra mâu thuẫn, cuộc sống đều phải tự thân vận động mới có </strong></p></div>';
+var htmlElement = '';
 document.addEventListener("DOMContentLoaded", function(event) {
      var htmlElement2 ='';
         arraySkinMoleArray.forEach(itemSkinMole => {
             
              var outPutRule = checknumber12( itemSkinMole, faceArea);
-             
              if(outPutRule < 0)
              {
                 outPutRule = checknumber34(itemSkinMole, faceArea);
@@ -76,6 +68,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
                                     if(outPutRule <0)
                                     {
                                       outPutRule = checknumber2122(itemSkinMole, faceArea);
+
+                                      if(outPutRule <0)
+                                      {
+                                        outPutRule = checknumber18(itemSkinMole, faceArea);
+                                        if(outPutRule <0)
+                                        {
+                                          outPutRule = checknumber20(itemSkinMole, faceArea);
+                                          
+                                          if(outPutRule <0)
+                                          {
+                                            outPutRule = checknumber19(itemSkinMole, faceArea);
+
+                                          }
+                                        }
+                                       
+                                      }
                                      
                                     }
                                   }
@@ -197,7 +205,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 titlepa =  'Nốt ruồi số 17';
                 contentPa = 'Là người có tham vọng lớn';
              }
-              else if(outPutRule == 23)
+             else if(outPutRule == 18)
+             {
+                titlepa =  'Nốt ruồi số 18';
+                contentPa = 'Là người tốt bụng, hay giúp đỡ người khác<br/>Hay giúp đỡ mọi người xung quanh, có tấm lòng nhân hậu</br>Nhưng Đường con cái không được mấy thuận lợi, gặp nhiều khó khăn ';
+             }
+             else if(outPutRule == 19)
+             {
+                titlepa =  'Nốt ruồi số 19';
+                contentPa = 'Là người có ý chí, khát vọng lớn <br/>Nhưng Thường suy nghĩ nông nổi ';
+             }
+             else if(outPutRule == 20)
+             {
+                titlepa =  'Nốt ruồi số 20';
+                contentPa = 'Có  nhiều cơ hội thăng tiến trong sự nghiệp </br>Là người thông minh, nhanh nhạy</br>Nhưng thường dễ nản lòng khi gặp khó khăn</br>Là người không chịu được nhiều áp lực, đặc biệt là trong công việc</br>Là người sống tình cảm, lãng mạn</br> ';
+             }
+
+             else if(outPutRule == 23)
              {
                 titlepa =  'Nốt ruồi số 23';
                 contentPa = 'Hay xảy ra xung khắc với cha, phải lập nghiệp xa quê mới có được thành tựu </br> Là người tự lập, tự chủ về tài chính, biết cách quản lý chi tiêu';
@@ -218,19 +242,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 titlepa =  'Nốt ruồi số 22';
                 contentPa = 'Là một người rất chung thủy, yêu thương gia đình</br> Nhưng hay nóng giận, khó kiềm chế cảm xúc ';
              }
-             var template = '<div class="center-div"> \
-             <p class="title-description-content">' +titlepa  +' </p>\
-             <p class="content-paragraph">Nội dung: </br> <strong>'+contentPa+' </strong></p></div>';
 
-             htmlElement2 += template;
+             if(titlepa != '')
+             {
+              var template = '<div class="center-div"> \
+              <p class="title-description-content">' +titlepa  +' </p>\
+              <p class="content-paragraph">Nội dung: </br> <strong>'+contentPa+' </strong></p></div>';
+ 
+              htmlElement2 += template;
+             }
+            
           
             
           });
           
           setTimeout(() => {
-            document.getElementById("xemtuongResult").innerHTML = htmlElement2;
-          }, 500);
-        //   $("#xemtuongResult").html(htmlElement2);
+            console.log(htmlElement2);
+
+             document.getElementById("xemtuongResult").innerHTML += htmlElement2;
+          }, 200);
+      //   $("#xemtuongResult").html(htmlElement2);
        
           
 });
@@ -472,7 +503,7 @@ function checknumber13(skinMole,faceArea )
 
 function checknumber1415(skinMole,faceArea )
 {
-  debugger;
+
     var isConditionx = (faceArea.left + ratex*2   < skinMole.left
         && skinMole.left <= faceArea.left +ratex*3-ratex/3);
        
@@ -493,13 +524,12 @@ function checknumber1415(skinMole,faceArea )
     {
 
     
-      isConditionx = (faceArea.left + ratex*3   < skinMole.left
-        && skinMole.left <= faceArea.left +ratex*4+ratex/3);
+      isConditionx = (faceArea.left + ratex*2 -ratex/2  < skinMole.left
+        && skinMole.left <= faceArea.left +ratex*2.5);
         
-
         if(isConditionx)
         {
-          if(skinMole.top <= faceArea.top + ratey + ratey/2   &&  skinMole.top <= faceArea.top + ratey + ratey/2 - ratey/7  )
+          if(skinMole.top <= faceArea.top + ratey + ratey/3   &&  skinMole.top >= faceArea.top + ratey +ratey/6  )
           {
             return  15;
           }
@@ -602,17 +632,17 @@ function checknumber2324(skinMole,faceArea )
 
 function checknumber2122(skinMole,faceArea )
 {
-  debugger;
+
    var isConditionx = (
      faceArea.left + ratex*2.7 + ratex/7 < skinMole.left 
-      &&  skinMole.left<= faceArea.left + ratex*4.5 );
+      &&  skinMole.left<= faceArea.left + ratex*4.75 );
    if(isConditionx ==true)
     {
     
       if( faceArea.top + ratey + ratey/4 >=  skinMole.top &&
       skinMole.top >=  faceArea.top + ratey  -ratey/3  )
       { 
-        return 22;
+        return 21;
       }
       
     }
@@ -627,7 +657,7 @@ function checknumber2122(skinMole,faceArea )
         if(  faceArea.top + ratey + ratey/2 +ratex/7  >=  skinMole.top &&
         skinMole.top >=  faceArea.top + ratey +ratey/4   )
         {
-          return  23;
+          return  22;
         }
         
       }
@@ -639,5 +669,71 @@ function checknumber2122(skinMole,faceArea )
  
 }
 
+function checknumber18(skinMole,faceArea )
+{
+  
+   var isConditionx = (
+     faceArea.left + ratex*2.5 - ratex/7 < skinMole.left 
+      &&  skinMole.left<= faceArea.left + ratex*2.5 +ratex/7 );
+   if(isConditionx ==true)
+    {
+    
+      if( faceArea.top + ratey + ratey/2 <=  skinMole.top &&
+      skinMole.top <=  faceArea.top + ratey *1.82  )
+      { 
+        return 18;
+      }
+      
+    }
+   
+     return -1;
+ 
+
+ 
+}
+
+function checknumber20(skinMole,faceArea )
+{
+  
+   var isConditionx = (
+     faceArea.left + ratex*2.5 + ratex/7 -1 < skinMole.left 
+      &&  skinMole.left<= faceArea.left + ratex*4 -ratex/7 );
+   if(isConditionx ==true)
+    {
+    
+      if( faceArea.top + ratey + ratey/2- ratey/7.6 <=  skinMole.top &&
+      skinMole.top <=  faceArea.top + ratey *1.7  )
+      { 
+        return 20;
+      }
+      
+    }
+   
+     return -1;
+ 
+
+ 
+}
+function checknumber19(skinMole,faceArea )
+{
+   var isConditionx = (
+     faceArea.left + ratex*2.5 - ratex/6 -1> skinMole.left 
+      &&  skinMole.left<= faceArea.left + ratex*1.7 );
+   if(isConditionx ==true)
+    {
+    
+      if( faceArea.top + ratey + ratey/2- ratey/5 <=  skinMole.top &&
+      skinMole.top <=  faceArea.top + ratey *2  )
+      { 
+        return 20;
+      }
+      
+    }
+   
+     return -1;
+ 
+
+ 
+}
 
 

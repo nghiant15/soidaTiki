@@ -70,6 +70,15 @@
   animation-fill-mode: forwards;
   animation-timing-function: linear;
 }
+.record-content .record-content-tab .description .description-content {
+
+    display: inline-grid;
+}
+
+.center-div {
+   margin-bottom: 20px !important;
+}
+
 
 @keyframes gradient { 
   0%   { background-position: 0 0; }
