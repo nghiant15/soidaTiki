@@ -146,7 +146,7 @@
 
                     <div class="action-cta action-cta-take">
 
-                        <input type="button" onclick="choseImage()" class="upload-file">
+                        <input type="button" onclick="choseImage()" style ="background-color: floralwhite;"  class="upload-file">
                         <div class="icn"><img src="./assets/choseImage.svg" alt="" class="selfie"></div>
                         <div class="txt">Chọn ảnh</div>
                     </div>
@@ -328,9 +328,15 @@
             {{-- </div> --}}
 
 
-            <div class="nav-menu" id ="cammeraButton"  style ="display:none">
+            <div class="nav-menu" id ="cammeraButton"  style ="display:none; ">
+                <div class="uploadButton uploadImage">
 
+                    <div class="nav-avatar" onclick="choseImage()">
+                        <img src="/images/photos.png">
 
+                    </div>
+                    <div class="text"><a href="javascript:void(0)" onclick="choseImage()"> Tải ảnh lên </a></div>
+                </div>
                 <div class="uploadButton cameraNow" >
 
                     <div class="nav-avatar nav-avatar__camera" onclick="haldleOpenCamera()" style="
@@ -431,7 +437,7 @@
                 var tips = document.getElementById("tips");
                 tips.style.display = "none";
                 setTimeout(() => {
-                    document.getElementById("cammeraButton").style.display ="grid";
+                    document.getElementById("cammeraButton").style.display ="table";
                     // document.getElementById("socialBLock").style.display = "block";
 
                     
@@ -495,7 +501,7 @@
                 var tips = document.getElementById("tips");
                 tips.style.display = "none";
                 setTimeout(() => {
-                    document.getElementById("cammeraButton").style.display ="grid";
+                    document.getElementById("cammeraButton").style.display ="table";
                     // document.getElementById("socialBLock").style.display = "block";
 
                     

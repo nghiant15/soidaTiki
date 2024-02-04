@@ -70,6 +70,11 @@
   animation-fill-mode: forwards;
   animation-timing-function: linear;
 }
+.content-paragraph strong {
+    /* font-size: unset !important; */
+    color: red !important;
+    /* font-weight: bold; */
+}
 
 @keyframes gradient { 
   0%   { background-position: 0 0; }
