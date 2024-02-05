@@ -32,8 +32,8 @@ Route::get('/{slug}/thong-tin-tai-khoan', 'HomepageController@profile')->name('h
 
 Route::get('api/evoucher/banner/getAll', 'EvoucherController@getbanner');
 
-
 Route::get('/xemchitietlichsu/{id}', 'HomepageController@historyDetailPage');
+Route::get('/xemtuong/xemchitietlichsu/{id}', 'HomepageController@historyDetailPage3');
 Route::get('/xemchitietlichsu2/{id}', 'HomepageController@historyDetailPage2');
 Route::post('/typeLogin/setType', 'HistoryController@setType');
 

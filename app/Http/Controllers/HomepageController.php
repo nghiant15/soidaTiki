@@ -660,23 +660,7 @@ public function getDataInfo (Request $request)
         
         }
       
-        // if($slug == "bibabo")
-        // {
-        //     $isTurnOfFooter = false;
-        //     $userName = $request['name'];
-
-        //     $dataRequestInput =[
-        //         'username'=>  $userName,
-        //         'password'=> $userName,
-        //         'phoneNumber'=> $userName,
-        //         'slug' => $slug,
-        //         'company_id'=> "63fdd4abf2e4d61bd539962b",
-        //         'historyId' => $this->getHistoryId()
-        //     ];
-        //     $this->loginUser($dataRequestInput);
-           
-        // }
-
+       
       
         if(!$isCheck)
         {
@@ -718,7 +702,8 @@ public function getDataInfo (Request $request)
         }
         else  if($slug =="xemtuong")
         {
-            $gameXemtuong = $this->getGameMinisize($dataCompanyId);
+            $gameXemtuong = $this->getGameXemtuong($dataCompanyId);
+        
             
             return view("xemtuong", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
         }
@@ -955,7 +940,8 @@ public function getDataInfo (Request $request)
         }
        else if($slug =="xemtuong")
         {
-            $gameXemtuong = $this->getGameMinisize($companyId);
+
+            $gameXemtuong = $this->getGameXemtuong($companyId);
             return view("resultXemtuong", compact("slug", 
              "ageGame","ageGameReal","gameType","gameJoinType1",
              "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
@@ -1146,6 +1132,55 @@ public function getDataInfo (Request $request)
         
     }
 
+    public function historyDetailPage3 (Request $request , $id =null) 
+    {
+        $agent = new Agent();
+        if($id ==null)
+        {
+          return ;
+
+        }
+        
+        $slug = "";
+        $checkacssSlugUrl ="https://api-soida.applamdep.com/api/get-detail-history-skin";
+        $client = new Client();
+        $res = $client->request('post', 'https://api-soida.applamdep.com/api/get-detail-history-skin', [
+            'json' => [
+                 'id'=> $id
+              ]
+        ]);
+        
+     
+       
+  
+        if($res->getStatusCode() ==200)
+        {
+            $checkresult = $res->getBody()->getContents();
+
+            
+            $checkresult = json_decode($checkresult);
+            if($checkresult->is_success)
+            {
+                
+                    $result  = $checkresult->data;
+                
+                    return view("historyPageDetail3",compact("id","result", "slug","agent"));
+
+            }
+                return  "Không có dữ liệu";
+            
+            }
+            else 
+            {
+            
+            }
+        return view("historyPageDetail",compact("id","slug","agent"));
+
+       
+        
+        
+    }
+
     public function historyDetailPage (Request $request , $id =null) 
     {
         $agent = new Agent();
@@ -1176,7 +1211,8 @@ public function getDataInfo (Request $request)
                 if($checkresult->is_success)
             {
                 
-                    $result  = $checkresult->data;
+                    $result  = $checkresult->data;  
+                    
                 
                     return view("historyPageDetail",compact("id","result", "slug","agent"));
 

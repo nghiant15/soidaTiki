@@ -1,6 +1,7 @@
 
 var  resultHi = JSON.parse(sessionStorage._t);
 
+
 var arraySkinMoleArray = [
   
 ];

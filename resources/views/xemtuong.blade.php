@@ -5,6 +5,8 @@
     $dataMinisize =  session('dataminisize', null);
     $zaloLink =  $dataLikn->zaloLink;
     $messengerLink = $dataLikn->messengerLink;
+
+    $dataXemtuong =   session('dataXemtuong', null);
     if (isset($globalData)) 
     {
         $dataSeo = $globalData->seoInfo;
@@ -15,23 +17,7 @@
         $dataSeo->title ="Soi Da Online .Ngay tại nhà, Kiểm tra, tuổi da & hơn 40 thông số về da khác. Một lần quét, nói với bạn mọi điều .#soidaonline";
         $dataSeo->imageShare ="/images/tikitech_icon.png";
     }
-    if($slug =="ngocdung")
-    {
     
-        $dataSeo-> title ="TMV Ngoc Dung Soi Da Online";
-    }
-    else if($slug =="zasaly")
-    {
-        $dataSeo-> title ="Zasaly Spa Soi da Online";
-    }
-    else if($slug =="zema")
-    {
-        $dataSeo-> title ="Zema Beauty Soi Da Online";
-    }
-    else 
-    {
-        $dataSeo-> title ="Soi da online";
-    }
   
     $dataSeo->description ="Soi Da Online .Ngay tại nhà, Kiểm tra, tuổi da & hơn 40 thông số về da khác. Một lần quét, nói với bạn mọi điều .#soidaonline";
 @endphp
@@ -244,90 +230,35 @@
                 </div>
             </div>
 
-            @if($gameJoinTo == true )
-            
-                @php
-                 $gameData  =  session('dataGame', null);
-                
-                 $dataImage = $gameData->des;
-                @endphp 
-                        
-                <div id="tips" class="ai-skin__tips" style="displa">
-                    <div class="ai-skin__tips__content" style= "width:400px">
-                    <img src  = "{{$dataImage}}"/> 
-
-                            <div class="ai-skin__button ai-skin__tips__button">
-                                    <button type="button" onclick="hideTips()">Soi Da online ngay</button>
-                                </div>
-                      </div>
-                    </div>
-                </div>
-            @elseif ($slug == "gametuoida")
-                    <div id="tips" class="ai-skin__tips" style="display:none">
-                            <div class="ai-skin__tips__content" style= "width:400px">
-                            <img src  = "/gametuoida.png"/> 
-
-                                    <div class="ai-skin__button ai-skin__tips__button">
-                                            <button type="button" onclick="hideTips()">Soi Da online ngay</button>
-                                        </div>
-                            </div>
-                            </div>
-                     </div>       
-            @else 
-                <div id="tips" class="ai-skin__tips" style="display:none">
+            <div id="tips" class="ai-skin__tips" style="display:none">
                  
-                    <div class="ai-skin__tips__content">
-                        <div onclick="hideTips()"  class ="iconClose">
-                           <img src="/iconClose.png">
-                        </div>
-                        <span class="ai-skin__tips__content-header">
-                            Ứng dụng sẽ chụp gương mặt của bạn. Sau đây là một số
-                            hướng dẫn để có những bức ảnh chuẩn xác nhất
-                        </span>
-                        <ol class="ai-skin__tips__content-body">
-                            <li>Giữ chặt đIện thoạI trong khi chụp</li>
-                            <li>Tẩy trang &amp; làm sạch da trước khi sử dụng ứng dụng</li>
-                            <li>Cột/búI tóc lên cao và cởI mắt kính (nếu có)</li>
-                            <li>
-                                Kiểm tra ánh sáng của phòng sử dụng camera trước để phân tích làn da bạn
-                            </li>
-                        </ol>
-                        <div class="ai-skin__button ai-skin__tips__button">
-                            <button type="button" onclick="hideTips()">ĐÃ HIỂU</button>
-                        </div>
+                <div class="ai-skin__tips__content">
+                    <div onclick="hideTips()"  class ="iconClose">
+                       <img src="/iconClose.png">
+                    </div>
+                    <span class="ai-skin__tips__content-header">
+                        Ứng dụng sẽ chụp gương mặt của bạn. Sau đây là một số
+                        hướng dẫn để có những bức ảnh chuẩn xác nhất
+                    </span>
+                    <ol class="ai-skin__tips__content-body">
+                        <li>Giữ chặt đIện thoạI trong khi chụp</li>
+                        <li>Tẩy trang &amp; làm sạch da trước khi sử dụng ứng dụng</li>
+                        <li>Cột/búI tóc lên cao và cởI mắt kính (nếu có)</li>
+                        <li>
+                            Kiểm tra ánh sáng của phòng sử dụng camera trước để phân tích làn da bạn
+                        </li>
+                    </ol>
+                    <div class="ai-skin__button ai-skin__tips__button">
+                        <button type="button" onclick="hideTips()">ĐÃ HIỂU</button>
                     </div>
                 </div>
-
-            @endif
+            </div>
            
 
 
 
             
-            {{-- <div class="nav-menu"> --}}
-
-                {{-- <div class="uploadButton uploadImage">
-
-                    <div class="nav-avatar" onclick="choseImage()">
-                        <img src="/images/photos.png">
-
-                    </div>
-                    <div class="text"><a href="javascript:void(0)" onclick="choseImage()"> Tải ảnh lên </a></div>
-                </div> --}}
-                {{-- <div class="uploadButton cameraNow" style="width: 130px">
-
-                    <div class="nav-avatar" onclick="haldleOpenCamera()">
-                        <img src="/images/cameraImage.png">
-
-                    </div>
-                    <div class="text"><a href="javascript:void(0)" onclick="haldleOpenCamera()">Chụp ảnh ngay </a>
-                    </div>
-                </div> --}}
-
-
-            {{-- </div> --}}
-
-
+           
             <div class="nav-menu" id ="cammeraButton"  style ="display:none; ">
                 <div class="uploadButton uploadImage">
 
@@ -406,15 +337,7 @@
 
 
         <script>
-            //   setTimeout(() => {
-                  
-            //         document.getElementById("socialBLock").style.display = "block";
-
-                    
-
-
-                    
-            //     }, 1000);
+         
             window.scrollTo({
                 top: 0,
                 behavior: "smooth",
@@ -424,24 +347,13 @@
        
         </script>
         <script>
-            // setTimeout(() => {
-            //         document.getElementById("cammeraButton").style.display ="grid";
-                
-
-                    
-
-
-                    
-            //     }, 2500);
+        
               function hideTips() {
                 var tips = document.getElementById("tips");
                 tips.style.display = "none";
                 setTimeout(() => {
                     document.getElementById("cammeraButton").style.display ="table";
-                    // document.getElementById("socialBLock").style.display = "block";
-
-                    
-
+               
 
                     
                 }, 500);
@@ -1594,7 +1506,7 @@ setTimeout(() => {
 
 <div class ="imagebackground2" id ="fromResiger" style ="display:none" >
     <a  onclick ="openRegister1()" >
-    <img src ="/footerImage.jpg">
+        <img src ="{{ $dataXemtuong->image }}">
     </a>
 </div>
 

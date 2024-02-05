@@ -1,4 +1,7 @@
 
+@php
+     $dataXemtuong =   session('dataXemtuong', null);
+@endphp
 <style>
     .content-text {
         text-align: justify;
@@ -9,6 +12,9 @@
     }
     .content-text .bold1{
        font-weight: bold;
+    }
+    .content-text strong{
+        font-size: 1rem !important;
     }
 </style>
 
@@ -41,9 +47,9 @@
                     <div class="flex-a-center">
                         <div class="title_nav">
                             <h6 id ="titleLogin1">
-                                Đăng ký Xem tướng online
+                                {{ $dataXemtuong->title  }}
                                 <br>
-                                gói cơ bản là 99.000 đồng
+                                {{ $dataXemtuong->title2  }}
                             </h6>
                         </div>
                     </div>
@@ -69,18 +75,7 @@
                         </div>
 
                         <div class ="content-text">
-                            <p style="line-height: 1.3; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 13pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0);">Ch&uacute;ng t&ocirc;i sẽ li&ecirc;n hệ trong v&ograve;ng 24h kể từ khi bạn&nbsp; đăng k&yacute; &amp; thanh to&aacute;n:</span></p>
-                            <p style="line-height: 1.3; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 13pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0);">Qua t&agrave;i khoản&nbsp;ng&acirc;n h&agrave;ng:&nbsp;&nbsp;</span></p>
-                            <ul>
-                            <li style="line-height: 1.2; text-align: justify;"><span style="font-size: 13pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0);">0071000881282</span></li>
-                            <li style="line-height: 1.2; text-align: justify;"><span style="font-size: 13pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0);">Vietcombank&nbsp;</span></li>
-                            <li style="line-height: 1.2; text-align: justify;"><span style="font-size: 13pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0);">L&ecirc; Thị Tin</span></li>
-                            </ul>
-                            <p><span style="color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13pt;"> Qua tài khoản Momo: 0906606986</span></p>
-                            <p style="line-height: 1.3; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 13pt;"><span style="font-family: Arial, sans-serif; color: rgb(0, 0, 0);">Nội dung chuyển khoản: <strong>[ t&ecirc;n ] [ số dien thoại] đăng k&yacute; xem tướng online</strong></span></span></p>
-                            <p style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">&nbsp;</p>
-                            <p style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;"><span style="font-size: 13pt;"><strong><span style="font-family: Arial, sans-serif; color: rgb(0, 0, 0);">Ghi ch&uacute;: nội dung xem tướng online chỉ mang t&iacute;nh chất giải tr&iacute;</span></strong></span></p>
-                            <p style="text-align: justify;">&nbsp;</p>
+                            {!! $dataXemtuong->content !!}
                         </div>
                        
                        

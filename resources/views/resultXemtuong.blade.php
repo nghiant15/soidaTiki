@@ -13,6 +13,8 @@
          }
 
          $dataMinisize =  session('dataminisize', null);
+ 
+     $dataXemtuong =   session('dataXemtuong', null);
 
        
 @endphp
@@ -1433,7 +1435,7 @@ function OpenAction ( connectionType)
 
 <div class ="imagebackground" id ="fromResiger" >
     <a  onclick ="openRegister()" >
-        <img src ="/footerImage.jpg">
+        <img src ="{{ $dataXemtuong->image }}">
     </a>
 </div>
 <style>
