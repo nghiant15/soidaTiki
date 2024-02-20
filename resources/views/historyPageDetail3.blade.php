@@ -227,7 +227,7 @@
                 <a id="myBtn" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Đăng nhập/Đăng ký</a>
             </li>
             <li class="right-text login">
-                <a href=" http://localhost:8000/" href="javascript:void(0)" data-toggle="modal"
+                <a href=" https://applamdep.com/" href="javascript:void(0)" data-toggle="modal"
                     data-target="#signUpModal">Đăng ký</a>
             </li>
         </ul>
@@ -1824,6 +1824,11 @@ function drawContentTongQuan(generalResult )
 
 var index =0;
 generalResult.data.forEach((ketquatongquanItem) => {
+  if(ketquatongquanItem.title.vi =="Nhận diện tông màu da")
+          {
+            ketquatongquanItem.title.vi  =  "Nhận diện tone màu da";
+          }
+
  if( ketquatongquanItem.title.vi != "Nhận diện tuổi da" && 
  
  ketquatongquanItem.title.vi != "Nhận diện nốt ruồi"

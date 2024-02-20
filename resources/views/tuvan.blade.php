@@ -89,7 +89,10 @@
                 </svg>
             </div>
 
-            <div class="status__isLogin body-tu-van">
+            <div class="status__isLogin body-tu-van" style="
+            font-family: 'SFU Futura';
+        ">
+                   
                 <div class="">
                     <div class="title_nav-tuvan">
                         <h4>Đăng ký </h4>

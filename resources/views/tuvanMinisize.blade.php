@@ -126,7 +126,7 @@
     width: 100%;
     text-align: center;
     color:  rgb(250,251,254);
-    font-size:20px;
+    font-size:18px;
     font-weight: bold;
    }
    .des-register a {
@@ -247,7 +247,10 @@ setTimeout(() => {
                 </svg>
             </div>
            
-            <div class="status__isLogin body-tu-van">
+            <div class="status__isLogin body-tu-van" style="
+            font-family: 'SFU Futura';
+        ">
+                   
                 
                     <img src ="{{ $dataMinisize->imageLink }}"> 
                   

@@ -106,7 +106,11 @@ var html= '<div class="record-content">\
       <div class="description-content">\
           <div class="center-div">';
           
-          
+          if(ketquatongquanItem.title.vi =="Nhận diện tông màu da")
+          {
+            ketquatongquanItem.title.vi  =  "Nhận diện tone màu da";
+          }
+
           html += '<p class="title-description-content"> '+ ketquatongquanItem.title.vi + ' </p>';
          
           var dataList = ketquatongquanItem.data;
