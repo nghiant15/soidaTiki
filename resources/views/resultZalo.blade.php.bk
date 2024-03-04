@@ -492,7 +492,32 @@
         @endif
 @endif
 
- 
+ <div class ="toneColorSkin">
+    <p class="titleColor"> 
+        Liệu <span class ="title"> màu trang điểm, trang phục </span> đang dùng có hợp với <span class ="title"> tone màu da </span> của bạn chưa?
+    </p>
+    <div class ="center-image" id ="backgroudColor">
+         {{-- <img  id ="renderface" src ="/face.jpg"> --}}
+         <canvas id="canvasFace" width="150" height="150"></canvas>
+    </div>
+    <div class ="descrptionSkinColor" id ="descrptionSkinColorid">
+        <p>Nhận diện tone màu da </p>  
+        <p id ="SkinColorHueDeltaText">Màu sắc của da: <span>Ửng đỏ </span></p>  
+        <p id ="SkinColorLevelText" >Độ sáng màu: <span>Tự nhiện </span></p>   
+        <p id ="SkinLevel">Mức độ bản màu quốc tế: <span>Màu quốc tế 33 </span></p>   
+    
+    </div>
+    <p class="titleColor"> 
+       Trải nghiệm với các màu
+    </p>
+      
+    <div class ="navbarColor" id ="containerColor">
+          
+        </div>
+         
+   
+  
+</div> 
 
 
 
@@ -1715,7 +1740,55 @@
             {
 
             }
-            
+            readInfoToneSkin(objectReponse.data.facedata.dataReponse);
+            drawImageTone(objectReponse.data.facedata.image_info.url,objectReponse.data.rectangle );
+            setTimeout(() => {
+                $('.navbarColor').slick({
+                slidesToShow: 4,
+                slidesToScroll: 2,
+                centerMode: true,
+                centerPadding: '40px',
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows : false,
+                responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        centerMode: true,
+                centerPadding: '40px',
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+        centerMode: true,
+                centerPadding: '30px',
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        centerMode: true,
+                centerPadding: '40px',
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+          
+
+              });
+            }, 1500);
 
         
                 

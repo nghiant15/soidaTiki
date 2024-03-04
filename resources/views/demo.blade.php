@@ -1,3 +1,21 @@
+@php
+        $dataLikn =  session('TuVanData', null);
+         $zaloLink =  $dataLikn->zaloLink;
+         $messengerLink = $dataLikn->messengerLink;
+
+         if($zaloLink =='')
+         {
+            $zaloLink = "http://zalo.me/769304971095062899?src=qr";
+         }
+        if($messengerLink =='')
+         {
+            $messengerLink ="https://m.me/106007668343244?ref=mess";
+         }
+
+         $dataMinisize =  session('dataminisize', null);
+
+       
+@endphp
 @extends('layoutZalo')
 
 
@@ -38,7 +56,7 @@
     <link rel="stylesheet" href="/styles/global/global_responsive.css">
     <link rel ="stylesheet" href ="/css/welcomNew.css">
     <!-- ASSETS CDN SLICK -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link rel="stylesheet" type="text/css"
         href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -52,6 +70,11 @@
   animation-fill-mode: forwards;
   animation-timing-function: linear;
 }
+.content-paragraph strong {
+    /* font-size: unset !important; */
+    color: red !important;
+    /* font-weight: bold; */
+}
 
 @keyframes gradient { 
   0%   { background-position: 0 0; }
@@ -61,13 +84,111 @@
 
 
 
+<style>
+
+.toneColorSkin {
+    font-family: SFU Futura !important;
+    font-size: 14px;
+}
+.titleColor {
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.toneColorSkin p {
+    font-weight: bold !important;
+    color: #1a214f;
+
+    line-height: 17px;
+}
+.toneColorSkin p span {
+    display: inline-block;
+    font-weight: bold !important;
+    color: red;
+}
+.descrptionSkinColor{
+    width: max-content;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.center-image {
+    width: 100%;
+    height: 400px;
+    background-color: #CC5500;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+   
+.center-image  canvas{
+     width: 150px;
+     height: 150px;
+
+     position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+     border-radius: 10px;
+   
+}
+.skincolor {
+    margin :auto;
+
+    width: 112px;
+    height: 112px !important;
+    background-color: red;
+    border-radius: 10px;
+}
+.skincolor:hover {
+    opacity: 0.8;
+    border: 1px solid  black;
+   
+}
+.skincolor:active {
+    opacity: 0.8;
+    border: 1px solid  black;
+   
+}
+.activeSkin {
+    opacity: 0.8;
+    border: 1px solid  black;
+}
+
+.navbarColor{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+
+</style>
 @endsection
 @section('contentpage')
 
+@includeIf("tuvanMinisize")
 
-<a href="http://zalo.me/769304971095062899?src=qr" target="_blank"><div style="position:fixed;bottom:80px;right:43px;z-index:9999;" class="messenger"><noscript>
-    <img style="height:58px;" src="/zalo96.png"/></noscript>
-    <img class=" lazyloaded" style="height:58px;" src="/zalo96.png" data-src="/zalo96.png"></div></a>
+@if ( $zaloLink != "" )
+<a  id ="zaloMessage" style ="display:none"  onclick="OpenAction('zalo')" ><div style="position:fixed;bottom:70px;right:30px; z-index:1000" class="messenger"><noscript>
+    <img src="/zalo96.png"/></noscript>
+    <img class=" lazyloaded"  src="/zalo96.png" data-src="/zalo96.png"></div></a>  
+
+@endif
+
+@if ( $messengerLink != "" )
+    
+<a  id ="messenger" style ="display:none" onclick="OpenAction('messenger')" ><div style="position:fixed;bottom:170px;right:30px; z-index:1000" class="messenger"><noscript>
+    <img src="/tikiFacebook.png"/></noscript>
+    <img class=" lazyloaded"  src="/tikiFacebook.png" data-src="/tikiFacebook.png"></div>
+</a>
+
+@endif
+
+
+
 
 <style>
 .call-btn {
@@ -231,7 +352,7 @@
                 <a id="myBtn" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Đăng nhập/Đăng ký</a>
             </li>
             <li class="right-text login">
-                <a href=" http://localhost:8000/" href="javascript:void(0)" data-toggle="modal"
+                <a href=" /" href="javascript:void(0)" data-toggle="modal"
                     data-target="#signUpModal">Đăng ký</a>
             </li>
         </ul>
@@ -360,9 +481,9 @@
                     <p class="maincontent text-suggest-login" id="suggest-login-content">
 
                 <span style="font-weight:600;text-decoration: underline;cursor:pointer" onclick="ToggleDisplayClass('.status-modal-account',true)">
-                ĐĂNG NHẬP
+                THEO DÕI 
                 </span>
-                <span style ="text-indent: 3px;">  ĐỂ NHẬN QUÀ XINH</span>
+                <span style ="text-indent: 3px;">  LỊCH SỬ SOI DA</span>
 
                 <span style="font-weight: 600;"></span>  
                 </p>
@@ -370,6 +491,35 @@
                 </div>
         @endif
 @endif
+
+ <div class ="toneColorSkin">
+    <p class="titleColor"> 
+        Liệu <span class ="title"> màu trang điểm, trang phục </span> đang dùng có hợp với <span class ="title"> tone màu da </span> của bạn chưa?
+    </p>
+    <div class ="center-image" id ="backgroudColor">
+         {{-- <img  id ="renderface" src ="/face.jpg"> --}}
+         <canvas id="canvasFace" width="150" height="150"></canvas>
+    </div>
+    <div class ="descrptionSkinColor" id ="descrptionSkinColorid">
+        <p>Nhận diện tone màu da </p>  
+        <p id ="SkinColorHueDeltaText">Màu sắc của da: <span>Ửng đỏ </span></p>  
+        <p id ="SkinColorLevelText" >Độ sáng màu: <span>Tự nhiện </span></p>   
+        <p id ="SkinLevel">Mức độ bản màu quốc tế: <span>Màu quốc tế 33 </span></p>   
+    
+    </div>
+    <p class="titleColor"> 
+       Trải nghiệm với các màu
+    </p>
+      
+    <div class ="navbarColor" id ="containerColor">
+          
+        </div>
+         
+   
+  
+</div> 
+
+
 
 
                
@@ -381,9 +531,7 @@
                         <p class="maincontent">
                             Chúng tôi muốn bạn có thể dễ dàng nắm bắt mọi thông tin và hiểu hơn trước khi vào sâu chi tiết
                         </p>
-                        {{-- <p class="descriptionContent"> 
-                            Chúng tôi sẽ chia ra thành các thành phần trong phần tổng quan để bạn nắm rõ một số thứ trước khi chúng ta vào các phần chi tiết, hãy đọc hết tất cả các thành phần tổng quan để rõ hơn nhé.
-                        </p> --}}
+                     
                     </div>
                 </div>
                 <div class="resultNote">
@@ -511,13 +659,13 @@
             </style>
 
 
-            <div id ="ConcludeItemArea" class ="blurdiv" >
+            <div id ="ConcludeItemArea" class ="blurdiv1" >
         
             </div>
         
 
 
-                <div class="title-overview blurdiv" id ="tvtq_area"  >
+                <div class="title-overview blurdiv1" id ="tvtq_area"  >
                     <div class="hcn">
 
                     </div>
@@ -550,7 +698,7 @@
 
                     }
                 </style>
-                <div id="idtuvantongquan" class="blurdiv"  style="
+                <div id="idtuvantongquan" class="blurdiv1"  style="
                 text-align: justify;
            
                 padding: 10px;
@@ -629,8 +777,17 @@
 
 
 
-
         <script>
+            function changeBackgroud(color)
+            {
+              
+                    
+                var backgroudColor = document.getElementById("backgroudColor");
+
+                backgroudColor.style.background = color;
+            }
+            var zaloLink = '{!! $zaloLink !!}';
+            var messengerLink = '{!! $messengerLink !!}';
             function openRecomendProduct() {
 
                 var base_url = window.location.origin + "/" + "soida/nhan-de-xuat-cham-soc-da";
@@ -1372,10 +1529,140 @@
          var turnOffGame = {!! json_encode($turnOffGame,false) !!};
         
         var objectReponse = null;
+        function drawImageTone(srcDraw, rectangleDraw)
+        {
+         var img = document.createElement('img');
+            img.src = srcDraw;
+            img.onload = function () {
+            const c = document.getElementById('canvasFace');
+            const ctx = c.getContext('2d');
+            ctx.drawImage(img,rectangleDraw.left,rectangleDraw.top ,rectangleDraw.width,rectangleDraw.height,0,0,150,150);
+            }
 
+        }
+       
+        function readInfoToneSkin (dataReponse)
+        {
+            var skinColorHueDelta  =  dataReponse.SkinColorHueDelta;
+            var skinColorLevel = dataReponse.SkinColorLevel;
+            var skinLevel =  dataReponse.SkinLevel;
+    //         0: "Trung tính",
+    //   1: "Vàng",
+    //   2: "Ửng Đỏ",
+            var skincolorHueText1 = "Trung tính";
+            if(skinColorHueDelta.value  == "1")
+            {
+                skincolorHueText1 = "Vàng";
+            }
+            else if(skinColorHueDelta.value  == "2")
+            {
+                skincolorHueText1 = "Ửng Đỏ";
+            }
+            var skinColorLevelText1 = "";
+            if(skinColorLevel.value  == "1")
+            {
+                skinColorLevelText1 = "Rất Trắng";
+            }
+            else if(skinColorLevel.value  == "2")
+            {
+                skinColorLevelText1 = "Trắng";
+            }
+            else if(skinColorLevel.value  == "3")
+            {
+                skinColorLevelText1 = "Tự Nhiên";
+            }
+            else if(skinColorLevel.value  == "4")
+            {
+                skinColorLevelText1 = "Vàng";
+            }
+            else if(skinColorLevel.value  == "5")
+            {
+                skinColorLevelText1 = "Ngăm Đen";
+            }
+            else if(skinColorLevel.value  == "6")
+            {
+                skinColorLevelText1 = "Nhiều Màu";
+            }
+
+            var skinlevelText1 = skinLevel.value;
+            
+            $("#SkinColorHueDeltaText").html( "Màu sắc của da: <span>"+skincolorHueText1+"</span>");
+
+            $("#SkinColorLevelText").html( "Độ sáng màu: <span>"+skinColorLevelText1+"</span>");
+            $("#SkinLevel").html( "Mức độ bản màu quốc tế: <span> Màu quốc tế "+skinlevelText1+"</span>");
+
+            var skinArra = [ "#e1ad01", "#9b111e",  "#50C878", "#FDB0C0","#808000" ];
+//             1.	Light white :  #CC5500, #00FFFF, #000080, 
+// 2.	White: #e1ad01, #9b111e, #50C878,
+// 3.	Natural : #e1ad01, #9b111e, #50C878, #FDB0C0, #50C878,  #808000
+// 4.	Tan: #FDB0C0, #50C878,  #808000
+// 5.	Dark: #DCAE96, #F4C430, #FFD700, #FF7F50 
+
+            if(skinColorLevel.value  == "1")
+            {
+                skinArra = [ "#CC5500", "#00FFFF",  "#000080" ];
+            }
+            else if(skinColorLevel.value  == "2")
+            {
+                skinArra = [ "#e1ad01", "#9b111e",  "#50C878" ];
+            }
+            else if(skinColorLevel.value  == "3")
+            {
+                skinArra = [ "#e1ad01", "#9b111e",  "#50C878", "#FDB0C0","#808000" ];
+            }
+            else if(skinColorLevel.value  == "4")
+            {
+                skinArra = [ "#FDB0C0", "#50C878",  "#808000"];
+            }
+            else if(skinColorLevel.value  == "5")
+            {
+                skinArra = [ "#DCAE96", "#F4C430",  "#FFD700","#FF7F50"];
+            }
+            else if(skinColorLevel.value  == "6")
+            {
+                skinArra = [ "#FDB0C0", "#FDB0C0",  "#9b111e"];
+            }
+            var htmlSkin  = '';
+            for ( var i = 0; i< skinArra.length; i ++)
+            {   
+
+                var itemColor = skinArra[i];
+                if(i  > 0)
+                {
+                    htmlSkin += ` <div class ="containerSkin">
+                <div class ="skincolor" style ="background-color:`+ itemColor+` !important " onclick="changeBackgroud('`+itemColor+`')" > 
+
+                </div>
+            </div> `;
+                }
+                else 
+                {
+                    htmlSkin += ` <div class ="containerSkin">
+                <div class ="skincolor " style ="background-color:`+ itemColor+` !important " onclick="changeBackgroud('`+itemColor+`')" > 
+
+                </div>
+            </div> `;
+                }
+               
+
+
+            }
+
+           if(skinArra.length >0 )
+           {
+                var backgroudColorSelect = document.getElementById("backgroudColor");
+
+                backgroudColor.style.background = skinArra[0];
+           }
+            $("#containerColor").html(htmlSkin);
+           
+
+        }
 
         document.addEventListener("DOMContentLoaded", function() {
+   
 
+             
             var showRecomend =  sessionStorage.getItem("showRecomend");
 
             var urlHref =  window.location.href;
@@ -1403,16 +1690,19 @@
             {
               $("#subscribleId").hide();
 
-              $(".blurdiv").removeClass( "blurdiv" );
+            //   $(".blurdiv").removeClass( "blurdiv" );
 
               setTimeout(() => {
               document.getElementById('viewhistory').scrollIntoView();
               
                 }, 300);
 
+
+
                 sessionStorage.setItem("showRecomend",false);
 
             }
+            $("#buttonRecomand").show();
 
             var resultCheck = sessionStorage.getItem("_t");
             if (resultCheck == null) {
@@ -1450,26 +1740,57 @@
             {
 
             }
-
-            if(!isLogin)
-            {
-                var item =  sessionStorage.linkhref;
-                
-                if(item != null &&  item != '')
-                {
-                     ToggleDisplayLoginbook('.status-modal-account',true,'Để tải sách miễn phí');
-                }
-
-                else 
-                {
-                    ToggleDisplayLogin('.status-modal-account',true,'Để tải sách miễn phí');  
-                }
-
-
-            }
+            readInfoToneSkin(objectReponse.data.facedata.dataReponse);
+            drawImageTone(objectReponse.data.facedata.image_info.url,objectReponse.data.rectangle );
             setTimeout(() => {
-                DowloadBook();
-            }, 5000);
+                $('.navbarColor').slick({
+                slidesToShow: 4,
+                slidesToScroll: 2,
+                centerMode: true,
+                centerPadding: '40px',
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows : false,
+                responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        centerMode: true,
+                centerPadding: '40px',
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+        centerMode: true,
+                centerPadding: '30px',
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        centerMode: true,
+                centerPadding: '40px',
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+          
+
+              });
+            }, 1500);
+
+        
                 
         });
     </script>
@@ -1478,63 +1799,55 @@
 
 <script>
    var refreshIntervalId;
-//    setTimeout(() => {
-//     if(!isLogin)
-//     {  
-//          if(turnOnGame == false)
-//          {
-//            
-//          }
+
+
+    // setTimeout(() => {
+    //     refreshIntervalId = setInterval(myTimer, 1000);
+    // }, 4000);
+
+
+
+let isPlaying = false;
+
+["click", "mousemove", "mouseover","scroll","keypress", "touchmove", "focus"].forEach((eventName)=>{
+  window.addEventListener(eventName, ()=>{
+ 
+
+    if(!isPlaying){
        
-          
-        
        
-       
-//     }
-     
-//    }, 4000);
-
-
-
-    setTimeout(() => {
-        refreshIntervalId = setInterval(myTimer, 1000);
-    }, 4000);
-
-setTimeout(() => {
-    
-    if(isLogin )
-    {   
-        $("#subscribleId").hide();
-
-       $(".blurdiv").removeClass( "blurdiv" );
-
-       var  popupRequest = sessionStorage.getItem("popupReward");
-       if(popupRequest)
-       {
+      try{
         setTimeout(() => {
-      
-            
-        }, 2000);
-       }
-    }
-    else
-    {
+            readTextConclude();
+        }, 5000);
        
+        isPlaying = true;
+      }catch(e){
+        console.warn(e.message);
+      }
+      
     }
-}, 3000);
+  }); 
+});
+
+
+setTimeout(() => {  
+    document.getElementById("fromResiger").style.display ="block";
+   
+}, 5000);
+
+
 
 function myTimer() {
 
         
     if(isOnScreen($('#ketluachitiet'))) { 
-             
+        
+            
             if(!isLogin )
             { 
                 setTimeout(() => {
-                        // ExapandForm(); 
-                        $("#foolterBlu").hide();
-                        $("#subscribleId").show();
-                        // == openFormRegister();
+                      
                          readTextConclude();
                         clearInterval(refreshIntervalId);  
                 }, 2000);
@@ -1576,6 +1889,7 @@ function openFormRegister2() {
 
 function DowloadBook() 
 {   
+    return;
     var item =  sessionStorage.linkhref;
 
     
@@ -1595,4 +1909,214 @@ function DowloadBook()
 
 
 }
+
+const timeoutDisplayMessage = setTimeout(ShowZalo, 5000);
+
+function ShowZalo() {
+    return;
+  document.getElementById("socialBLock").style.display = "block";
+
+  
+}
+
+var timeGet = new Date().getTime();
+function OpenAction ( connectionType)
+{   
+
+    addContionType(connectionType);
+  setTimeout(() => {
+    if(zaloLink =="")
+    {
+        zaloLink =  "http://zalo.me/769304971095062899?src=qr";
+    }
+     if(messengerLink =="")
+    {
+        messengerLink =  "https://m.me/106007668343244?ref=mess";
+    }
+    if(connectionType =="messenger")
+    {
+        window.open(messengerLink,'_blank');
+    }
+    else  if (connectionType =="zalo" )
+    {
+        
+        window.open(zaloLink,'_blank');
+        
+    }
+    else 
+    return;
+    
+  }, 1000);
+
+}
+
+
+function openRegister ( connectionType ="minisize")
+{   
+
+   addContionType(connectionType);
+   zaloLink =  "{{$dataMinisize->linkRegister}}";
+   changeFormTuvan();
+
+   window.open(zaloLink,'_self');
+   return;
+}
+
+
 </script>
+
+
+
+<div id ="socialBLock" class="actionToolbar_mobile toolbar_style_2  " style="
+    display: none;
+">
+	<div class=" container-pd">
+		<div class="toolbar-wrapper d-flex justify-content-around">
+			<div class="toolbar-item toolbar-item-zalo">
+				<a class="toolbar-item--boxlink cta-chatzalo" onclick="OpenAction('zalo')"  target="_blank" rel="noopener noreferrer" aria-label="zalo">
+                    <img src ="/zaloClick.jpg">
+					<span class="box-text">Tư vấn chăm sóc da Zalo</span>
+				</a>
+			</div>
+			
+			<div class="toolbar-item toolbar-item-msg">
+				<a class="toolbar-item--boxlink cta-chatmessager" onclick="OpenAction('messenger')"  target="_blank" rel="noopener" aria-label="messenger">
+					<img src ="/messengerClick.png" >
+                    <span class="box-text">Tư vấn chăm sóc da Messenger</span>
+				</a>
+			</div>
+		
+		</div>
+	</div>
+</div>
+
+
+<div class ="imagebackground" id ="fromResiger" >
+    <a  onclick ="openRegister()" >
+        <img src ="{{$dataMinisize->minisize}}">
+    </a>
+</div>
+<style>
+
+.actionToolbar_mobile.toolbar_style_2 {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 991px)
+.actionToolbar_mobile {
+    display: block;
+}
+.actionToolbar_mobile {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    background: #fff;
+    display: none;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-wrapper {
+    margin: 0 -2px;
+    padding: 5px;
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item {
+    padding: 0 1px;
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    max-width: 96%;
+}
+
+.actionToolbar_mobile.toolbar_style_2 .toolbar-wrapper {
+    margin: 0 -2px;
+    padding: 5px;
+}
+
+.justify-content-around {
+    -ms-flex-pack: distribute!important;
+    justify-content: space-around!important;
+}
+
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item {
+    padding: 0 1px;
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    max-width: 96%%;
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item-zalo .toolbar-item--boxlink {
+    background: #1272e8;
+}
+
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item--boxlink {
+    border-radius: 20px;
+    padding: 2px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    background: var(--shop-color-main);
+    color: #ffffff;
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item--boxlink svg {
+    display: block;
+    border-radius: 50%;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.11);
+}
+
+.actionToolbar_mobil svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item--boxlink .box-text {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(100% - 30px);
+    padding: 2px 6px 2px 4px;
+    line-height: 1.3;
+    font-size: 8px;
+    font-weight: 600;
+    text-align: center;
+    white-space: initial;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+.actionToolbar_mobile.toolbar_style_2 .toolbar-item--boxlink {
+    border-radius: 20px;
+    padding: 2px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    background: var(--shop-color-main);
+    color: #ffffff;
+    background: #9946e8;
+}
+#socialBLock a:hover {
+ opacity: 0.7;
+ color: #ffffff;
+}
+
+.actionToolbar_mobile img {
+width: 24px;
+background-color: transparent;
+}
+.actionToolbar_mobile a:hover {
+ opacity: 0.8;
+ text-decoration: none;
+}
+#socialBLock a:hover {
+ opacity: 0.7;
+ color: #ffffff;
+}
+</style>
+
+

@@ -696,7 +696,7 @@ public function getDataInfo (Request $request)
        
         }
 
-        if($slug =="demo" || $slug =="soida")
+        if($slug =="demo" || $slug =="demoweb" || $slug =="soida")
         {
             return view("welcomeZalo", compact("slug","agent","isTurnOfFooter","gameJoinTo"));
         }
@@ -932,9 +932,15 @@ public function getDataInfo (Request $request)
           
         }
         
-        if($slug =="demo" || $slug =="soida")
+        if($slug =="demo"  || $slug =="soida")
         {
             return view("resultZalo", compact("slug", 
+             "ageGame","ageGameReal","gameType","gameJoinType1",
+             "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
+        }
+        else  if($slug =="demoweb" )
+        {
+            return view("demo", compact("slug", 
              "ageGame","ageGameReal","gameType","gameJoinType1",
              "contetnFail", "contentSuccess",  "agent","companyId", "displayGame", "rewardCheck", "turnOffGame","successGame","dataGame")); 
         }
