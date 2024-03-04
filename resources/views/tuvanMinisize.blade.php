@@ -126,7 +126,7 @@
     width: 100%;
     text-align: center;
     color:  rgb(250,251,254);
-    font-size:18px;
+    font-size:17px;
     font-weight: bold;
    }
    .des-register a {

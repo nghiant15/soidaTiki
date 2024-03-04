@@ -56,7 +56,7 @@
     <link rel="stylesheet" href="/styles/global/global_responsive.css">
     <link rel ="stylesheet" href ="/css/welcomNew.css">
     <!-- ASSETS CDN SLICK -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link rel="stylesheet" type="text/css"
         href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -84,6 +84,88 @@
 
 
 
+<style>
+
+.toneColorSkin {
+    font-family: SFU Futura !important;
+    font-size: 14px;
+}
+.titleColor {
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.toneColorSkin p {
+    font-weight: bold !important;
+    color: #1a214f;
+
+    line-height: 17px;
+}
+.toneColorSkin p span {
+    display: inline-block;
+    font-weight: bold !important;
+    color: red;
+}
+.descrptionSkinColor{
+    width: max-content;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.center-image {
+    width: 100%;
+    height: 400px;
+    background-color: #CC5500;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+   
+.center-image  canvas{
+     width: 150px;
+     height: 150px;
+
+     position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+     border-radius: 10px;
+   
+}
+.skincolor {
+    margin :auto;
+
+    width: 112px;
+    height: 112px !important;
+    background-color: red;
+    border-radius: 10px;
+}
+.skincolor:hover {
+    opacity: 0.8;
+    border: 1px solid  black;
+   
+}
+.skincolor:active {
+    opacity: 0.8;
+    border: 1px solid  black;
+   
+}
+.activeSkin {
+    opacity: 0.8;
+    border: 1px solid  black;
+}
+
+.navbarColor{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+
+</style>
 @endsection
 @section('contentpage')
 
@@ -410,6 +492,35 @@
         @endif
 @endif
 
+ <div class ="toneColorSkin">
+    <p class="titleColor"> 
+        Liệu <span class ="title"> màu trang điểm, trang phục </span> đang dùng có hợp với <span class ="title"> tone màu da </span> của bạn chưa?
+    </p>
+    <div class ="center-image" id ="backgroudColor">
+         {{-- <img  id ="renderface" src ="/face.jpg"> --}}
+         <canvas id="canvasFace" width="150" height="150"></canvas>
+    </div>
+    <div class ="descrptionSkinColor" id ="descrptionSkinColorid">
+        <p>Nhận diện tone màu da </p>  
+        <p id ="SkinColorHueDeltaText">Màu sắc của da: <span>Ửng đỏ </span></p>  
+        <p id ="SkinColorLevelText" >Độ sáng màu: <span>Tự nhiện </span></p>   
+        <p id ="SkinLevel">Mức độ bản màu quốc tế: <span>Màu quốc tế 33 </span></p>   
+    
+    </div>
+    <p class="titleColor"> 
+       Trải nghiệm với các màu
+    </p>
+      
+    <div class ="navbarColor" id ="containerColor">
+          
+        </div>
+         
+   
+  
+</div> 
+
+
+
 
                
 
@@ -667,6 +778,14 @@
 
 
         <script>
+            function changeBackgroud(color)
+            {
+              
+                    
+                var backgroudColor = document.getElementById("backgroudColor");
+
+                backgroudColor.style.background = color;
+            }
             var zaloLink = '{!! $zaloLink !!}';
             var messengerLink = '{!! $messengerLink !!}';
             function openRecomendProduct() {
@@ -1410,10 +1529,140 @@
          var turnOffGame = {!! json_encode($turnOffGame,false) !!};
         
         var objectReponse = null;
+        function drawImageTone(srcDraw, rectangleDraw)
+        {
+         var img = document.createElement('img');
+            img.src = srcDraw;
+            img.onload = function () {
+            const c = document.getElementById('canvasFace');
+            const ctx = c.getContext('2d');
+            ctx.drawImage(img,rectangleDraw.left,rectangleDraw.top ,rectangleDraw.width,rectangleDraw.height,0,0,150,150);
+            }
 
+        }
+       
+        function readInfoToneSkin (dataReponse)
+        {
+            var skinColorHueDelta  =  dataReponse.SkinColorHueDelta;
+            var skinColorLevel = dataReponse.SkinColorLevel;
+            var skinLevel =  dataReponse.SkinLevel;
+    //         0: "Trung tính",
+    //   1: "Vàng",
+    //   2: "Ửng Đỏ",
+            var skincolorHueText1 = "Trung tính";
+            if(skinColorHueDelta.value  == "1")
+            {
+                skincolorHueText1 = "Vàng";
+            }
+            else if(skinColorHueDelta.value  == "2")
+            {
+                skincolorHueText1 = "Ửng Đỏ";
+            }
+            var skinColorLevelText1 = "";
+            if(skinColorLevel.value  == "1")
+            {
+                skinColorLevelText1 = "Rất Trắng";
+            }
+            else if(skinColorLevel.value  == "2")
+            {
+                skinColorLevelText1 = "Trắng";
+            }
+            else if(skinColorLevel.value  == "3")
+            {
+                skinColorLevelText1 = "Tự Nhiên";
+            }
+            else if(skinColorLevel.value  == "4")
+            {
+                skinColorLevelText1 = "Vàng";
+            }
+            else if(skinColorLevel.value  == "5")
+            {
+                skinColorLevelText1 = "Ngăm Đen";
+            }
+            else if(skinColorLevel.value  == "6")
+            {
+                skinColorLevelText1 = "Nhiều Màu";
+            }
+
+            var skinlevelText1 = skinLevel.value;
+            
+            $("#SkinColorHueDeltaText").html( "Màu sắc của da: <span>"+skincolorHueText1+"</span>");
+
+            $("#SkinColorLevelText").html( "Độ sáng màu: <span>"+skinColorLevelText1+"</span>");
+            $("#SkinLevel").html( "Mức độ bản màu quốc tế: <span> Màu quốc tế "+skinlevelText1+"</span>");
+
+            var skinArra = [ "#e1ad01", "#9b111e",  "#50C878", "#FDB0C0","#808000" ];
+//             1.	Light white :  #CC5500, #00FFFF, #000080, 
+// 2.	White: #e1ad01, #9b111e, #50C878,
+// 3.	Natural : #e1ad01, #9b111e, #50C878, #FDB0C0, #50C878,  #808000
+// 4.	Tan: #FDB0C0, #50C878,  #808000
+// 5.	Dark: #DCAE96, #F4C430, #FFD700, #FF7F50 
+
+            if(skinColorLevel.value  == "1")
+            {
+                skinArra = [ "#CC5500", "#00FFFF",  "#000080" ];
+            }
+            else if(skinColorLevel.value  == "2")
+            {
+                skinArra = [ "#e1ad01", "#9b111e",  "#50C878" ];
+            }
+            else if(skinColorLevel.value  == "3")
+            {
+                skinArra = [ "#e1ad01", "#9b111e",  "#50C878", "#FDB0C0","#808000" ];
+            }
+            else if(skinColorLevel.value  == "4")
+            {
+                skinArra = [ "#FDB0C0", "#50C878",  "#808000"];
+            }
+            else if(skinColorLevel.value  == "5")
+            {
+                skinArra = [ "#DCAE96", "#F4C430",  "#FFD700","#FF7F50"];
+            }
+            else if(skinColorLevel.value  == "6")
+            {
+                skinArra = [ "#FDB0C0", "#FDB0C0",  "#9b111e"];
+            }
+            var htmlSkin  = '';
+            for ( var i = 0; i< skinArra.length; i ++)
+            {   
+
+                var itemColor = skinArra[i];
+                if(i  > 0)
+                {
+                    htmlSkin += ` <div class ="containerSkin">
+                <div class ="skincolor" style ="background-color:`+ itemColor+` !important " onclick="changeBackgroud('`+itemColor+`')" > 
+
+                </div>
+            </div> `;
+                }
+                else 
+                {
+                    htmlSkin += ` <div class ="containerSkin">
+                <div class ="skincolor " style ="background-color:`+ itemColor+` !important " onclick="changeBackgroud('`+itemColor+`')" > 
+
+                </div>
+            </div> `;
+                }
+               
+
+
+            }
+
+           if(skinArra.length >0 )
+           {
+                var backgroudColorSelect = document.getElementById("backgroudColor");
+
+                backgroudColor.style.background = skinArra[0];
+           }
+            $("#containerColor").html(htmlSkin);
+           
+
+        }
 
         document.addEventListener("DOMContentLoaded", function() {
+   
 
+             
             var showRecomend =  sessionStorage.getItem("showRecomend");
 
             var urlHref =  window.location.href;
@@ -1491,6 +1740,55 @@
             {
 
             }
+            readInfoToneSkin(objectReponse.data.facedata.dataReponse);
+            drawImageTone(objectReponse.data.facedata.image_info.url,objectReponse.data.rectangle );
+            setTimeout(() => {
+                $('.navbarColor').slick({
+                slidesToShow: 4,
+                slidesToScroll: 2,
+                centerMode: true,
+                centerPadding: '40px',
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows : false,
+                responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        centerMode: true,
+                centerPadding: '40px',
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+        centerMode: true,
+                centerPadding: '30px',
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        centerMode: true,
+                centerPadding: '40px',
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+          
+
+              });
+            }, 1500);
 
         
                 

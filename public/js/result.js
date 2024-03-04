@@ -88,6 +88,7 @@ function drawContentTongQuan(generalResult )
 
 
 var index =0;
+let tonemauda = null;
 generalResult.data.forEach((ketquatongquanItem) => {
 
 index ++;
@@ -109,6 +110,8 @@ var html= '<div class="record-content">\
           if(ketquatongquanItem.title.vi =="Nhận diện tông màu da")
           {
             ketquatongquanItem.title.vi  =  "Nhận diện tone màu da";
+            tonemauda= ketquatongquanItem;
+            return;
           }
 
           html += '<p class="title-description-content"> '+ ketquatongquanItem.title.vi + ' </p>';
@@ -139,6 +142,10 @@ var html= '<div class="record-content">\
 $("#idGeneralResult").append(html);
 });
 
+ 
+
+
+
 
 }
 
@@ -156,7 +163,7 @@ let dataFace = objectReponse.data.faceAttitude;
 let indexDraw =0;
 ketLuanTungPhan.data.forEach((ketLuanTungPhanItem) => {
 indexDraw ++;
-let dataDrawFace  = " https://applamdep.com/images/image1.png";
+let dataDrawFace  = " http://localhost:8000/images/image1.png";
 
 if(dataFace)
 {
