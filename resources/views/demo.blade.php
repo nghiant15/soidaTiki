@@ -89,6 +89,8 @@
 .toneColorSkin {
     font-family: SFU Futura !important;
     font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .titleColor {
     margin-top:10px;
@@ -113,11 +115,42 @@
 }
 .center-image {
     width: 100%;
-    height: 400px;
+    height: 300px;
     background-color: #CC5500;
     position: relative;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+    .center-image {
+    
+    height: 200px !important;
+ 
+}
+.skincolor {
+    margin :auto;
+
+    width: 96px;
+    height: 96px !important;
+    background-color: red;
+    border-radius: 10px;
+}
+.center-image  canvas{
+     width: 130px;
+     height: 130px;
+
+     position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+     border-radius: 10px;
+   
+}
 }
    
 .center-image  canvas{
@@ -508,7 +541,7 @@
     
     </div>
     <p class="titleColor"> 
-       Trải nghiệm với các màu
+        Chọn màu gợi ý
     </p>
       
     <div class ="navbarColor" id ="containerColor">

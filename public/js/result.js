@@ -223,6 +223,12 @@ var dataList = ketLuanTungPhanItem.data;
 dataList.forEach(function (item, index) {
 
  const arr = item.valueVI.split(':');
+
+ 
+ if(item.key =="SkinEyeFineLineScore_Right" || item.key == "SkinEyeFineLineScore_Left")
+ {
+  return;
+ }
  var value = arr[1];
 
 ;        if(isNumeric(value))
