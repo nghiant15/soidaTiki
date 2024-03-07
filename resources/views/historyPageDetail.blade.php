@@ -44,6 +44,7 @@
         font-family: SFU Futura !important;
         font-size: 14px;
         padding-left: 10px;
+        height: max-content;
         padding-right: 10px;
     }
     .titleColor {
