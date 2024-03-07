@@ -125,7 +125,7 @@
 @media only screen and (max-width: 700px) {
     .center-image {
     
-    height: 230px !important;
+    height: 200px !important;
  
 }
 .skincolor {
@@ -157,8 +157,8 @@
 }
    
 .center-image  canvas{
-     width: 200px;
-     height: 200px;
+     width: 150px;
+     height: 150px;
 
      position: absolute;
     bottom: 0;
@@ -538,7 +538,7 @@
     </p>
     <div class ="center-image" id ="backgroudColor">
          {{-- <img  id ="renderface" src ="/face.jpg"> --}}
-         <canvas id="canvasFace" width="200" height="200"></canvas>
+         <canvas id="canvasFace" width="150" height="150"></canvas>
     </div>
     <div class ="descrptionSkinColor" id ="descrptionSkinColorid">
         <p>Nhận diện tone màu da </p>  
@@ -1578,7 +1578,30 @@
             img.onload = function () {
             const c = document.getElementById('canvasFace');
             const ctx = c.getContext('2d');
-            ctx.drawImage(img,rectangleDraw.left-rectangleDraw.width/5,rectangleDraw.top-0.61*rectangleDraw.height ,rectangleDraw.width+ rectangleDraw.width/5*2,rectangleDraw.height*1.7,0,0,200,200);
+            
+            var widthDraw =  rectangleDraw.width +rectangleDraw.width/5*2 ;
+            
+            if(widthDraw >300)
+            {
+                widthDraw = 299;   
+            }
+
+            var leftDraw = rectangleDraw.left- rectangleDraw.width/5;
+            if(leftDraw <0)
+            {
+                leftDraw = 1;
+            }
+            var heightDrawTop = rectangleDraw.top- rectangleDraw.height/2 ; 
+            if(heightDrawTop <0)
+            {
+                heightDrawTop =1;
+            }
+            var heightFace = rectangleDraw.height*2;
+            if(heightFace >=400)
+            {
+                heightFace = 399;
+            }
+            ctx.drawImage(img,leftDraw ,heightDrawTop ,widthDraw,heightFace,0,0,150,150);
             }
 
         }
