@@ -89,6 +89,8 @@
 .toneColorSkin {
     font-family: SFU Futura !important;
     font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .titleColor {
     margin-top:10px;
@@ -113,16 +115,33 @@
 }
 .center-image {
     width: 100%;
-    height: 400px;
+    height: 300px;
     background-color: #CC5500;
     position: relative;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
+
+@media only screen and (max-width: 700px) {
+    .center-image {
+    
+    height: 230px !important;
+ 
+}
+.skincolor {
+    margin :auto;
+
+    width: 96px;
+    height: 96px !important;
+    background-color: red;
    
+    border-radius: 10px;
+   
+   
+}
 .center-image  canvas{
-     width: 150px;
-     height: 150px;
+     width: 130px;
+     height: 130px;
 
      position: absolute;
     bottom: 0;
@@ -132,7 +151,24 @@
     margin: auto;
     max-width: 100%;
     max-height: 100%;
-     border-radius: 10px;
+     border-radius: 50%;
+   
+}
+}
+   
+.center-image  canvas{
+     width: 200px;
+     height: 200px;
+
+     position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
    
 }
 .skincolor {
@@ -144,9 +180,13 @@
     border-radius: 10px;
 }
 .skincolor:hover {
-    opacity: 0.8;
-    border: 1px solid  black;
+    opacity: 1;
+    border: 2px solid  black;
    
+}
+.activeSkin {
+    opacity: 1;
+    border: 2px solid  black;
 }
 .skincolor:active {
     opacity: 0.8;
@@ -492,7 +532,32 @@
         @endif
 @endif
 
- 
+ <div class ="toneColorSkin">
+    <p class="titleColor"> 
+        Liệu <span class ="title"> màu trang điểm, trang phục </span> đang dùng có hợp với <span class ="title"> tone màu da </span> của bạn chưa?
+    </p>
+    <div class ="center-image" id ="backgroudColor">
+         {{-- <img  id ="renderface" src ="/face.jpg"> --}}
+         <canvas id="canvasFace" width="200" height="200"></canvas>
+    </div>
+    <div class ="descrptionSkinColor" id ="descrptionSkinColorid">
+        <p>Nhận diện tone màu da </p>  
+        <p id ="SkinColorHueDeltaText">Màu sắc của da: <span>Ửng đỏ </span></p>  
+        <p id ="SkinColorLevelText" >Độ sáng màu: <span>Tự nhiện </span></p>   
+        <p id ="SkinLevel">Mức độ bản màu quốc tế: <span>Màu quốc tế 33 </span></p>   
+    
+    </div>
+    <p class="titleColor"> 
+        Chọn màu gợi ý
+    </p>
+      
+    <div class ="navbarColor" id ="containerColor">
+          
+        </div>
+         
+   
+  
+</div> 
 
 
 
@@ -753,10 +818,12 @@
 
 
         <script>
-            function changeBackgroud(color)
+            function changeBackgroud(color, element)
             {
               
-                    
+            
+
+                $("#containerColor").removeClass("activeSkin");
                 var backgroudColor = document.getElementById("backgroudColor");
 
                 backgroudColor.style.background = color;
@@ -1511,7 +1578,7 @@
             img.onload = function () {
             const c = document.getElementById('canvasFace');
             const ctx = c.getContext('2d');
-            ctx.drawImage(img,rectangleDraw.left,rectangleDraw.top ,rectangleDraw.width,rectangleDraw.height,0,0,150,150);
+            ctx.drawImage(img,rectangleDraw.left-rectangleDraw.width/5,rectangleDraw.top-0.61*rectangleDraw.height ,rectangleDraw.width+ rectangleDraw.width/5*2,rectangleDraw.height*1.7,0,0,200,200);
             }
 
         }
@@ -1605,7 +1672,7 @@
                 if(i  > 0)
                 {
                     htmlSkin += ` <div class ="containerSkin">
-                <div class ="skincolor" style ="background-color:`+ itemColor+` !important " onclick="changeBackgroud('`+itemColor+`')" > 
+                <div class ="skincolor" style ="background-color:`+ itemColor+` !important " onclick="changeBackgroud('`+itemColor+`', this)" > 
 
                 </div>
             </div> `;
@@ -1715,7 +1782,55 @@
             {
 
             }
-            
+            readInfoToneSkin(objectReponse.data.facedata.dataReponse);
+            drawImageTone(objectReponse.data.facedata.image_info.url,objectReponse.data.rectangle );
+            setTimeout(() => {
+                $('.navbarColor').slick({
+                slidesToShow: 4,
+                slidesToScroll: 2,
+                centerMode: true,
+                centerPadding: '40px',
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows : false,
+                responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        centerMode: true,
+                centerPadding: '40px',
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+        centerMode: true,
+                centerPadding: '30px',
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        centerMode: true,
+                centerPadding: '40px',
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+          
+
+              });
+            }, 2000);
 
         
                 
