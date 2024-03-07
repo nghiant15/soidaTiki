@@ -135,7 +135,7 @@
     height: 96px !important;
     background-color: red;
    
-    border-radius: 10px;
+    border-radius: 50%;
 
     transform:
     perspective(75em)

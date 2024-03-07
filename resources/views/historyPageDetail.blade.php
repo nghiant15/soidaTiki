@@ -142,10 +142,10 @@
     .skincolor {
         margin :auto;
     
-        width: 112px;
-        height: 112px !important;
+        width: 100px;
+        height: 100px !important;
         background-color: red;
-        border-radius: 10px;
+        border-radius: 50%;
     }
     .skincolor:hover {
         opacity: 1;
