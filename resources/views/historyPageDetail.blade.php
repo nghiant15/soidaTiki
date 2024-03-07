@@ -1113,6 +1113,16 @@
             });
             showSlides(1)
         };
+        function changeBackgroud(color, element)
+            {
+              
+            
+
+                $("#containerColor").removeClass("activeSkin");
+                var backgroudColor = document.getElementById("backgroudColor");
+
+                backgroudColor.style.background = color;
+            }
 
         function drawImageTone(srcDraw, rectangleDraw)
         {
