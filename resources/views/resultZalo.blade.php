@@ -190,7 +190,7 @@
     width: 112px;
     height: 112px !important;
     background-color: red;
-    border-radius: 10px;
+    border-radius: 50%;
 }
 .skincolor:hover {
     opacity: 1;
