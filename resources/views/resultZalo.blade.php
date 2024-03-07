@@ -1609,7 +1609,7 @@
             {
                 heightDrawTop =1;
             }
-            var heightFace = rectangleDraw.height*2;
+            var heightFace = rectangleDraw.height*1.7;
             if(heightFace >=400)
             {
                 heightFace = 399;
