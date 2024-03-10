@@ -79,7 +79,7 @@
     }
     .center-image {
         width: 100%;
-        height: 300px;
+        height: 240px;
         background-color: #CC5500;
         position: relative;
         margin-top: 10px;
