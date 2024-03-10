@@ -1155,7 +1155,7 @@
             {
                 heightFace = 399;
             }
-            ctx.drawImage(img,leftDraw ,heightDrawTop ,widthDraw,heightFace,0,0,150,150);
+            ctx.drawImage(img, rectangleDraw.left ,rectangleDraw.top ,rectangleDraw.width,rectangleDraw.height,0,0,150,150);
             }
 
         }
