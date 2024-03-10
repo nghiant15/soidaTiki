@@ -95,6 +95,10 @@
 .titleColor {
     margin-top:10px;
     margin-bottom: 10px;
+    color: rgb(70, 0, 221) !important;
+}
+.centerScreen {
+    text-align: center;
 }
 .toneColorSkin p {
     font-weight: bold !important;
@@ -106,6 +110,11 @@
     display: inline-block;
     font-weight: bold !important;
     color: red;
+}
+.title2 {
+    
+    color: rgb(70, 0, 221) !important;
+
 }
 .descrptionSkinColor{
     width: max-content;
@@ -125,7 +134,7 @@
 @media only screen and (max-width: 700px) {
     .center-image {
     
-    height: 200px !important;
+    height: 225px !important;
  
 }
 .skincolor {
@@ -170,8 +179,8 @@
 }
    
 .center-image  canvas{
-     width: 150px;
-     height: 150px;
+     width: 160px;
+     height: 160px;
 
      position: absolute;
     bottom: 0;
@@ -187,8 +196,8 @@
 .skincolor {
     margin :auto;
 
-    width: 112px;
-    height: 112px !important;
+    width: 80px;
+    height: 80px !important;
     background-color: red;
     border-radius: 50%;
 }
@@ -546,12 +555,14 @@
 @endif
 
  <div class ="toneColorSkin">
-    <p class="titleColor"> 
-        Liệu <span class ="title"> màu trang điểm, trang phục </span> đang dùng có hợp với <span class ="title"> tone màu da </span> của bạn chưa?
+    <p class="titleColor centerScreen"> 
+    
+        <span  class ="title2" > Màu trang điểm, quần áo.. </span>
+        <span  class ="title2" > Phù hợp với tone màu da của bạn</span>
     </p>
     <div class ="center-image" id ="backgroudColor">
          {{-- <img  id ="renderface" src ="/face.jpg"> --}}
-         <canvas id="canvasFace" width="150" height="150"></canvas>
+         <canvas id="canvasFace" width="160" height="160"></canvas>
     </div>
     <div class ="descrptionSkinColor" id ="descrptionSkinColorid">
         <p>Nhận diện tone màu da </p>  
@@ -561,7 +572,7 @@
     
     </div>
     <p class="titleColor"> 
-        Chọn màu gợi ý
+        Màu phù hợp với tone màu da của bạn
     </p>
       
     <div class ="navbarColor" id ="containerColor">
@@ -1614,7 +1625,7 @@
             {
                 heightFace = 399;
             }
-            ctx.drawImage(img, rectangleDraw.left ,rectangleDraw.top ,rectangleDraw.width,rectangleDraw.height,0,0,150,150);
+            ctx.drawImage(img, rectangleDraw.left ,rectangleDraw.top ,rectangleDraw.width,rectangleDraw.height,0,0,160,160);
             }
 
         }
@@ -1823,7 +1834,7 @@
             setTimeout(() => {
                 $('.navbarColor').slick({
                 slidesToShow: 4,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
                 centerMode: true,
                 centerPadding: '40px',
                 autoplay: true,
@@ -1834,7 +1845,7 @@
       breakpoint: 1024,
       settings: {
         slidesToShow: 4,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
         centerMode: true,
                 centerPadding: '40px',
         infinite: true,
@@ -1844,7 +1855,7 @@
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 4,
         centerMode: true,
                 centerPadding: '30px',
         slidesToScroll: 1
@@ -1853,7 +1864,7 @@
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 3,
         centerMode: true,
                 centerPadding: '40px',
         slidesToScroll: 1

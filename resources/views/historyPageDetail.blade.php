@@ -47,9 +47,15 @@
         height: max-content;
         padding-right: 10px;
     }
+    .title2 {
+    
+    color: rgb(70, 0, 221) !important;
+
+}
     .titleColor {
         margin-top:10px;
         margin-bottom: 10px;
+        color: rgb(70, 0, 221) !important;
     }
     .toneColorSkin p {
         font-weight: bold !important;
@@ -62,6 +68,9 @@
         font-weight: bold !important;
         color: red;
     }
+    .centerScreen {
+    text-align: center;
+}
     .descrptionSkinColor{
         width: max-content;
         margin: auto;
@@ -125,8 +134,8 @@
     }
        
     .center-image  canvas{
-         width: 150px;
-         height: 150px;
+         width: 160px;
+         height: 160px;
     
          position: absolute;
         bottom: 0;
@@ -414,12 +423,14 @@
 
               
                 <div class ="toneColorSkin">
-                    <p class="titleColor"> 
-                        Liệu <span class ="title"> màu trang điểm, trang phục </span> đang dùng có hợp với <span class ="title"> tone màu da </span> của bạn chưa?
+                    <p class="titleColor centerScreen"> 
+    
+                        <span  class ="title2" > Màu trang điểm, quần áo.. </span>
+                        <span  class ="title2" > Phù hợp với tone màu da của bạn</span>
                     </p>
                     <div class ="center-image" id ="backgroudColor">
                          {{-- <img  id ="renderface" src ="/face.jpg"> --}}
-                         <canvas id="canvasFace" width="150" height="150"></canvas>
+                         <canvas id="canvasFace" width="160" height="160"></canvas>
                     </div>
                     <div class ="descrptionSkinColor" id ="descrptionSkinColorid">
                         <p>Nhận diện tone màu da </p>  
@@ -429,9 +440,8 @@
                     
                     </div>
                     <p class="titleColor"> 
-                        Chọn màu gợi ý
+                        Màu phù hợp với tone màu da của bạn
                     </p>
-                      
                     <div class ="navbarColor" id ="containerColor">
                           
                         </div>
@@ -1155,7 +1165,7 @@
             {
                 heightFace = 399;
             }
-            ctx.drawImage(img, rectangleDraw.left ,rectangleDraw.top ,rectangleDraw.width,rectangleDraw.height,0,0,150,150);
+            ctx.drawImage(img, rectangleDraw.left ,rectangleDraw.top ,rectangleDraw.width,rectangleDraw.height,0,0,160,160);
             }
 
         }
