@@ -151,8 +151,8 @@
     .skincolor {
         margin :auto;
     
-        width: 100px;
-        height: 100px !important;
+        width: 80px;
+    height: 80px !important;
         background-color: red;
         border-radius: 50%;
     }
@@ -1433,7 +1433,7 @@
             setTimeout(() => {
                 $('.navbarColor').slick({
                 slidesToShow: 4,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
                 centerMode: true,
                 centerPadding: '40px',
                 autoplay: true,
@@ -1444,7 +1444,7 @@
       breakpoint: 1024,
       settings: {
         slidesToShow: 4,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
         centerMode: true,
                 centerPadding: '40px',
         infinite: true,
@@ -1454,7 +1454,7 @@
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 4,
         centerMode: true,
                 centerPadding: '30px',
         slidesToScroll: 1
@@ -1463,7 +1463,7 @@
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 3,
         centerMode: true,
                 centerPadding: '40px',
         slidesToScroll: 1
@@ -1476,7 +1476,7 @@
           
 
               });
-            }, 2000);
+            }, 1600);
 
     });
 </script>
