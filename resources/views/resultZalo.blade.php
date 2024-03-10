@@ -114,6 +114,7 @@
 .title2 {
     
     color: rgb(70, 0, 221) !important;
+    display:block;
 
 }
 .descrptionSkinColor{
